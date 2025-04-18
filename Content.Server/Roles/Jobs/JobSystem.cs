@@ -13,6 +13,7 @@ namespace Content.Server.Roles.Jobs;
 public sealed class JobSystem : SharedJobSystem
 {
     [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
 
