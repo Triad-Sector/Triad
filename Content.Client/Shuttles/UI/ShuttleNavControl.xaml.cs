@@ -509,7 +509,15 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             // Check if this blip is within view bounds before drawing
             if (monoViewBounds.Contains(blipPosInView))
             {
-                DrawBlipShape(handle, blipPosInView, blip.Scale * 3f, blip.Color.WithAlpha(0.8f), blip.Shape);
+                if (blip.Shape == RadarBlipShape.Ring)
+                {
+                    DrawShieldRing(handle, blipPosInView, blip.Scale, blip.Color.WithAlpha(0.8f));
+                }
+                else
+                {
+                    // For other shapes, use the regular drawing method
+                    DrawBlipShape(handle, blipPosInView, blip.Scale * 3f, blip.Color.WithAlpha(0.8f), blip.Shape);
+                }
             }
         }
 
@@ -728,15 +736,17 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     /// <summary>
     /// Draws a shield ring with constant thickness regardless of zoom level.
     /// </summary>
-    private void DrawShieldRing(DrawingHandleScreen handle, Vector2 position, float radius, Color color)
+    private void DrawShieldRing(DrawingHandleScreen handle, Vector2 position, float worldRadius, Color color)
     {
+        var displayRadius = worldRadius * MinimapScale * 0.85f;
+
         // Draw the shield outline as a ring with constant thickness
         const float ringThickness = 2.0f; // Fixed thickness in pixels
 
         // Draw multiple circles with slightly different radii to create a solid ring effect
         for (float offset = 0; offset <= ringThickness; offset += 0.5f)
         {
-            handle.DrawCircle(position, radius + offset, color.WithAlpha(0.5f), false);
+            handle.DrawCircle(position, displayRadius + offset, color.WithAlpha(0.5f), false);
         }
     }
 }
