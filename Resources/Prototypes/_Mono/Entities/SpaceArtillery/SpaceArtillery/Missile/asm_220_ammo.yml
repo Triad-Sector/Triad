@@ -153,9 +153,9 @@
   - type: TargetSeeking
     acceleration: 125
     detectionRange: 750
-    scanArc: 75
-    launchSpeed: 70
-    maxSpeed: 250
+    scanArc: 45
+    launchSpeed: 25
+    maxSpeed: 70
     trackDelay: 3
   - type: EmpOnTrigger
     range: 7
