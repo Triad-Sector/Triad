@@ -79,11 +79,32 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OpenInventoryMenu);
             human.AddFunction(ContentKeyFunctions.SmartEquipBackpack);
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
+            human.AddFunction(ContentKeyFunctions.SmartEquipPocket1);
+            human.AddFunction(ContentKeyFunctions.SmartEquipPocket2);
+            human.AddFunction(ContentKeyFunctions.SmartEquipSuitStorage);
             human.AddFunction(ContentKeyFunctions.SmartEquipWallet); // Frontier
+            // Mono Edit
+            human.AddFunction(ContentKeyFunctions.SmartEquipID);
+            human.AddFunction(ContentKeyFunctions.SmartEquipShoes);
+            human.AddFunction(ContentKeyFunctions.SmartEquipOuterClothing);
+            human.AddFunction(ContentKeyFunctions.EquipBackpack);
+            human.AddFunction(ContentKeyFunctions.EquipBelt);
+            human.AddFunction(ContentKeyFunctions.EquipPocket1);
+            human.AddFunction(ContentKeyFunctions.EquipPocket2);
+            human.AddFunction(ContentKeyFunctions.EquipSuitStorage);
+            human.AddFunction(ContentKeyFunctions.EquipWallet);
+            human.AddFunction(ContentKeyFunctions.EquipID);
+            // Mono End
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
             human.AddFunction(ContentKeyFunctions.ToggleStanding); // EE
             human.AddFunction(ContentKeyFunctions.ToggleCrawlingUnder); // EE
+            // Mono
+            human.AddFunction(ContentKeyFunctions.OpenPocket1);
+            human.AddFunction(ContentKeyFunctions.OpenPocket2);
+            human.AddFunction(ContentKeyFunctions.OpenSuitStorage);
+            human.AddFunction(ContentKeyFunctions.OpenOuterClothing);
+            // Mono End
             human.AddFunction(ContentKeyFunctions.OpenWallet); // Frontier
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
             human.AddFunction(ContentKeyFunctions.RotateObjectClockwise);
