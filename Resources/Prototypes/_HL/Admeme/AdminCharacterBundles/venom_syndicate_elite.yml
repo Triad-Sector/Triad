@@ -1,18 +1,19 @@
-- type: entity
-  id: AdminCharBlueNexaVenom
-  parent: MobVulpkanin
-  name: Dr. Venom
-  description: Wisps of gas trail from the port on her chest. Being too close stings your eyes.
-  suffix: BlueNexa, Admin
-  components:
-    - type: VoiceOverride
-      speechVerbOverride: Felinid
+#- type: entity
+#  id: AdminCharBlueNexaVenom
+#  parent: MobVulpkanin
+#  name: Dr. Venom
+#  description: Wisps of gas trail from the port on her chest. Being too close stings your eyes.
+#  suffix: BlueNexa, Admin
+#  components:
+#    - type: VoiceOverride
+#      speechVerbOverride: Felinid
 
 - type: entity
   name: chest gas port
   description: A port for waste/exhaust gas built into Venom's chest.
   id: EnergyDomeGeneratorPersonalSyndieVenomChestGas
   parent: EnergyDomeGeneratorPersonalSyndie
+  suffix: Venom, Admin
   components:
   - type: Item
     size: Tiny
@@ -48,7 +49,7 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletSnakebiteVenom
-      firecost: 300
+      fireCost: 300
       name: snakebite
       state: lethal 
     - proto: BulletAdenoshockVenom
@@ -71,7 +72,7 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVolume: 10
+        maxVol: 10
         reagents:
         - ReagentId: PolytrinicAcid  # or whatever reagent you want
           Quantity: 10
@@ -97,7 +98,7 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVolume: 10
+        maxVol: 10
         reagents:
         - ReagentId: adenoshock  # or whatever reagent you want
           Quantity: 10
@@ -231,11 +232,11 @@
       
 
 - type: reagent
-  name: VS-OCA "Adenoshock"
+  name: reagent-name-adenoshock
   id: adenoshock
   group: Toxins
-  desc: A synthetic version of adenosine designed to metabolise almost instantly, overloading and momentarily stopping the target's heart.
-  physicalDesc: reagent-physical-desc-shocking
+  desc: reagent-desc-adenoshock
+  physicalDesc: reagent-physical-desc-electric
   flavor: shocking
   color: "#0000FF"
   metabolisms:
@@ -309,15 +310,6 @@
 #    burstFireRate: 100
 #    shotsPerBurst: 3
 
-- type: entity
-  name: self-charging high-capacity power cage
-  id: PowerCageHighSelfCharging
-  parent: PowerCageHigh
-  components:
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 55
-
 - type: hitscan
   id: SmallXrayLaser
   damage:
@@ -336,7 +328,7 @@
 
 - type: hitscan
   id: SmallOverchargedLaser
-  fireStacks: 0.4
+  #fireStacks: 0.4
   damage:
     types:
       Heat: 10
@@ -384,7 +376,7 @@
 
 - type: hitscan
   id: MediumOverchargedLaser
-  fireStacks: 0.7
+  #fireStacks: 0.7
   damage:
     types:
       Heat: 14
