@@ -9,11 +9,9 @@
     "states": [
         {
             "name": "XenoLampFloor",
-            "directions": 4
         },
 		{
             "name": "XenoLampFloor_Glow",
-            "directions": 4
         },
 		{
             "name": "XenoWallLamp",
