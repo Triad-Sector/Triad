@@ -15,7 +15,7 @@
         amount: 1
         doAfter: 1
         
-    - to: xenolight
+    - to: Xenolight
       completed:
       - !type:SnapToGrid
         southRotation: true
@@ -153,8 +153,8 @@
   - node: WallXenoMembrane
     entity: WallXenoMembrane
 
-  - node: xenolight
-    entity: xenolight
+  - node: Xenolight
+    entity: Xenolight
     
   - node: WallXenolight
     entity: WallXenolight
