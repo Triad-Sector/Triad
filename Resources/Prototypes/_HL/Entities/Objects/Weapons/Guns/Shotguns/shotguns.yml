@@ -1,6 +1,6 @@
 - type: entity
   name: sawn-off triple-barrel shotgun (12 gauge)
-  parent: BaseWeaponShotgun
+  parent: [BaseWeaponShotgun, BaseC2ExpeditionContraband]
   id: WeaponShotgunTripleSawn
   description: A doubly modified civilian grade shotgun with a third barrel welded to the top of the mechanism. More is better, right?
   components:
@@ -22,7 +22,7 @@
 
 - type: entity
   name: Vortex-12
-  parent: [ WeaponShotgunBulldog, BaseGunMeleeBlunt ]
+  parent: [ WeaponShotgunBulldog, BaseGunMeleeBlunt, BaseC2ExpeditionContraband ]
   id: WeaponShotgunVortex
   description: Designed by SESWC. A semi-automatic magazine-fed shotgun for close-quarters combat #with an auto magazine ejector
   components:

@@ -1,10 +1,14 @@
 using Content.Server.Speech.Components;
+using Content.Shared.Chat.Prototypes;
+using Content.Shared.Speech.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.EntitySystems;
 
 public sealed class MumbleAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

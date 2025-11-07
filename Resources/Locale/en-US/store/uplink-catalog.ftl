@@ -477,3 +477,7 @@ uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same 
 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+
+uplink-energy-dome-name = Personal energy dome
+uplink-energy-dome-desc = A personal shield generator that protects the wearer from lasers and bullets but prevents from using ranged weapons himself. Comes with a small power cell.

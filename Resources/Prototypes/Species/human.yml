@@ -54,8 +54,8 @@
     Snout:
       points: 1
       required: false
-    Tail: # the cat tail joke
-      points: 0
+    Tail: # HL makes this one
+      points: 1
       required: false
     HeadTop:
       points: 1

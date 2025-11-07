@@ -1,0 +1,1 @@
+comp-unremovable-clothing = This item cannot be removed once equipped.

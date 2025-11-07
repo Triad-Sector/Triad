@@ -75,14 +75,13 @@
 - type: entity
   parent: SpaceCashExpedition
   id: SpaceCashExpeditionT5
-  name: spesos (45,000)
+  name: spesos (100,000)
 #  categories: [ HideSpawnMenu ]
   components:
   - type: SpawnItemsOnUse
     items:
-      - id: SpaceCash25000
-      - id: SpaceCash20000
+      - id: SpaceCash100000
     sound:
       collection: storageRustle
   - type: StaticPrice # Require since you can still sell a ship that have it on it
-    price: 45000
+    price: 100000

@@ -10,6 +10,8 @@ guide-entry-sector-topology = Sector Topology
 guide-entry-cargo-hauling = Cargo Hauling
 guide-entry-shipyard = Shipyard
 guide-entry-frontier-rules = Server Rules
+guide-entry-frontier-definitions = Definitions
+guide-entry-preflightchecklist = Preflight Checklist
 
 # Engineering entries
 guide-entry-offshore-gas-mining = Offshore Gas Mining
@@ -54,13 +56,16 @@ guide-entry-shipyard-bodkin = Bodkin
 guide-entry-shipyard-bookworm = Bookworm
 guide-entry-shipyard-brigand = Brigand
 guide-entry-shipyard-bulker = Bulker
+guide-entry-shipyard-caladrius = Caladrius
 guide-entry-shipyard-camper = Camper
 guide-entry-shipyard-ceres = Ceres
 guide-entry-shipyard-charon = Charon
 guide-entry-shipyard-chisel = Chisel
 guide-entry-shipyard-comet = Comet
+guide-entry-shipyard-courier = Courier
 guide-entry-shipyard-construct = Construct
 guide-entry-shipyard-crossroads = Crossroads
+guide-entry-shipyard-druid = Druid
 guide-entry-shipyard-eagle = Eagle
 guide-entry-shipyard-garden = Garden
 guide-entry-shipyard-gasbender = Gasbender

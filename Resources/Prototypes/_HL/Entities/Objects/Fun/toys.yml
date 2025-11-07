@@ -54,7 +54,7 @@
     slots:
     - HEAD
   - type: Speech # for pais (In the secret stash)
-    speechVerb: Vulpkanin 
+    speechVerb: Vulpkanin
     speechSounds: Vulpkanin
     allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo', 'Growl', 'Yap', 'Gekker']
   - type: Vocal
@@ -70,8 +70,6 @@
   # - type: FoodSequenceElement
     # entries:
       # CottonBurger: LizardPlushie
-
-
 
 - type: entity
   id: PlushieNirouJol
@@ -128,9 +126,9 @@
     slots:
     - HEAD
   - type: Speech # for pais (In the secret stash)
-    speechVerb: Reptilian 
+    speechVerb: Reptilian
     speechSounds: Lizard
-    allowedEmotes: ['Thump', 'ReptilianHiss']
+    allowedEmotes: ['Thump', 'Hiss']
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -141,10 +139,6 @@
     - ClothMade
     - Payload
     - PlushieNirouJol
-
-
-
-
 
 # Weapons!
 - type: entity
@@ -192,3 +186,734 @@
     tags:
     - Sidearm
     - ToySidearm
+
+#Hardlight Special Plushies!
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAbyssal
+  name: abyssal plushie
+  description: An adorable stuffed toy that resembles an odd black and gold feroxi looking creature.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: abysscourtlizardplush
+  - type: Item
+    heldPrefix: abysszard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: AbyssalBlood
+        Quantity: 5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: AbyssalBlood
+          Quantity: 5
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: abysszard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardHoS #Weh!
+  name: HoS plushie
+  description: An adorable stuffed toy that resembles a lizardperson.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: hoslizardplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardDetective #Weh!
+  name: Detective Weh plushie
+  description: An adorable stuffed toy that resembles a lizardperson. The popular Detective Weh!
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: detectivelizardplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardCultist #Weh!
+  name: cultist plushie
+  description: An adorable stuffed toy that resembles a lizardperson. This one is dressed as a cultist.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: cultlizardplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardMaid #Weh!
+  name: lizard maid plushie
+  description: An adorable stuffed toy that resembles a lizardperson. This one is dressed as a maid.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: lizmaidplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardLotl #Weh!
+  name: axlotl plushie
+  description: An adorable stuffed toy that resembles an axolotl!
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: lotlplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLizardCCO #Weh!
+  name: CC Official plushie
+  description: An adorable stuffed toy that resembles an lizard! Dressed in ColComm colours!
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: CCOfficialplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkCaptain #Weh!
+  name: feroxi captain plushie
+  description: An adorable stuffed toy that resembles an Feroxi! Dressed in either security or captain gear. A small tag on it lovingly says "Shark Mommy <3"
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: sharkcaptainplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBountyHunter #Weh!
+  name: bounty hunter plushie
+  description: An adorable stuffed toy that resembles an dragonkin!
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: bountyhunterplush
+  - type: Item
+    heldPrefix: plushielizard
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: JuiceThatMakesYouWeh
+          Quantity: 10
+  - type: Clothing
+    quickEquip: false
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    equippedPrefix: lizard
+    slots:
+    - HEAD
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+  - type: FoodSequenceElement
+    entries:
+      CottonBurger: LizardPlushie
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAvali
+  name: pink avali plushie
+  description: An adorable stuffed toy that resembles a pink avali.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: pinkavaliplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+    - PlushieLizard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSlimeVulp
+  name: slime vulp plushie
+  description: An adorable stuffed toy that resembles a slime vulp.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: slimevulpplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieNightmare
+  name: nightmare plushie
+  description: An adorable stuffed toy that resembles a creature from the Dark.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: nightmareplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Starlight/Effects/Shadekin/nullphase.ogg
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieNemesis
+  name: nemesis plushie
+  description: An adorable stuffed toy that resembles a creature from the Dark.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: nemesisplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieCatAndroid
+  name: cat android plushie
+  description: An adorable stuffed toy that looks like a cat android.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: catandroidplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAnomalous
+  name: anomalous plushie
+  description: An adorable stuffed toy that looks like some sort of vulpakin.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: anomalousplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMercenary
+  name: mercenary plushie
+  description: An adorable stuffed toy that looks like a vulpakin mercenary.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Fun/HLtoys.rsi
+    state: mercenaryplush
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/weh.ogg
+  - type: Speech
+    speechVerb: Reptilian # for pais (In the secret stash)
+  - type: Tag
+    tags:
+    - ClothMade
+    - Payload

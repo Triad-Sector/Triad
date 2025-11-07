@@ -57,7 +57,6 @@ namespace Content.Server.Zombies
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ZombieComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<ZombieComponent, EmoteEvent>(OnEmote, before:
                 new[] { typeof(VocalSystem), typeof(BodyEmotesSystem) });
 
@@ -168,19 +167,15 @@ namespace Content.Server.Zombies
             args.Dead = true;
         }
 
-        private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
-        {
-            if (component.EmoteSoundsId == null)
-                return;
-            _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
-        }
-
         private void OnEmote(EntityUid uid, ZombieComponent component, ref EmoteEvent args)
         {
             // always play zombie emote sounds and ignore others
             if (args.Handled)
                 return;
-            args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
+
+            _protoManager.Resolve(component.EmoteSoundsId, out var sounds);
+
+            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
 
         private void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
@@ -254,13 +249,19 @@ namespace Content.Server.Zombies
                 {
                     if (!HasComp<ZombieImmuneComponent>(entity) && !HasComp<NonSpreaderZombieComponent>(args.User) && _random.Prob(GetZombieInfectionChance(entity, component)))
                     {
-                        EnsureComp<PendingZombieComponent>(entity);
+                        EnsureComp<PendingZombieComponent>(entity, out PendingZombieComponent pending);
+                        pending.Infector = args.User;
+                        Dirty(entity, pending);
                         EnsureComp<ZombifyOnDeathComponent>(entity);
                     }
                 }
 
                 if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
                 {
+                    // Track the infector for reward purposes before conversion
+                    EnsureComp<PendingZombieComponent>(entity, out PendingZombieComponent pending);
+                    pending.Infector = args.User;
+                    Dirty(entity, pending);
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
                 }

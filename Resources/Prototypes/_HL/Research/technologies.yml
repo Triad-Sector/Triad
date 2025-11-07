@@ -1,0 +1,30 @@
+#Borgo Research
+#Also for some reason we didn't have one of these files.
+- type: technology
+  id: AdvancedRobotics
+  name: research-technology-advanced-robotics
+  icon:
+    sprite: Structures/Machines/exosuit_fabricator.rsi
+    state: fab-idle
+  discipline: Experimental
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - BorgArmorMk1
+  - BorgArmorMk2
+  - BorgArmorMk3
+
+- type: technology
+  id: EnergyBarriers
+  name: research-technology-energy_barriers
+  icon:
+    sprite: Objects/Tools/EnergyDome/reinhardt.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3 #Energy Shields are pretty high-end tech. Should be end-game for anyone looking to make them directly.
+  cost: 30000 #Ditto
+  recipeUnlocks:
+  - EnergyDomeDirectionalTurtle
+  - BorgEnergyArmorMk1
+  - BorgEnergyArmorMk2
+  - BorgEnergyArmorMk3

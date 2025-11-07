@@ -1,0 +1,11 @@
+{
+  "version":1,
+  "size":{"x":32,"y":36},
+  "license":"CC-BY-SA-3.0",
+  "copyright":"Made by QuirkyTurtle. Based on meat spike taken from https://github.com/discordia-space/CEV-Eris/blob/2b969adc2dfd3e9621bf3597c5cbffeb3ac8c9f0/icons/obj/kitchen.dmi",
+  "states": [
+    {"name":"vacbed"},
+    {"name":"vacbed_filled"}
+  ]
+}
+

@@ -6,6 +6,6 @@
     torso:
       part: TorsoAnimal
       connections:
-      - tail
-    tail:
-      part: LeftHandHuman
+      - hands
+    hands: #Unfortunately, must be called hands or else this doesn't work
+      part: HandsAnimal

@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: MasqueradeMask
+  name: masquerade mask
+  description: A finely-made mask that conceals the wearer's identity.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Eyes/masquerade.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Eyes/masquerade.rsi
+  - type: VoiceOverride
+    nameOverride: ""
+    speechVerbOverride: Default
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: MasqueradeMask
+  id: MasqueradeMaskCursed
+  suffix: cursed
+  components:
+    - type: UnremovableClothing
+      reasonMessage: "masquerade-mask-unremovable"
+    - type: Unrevivable
+      cloneable: true
+      reasonMessage: "masquerade-mask-unrevivable"

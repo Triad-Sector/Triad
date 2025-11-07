@@ -37,6 +37,7 @@ research-technology-portable-microfusion-weaponry = Portable Microfusion Weaponr
 research-technology-experimental-battery-ammo = Experimental Battery Ammo
 research-technology-kinetic-modifications = Kinetic Modifications
 # Frontier: Shuttle Basic < Basic Shuttle
+research-technology-energy_barriers = Energy Barriers
 research-technology-basic-shuttle-armament = Basic Shuttle Armament
 research-technology-advanced-shuttle-weapon = Advanced Shuttle Weapons
 research-technology-thermal-weaponry = Thermal Weaponry

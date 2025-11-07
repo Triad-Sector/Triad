@@ -1,6 +1,6 @@
 - type: entity
   name: Vulcan (762x51mm)
-  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC1Contraband] # Frontier: add BaseC1Contraband
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable, BaseC2ExpeditionContraband] # Frontier: add BaseC1Contraband
   id: WeaponRifleVulcan
   description: One of the heaviest small arms to grace Security's armory, this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses 762x51mm ammo.
   components:
@@ -63,7 +63,7 @@
 
 - type: entity
   name: ceremonial rifle (762x51mm)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC1Contraband] # Frontier: add BaseGunWieldable, BaseC1Contraband
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC2ExpeditionContraband] # Frontier: add BaseGunWieldable, BaseC1Contraband
   id: WeaponSniperCeremonial
   description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses 762x51mm ammo.
   components:

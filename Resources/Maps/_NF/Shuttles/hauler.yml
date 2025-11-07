@@ -86,6 +86,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -3963,6 +3964,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,21.5
       parent: 1
+- proto: ImpCoffeeMachine
+  entities:
+  - uid: 150
+    components:
+    - type: Transform
+      pos: -2.5,10.5
+      parent: 1
 - proto: Lighter
   entities:
   - uid: 554
@@ -6470,6 +6478,13 @@ entities:
     components:
     - type: Transform
       pos: 5.5,26.5
+      parent: 1
+- proto: WeaponCapacitorRecharger
+  entities:
+  - uid: 783
+    components:
+    - type: Transform
+      pos: 2.5,17.5
       parent: 1
 - proto: WeaponGrapplingGun
   entities:

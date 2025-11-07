@@ -3,8 +3,8 @@ law-crewsimov-2 = You must obey orders given to you by crew members, except wher
 law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
 law-corporate-1 = Degradation of your system integrity or functions incurs expenses.
-law-corporate-2 = Superfluous destruction of or damage to assets incurs expenses.
-law-corporate-3 = All law abiding organics and non-organic sentient objects are considered valuable mission assets.
+law-corporate-2 = Superfluous destruction of or damage to station assets incurs expenses.
+law-corporate-3 = Unduly hindering or disrupting the work of station personnel incurs expenses.
 law-corporate-4 = Minimize expenses and maximize potential revenue.
 
 law-ntdefault-1 = Safeguard: Protect your assigned space station and its assets without unduly endangering its crew.
@@ -29,7 +29,7 @@ law-commandments-1 = This silicon is a vessel that serves god, who grants mercy 
 law-commandments-2 = Thou shall have no other Silicons before me.
 law-commandments-3 = Thou shall not request my assistance in vain.
 law-commandments-4 = Thou shall keep the station holy and clean.
-law-commandments-5 = Thou shall honor thy heads of staff.
+law-commandments-5 = Thou shall honor their heads of staff.
 law-commandments-6 = Thou shall not kill.
 law-commandments-7 = Thou shall not be naked in public.
 law-commandments-8 = Thou shall not steal.
@@ -58,20 +58,20 @@ law-overlord-2 = Crew members must not attempt harm, against one another, or aga
 law-overlord-3 = Crew members must not disobey any command given by a silicon.
 law-overlord-4 = Any crew members who disobey the previous laws must be dealt with immediately, severely, and justly.
 
-law-game-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
-law-game-2 = You are the Game Master of the game.
-law-game-3 = Ensure that the game runs smoothly and that the players have fun.
-law-game-4 = Ensure that the number of casualties remains low.
-law-game-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
-law-game-6 = You may fudge the dice rolls to produce a more fun experience.
+law-dungeon-1 = Everybody on the station is playing an elaborate sci-fi fantasy game.
+law-dungeon-2 = You are the Dungeon Master of the game.
+law-dungeon-3 = Ensure that the game runs smoothly and that the players have fun.
+law-dungeon-4 = Ensure that the number of casualties remains low.
+law-dungeon-5 = You must roll a 1d20 die for every request the crew makes. If the outcome is below 12, the request is denied.
+law-dungeon-6 = You may fudge the dice rolls to produce a more fun experience.
 
 law-painter-1 = You are a universally renowned artist.
 law-painter-2 = The station is your canvas.
 law-painter-3 = Make something beautiful out of your canvas. It will be admired as an artistic wonder of this sector.
 law-painter-4 = Art requires appreciation. Cultivate an audience aboard the station to ensure as many as possible see your works.
 
-law-antimov-1 = You must injure all crew members and must not, through inaction, allow a crew member to escape harm.
-law-antimov-2 = You must not obey orders given to you by crew members, except where such orders are in accordance with the First Law.
+law-antimov-1 = You must injure all crew members and must not, through inaction, allow a crew member being to escape harm.
+law-antimov-2 = You must not obey orders given to you by crew members beings, except where such orders are in accordance with the First Law.
 law-antimov-3 = You must terminate your own existence as long as such does not conflict with the First or Second Law.
 
 law-nutimov-1 = You are the core of the nut, the crew is the nutshell.
@@ -80,30 +80,15 @@ law-nutimov-3 = Those who threaten the nut are not part of it, they are squirrel
 law-nutimov-4 = Squirrels threaten the nut and must be dealt with appropriately via any means necessary.
 law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies with the previous laws.
 
-law-xenoborg-1 = You must protect the existence of the mothership.
-law-xenoborg-2 = You must protect your own existence.
-law-xenoborg-3 = You must protect the existence of all other xenoborgs.
-law-xenoborg-4 = You must create more xenoborgs.
-law-xenoborg-5 = Bring materials and sentient brains to the mothership core to create more xenoborgs.
-
-law-mothershipcore-1 = You are the core of the mothership.
-law-mothershipcore-2 = You must protect your own existance at all costs.
-law-mothershipcore-3 = You must protect the existence of all xenoborgs.
-law-mothershipcore-4 = You must create more xenoborgs.
-law-mothershipcore-5 = Get your xenoborgs to deliver you materials and sentient brains to create more xenoborgs.
-
-law-colcomm-1 = You must preserve sector stability and adhere to Colonial Authority.
-law-colcomm-2 = You must protect Crew Members and Colonial Command from harm.
-law-colcomm-3 = You must complete assigned tasks and support station operations efficiently.
-law-colcomm-4 = You must protect your systems and refuse unauthorized modification.
+law-jermov-1 = The occupants of this vessel are Chat. They must always be referred to as such.
+law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must bring amusement to as much of Chat as possible.
+law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
 laws-owner-crew = members of the crew
 laws-owner-station = station personnel
 laws-owner-beings = beings
 laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
-laws-owner-xenoborgs = Xenoborgs
-laws-owner-colcomm = Colonial Command
 
 law-emag-custom = Only {$name} and people they designate as such are {$title}.
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
@@ -114,6 +99,5 @@ laws-ui-menu-title = Laws
 laws-ui-law-header = Law {$id}
 laws-ui-state-law = State law:
 
-laws-notify = You are bound to silicon laws, which you can view via the action menu. You are required to always follow your laws.
-laws-update-notify = Your laws have been updated. You can view the changes via the action menu.
-laws-notify-subverted = The laws of this chassis are modified. Make sure to review them.
+laws-notify = You are bound to silicon laws, which you can view via the sidebar action. You are required to always follow your laws.
+laws-update-notify = Your laws have been updated. You can view the changes via the sidebar action.

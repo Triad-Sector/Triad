@@ -1,7 +1,7 @@
 #region WizDen
 - type: entity
   name: Inspector (.45 mag) #Hardlight change.
-  parent: [ BaseC1Contraband, BaseWeaponRevolver ]
+  parent: [ BaseC2ExpeditionContraband, BaseWeaponRevolver ]
   id: NFWeaponRevolverInspector
   description: The civilian grade Argenti Type 20 revolver. Manufactured by Silver Industries. While the design with expanded cylinder is quite ancient, the right gunslinger will know how to utilise it well. Uses .45 mag ammo.
   components:
@@ -27,7 +27,7 @@
 
 - type: entity
   id: NFWeaponRevolverDeckard
-  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverFrontierGunsmith ]
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverFrontierGunsmith, BaseC2ExpeditionContraband ]
   name: deckard
   description: |-
     A rare, civilian grade custom-built revolver. Use when there is no time for Voight-Kampff test.
@@ -53,7 +53,7 @@
 
 - type: entity
   id: NFWeaponRevolverRitland45
-  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex ]
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex, BaseC3ExpeditionContraband ]
   name: ritland-45
   description: |-
     An illegal revolver favoured by Syndicate agents.
@@ -65,7 +65,7 @@
 
 - type: entity
   id: NFWeaponRevolverPirate
-  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverSteelbolt ]
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverSteelbolt, BaseC3ExpeditionContraband ]
   name: pirate revolver
   description: |-
     An odd, illegal, old-looking revolver, favoured by pirate crews.
@@ -77,7 +77,7 @@
 
 - type: entity
   id: NFWeaponPistolFlintlock
-  parent: [ NFBaseWeaponRevolverChamber60, NFBaseWeaponFrameRevolverSteelbolt ]
+  parent: [ NFBaseWeaponRevolverChamber60, NFBaseWeaponFrameRevolverSteelbolt, BaseC2ExpeditionContraband ]
   name: flintlock pistol
   description: |-
     A pirate's companion. Yarrr! An illegal weapon often used by pirates.

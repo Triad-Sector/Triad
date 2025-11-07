@@ -1,0 +1,102 @@
+# Borg Armor. For convenience sake; is also stored with their inventory.
+# KEEP IN MIND IF THESE STATS LOOK STRONG; BORGS ONLY HAVE "TWO" LIMBS AND DO NOT DISTRIBUTE DAMAGE WHEN SHOT, MEANING THAT THEY EFFECTIVELY ONLY HAVE ONE PIECE OF ARMOR THAT DOESNT STACK
+# SUBJECT TO HEAVY BALANCING
+# Explosion resistance must be way higher because of this too, else borgs will become lego.
+
+- type: entity
+  parent: SyntheticBorgArmorBase #Inherit all changes from this. Hopefully will prevent compatability issues in the future
+  id: SyntheticBorgArmorLight # Light Armor. No slowdown.
+  name: LSAP-MKII Armour Plating
+  description: Light Synthetic Armour. Thin, interwoven plates of plasteel, synthetic fibers, and steel. Mildly protective.
+  components:
+  - type: Contraband
+    severity: Class1
+    allowedDepartments: [ Civilian, Security, Command, Frontier, CentralCommand ]
+  - type: Sprite
+    sprite: _HL/Objects/BorgArmor/physarmor/borglightarmor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.75 #Decent, as borgs tend to become lego when meeting explosive/structural damage
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0 # Ditto to below
+        Caustic: 0 # Synths shouldnt be taking caustic damage. Untreatable
+  - type: ClothingSpeedModifier  # Stacks with other slowdowns. Be careful!
+    walkModifier: 1
+    sprintModifier: 1.15 # So there's a bonus to wearing this over the medium armor
+
+- type: entity
+  parent: SyntheticBorgArmorBase #Inherit all changes from this. Hopefully will prevent compatability issues in the future
+  id: SyntheticBorgArmorMedium # Medium Armor. Decent protection, heavier than usual slowdown.
+  name: MSAP-MKIV Medium Plating
+  description: Medium Synthetic Armour Plates. A mix of plastitanium and plasteel alloys, thick enough to shrug off small arms fire, while not heavily impeding mobility.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/BorgArmor/physarmor/borgmediumarmor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.55 #Way higher than equivalents, as borgs only have one damage zone, meaning that they do not DISTRIBUTE damage.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.75
+        Radiation: 0 # Ditto to below
+        Caustic: 0 # Synths shouldnt be taking caustic damage. Untreatable
+  - type: ClothingSpeedModifier  # Stacks with other slowdowns. Be careful!
+    walkModifier: 0.65
+    sprintModifier: 0.65 # We're already starting to get pretty slow.
+
+- type: entity
+  parent: SyntheticBorgArmorBase #Inherit all changes from this. Hopefully will prevent compatability issues in the future
+  id: SyntheticBorgArmorHeavy # Heavy Armor. NFSD and Combat Roles 'exclusive' (Anyone can print them, but it should count under the Hardsuit laws)
+  name: HSAP-MKV Heavy Plating
+  description: Heavy-Duty and rugged; meant for active combat, this set of heavy synthetic armour plates boasts near-three-inch ballistic plates, mixed with synthetic fibers, underlying support structures and kinetic gel to disperse impact. Whatever you strap this to, isn't going anywhere anytime soon.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/BorgArmor/physarmor/borgheavyarmor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.35 #Way higher than equivalents, as borgs only have one damage zone, meaning that they do not DISTRIBUTE damage.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0 # Ditto to below
+        Caustic: 0 # Synths shouldnt be taking caustic damage. Untreatable
+  - type: ClothingSpeedModifier  # Stacks with other slowdowns. Be careful!
+    walkModifier: 0.45 # OUCH
+    sprintModifier: 0.45 # THEY BROKE HIS LEEEEEGS
+
+- type: entity
+  parent: SyntheticBorgArmorBase #Inherit all changes from this. Hopefully will prevent compatability issues in the future
+  id: SyntheticBorgArmorTerminator # Event Armor. Be it for Nukies, ColComm borgs, or otherwise. DO NOT SPAWN THIS 4NORAISINS
+  name: TVOK-Terminator Plating
+  description: Salvaged, Acquired, or otherwise procured; this set of armor is clearly designed for the heaviest duties, and most extreme environments. Lifting it is nearly impossible, with the near foot-thick plates of solid alloys and plates meant to deflect projectiles creaking with each motion.
+  components:
+  - type: Contraband
+    severity: Class3Syndicate
+    allowedDepartments: []
+  - type: Sprite
+    sprite: _HL/Objects/BorgArmor/physarmor/borgheavyarmor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01 # Do not resist. You are being rescued.
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0 # Ditto to below
+        Caustic: 0 # Synths shouldnt be taking caustic damage. Untreatable
+  - type: ClothingSpeedModifier  # Stacks with other slowdowns. Be careful!
+    walkModifier: 0.1 # You are the Persuer.
+    sprintModifier: 0.1 # Ditto

@@ -206,7 +206,7 @@
     vendPrice: 12000
 
 - type: entity
-  parent: BaseWeaponBallisticTurret
+  parent: BaseWeaponTurret
   id: WeaponTurretGestio
   name: automated gestio turret
   description: A modified gestio bolted to a turret mounting, don't forget to feed and change its magazines. Can be unanchored and repacked into the smaller form for transport. A note on the side reads "if uncooperative, drag it around".

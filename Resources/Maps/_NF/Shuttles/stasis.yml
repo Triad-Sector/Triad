@@ -1019,7 +1019,7 @@ entities:
             1: 28672
             0: 2048
           3,-2:
-            1: 30578
+            1: 30576
           4,-2:
             0: 112
             1: 28672
@@ -1568,11 +1568,12 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 12.75,-7.5
+      pos: 13.5,-9.5
       parent: 1
   - uid: 72
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 12.75,-7.5
       parent: 1
 - proto: ButtonFrameCautionSecurity
@@ -3769,6 +3770,14 @@ entities:
     - type: Transform
       pos: 22.5,-7.5
       parent: 1
+- proto: ImpCoffeeMachine
+  entities:
+  - uid: 693
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,5.5
+      parent: 1
 - proto: KitchenReagentGrinder
   entities:
   - uid: 384
@@ -3818,7 +3827,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,5.5
       parent: 1
-- proto: LockerWallMaterialsFuelUraniumFilled2
+- proto: LockerWallMaterialsFuelBananiumFilled
   entities:
   - uid: 391
     components:
@@ -4197,6 +4206,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 12.5,8.5
       parent: 1
+  - uid: 641
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,-6.5
+      parent: 1
 - proto: SeedExtractor
   entities:
   - uid: 446
@@ -4351,7 +4366,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       invokeCounter: 1
-- proto: ShuttersRadiationOpen
+- proto: ShuttersRadiation
   entities:
   - uid: 468
     components:
@@ -4552,7 +4567,8 @@ entities:
   - uid: 489
     components:
     - type: Transform
-      pos: 12.75,-7.5
+      rot: 3.141592653589793 rad
+      pos: 13.5,-9.5
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
@@ -4704,6 +4720,23 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 16.5,1.5
+      parent: 1
+- proto: SpawnRandomDrinkMug
+  entities:
+  - uid: 695
+    components:
+    - type: Transform
+      pos: 22.685223,5.1520486
+      parent: 1
+  - uid: 724
+    components:
+    - type: Transform
+      pos: 22.351889,5.1520486
+      parent: 1
+  - uid: 725
+    components:
+    - type: Transform
+      pos: 22.278973,4.412465
       parent: 1
 - proto: StasisBed
   entities:

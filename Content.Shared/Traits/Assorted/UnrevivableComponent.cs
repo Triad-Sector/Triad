@@ -20,6 +20,14 @@ public sealed partial class UnrevivableComponent : Component
     [DataField, AutoNetworkedField]
     public bool Cloneable = false;
 
+    //HL START
+    /// <summary>
+    /// Can this player be revived using a defibrillator?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Defibrillatable = false;
+    //HL END
+
     /// <summary>
     /// The loc string used to provide a reason for being unrevivable
     /// </summary>

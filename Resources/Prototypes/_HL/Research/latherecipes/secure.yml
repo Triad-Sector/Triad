@@ -1,0 +1,11 @@
+#Handles all 'Secure' lathe recipes
+- type: latheRecipe
+  id: EnergyDomeDirectionalTurtle
+  result: EnergyDomeDirectionalTurtle
+  completetime: 12
+  materials:
+    Steel: 1000
+    Plastic: 500
+    Gold: 250
+    Uranium: 50
+    Bluespace: 200 # 2 Bluespace Crystals. Stop spamming these.

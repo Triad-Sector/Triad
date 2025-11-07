@@ -4,6 +4,7 @@ using Content.Client.Guidebook.Richtext;
 using Content.Shared.Guidebook;
 using Pidgin;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
@@ -37,7 +38,8 @@ public sealed partial class DocumentParsingManager
             .Bind(tag => _tagControlParsers[tag]);
 
         // Ensure all relevant control parsers are included
-        _controlParser = OneOf(_tagParser, TryHeaderControl, TryListControl, TextControlParser)
+        // Comment parser MUST come first, before _tagParser
+        _controlParser = OneOf(TrySkipComment.Select(Control (_) => new BoxContainer()), _tagParser, TryHeaderControl, TryListControl, TextControlParser)
             .Before(SkipWhitespaces);
 
         foreach (var typ in _reflectionManager.GetAllChildren<IDocumentTag>())

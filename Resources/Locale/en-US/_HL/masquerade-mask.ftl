@@ -1,0 +1,2 @@
+masquerade-mask-unrevivable = The patient's masquerade mask is preventing them from being revived.
+masquerade-mask-unremovable = The mask cannot be taken off once equipped, and will prevent you from being revived. Do you dare join the ball?

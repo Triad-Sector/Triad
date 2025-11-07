@@ -34,7 +34,7 @@
 
 - type: entity
   name: Big Johnny (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC1Contraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC2ExpeditionContraband]
   id: WeaponShotgunBigJohnny
   description: An old yet faithful design, and a favorite among irregular forces on many worlds. #Hardlight Change doesnt used 12
   components: # intend for BigLeady to have tighter choke for slower fire rate and/or manual cycling

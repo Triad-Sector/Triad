@@ -312,7 +312,7 @@
   parent: MobXenoDroneNPC
   components:
     - type: Sprite
-      sprite: Mobs/Aliens/Xenos/larva.rsi
+      sprite: _RMC14/Mobs/OldXenonids/LesserDrone/lesser_drone.rsi
     - type: Xeno
       actionIds:
       - ActionXenoRest

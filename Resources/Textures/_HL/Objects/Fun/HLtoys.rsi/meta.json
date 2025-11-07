@@ -1,0 +1,83 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "in-hand lizard plushie sprites by KieueCaprie, modified by Dakota",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+		{
+            "name": "lizard-equipped-HELMET",
+            "directions": 4
+        },
+		{
+            "name": "abysszard-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "detectivelizardplush"
+        },
+        {
+            "name": "cultlizardplush"
+        },
+		{
+            "name": "hoslizardplush"
+        },
+		{
+            "name": "abysscourtlizardplush"
+        },
+		{
+            "name": "pinkavaliplush"
+        },
+		{
+            "name": "slimevulpplush"
+        },
+		{
+            "name": "nightmareplush"
+        },
+		{
+            "name": "nemesisplush"
+        },
+		{
+            "name": "lizmaidplush"
+        },
+		{
+            "name": "anomalousplush"
+        },
+		{
+            "name": "catandroidplush"
+        },
+		{
+            "name": "CCOfficialplush"
+        },
+		{
+            "name": "lotlplush"
+        },
+		{
+            "name": "mercenaryplush"
+        },
+		{
+            "name": "sharkcaptainplush"
+        },
+		{
+            "name": "bountyhunterplush"
+        },
+		{
+            "name": "abysszard-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "abysszard-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushielizard-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushielizard-inhand-right",
+            "directions": 4
+        }
+    ]
+}

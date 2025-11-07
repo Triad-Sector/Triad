@@ -55,7 +55,7 @@
     - type: Speech
       speechVerb: Parrot
       speechSounds: UnisexResomi
-      allowedEmotes: ['Chirp', 'Hisses', 'Purr', 'Growl', 'Trill', 'Scree', 'Call', 'Squawk']
+      allowedEmotes: ['Chirp', 'Hiss', 'Purr', 'Growl', 'Trill', 'Scree', 'Call', 'Squawk']
     - type: Vocal
       sounds:
         Male: UnisexResomi

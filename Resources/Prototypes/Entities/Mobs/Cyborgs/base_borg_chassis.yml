@@ -2,7 +2,7 @@
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassis
   name: cyborg
-  description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
+  description: A synthetic that assists in station activity. They love being asked to state their laws over and over. #HL Edit. We have positronics, BORIS modules, and straight up AI's here. These aren't MMI-exclusive.
   save: false
   abstract: true
   components:
@@ -87,7 +87,7 @@
     laws: Crewsimov
   - type: IonStormTarget
   - type: Inventory
-    templateId: borg
+    templateId: borgnorm # Hardlight. Edits regular borgs to use our Inventories.
   - type: Hands
     showInHands: false
     disableExplosionRecursion: true
@@ -241,7 +241,6 @@
     - FootstepSound
     - CanPilot
     - SiliconEmotes
-    - Unimplantable
     - SiliconMob
   - type: Emoting
   - type: GuideHelp

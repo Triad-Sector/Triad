@@ -109,9 +109,14 @@
       - NFPosterContrabandFsbRubicon
       - NFPosterContrabandWyvernShipyards
       - NFPosterContrabandRatvarLives
+      - NFPosterContrabandFsbCaladrius
       - NFPosterContrabandFsbNightlight
       - NFPosterContrabandFsbRetort
-        # Frontier: Ending
+      - NFPosterContrabandFscLogo
+      - NFPosterContrabandFscSurveyor
+      - NFPosterContrabandFscCourier
+      - NFPosterContrabandFsbDruid
+      # End Frontier
     chance: 1
 
 - type: entity

@@ -11,6 +11,12 @@ namespace Content.Shared.Zombies;
 public sealed partial class PendingZombieComponent : Component
 {
     /// <summary>
+    /// The zombie entity that most recently infected this target. Used for rewards on conversion.
+    /// </summary>
+    [DataField("infector")]
+    public EntityUid? Infector;
+
+    /// <summary>
     /// Damage dealt every second to infected individuals.
     /// </summary>
     [DataField("damage")] public DamageSpecifier Damage = new()

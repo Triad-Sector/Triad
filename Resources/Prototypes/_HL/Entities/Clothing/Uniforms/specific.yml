@@ -53,9 +53,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformVenom
-  name: venom's uniform
+  name: venom's chemsuit
   suffix: admin spawn only
-  description: A sharp smelling bodysuit.
+  description: A sharp smelling bodysuit with tubing running along it, full of glowing green liquid.
   components:
   - type: Sprite
     sprite: _HL/Clothing/Uniforms/venomuniform.rsi
@@ -67,6 +67,7 @@
         Blunt: 0.75
         Slash: 0.75
         Piercing: 0.75
+        Caustic: 0
 
 - type: entity
   parent: ClothingUniformBase

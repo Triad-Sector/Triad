@@ -4,6 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Events;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Electrocution;
@@ -12,6 +13,7 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Gravity;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Medical;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
@@ -56,6 +58,9 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetSlowedOverSlipperyModifierEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifySlowOnDamageSpeedEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ExtinguishEvent>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, CloningAttemptEvent>(RefRelayInventoryEvent); //HL
+        SubscribeLocalEvent<InventoryComponent, DefibrillationAttemptEvent>(RefRelayInventoryEvent); //HL
+        SubscribeLocalEvent<InventoryComponent, AnalyzeUnrevivableAttemptEvent>(RefRelayInventoryEvent); //HL
 
         // Eye/vision events
         SubscribeLocalEvent<InventoryComponent, CanSeeAttemptEvent>(RelayInventoryEvent);

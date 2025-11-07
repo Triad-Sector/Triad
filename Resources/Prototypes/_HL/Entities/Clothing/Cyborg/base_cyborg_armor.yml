@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingOuterHardsuitSyndieCommander #Inherit all changes from this. Hopefully will prevent compatability issues in the future
+  id: SyntheticBorgArmorBase # Base Armor Type for borgs
+  name: Experimental Synthetic Plating
+  description: This is a test item. How did you get ahold of it?!
+  components:
+  - type: Contraband
+    severity: Class2
+    allowedDepartments: [ Security, Command ]
+  - type: Sprite
+    sprite: _HL/Objects/BorgArmor/physarmor/defaultarmor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _HL/Objects/BorgArmor/physarmor/defaultarmor.rsi
+    clothingVisuals:
+      HEAD:
+      - state: on-equipped-HEAD
+        shader: unshaded
+    quickEquip: false # Has to be put on for borgs by someone else
+    slots:
+    - Head # No free NFSD tier armor for anyone who prints it.
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.50
+        Radiation: 0.4
+        Caustic: 0.6
+  - type: ClothingSpeedModifier  # Stacks with other slowdowns. Be careful!
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HLClothingWhitelist # Only borgs may equip this item on their head slot
+    denyReason: hl-clothing-whitelist-cyborg-denied
+    whitelist:
+      components:
+      - BorgChassis
+  - type: Tag
+    tags:
+    - BorgWearable # Required for all variants, as this is what controls wearability!

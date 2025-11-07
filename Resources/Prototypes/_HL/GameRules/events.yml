@@ -11,7 +11,7 @@
       params:
         volume: 0.8
         pitch: 0.667
-        
+
 - type: entityTable
   id: BasicCalmEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -86,6 +86,7 @@
     - id: CarpVents
     - id: TickVents
     - id: AiVents
+    - id: WawaVents
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -1444,7 +1445,7 @@
         addComponents: *dungeonComponents
         protos:
         - NFVGRoidScrap
-        
+
 - type: entity
   id: ArgocyteVents
   parent: [VentCrittersBase, BaseGameRule]
@@ -1558,7 +1559,7 @@
       prob: 0.01
     - id: MobCobraSpace
       prob: 0.02
-      
+
 - type: entity
   id: reagentslimeVents
   parent: [VentCrittersBase, BaseGameRule]
@@ -1567,7 +1568,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg 
+      path: /Audio/Announcements/attention.ogg
     earliestStart: 60
     reoccurrenceDelay: 200
     minimumPlayers: 40
@@ -1693,12 +1694,12 @@
     - id: MobXenoParasite
       prob: 0.001
     - id: MobXenoBloodyLarva
-      prob: 0.001  
+      prob: 0.001
     - id: MobXenoLurker
       prob: 0.001
     - id: MobXenoWarrior
       prob: 0.001
-      
+
 - type: entity
   id: AiVents
   parent: [VentCrittersBase, BaseGameRule]
@@ -1753,3 +1754,22 @@
       prob: 0.001
     - id: MobRogueSiliconScrapThrustersRangedAsteroid
       prob: 0.001
+
+- type: entity
+  id: WawaVents
+  parent: [VentCrittersBase, BaseGameRule]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 30
+    reoccurrenceDelay: 200
+    minimumPlayers: 40
+    weight: 6 # Really weak compared to other critters
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobEmotionalSupportScurret
+      prob: 0.05

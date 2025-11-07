@@ -51,7 +51,7 @@
       required: true
       defaultMarkings: [ ProtogenEars ]
     Chest:
-      points: 0
+      points: 1 # HL makes this 1
       required: false
     Legs:
       points: 8 # imp 2<8

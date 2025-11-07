@@ -109,10 +109,6 @@ public sealed class FoldableSystem : EntitySystem
         if (_container.IsEntityInContainer(uid) && !fold.CanFoldInsideContainer)
             return false;
 
-        if (!TryComp(uid, out PhysicsComponent? body) ||
-            !_anchorable.TileFree(Transform(uid).Coordinates, body))
-            return false;
-
         var ev = new FoldAttemptEvent(fold);
         RaiseLocalEvent(uid, ref ev);
         return !ev.Cancelled;

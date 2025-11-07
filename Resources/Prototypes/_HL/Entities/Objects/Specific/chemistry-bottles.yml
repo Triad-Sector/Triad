@@ -1,0 +1,30 @@
+
+- type: entity
+  id: ChemistryBottleRuin
+  suffix: ruin
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-ruin
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ruin
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleRazorium
+  suffix: razorium
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-razorium
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Razorium
+          Quantity: 30

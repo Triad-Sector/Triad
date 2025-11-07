@@ -8,3 +8,25 @@
   cost: 500
   category: cargoproduct-category-name-security
   group: market
+
+- type: cargoProduct
+  id: BorgArmorCrate
+  # abstract: true # Frontier
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box_security
+  product: CrateBorgArmor
+  cost: 50000 #These contain up to Heavy Armor for Borgs; which are equivalent to Juggernaut suits for Humanoids.
+  category: cargoproduct-category-name-security
+  group: market
+
+- type: cargoProduct
+  id: BorgLightCrate
+  # abstract: true # Frontier
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box_security
+  product: CrateBorgLight
+  cost: 15000 # Light armor of both shields and regular
+  category: cargoproduct-category-name-security
+  group: market

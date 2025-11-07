@@ -45,6 +45,7 @@
   - PowerCageMedium
   - PowerCageSmall
   - NFTelescopicShield # Frontier: use NF prefix
+  - EnergyDomeDirectionalTurtle #HL
 
 - type: latheRecipePack
   id: SecurityBoards

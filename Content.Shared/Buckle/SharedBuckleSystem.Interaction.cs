@@ -34,7 +34,37 @@ public abstract partial class SharedBuckleSystem
         if (!StrapCanDragDropOn(uid, args.User, uid, args.Dragged, component))
             return;
 
-        args.Handled = TryBuckle(args.Dragged, args.User, uid, popup: false);
+        if (args.Dragged == args.User)
+        {
+            if (!TryComp(args.User, out BuckleComponent? buckle))
+                return;
+
+            // Hardlight start, self buckle doafter
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleSelfDoafterTime, new BuckleDoAfterEvent(), args.Dragged, args.Dragged, uid)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+                AttemptFrequency = AttemptFrequency.EveryTick
+            };
+
+            var popupString = Loc.GetString("hardlight-buckle-strap-attempt-user", ("target", args.Dragged));
+            _popup.PopupEntity(popupString, uid, uid, Popups.PopupType.MediumCaution);
+
+            _doAfter.TryStartDoAfter(doAfterArgs);
+            // Hardlight end
+            // args.Handled = TryBuckle(args.User, args.User, uid, buckle);
+        }
+        else
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleDoafterTime, new BuckleDoAfterEvent(), args.Dragged, args.Dragged, uid)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = true,
+                AttemptFrequency = AttemptFrequency.EveryTick
+            };
+
+            _doAfter.TryStartDoAfter(doAfterArgs);
+        }
     }
 
     private bool StrapCanDragDropOn(
@@ -133,6 +163,15 @@ public abstract partial class SharedBuckleSystem
             args.Verbs.Add(verb);
         }
 
+        // Hardlight start, self buckle doafter
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleSelfDoafterTime, new BuckleDoAfterEvent(), args.User, args.User, uid)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            AttemptFrequency = AttemptFrequency.EveryTick
+        };
+        // Hardlight end
+
         // Add a verb to buckle the user.
         if (TryComp<BuckleComponent>(args.User, out var buckle) &&
             buckle.BuckledTo != uid &&
@@ -142,7 +181,7 @@ public abstract partial class SharedBuckleSystem
         {
             InteractionVerb verb = new()
             {
-                Act = () => TryBuckle(args.User, args.User, args.Target, buckle),
+                Act = () => _doAfter.TryStartDoAfter(doAfterArgs), // Hardlight doafter change
                 Category = VerbCategory.Buckle,
                 Text = Loc.GetString("verb-self-target-pronoun")
             };

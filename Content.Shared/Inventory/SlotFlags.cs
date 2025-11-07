@@ -23,7 +23,7 @@ public enum SlotFlags
     GLOVES = 1 << 10,
     IDCARD = 1 << 11,
     POCKET = 1 << 12,
-     LEGS = 1 << 13, // Frontier: unused Hardlight: for some reason something wants this now?
+    LEGS = 1 << 13, // Frontier: unused Hardlight: for some reason something wants this now?
     ACCESSORY = 1 << 16,
     ACCESSORYALT = 1 << 17,
     FEET = 1 << 14,

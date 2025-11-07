@@ -1,8 +1,12 @@
+using Content.Server._NF.Traits.Assorted; // Frontier
 using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
-using Content.Shared.Traits.Assorted;
+using Content.Shared._Shitmed.Targeting;
+// Shitmed Change
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -11,20 +15,17 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Medical;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Traits.Assorted;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Server._NF.Traits.Assorted; // Frontier
-
-// Shitmed Change
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
-using Content.Shared._Shitmed.Targeting;
 using System.Linq;
+using static Content.Server.Traits.Assorted.UnrevivableSystem;
 
 namespace Content.Server.Medical;
 
@@ -266,9 +267,15 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (HasComp<TargetingComponent>(target))
             body = _bodySystem.GetBodyPartStatus(target);
         // Shitmed Change End
+        //HL START
+        var attemptDefib = new DefibrillationAttemptEvent();
+        RaiseLocalEvent(target, ref attemptDefib);
+        var attemptAnalyze = new AnalyzeUnrevivableAttemptEvent();
+        RaiseLocalEvent(target, ref attemptAnalyze);
 
-        if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
+        if (attemptDefib.Cancelled && !attemptAnalyze.Cancelled)
             unrevivable = true;
+        //HL END
 
         //if (TryComp<UncloneableComponent>(target, out var uncloneableComp) && uncloneableComp.Analyzable) // Frontier
             uncloneable = true; // Frontier

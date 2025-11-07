@@ -1,0 +1,14 @@
+#Handles our custom exosuit lathe recipe packs for exosuit fabricators.
+- type: latheRecipePack
+  id: BorgArmorEnergy
+  recipes:
+  - BorgEnergyArmorMk1
+  - BorgEnergyArmorMk2
+  - BorgEnergyArmorMk3
+
+- type: latheRecipePack
+  id: BorgArmorPhys
+  recipes:
+  - BorgArmorMk1
+  - BorgArmorMk2
+  - BorgArmorMk3

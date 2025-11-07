@@ -263,4 +263,21 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
 
         RaiseLocalEvent(batteryUid.Value, ref args);
     }
+
+    /// <summary>
+    /// Enables or disables power draw updates for an entity with a PowerCellDrawComponent.
+    /// </summary>
+    public void SetPowerCellDrawEnabled(EntityUid uid, bool enabled, PowerCellDrawComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return;
+
+        if (component.Enabled == enabled)
+            return;
+
+        component.Enabled = enabled;
+        // Nudge next update so state is reflected promptly
+        component.NextUpdateTime = Timing.CurTime;
+        Dirty(uid, component);
+    }
 }

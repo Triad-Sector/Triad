@@ -32,8 +32,8 @@
 #   children:
 #   - SpaceLawCrimeList
 
-# - type: guideEntry
-#   id: SpaceLawCrimeList
-#   name: guide-entry-rules-sl-crime-list
-#   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
+- type: guideEntry
+  id: SpaceLawCrimeList
+  name: guide-entry-rules-sl-crime-list
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
 # End Frontier

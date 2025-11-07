@@ -257,7 +257,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <param name="ent">The antagonist rule entity</param>
     /// <param name="pool">The players to choose from</param>
     /// <param name="midround">Disable picking players for pre-spawn antags in the middle of a round</param>
-    public void ChooseAntags(Entity<AntagSelectionComponent> ent, IList<ICommonSession> pool, bool midround = false)
+    public void ChooseAntags(Entity<AntagSelectionComponent> ent, IList<ICommonSession> pool, bool midround = true)
     {
         foreach (var def in ent.Comp.Definitions)
         {
@@ -350,7 +350,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             {
                 // Pre-selected sessions have already gone through filtering; don't block on preferences again.
                 // This allows traitors to be assigned even if no one had the traitor preference enabled.
-                TryMakeAntag(ent, session, def, checkPref: false);
+                TryMakeAntag(ent, session, def, checkPref: true);
             }
         }
 

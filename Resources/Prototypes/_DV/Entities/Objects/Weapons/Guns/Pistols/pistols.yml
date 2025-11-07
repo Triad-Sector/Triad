@@ -1,6 +1,6 @@
 - type: entity
   name: Mk32 "Universal" (9x19mm)
-  parent: [BaseWeaponPistol, BaseC1Contraband]
+  parent: [BaseWeaponPistol, BaseC2ExpeditionContraband]
   id: WeaponPistolMk32
   description: A cheap, civilian grade, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses 9x19mm ammo.
   components:
@@ -46,7 +46,7 @@
 
 - type: entity
   name: Pollock (9x19mm)
-  parent: [BaseWeaponPistol, BaseC1Contraband]
+  parent: [BaseWeaponPistol, BaseC2ExpeditionContraband]
   id: WeaponPistolPollock
   description: A compact and mass-produced combat pistol. Uses 9x19mm ammo.
   components:

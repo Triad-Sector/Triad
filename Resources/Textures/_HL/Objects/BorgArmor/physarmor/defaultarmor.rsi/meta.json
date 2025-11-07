@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made By Dakota and Fenndragon. Part of the Hardlight Station Project.",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-HEAD",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HEAD-default",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HEAD",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HEAD",
+      "directions": 4
+    }
+    ]
+}

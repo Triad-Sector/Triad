@@ -3,7 +3,7 @@
 
 # Arcadia Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingOuterHardsuitArcadia
   name: arcadia hardsuit
   description: A heavily armored hardsuit designed for corporate security operations. Features advanced protection systems.
@@ -17,7 +17,7 @@
 
 # Cybersun Hardsuit (Enhanced radiation resistance)
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingOuterHardsuitCybersun
   name: cybersun hardsuit
   description: A technologically advanced hardsuit with enhanced radiation shielding for hazardous environments.
@@ -54,7 +54,7 @@
 
 # Donk. Co Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingOuterHardsuitDonk
   name: donk. co hardsuit
   description: A corporate hardsuit featuring the distinctive Donk. Co branding and color scheme.
@@ -85,7 +85,7 @@
   parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
   id: ClothingOuterHardsuitSyndicateHighCommand
   name: syndicate high command hardsuit
-  description: An elite hardsuit reserved for high-ranking Syndicate commanders. Features superior armor plating.
+  description: This Shouldn't be here.
   components:
   - type: Sprite
     sprite: _HL/Clothing/OuterClothing/Hardsuits/highcommHS.rsi
@@ -108,7 +108,7 @@
 
 # Interdyne Hardsuit (Lighter)
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingOuterHardsuitInterdyne
   name: interdyne hardsuit
   description: A specialized hardsuit with advanced biological protection systems for hazardous research environments.
@@ -133,7 +133,7 @@
 
 # Ramzi Clique Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingOuterHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingOuterHardsuitRamzi
   name: ramzi clique hardsuit
   description: A hardsuit bearing the colors and insignia of the Ramzi Clique organization.
@@ -206,7 +206,7 @@
 
 # Arcadia Hardsuit Helmet
 - type: entity
-  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingHeadHelmetHardsuitArcadia
   name: arcadia hardsuit helmet
   description: A hardsuit helmet designed for corporate security operations.
@@ -218,7 +218,7 @@
 
 # Cybersun Hardsuit Helmet (Enhanced radiation resistance)
 - type: entity
-  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingHeadHelmetHardsuitCybersunHL
   name: cybersun hardsuit helmet
   description: A hardsuit helmet with enhanced radiation shielding for hazardous environments.
@@ -251,7 +251,7 @@
 
 # Donk. Co Hardsuit Helmet
 - type: entity
-  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingHeadHelmetHardsuitDonk
   name: donk. co hardsuit helmet
   description: A hardsuit helmet manufactured by Donk. Co for corporate use.
@@ -299,7 +299,7 @@
 
 # Interdyne Hardsuit Helmet (Enhanced bio resistance)
 - type: entity
-  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingHeadHelmetHardsuitInterdyne
   name: interdyne hardsuit helmet
   description: A hardsuit helmet with advanced biological protection systems.
@@ -320,7 +320,7 @@
 
 # Ramzi Clique Hardsuit Helmet
 - type: entity
-  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingHeadHelmetHardsuitSyndie, BaseC2ContrabandUnredeemable, ContrabandClothing]
   id: ClothingHeadHelmetHardsuitRamzi
   name: ramzi clique hardsuit helmet
   description: A hardsuit helmet manufactured by the Ramzi Clique organization.

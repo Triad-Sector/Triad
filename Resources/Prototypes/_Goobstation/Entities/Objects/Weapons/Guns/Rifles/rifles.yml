@@ -1,6 +1,6 @@
 - type: entity
   name: Annie (762x39mm)
-  parent: [BaseC2ContrabandUnredeemable, BaseWeaponRifle] # Mono - C2 contra
+  parent: [BaseC3ExpeditionContraband, BaseWeaponRifle] # Mono - C2 contra
   id: WeaponRifleAnnie
   description: A beast designed to shoulder the weight of impossible missions. Uses 762x39mm ammo.
   components:

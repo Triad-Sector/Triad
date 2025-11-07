@@ -1128,7 +1128,6 @@ entities:
             0: 272
           3,-4:
             1: 28672
-            2: 32768
           3,-3:
             0: 28672
           3,-2:
@@ -1159,7 +1158,6 @@ entities:
           -5,-1:
             0: 34944
           -4,-4:
-            2: 8192
             1: 49152
           -4,-3:
             0: 49152
@@ -1195,21 +1193,6 @@ entities:
           - 0
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
           moles:
           - 0
           - 0
@@ -4377,6 +4360,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 237
   - uid: 532
     components:
     - type: Transform
@@ -5189,6 +5173,8 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-3.5
+      parent: 3
+  - uid: 1051
       parent: 1
   - uid: 641
     components:
@@ -5209,6 +5195,20 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-5.5
+      parent: 3
+  - uid: 1185
+    components:
+    - type: Transform
+      pos: -13.5,-3.5
+      parent: 3
+  - uid: 1215
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,11.5
+      parent: 3
+    - type: AtmosPipeColor
+      color: '#990000FF'
       parent: 1
 - proto: GasPipeTJunction
   entities:
@@ -5919,6 +5919,15 @@ entities:
     components:
     - type: Transform
       pos: -0.5,20.5
+      parent: 3
+- proto: ImpCoffeeMachine
+  entities:
+  - uid: 208
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,9.5
+      parent: 3
       parent: 1
 - proto: KitchenReagentGrinder
   entities:
@@ -6049,6 +6058,14 @@ entities:
     components:
     - type: Transform
       pos: 0.5,4.5
+      parent: 3
+- proto: MaterialReclaimer
+  entities:
+  - uid: 1218
+    components:
+    - type: Transform
+      pos: 6.5,12.5
+      parent: 3
       parent: 1
 - proto: MonkeyCubeWrapped
   entities:
@@ -6262,6 +6279,7 @@ entities:
     components:
     - type: Transform
       pos: 2.5,10.5
+      parent: 3
       parent: 1
 - proto: PowerCellRecharger
   entities:
@@ -6667,7 +6685,26 @@ entities:
   - uid: 867
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      pos: -1.5,26.5
+      parent: 1
+  - uid: 728
+    components:
+    - type: Transform
+      pos: -0.5,27.5
+      parent: 1
+  - uid: 729
+    components:
+    - type: Transform
+      pos: 0.5,27.5
+      parent: 1
+  - uid: 730
+    components:
+    - type: Transform
+      pos: 1.5,27.5
+      parent: 1
+  - uid: 731
+    components:
+    - type: Transform
       pos: 2.5,26.5
       parent: 1
   - uid: 868

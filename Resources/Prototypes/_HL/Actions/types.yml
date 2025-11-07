@@ -1,0 +1,24 @@
+- type: entity
+  id: ActionToggleDome
+  name: Toggle energy dome
+  description: Turn the energy barrier on or off.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
+    event: !type:ToggleActionEvent
+
+# Generic toggle for sprite-state swapping via SpriteStateToggleComponent
+- type: entity
+  id: ActionToggleSpriteState
+  name: Toggle Balls
+  description: Deploy if boy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    # Keep a short delay to avoid rapid spam while still feeling responsive
+    useDelay: 1
+    # Generic toggle icons; override per-item if you want custom art
+    icon: Interface/Actions/nuts/nuts.png
+    iconOn: Interface/Actions/nuts/nuts.png
+    event: !type:SpriteStateToggleActionEvent

@@ -33,10 +33,10 @@
     - cash_25000
     - cash_50000
     - cash_100000
-    - cash_1000000
+    - cash_250000
     layerFunction: Threshold
   - type: StackLayerThreshold
-    thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 1000000]
+    thresholds: [10, 100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 250000]
   # cherry-pick from space-station#32938 courtesy of Ilya246
   - type: UserInterface
     interfaces:

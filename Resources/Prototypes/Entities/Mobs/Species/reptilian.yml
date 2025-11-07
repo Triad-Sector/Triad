@@ -11,6 +11,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - Hair
     undergarmentBottom: UndergarmentBottomBoxersReptilian
   - type: Hunger
   - type: Puller
@@ -31,7 +32,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump', 'Hiss', 'FelinidPurr', 'RMCReptileRattle'] # Imp: add ReptilianHiss, RMC14: add Reptile Purr and Rattle
+    allowedEmotes: ['Thump', 'Hiss', 'Purr', 'RMCReptileRattle'] # Hardlight: add Hiss, RMC14: add Reptile Purr and Rattle
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -87,6 +88,27 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
   - type: Carriable # Frontier: Carrying system from nyanotrasen.
 #  - type: ShortWhitelist # Frontier
 #    scale: 0.8 # Frontier
@@ -115,7 +137,28 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
 
 #Weh

@@ -1,6 +1,6 @@
 #Mercenary Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBaseNF
+  parent: [ ClothingOuterHardsuitBaseNF, BaseC2ContrabandUnredeemable ]
   id: ClothingOuterHardsuitMercenary # stats are of luxury mining hardsuit
   name: mercenary hardsuit
   description: A special suit that protects from the danger of space, employed by mercenary forces. Not certified to be blunderbuss-proof.
@@ -74,7 +74,7 @@
 
 #ERT Mail Carrier Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ ClothingOuterHardsuitCBURN, BaseC3ExpeditionContraband ]
   id: ClothingOuterHardsuitERTMailCarrier
   name: ERT mail carrier's hardsuit
   description: A protective hardsuit worn by the mail carriers of an emergency response team.
@@ -88,7 +88,7 @@
 
 # MAXIM Nerfed: used best stats from spationaut, mining and luxury hardsuits, additionally increased caustic resistance
 - type: entity
-  parent: ClothingOuterHardsuitMaxim
+  parent: [ BaseC2ExpeditionContraband, ClothingOuterHardsuitMaxim ] # C2 parent needs to be first
   id: ClothingOuterHardsuitMaximPrototype
   name: experimental salvager hardsuit
   description: Fire. Heat. These things forge great weapons, they also forge great salvagers.
@@ -114,6 +114,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaximPrototype
+  - type: EnergyDomeGenerator # Hardlight
+    damageEnergyDraw: 11 # Nerfed, due to being a worse maxim suit
+    domePrototype: EnergyDomeSmallBlue # TODO purple dome
 
 # Syndicate NPC hard suit, unremoveable
 - type: entity
@@ -146,7 +149,7 @@
 
 # Security
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
+  parent: [ ClothingOuterHardsuitBaseNFNfsd, BaseC3ExpeditionContraband ]
   id: ClothingOuterHardsuitNfsdBronze
   name: NFSD bronze patrol suit
   description: The standard-issue NFSD space proof suit for patrol duty. This bronze variant has cadet rank markings.
@@ -199,7 +202,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdGold
 
 - type: entity
-  parent: ClothingOuterHardsuitSecurityRed # Hardlight change.
+  parent: [ ClothingOuterHardsuitSecurityRed, BaseC3ExpeditionContraband ]
   id: ClothingOuterHardsuitNfsdSheriff
   name: NFSD sheriff patrol suit
   description: The standard-issue NFSD space proof suit for patrol duty. This gold variant has sheriff rank markings.
@@ -225,7 +228,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdBrigmedic
 
 - type: entity
-  parent: [BaseC2ContrabandUnredeemable, ClothingOuterHardsuitJuggernaut] # Jugger Suit
+  parent: [BaseC2ContrabandUnredeemable, ClothingOuterHardsuitJuggernaut, BaseC3ExpeditionContraband] # Jugger Suit
   id: ClothingOuterHardsuitNfsdExperimental
   name: NFSD experimental combat suit
   description: A very heavily armored NFSD suit. This space proof marvel of engineering uses state of the art alloys to provide immense protection while sacrificing little mobility.
@@ -258,7 +261,7 @@
 
 #Security Combat Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBaseNFNfsd
+  parent: [ ClothingOuterHardsuitBaseNFNfsd, BaseC3ExpeditionContraband ]
   id: ClothingOuterHardsuitNfsdCombat
   name: NFSD combat suit
   description: A heavily armored NFSD suit. Space proof, with thick armor plating at the expense of mobility.
@@ -286,7 +289,7 @@
 
 #Security Command Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitSyndieCommander
+  parent: [ClothingOuterHardsuitSyndieCommander, BaseC3ExpeditionContraband ]
   id: ClothingOuterHardsuitNfsdCommand # Hardlight change
   name: NFSD command combat suit
   description: A heavily armored NFSD suit. Space proof, with thick armor plating at the expense of mobility with built in Non-slip boots. This variant has supervisor rank markings
@@ -315,7 +318,7 @@
 
 # SCAF hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ ClothingOuterHardsuitBase, BaseC2ExpeditionContraband ]
   id: ClothingOuterHardsuitScaf
   name: SCAF hardsuit
   description: A green and brown combat hardsuit. Old yet sturdy nonetheless.

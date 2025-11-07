@@ -67,9 +67,9 @@
         maxVol: 250
         reagents:
           - ReagentId: Ichor
-            Quantity: 125 
+            Quantity: 125
           - ReagentId: Omnizine
-            Quantity: 125 
+            Quantity: 125
 
 
 
@@ -361,8 +361,8 @@
 - type: entity
   id: StunbatonMarrik
   parent: Stunbaton
-  # name: 
-  # description: 
+  # name:
+  # description:
   suffix: Marrik, Admin
   components:
   - type: BatterySelfRecharger # Recharges 2 shot per 1 second
@@ -384,8 +384,8 @@
 - type: entity
   id: HandcuffsMarrik
   parent: Handcuffs
-  # name: 
-  # description: 
+  # name:
+  # description:
   suffix: Marrik, Admin
   components:
   - type: Handcuff
@@ -396,8 +396,8 @@
 - type: entity
   id: HandHeldMassScannerMarrik
   parent: [ BaseMicroreactorItem, HandHeldMassScanner ]
-  # name: 
-  # description: 
+  # name:
+  # description:
   suffix: Marrik, Admin
   components:
   - type: RadarConsole
@@ -410,7 +410,7 @@
 # ClothingOuterHardsuitMaxim
 - type: entity
   id: ClothingOuterHardsuitMaximMarrik
-  parent: ClothingOuterHardsuitMaxim
+  parent: [ ClothingOuterHardsuitMaxim, BaseC3Contraband ]
   name: bounty hunter's hardsuit
   description: A sturdy and compressible suit offering maximum mobility with minimal sacrifices to protection. The ankle plating offers magnetism.
   suffix: Marrik, Admin

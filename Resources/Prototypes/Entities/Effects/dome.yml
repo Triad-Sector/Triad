@@ -1,0 +1,226 @@
+- type: entity
+  id: EnergyDomeBase
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.8
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: HardLightBarrier
+  - type: AmbientSound
+    volume: 35
+    range: 5
+    sound:
+      path: /Audio/Machines/energyshield_ambient.ogg
+  - type: EnergyDome
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EnergyDomeSmallPink
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    sprite: Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#f5166b"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#f5166b"
+
+- type: entity
+  id: EnergyDomeSmallPurple
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#A020F0"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#A020F0"
+
+- type: entity
+  id: EnergyDomeSmallRed
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#b00000"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#b00000"
+
+- type: entity
+  id: EnergyDomeSmallBlue
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    sprite: Effects/EnergyDome/energydome_small.rsi
+    layers:
+    - state: small
+      color: "#64b9de"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 2
+    color: "#64b9de"
+
+- type: entity
+  id: EnergyDomeMediumBlue
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.8
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Sprite
+    sprite: Effects/EnergyDome/energydome_medium.rsi
+    layers:
+    - state: medium
+      color: "#64b9de"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 10
+    color: "#64b9de"
+
+- type: entity
+  id: EnergyDomeBigBlue
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.8
+        density: 0
+        mask:
+        - None
+        layer:
+        - BulletImpassable
+        - Opaque
+  - type: Sprite
+    sprite: Effects/EnergyDome/energydome_big.rsi
+    layers:
+    - state: big
+      color: "#64b9de"
+  - type: PointLight
+    enabled: true
+    radius: 7
+    power: 10
+    color: "#64b9de"
+
+- type: entity
+  id: EnergyDomeHealing #HL, EnergyDomeSlowing -> EnergyDomeHealing, better describes its function
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.8
+        density: 0
+        hard: false
+        mask:
+        - None
+        layer:
+        - MidImpassable
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: Effects/EnergyDome/energydome_slowdown_big.rsi
+    layers:
+    - state: big
+      color: "#a3d177"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 30
+    color: "#a3d177"
+  - type: DamageContacts
+    damage:
+      types:
+        Brute: -2
+        Burn: -1
+
+- type: entity
+  id: EnergyDomeHarming #HL, Simple opposite to the healing dome
+  categories: [ HideSpawnMenu ]
+  parent: EnergyDomeBase
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2.8
+        density: 0
+        hard: false
+        mask:
+        - None
+        layer:
+        - MidImpassable
+  - type: Sprite
+    drawdepth: LowFloors
+    sprite: Effects/EnergyDome/energydome_slowdown_big.rsi
+    layers:
+    - state: big
+      color: "#b00000"
+  - type: PointLight
+    enabled: true
+    radius: 5
+    power: 30
+    color: "#b00000"
+  - type: DamageContacts #Damages others around you, but you as well. Better have healing
+    damage:
+      types:
+        Caustic: 3

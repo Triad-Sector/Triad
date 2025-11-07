@@ -1,3 +1,5 @@
+using Content.Shared.Inventory;
+
 namespace Content.Shared.Cloning.Events;
 
 /// <summary>
@@ -5,7 +7,10 @@ namespace Content.Shared.Cloning.Events;
 ///    This is raised on the original mob.
 /// </summary>
 [ByRefEvent]
-public record struct CloningAttemptEvent(CloningSettingsPrototype Settings, bool Cancelled = false);
+public record struct CloningAttemptEvent(CloningSettingsPrototype Settings, bool Cancelled = false) : IInventoryRelayEvent
+{
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
+}
 
 /// <summary>
 ///    Raised after a new mob was spawned when cloning a humanoid.

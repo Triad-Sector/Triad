@@ -27,6 +27,9 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
+  - type: Anchorable
+    flags:
+    - Unanchorable 
   - type: Fixtures
     fixtures:
       fix1:
@@ -157,3 +160,5 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: Paintable
+    group: CrateSecure

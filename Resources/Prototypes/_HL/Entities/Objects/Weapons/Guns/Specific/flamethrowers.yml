@@ -1,7 +1,7 @@
 
 - type: entity
   name: improvised flamethrower
-  parent: BaseItem
+  parent: [BaseItem, BaseC3ExpeditionContraband]
   id: flamethrower
   description: A surprisingly well made device crafted out of scrap and old tools that manages to shoot individual jets of flame.
   components:

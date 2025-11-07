@@ -1,6 +1,6 @@
 #NT hardsuit
 - type: entity
-  parent: [ ClothingOuterHardsuitBase ]
+  parent: [ ClothingOuterHardsuitBase, BaseC2ContrabandUnredeemable ]
   id: ClothingOuterHardsuitNT
   name: Standard NT hardsuit
   description: A lightweight hardsuit developed by Nanotrasen's research department for the Crew of the NSV Shield of Perseus
@@ -33,7 +33,7 @@
     clothingPrototype: ClothingHeadHelmetNT
 #NT hardsuit helmet
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, BaseC2ContrabandUnredeemable ]
   id: ClothingHeadHelmetNT
   name: NT Standard Hardsuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.
@@ -193,7 +193,7 @@
     sprite: _HL/Nanotrasen/nanotrasenmantle.rsi
   - type: Clothing
     sprite: _HL/Nanotrasen/nanotrasenmantle.rsi
-  
+
 #NT jumpsuit/skirt
 - type: entity
   parent: ClothingUniformBase

@@ -15,6 +15,9 @@ using Content.Shared.Power.Components;
 using Content.Shared.VendingMachines;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.CriminalRecords.Components;
+using Content.Shared._NF.ShuttleRecords.Components;
+using Content.Server.StationRecords.Components;
 // using Content.Shared.Access.Components; // duplicate using removed
 using System.Diagnostics.CodeAnalysis;
 using Robust.Server.GameObjects;
@@ -1026,7 +1029,20 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                     structuresRemoved++;
                     continue;
                 }
-
+                if (_entityManager.HasComponent<CriminalRecordsConsoleComponent>(entity))
+                {
+                    _sawmill.Info($"Removing criminal records console entity {entity}");
+                    _entityManager.DeleteEntity(entity);
+                    structuresRemoved++;
+                    continue;
+                }
+                if (_entityManager.HasComponent<GeneralStationRecordConsoleComponent>(entity))
+                {
+                    _sawmill.Info($"Removing general station records console entity {entity}");
+                    _entityManager.DeleteEntity(entity);
+                    structuresRemoved++;
+                    continue;
+                }
                 // Remove problematic components from remaining entities
 
                 // Note: Removed PhysicsComponent deletion that was causing collision issues in loaded ships

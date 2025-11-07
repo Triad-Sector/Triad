@@ -1,0 +1,54 @@
+- type: entity
+  name: vacbed
+  id: Vacbed
+  parent: BaseStructure
+  description: Smells like latex and admemes.
+  components:
+  - type: Sprite
+    sprite: _HL/Structures/vacbed.rsi
+    noRot: true
+    offset: 0, 0.09375
+    layers:
+    - state: vacbed
+      map: ["enum.VacbedVisualLayers.Base"]
+  - type: Appearance
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    noRot: true
+  - type: Anchorable
+  - type: ContainerContainer
+    containers:
+      insidebody:
+        !type:ContainerSlot
+        showEnts: false
+  - type: SolutionContainerManager
+    solutions:
+      test:
+        maxVol: 200
+  - type: DrainableSolution
+    solution: test
+  - type: Vacbed
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Inflatable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+

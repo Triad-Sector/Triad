@@ -210,7 +210,7 @@
 - type: entity
   parent:
   - BaseExpeditionWeaponTier2
-  - NFWeaponShotgunKammerer
+  - WeaponShotgunKammerer # HL
 #  categories: [ HideSpawnMenu ]
   id: NFWeaponShotgunKammererExpedition
   name: worn Kammerer
@@ -268,6 +268,22 @@
 #  categories: [ HideSpawnMenu ]
   id: NFWeaponRifleAssaultM90GrenadeLauncherExpedition
   name: worn M90 rifle
+
+- type: entity # HL
+  parent:
+  - BaseExpeditionWeaponTier3Syndicate
+  - WeaponRifleAk
+  #  categories: [ HideSpawnMenu ]
+  id: WeaponRifleAkExpedition
+  name: worn AKM
+
+- type: entity # HL
+  parent:
+  - BaseExpeditionWeaponTier3Syndicate
+  - WeaponRifleAK502
+#  categories: [ HideSpawnMenu ]
+  id: WeaponRifleAK502Expedition
+  name: worn AK502
 
 ## Snipers
 - type: entity

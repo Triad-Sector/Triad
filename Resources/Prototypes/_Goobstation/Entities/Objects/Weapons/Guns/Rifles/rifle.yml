@@ -1,6 +1,6 @@
 - type: entity
   name: Burner (127x99mm)
-  parent: [BaseWeaponRifle] # Mono - Changed to HighValue
+  parent: [BaseWeaponRifle, BaseC3ExpeditionContraband] # Mono - Changed to HighValue
   id: WeaponRifleBurner
   description: A high caliber syndicate gun chambered in 127x99mm, capable of firing anti-material and high explosive rounds.
   components:

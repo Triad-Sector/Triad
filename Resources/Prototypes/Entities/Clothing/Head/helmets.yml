@@ -42,6 +42,10 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: HideLayerClothing
+    slots:
+    - HeadTop
+    - HeadSide
 
 #Mercenary Helmet
 - type: entity
