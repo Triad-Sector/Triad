@@ -27,6 +27,9 @@ using System.Numerics;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Timing;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Shuttles.Components;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.FireControl;
 
@@ -42,7 +45,6 @@ public sealed partial class FireControlSystem : EntitySystem
     /// Dictionary of entities that have visualization enabled
     /// </summary>
     private readonly HashSet<EntityUid> _visualizedEntities = new();
-    [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
 
     public override void Initialize()
     {
@@ -55,6 +57,7 @@ public sealed partial class FireControlSystem : EntitySystem
         SubscribeLocalEvent<FireControllableComponent, ComponentShutdown>(OnControllableShutdown);
 
         InitializeConsole();
+        InitializeTargetGuided();
     }
 
     private void OnPowerChanged(EntityUid uid, FireControlServerComponent component, PowerChangedEvent args)
@@ -316,6 +319,9 @@ public sealed partial class FireControlSystem : EntitySystem
             // Check for obstacles in the firing direction
             if (!CanFireInDirection(localWeapon, weaponPos, direction, targetPos.Position, weaponXform.MapID))
                 continue;
+            // Check for obstacles in the firing direction
+            if (!CanFireInDirection(localWeapon, weaponPos, direction, targetPos.Position, weaponXform.MapID))
+                continue;
 
             // If we can fire, fire the weapon
             _gun.AttemptShoot(localWeapon, localWeapon, gun, targetCoords);
@@ -543,19 +549,6 @@ public sealed partial class FireControlSystem : EntitySystem
         var directions = CheckAllDirections(entityUid);
         RaiseNetworkEvent(new FireControlVisualizationEvent(netEntity, directions));
         return true;
-    }
-
-    private bool HasLineOfSight(EntityUid shooter, Vector2 from, Vector2 to, MapId mapId)
-    {
-        var diff = to - from;
-        var distance = diff.Length();
-        if (distance <= 0f)
-            return false;
-
-        var direction = Vector2.Normalize(diff);
-        var ray = new CollisionRay(from, direction, collisionMask: (int)(CollisionGroup.Opaque | CollisionGroup.Impassable));
-        var hits = _physics.IntersectRay(mapId, ray, distance, shooter, false);
-        return !hits.Any();
     }
 }
 

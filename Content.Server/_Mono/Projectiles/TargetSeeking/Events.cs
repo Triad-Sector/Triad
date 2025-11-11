@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 
-namespace Content.Server.Mono.Projectiles.TargetSeeking;
+namespace Content.Server._Mono.Projectiles.TargetSeeking;
 
 /// <summary>
 /// Raised on an entity that has become the target of an entity with a <see cref="TargetSeekingComponent"/>.

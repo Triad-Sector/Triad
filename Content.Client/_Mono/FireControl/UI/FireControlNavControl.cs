@@ -45,6 +45,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
     private EntityUid? _activeConsole;
     private FireControllableEntry[]? _controllables;
     private HashSet<NetEntity> _selectedWeapons = new();
+    private HashSet<NetEntity> _selectedWeapons = new();
 
     private List<Entity<MapGridComponent>> _grids = new();
 
@@ -66,6 +67,10 @@ public sealed class FireControlNavControl : BaseShuttleControl
     public bool ShowIFF { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
 
+    // Add a limit to how often we update the cursor position to prevent network spam
+    private float _lastCursorUpdateTime = 0f;
+    private const float CursorUpdateInterval = 0.1f; // 10 updates per second
+
     public FireControlNavControl() : base(64f, 512f, 512f)
     {
         IoCManager.InjectDependencies(this);
@@ -84,6 +89,9 @@ public sealed class FireControlNavControl : BaseShuttleControl
         if (_isMouseInside)
         {
             _lastMousePos = args.RelativePosition;
+
+            // Continuously update the cursor position for guided missiles
+            TryUpdateCursorPosition(_lastMousePos);
         }
     }
 
@@ -407,6 +415,9 @@ public sealed class FireControlNavControl : BaseShuttleControl
         // Account for UI scaling: value is unscaled, so adjust by UIScale
         var scaledValue = value * UIScale;
         return (scaledValue - MidPointVector) / MinimapScale;
+        // Account for UI scaling: value is unscaled, so adjust by UIScale
+        var scaledValue = value * UIScale;
+        return (scaledValue - MidPointVector) / MinimapScale;
     }
 
     private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, float size, Color color, RadarBlipShape shape)
@@ -506,29 +517,6 @@ public sealed class FireControlNavControl : BaseShuttleControl
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, points, color);
     }
 
-    /// <summary>
-    /// Draws a shield ring with constant thickness regardless of zoom level.
-    /// </summary>
-    private void DrawShieldRing(DrawingHandleScreen handle, Vector2 position, float worldRadius, Color color)
-    {
-        // Convert world radius to radar display radius using the standard minimap scaling
-        var displayRadius = worldRadius * MinimapScale * 0.85f;
-
-        // Draw the shield outline as a ring with constant thickness
-        const float ringThickness = 2.0f; // Fixed thickness in pixels
-
-        // Draw multiple circles with slightly different radii to create a solid ring effect
-        for (float offset = 0; offset <= ringThickness; offset += 0.5f)
-        {
-            handle.DrawCircle(position, displayRadius + offset, color.WithAlpha(0.5f), false);
-        }
-    }
-
-    public void UpdateSelectedWeapons(HashSet<NetEntity> selectedWeapons)
-    {
-        _selectedWeapons = selectedWeapons;
-    }
-
     private void TryUpdateCursorPosition(Vector2 relativePosition)
     {
         var currentTime = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
@@ -554,48 +542,4 @@ public sealed class FireControlNavControl : BaseShuttleControl
     /// Returns true if the mouse button is currently pressed down
     /// </summary>
     public bool IsMouseDown() => _isMouseDown;
-
-    private void DrawShields(DrawingHandleScreen handle, TransformComponent consoleXform, Matrix3x2 matrix)
-    {
-        var shields = EntManager.AllEntityQueryEnumerator<ShipShieldVisualsComponent, FixturesComponent, TransformComponent>();
-        while (shields.MoveNext(out var uid, out var visuals, out var fixtures, out var xform))
-        {
-            if (!EntManager.TryGetComponent<TransformComponent>(xform.GridUid, out var parentXform))
-                continue;
-
-            if (xform.MapID != consoleXform.MapID)
-                continue;
-
-            // Don't draw shields when in FTL
-            if (EntManager.HasComponent<FTLComponent>(parentXform.Owner))
-                continue;
-
-            var shieldFixture = fixtures.Fixtures.TryGetValue("shield", out var fixture) ? fixture : null;
-
-            if (shieldFixture == null || shieldFixture.Shape is not ChainShape)
-                continue;
-
-            ChainShape chain = (ChainShape) shieldFixture.Shape;
-
-            var count = chain.Count;
-            var verticies = chain.Vertices;
-
-            var center = xform.LocalPosition;
-
-            for (int i = 1; i < count; i++)
-            {
-                var v1 = Vector2.Add(center, verticies[i - 1]);
-                v1 = Vector2.Transform(v1, parentXform.WorldMatrix); // transform to world matrix
-                v1 = Vector2.Transform(v1, matrix); // get back to local matrix for drawing
-                v1.Y = -v1.Y;
-                v1 = ScalePosition(v1);
-                var v2 = Vector2.Add(center, verticies[i]);
-                v2 = Vector2.Transform(v2, parentXform.WorldMatrix);
-                v2 = Vector2.Transform(v2, matrix);
-                v2.Y = -v2.Y;
-                v2 = ScalePosition(v2);
-                handle.DrawLine(v1, v2, visuals.ShieldColor);
-            }
-        }
-    }
 }

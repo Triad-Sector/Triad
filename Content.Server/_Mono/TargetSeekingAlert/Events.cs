@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-using Content.Server.Mono.Projectiles.TargetSeeking;
+using Content.Server._Mono.Projectiles.TargetSeeking;
 
-namespace Content.Server.Mono.TargetSeekingAlert;
+namespace Content.Server._Mono.TargetSeekingAlert;
 
 /// <summary>
 /// Raised on an entity with <see cref="TargetSeekerAlertComponent"/> when its grid gets targeted by its first target-seeker.

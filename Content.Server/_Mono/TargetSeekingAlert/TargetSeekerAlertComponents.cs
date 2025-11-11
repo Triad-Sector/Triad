@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-using Content.Server.Mono.Projectiles.TargetSeeking;
+using Content.Server._Mono.Projectiles.TargetSeeking;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Mono.TargetSeekingAlert;
+namespace Content.Server._Mono.TargetSeekingAlert;
 
 /// <summary>
 ///     Component for things that alert whether their grid is being tracked by something with a <see cref="TargetSeekingComponent"/>.
