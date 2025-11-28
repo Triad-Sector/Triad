@@ -22,7 +22,7 @@
         sound:
           collection: MetalBreak
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thrusternfsd.rsi
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -89,7 +89,7 @@
         sound:
           collection: MetalBreak
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thrusternfsd.rsi
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]

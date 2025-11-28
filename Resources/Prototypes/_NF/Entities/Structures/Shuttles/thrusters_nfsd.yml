@@ -4,7 +4,7 @@
   suffix: TSFMC
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thrusternfsd.rsi
+    sprite: _NF/Structures/Shuttles/thruster.rsi
   - type: Machine
     board: ThrusterNfsdMachineCircuitboard
 
@@ -14,7 +14,7 @@
   suffix: DEBUG, TSFMC
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thrusternfsd.rsi
+    sprite: _NF/Structures/Shuttles/thruster.rsi
   - type: Machine
     board: ThrusterNfsdMachineCircuitboard
 
