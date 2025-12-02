@@ -8,10 +8,6 @@
   - type: ContainerContainer
     containers:
       key_slots: !type:Container
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyCommon
   - type: Headset
   - type: EncryptionKeyHolder
     keySlots: 10 # Frontier 4<10
@@ -32,6 +28,10 @@
   id: ClothingHeadsetGrey
   name: passenger headset
   components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/base.rsi
 
