@@ -443,7 +443,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         base.OnEmagged(uid, comp, ref args);
 
         if (!HasComp<MindShieldComponent>(uid)) // funky: dont emag mindshielded thavens
-            if (comp.HornyMood)
+            if (HasComp<HornyMoodsTargetComponent>(uid))
                 TryAddRandomMood(uid, HornyWildcardDataset, comp);
             else
                 TryAddRandomMood(uid, WildcardDataset, comp);
@@ -496,7 +496,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             TryAddMood(args.Mob, mood, comp, true, false);
 
         // Hardlight "Horny" moods
-       if (comp.HornyMood)
+        if (HasComp<HornyMoodsTargetComponent>(args.Mob))
         {
             if (TryPick(HornyDataset, out mood, GetActiveMoods(args.Mob, comp), null, GetMindDepartment(args.Mob)))
                 TryAddMood(args.Mob, mood, comp, true, false);

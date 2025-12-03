@@ -25,9 +25,6 @@ public sealed partial class ThavenMoodsBoundComponent : Component
     public bool CanBeEmagged = true;
 
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public bool HornyMood;
-
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public SoundSpecifier? MoodsChangedSound = new SoundPathSpecifier("/Audio/_Impstation/Thaven/moods_changed.ogg");
 
     [DataField(serverOnly: true), ViewVariables]
