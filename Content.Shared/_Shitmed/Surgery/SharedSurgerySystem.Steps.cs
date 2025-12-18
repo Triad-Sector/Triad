@@ -244,7 +244,7 @@ public abstract partial class SharedSurgerySystem
 
     private EntProtoId? GetProtoId(EntityUid entityUid)
     {
-        if (!TryComp<MetaDataComponent>(entityUid, out var metaData))
+        if (!TryComp(entityUid, out MetaDataComponent? metaData))
             return null;
 
         return metaData.EntityPrototype?.ID;

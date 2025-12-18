@@ -105,7 +105,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var otherName = ToPrettyString(target);
         // Get damage required for destructible before base applies damage
         var damageRequired = FixedPoint2.Zero;
-        if (TryComp<DamageableComponent>(target, out var damageableComponent))
+        if (TryComp(target, out DamageableComponent? damageableComponent))
         {
             damageRequired = _destructibleSystem.DestroyedAt(target);
             damageRequired -= damageableComponent.TotalDamage;
@@ -234,7 +234,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     SetShooter(uid, projectileComp, hitEntity);
                     _physics.SetLinearVelocity(uid, -currentVelocity, body: physicsComp);
                     // Potentially change angle if your projectile component uses it for orientation
-                    if (TryComp<TransformComponent>(uid, out var projXform))
+                    if (TryComp(uid, out TransformComponent? projXform))
                         _transformSystem.SetLocalRotation(projXform, currentVelocity.ToAngle() + new Angle(MathF.PI));
                     continue; // Done with this projectile if reflected
                 }
@@ -343,7 +343,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
     private void TryBlind(EntityUid target) // Frontier - bb make you go blind
     {
-        if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
+        if (!TryComp(target, out BlindableComponent? blindable) || blindable.IsBlind)
             return;
 
         var eyeProtectionEv = new GetEyeProtectionEvent();
