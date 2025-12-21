@@ -321,10 +321,10 @@
   id: HydraWeaponBoard
   result: HydraWeaponBoard
 
-- type: latheRecipe
-  parent: BaseCapitalWeaponBoardRecipe
-  id: CapitalShieldBoard
-  result: CapitalShieldBoard
+# - type: latheRecipe
+  # parent: BaseCapitalWeaponBoardRecipe
+  # id: CapitalShieldBoard
+  # result: CapitalShieldBoard
 
 - type: latheRecipe
   parent: BaseLightWeaponBoardRecipe
@@ -393,8 +393,13 @@
 
 - type: latheRecipe
   parent: BaseHeavyWeaponBoardRecipe
-  id: SerpentType54WeaponBoard
-  result: SerpentType54WeaponBoard
+  id: CivType54WeaponBoard
+  result: CivType54WeaponBoard
+
+- type: latheRecipe
+  parent: BaseHeavyWeaponBoardRecipe
+  id: CivSerpentMissileWeaponBoard
+  result: CivSerpentMissileWeaponBoard
 
 - type: latheRecipe
   parent: BaseHeavyWeaponBoardRecipe
@@ -413,5 +418,5 @@
 
 - type: latheRecipe
   parent: BaseMediumWeaponBoardRecipe
-  id: CivBigThrusterWeaponBoard
-  result: CivBigThrusterWeaponBoard
+  id: CivBigThrusterBoard
+  result: CivBigThrusterBoard

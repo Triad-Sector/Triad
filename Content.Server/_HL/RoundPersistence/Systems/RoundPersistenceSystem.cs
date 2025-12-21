@@ -440,6 +440,23 @@ public sealed class RoundPersistenceSystem : EntitySystem
                 continue;
             }
 
+            // Skip stations with BecomesStationComponent on their grids (map-defined stations that respawn each round)
+            var isMapStation = false;
+            foreach (var grid in stationData.Grids)
+            {
+                if (HasComp<Content.Server.Station.Components.BecomesStationComponent>(grid))
+                {
+                    isMapStation = true;
+                    break;
+                }
+            }
+
+            if (isMapStation)
+            {
+                //_sawmill.Debug($"Skipping persistence save for map-defined station {stationMeta.EntityName}");
+                continue;
+            }
+
             var stationName = stationMeta.EntityName;
             SaveStationData(stationUid, stationData, stationName, persistence);
         }
@@ -620,6 +637,23 @@ public sealed class RoundPersistenceSystem : EntitySystem
         // Guard: Station may already be gone due to round transitions
         if (!EntityManager.EntityExists(stationUid) || TerminatingOrDeleted(stationUid) || !TryComp<MetaDataComponent>(stationUid, out var stationMeta))
             return;
+
+        // Skip stations with BecomesStationComponent on their grids (map-defined stations that respawn each round)
+        var isMapStation = false;
+        foreach (var grid in stationData.Grids)
+        {
+            if (HasComp<Content.Server.Station.Components.BecomesStationComponent>(grid))
+            {
+                isMapStation = true;
+                break;
+            }
+        }
+
+        if (isMapStation)
+        {
+            //_sawmill.Debug($"Skipping persistence restore for map-defined station {stationMeta.EntityName}");
+            return;
+        }
 
         var stationName = stationMeta.EntityName;
         //_sawmill.Info($"Restoring data for station: {stationName}");
