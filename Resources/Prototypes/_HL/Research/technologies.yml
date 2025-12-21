@@ -169,9 +169,9 @@
   - CivFlayerWeaponBoard
   - CivM220WeaponBoard
   - CivVanykWeaponBoard
-  #- CivType54WeaponBoard  # MISSING LATHE RECIPE
-  #- CivSerpentMissileWeaponBoard  # MISSING LATHE RECIPE
+  - CivType54WeaponBoard
+  - CivSerpentMissileWeaponBoard
   - CivApolloWeaponBoard
   - CivReaperWeaponBoard
   - CivHarbringerWeaponBoard
-  #- CivBigThrusterBoard  # MISSING LATHE RECIPE
+  - CivBigThrusterBoard

@@ -391,10 +391,10 @@
   id: CivVanykWeaponBoard
   result: CivVanykWeaponBoard
 
-#- type: latheRecipe  # MISSING ENTITY PROTOTYPE SerpentType54WeaponBoard
-#  parent: BaseHeavyWeaponBoardRecipe
-#  id: SerpentType54WeaponBoard
-#  result: SerpentType54WeaponBoard
+- type: latheRecipe
+  parent: BaseHeavyWeaponBoardRecipe
+  id: SerpentType54WeaponBoard
+  result: SerpentType54WeaponBoard
 
 - type: latheRecipe
   parent: BaseHeavyWeaponBoardRecipe
@@ -411,7 +411,7 @@
   id: CivHarbringerWeaponBoard
   result: CivHarbringerWeaponBoard
 
-#- type: latheRecipe  # MISSING ENTITY PROTOTYPE CivBigThrusterWeaponBoard
-#  parent: BaseMediumWeaponBoardRecipe
-#  id: CivBigThrusterWeaponBoard
-#  result: CivBigThrusterWeaponBoard
+- type: latheRecipe
+  parent: BaseMediumWeaponBoardRecipe
+  id: CivBigThrusterWeaponBoard
+  result: CivBigThrusterWeaponBoard
