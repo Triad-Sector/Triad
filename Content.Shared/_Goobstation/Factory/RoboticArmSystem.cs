@@ -19,7 +19,7 @@ namespace Content.Shared._Goobstation.Factory;
 
 public sealed class RoboticArmSystem : EntitySystem
 {
-    [Dependency] private readonly AutomationSystem _automation = default!;
+
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly ExclusiveSlotsSystem _exclusive = default!;

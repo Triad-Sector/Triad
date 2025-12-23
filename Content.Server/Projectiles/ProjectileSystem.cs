@@ -14,31 +14,22 @@ using Robust.Shared.Player;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components; // Frontier
 using Content.Shared.Eye.Blinding.Systems; // Frontier
-using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
-using Content.Shared.Projectiles;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics; // Mono
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random; // Frontier
 using Content.Server.Chat.Systems; // Frontier
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Robust.Shared.Physics.Components;
 using System.Linq;
 using System.Numerics;
-using Content.Shared.Physics;
-using Robust.Shared.Physics;
 
 namespace Content.Server.Projectiles;
 
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ColorFlashEffectSystem _color = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly DestructibleSystem _destructibleSystem = default!;
@@ -81,7 +72,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         var otherName = ToPrettyString(target);
         // Get damage required for destructible before base applies damage
         var damageRequired = FixedPoint2.Zero;
-        if (TryComp<DamageableComponent>(target, out var damageableComponent))
+        if (TryComp(target, out DamageableComponent? damageableComponent))
         {
             damageRequired = _destructibleSystem.DestroyedAt(target);
             damageRequired -= damageableComponent.TotalDamage;
@@ -210,7 +201,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     SetShooter(uid, projectileComp, hitEntity);
                     _physics.SetLinearVelocity(uid, -currentVelocity, body: physicsComp);
                     // Potentially change angle if your projectile component uses it for orientation
-                    if (TryComp<TransformComponent>(uid, out var projXform))
+                    if (TryComp(uid, out TransformComponent? projXform))
                         _transformSystem.SetLocalRotation(projXform, currentVelocity.ToAngle() + new Angle(MathF.PI));
                     continue; // Done with this projectile if reflected
                 }
@@ -319,7 +310,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
     private void TryBlind(EntityUid target) // Frontier - bb make you go blind
     {
-        if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
+        if (!TryComp(target, out BlindableComponent? blindable) || blindable.IsBlind)
             return;
 
         var eyeProtectionEv = new GetEyeProtectionEvent();

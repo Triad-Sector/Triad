@@ -58,7 +58,6 @@ using Content.Shared.Forensics.Components;
 using Robust.Server.Player;
 using Robust.Shared.Log;
 using Content.Shared.Shuttles.Components;
-using Content.Server.Shuttles.Systems;
 using Content.Shared._HL.Shipyard;
 
 // Suppress naming style rule for the _NF namespace prefix (project convention)
@@ -68,7 +67,6 @@ namespace Content.Server._NF.Shipyard.Systems;
 
 public sealed partial class ShipyardSystem : SharedShipyardSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefManager = default!;

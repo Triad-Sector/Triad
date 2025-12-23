@@ -17,9 +17,6 @@ using System.Numerics;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Timing;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Shuttles.Components;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.FireControl;
 

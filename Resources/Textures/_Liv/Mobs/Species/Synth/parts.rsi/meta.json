@@ -15,6 +15,9 @@
             "name": "full"
         },
         {
+            "name": "synth"
+        },
+        {
             "name": "head_f",
             "directions": 4
         },
