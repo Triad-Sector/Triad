@@ -25,3 +25,9 @@ Entries:
       message: 'Added hostile Xenoborg drones to space '
   id: 4
   time: '2025-12-27T08:30:59.0000000+00:00'
+- author: coolbloxxie
+  changes:
+    - type: Fix
+      message: erect tentacle cocks no longer suffer from ED
+  id: 5
+  time: '2025-12-27T08:31:44.0000000+00:00'
