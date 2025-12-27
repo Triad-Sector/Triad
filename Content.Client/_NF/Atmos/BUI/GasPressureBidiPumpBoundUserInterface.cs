@@ -1,7 +1,6 @@
 ﻿using Content.Client._NF.Atmos.UI;
 using Content.Shared._NF.Atmos.Piping.Binary.Messages;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.IdentityManagement;
 using JetBrains.Annotations;
@@ -66,7 +65,7 @@ public sealed class GasPressureBidiPumpBoundUserInterface(EntityUid owner, Enum 
             return;
 
         _window.SetPumpStatus(pump.Enabled);
-        _window.MaxPressure = pump.HighFlow ? Atmospherics.MaxOutputPressure * 3f : pump.MaxTargetPressure;
+        _window.MaxPressure = pump.MaxTargetPressure;
         _window.SetOutputPressure(pump.TargetPressure);
         _window.SetPumpDirection(pump.PumpingInwards);
     }

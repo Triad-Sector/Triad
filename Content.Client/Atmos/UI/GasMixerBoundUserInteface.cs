@@ -13,7 +13,7 @@ namespace Content.Client.Atmos.UI
     public sealed class GasMixerBoundUserInterface : BoundUserInterface
     {
         [ViewVariables]
-        private float _maxPressure = Atmospherics.MaxOutputPressure;
+        private const float MaxPressure = Atmospherics.MaxOutputPressure;
 
         [ViewVariables]
         private GasMixerWindow? _window;
@@ -42,8 +42,8 @@ namespace Content.Client.Atmos.UI
         private void OnMixerOutputPressurePressed(string value)
         {
             var pressure = UserInputParser.TryFloat(value, out var parsed) ? parsed : 0f;
-            if (pressure > _maxPressure)
-                pressure = _maxPressure;
+            if (pressure > MaxPressure)
+                pressure = MaxPressure;
 
             SendMessage(new GasMixerChangeOutputPressureMessage(pressure));
         }
@@ -74,8 +74,6 @@ namespace Content.Client.Atmos.UI
             _window.Title = (cast.MixerLabel);
             _window.SetMixerStatus(cast.Enabled);
             _window.SetOutputPressure(cast.OutputPressure);
-            _maxPressure = cast.HighFlow ? Atmospherics.MaxOutputPressure * 3f : Atmospherics.MaxOutputPressure;
-            _window.MaxPressure = _maxPressure;
             _window.SetNodePercentages(cast.NodeOne);
         }
     }

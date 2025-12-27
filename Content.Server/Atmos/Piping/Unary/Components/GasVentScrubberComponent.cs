@@ -35,11 +35,7 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         public float TransferRate
         {
             get => _transferRate;
-            set
-            {
-                var max = HighFlow ? MaxTransferRate * 5f : MaxTransferRate;
-                _transferRate = Math.Clamp(value, 0f, max);
-            }
+            set => _transferRate = Math.Clamp(value, 0f, MaxTransferRate);
         }
 
         private float _transferRate = Atmospherics.MaxTransferRate;
@@ -56,9 +52,6 @@ namespace Content.Server.Atmos.Piping.Unary.Components
 
         [DataField]
         public bool WideNet { get; set; } = false;
-
-        [DataField("HighFlow")]
-        public bool HighFlow { get; set; } = false;
 
         public GasVentScrubberData ToAirAlarmData()
         {

@@ -8,4 +8,3 @@ research-technology-capital-shuttle-weapons = Capital Shuttle Structures
 research-technology-shuttle-weapon-materials = Shuttle Structure Materials
 research-technology-cybernetic-warfare = Cybernetic Warfare
 research-technology-civilian-shuttle-weapons = Civilian Shuttle Structures
-research-technology-high-pressure-atmospherics = High-Pressure Atmospherics

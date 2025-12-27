@@ -45,7 +45,7 @@ namespace Content.Client.Atmos.UI
 
             SetMaxPressureButton.OnPressed += _ =>
             {
-                MixerPressureOutputInput.Text = MaxPressure.ToString(CultureInfo.CurrentCulture);
+                MixerPressureOutputInput.Text = Atmospherics.MaxOutputPressure.ToString(CultureInfo.CurrentCulture);
                 SetOutputPressureButton.Disabled = false;
             };
 
@@ -80,8 +80,6 @@ namespace Content.Client.Atmos.UI
             float nodeTwo = 100.0f - nodeOne;
             MixerNodeTwoInput.Text = nodeTwo.ToString("0.##", CultureInfo.CurrentCulture);
         }
-
-        public float MaxPressure { get; set; } = Atmospherics.MaxOutputPressure;
 
         public void SetMixerStatus(bool enabled)
         {

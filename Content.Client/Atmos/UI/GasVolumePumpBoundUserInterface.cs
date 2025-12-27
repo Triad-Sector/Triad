@@ -30,8 +30,7 @@ namespace Content.Client.Atmos.UI
 
             if (EntMan.TryGetComponent(Owner, out GasVolumePumpComponent? pump))
             {
-                _maxTransferRate = pump.HighFlow ? pump.MaxTransferRate * 5f : pump.MaxTransferRate;
-                _window.MaxRate = _maxTransferRate;
+                _maxTransferRate = pump.MaxTransferRate;
             }
 
             _window.ToggleStatusButtonPressed += OnToggleStatusButtonPressed;
@@ -64,8 +63,6 @@ namespace Content.Client.Atmos.UI
             _window.Title = Identity.Name(Owner, EntMan);
             _window.SetPumpStatus(pump.Enabled);
             _window.SetTransferRate(pump.TransferRate);
-            _maxTransferRate = pump.HighFlow ? pump.MaxTransferRate * 5f : pump.MaxTransferRate;
-            _window.MaxRate = _maxTransferRate;
         }
     }
 }

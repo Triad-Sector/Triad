@@ -95,13 +95,13 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
         private void Scrub(float timeDelta, GasVentScrubberComponent scrubber, GasMixture? tile, PipeNode outlet)
         {
-                Scrub(timeDelta, scrubber.TransferRate*_atmosphereSystem.PumpSpeedup(), scrubber.PumpDirection, scrubber.FilterGases, tile, outlet.Air, scrubber.MaxPressure, scrubber.HighFlow);
+            Scrub(timeDelta, scrubber.TransferRate*_atmosphereSystem.PumpSpeedup(), scrubber.PumpDirection, scrubber.FilterGases, tile, outlet.Air);
         }
 
         /// <summary>
         /// True if we were able to scrub, false if we were not.
         /// </summary>
-        public bool Scrub(float timeDelta, float transferRate, ScrubberPumpDirection mode, HashSet<Gas> filterGases, GasMixture? tile, GasMixture destination, float maxPressure, bool highFlow)
+        public bool Scrub(float timeDelta, float transferRate, ScrubberPumpDirection mode, HashSet<Gas> filterGases, GasMixture? tile, GasMixture destination)
         {
             // Cannot scrub if tile is null or air-blocked.
             if (tile == null
@@ -120,57 +120,15 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
             if (mode == ScrubberPumpDirection.Scrubbing)
             {
-                // Extract filtered gases into a separate mix
-                var filteredOut = new GasMixture() { Temperature = removed.Temperature };
-                foreach (var gas in filterGases)
-                {
-                    var amount = removed.GetMoles(gas);
-                    if (amount <= 0f) continue;
-                    filteredOut.SetMoles(gas, amount);
-                    removed.SetMoles(gas, 0f);
-                }
+                _atmosphereSystem.ScrubInto(removed, destination, filterGases);
 
-                // Try to pump filtered gases into destination respecting MaxPressure (like GasPressurePump)
-                var targetPressure = maxPressure * (highFlow ? 3f : 1f);
-                var before = filteredOut.TotalMoles;
-                if (before > 0f)
-                {
-                    _atmosphereSystem.PumpGasTo(filteredOut, destination, targetPressure);
-                    var leftover = filteredOut.TotalMoles;
-
-                    // Put any untransferred filtered gas back into the tile.
-                    if (leftover > 0f)
-                    {
-                        _atmosphereSystem.Merge(tile, filteredOut);
-                    }
-                }
-
-                // Remix the non-filtered gases back into the tile.
+                // Remix the gases.
                 _atmosphereSystem.Merge(tile, removed);
-                return true;
             }
             else if (mode == ScrubberPumpDirection.Siphoning)
             {
-                // Siphoning should attempt to pump removed gas into destination up to MaxPressure
-                var targetPressure = maxPressure * (highFlow ? 3f : 1f);
-                var before = removed.TotalMoles;
-                if (before > 0f)
-                {
-                    _atmosphereSystem.PumpGasTo(removed, destination, targetPressure);
-                    var leftover = removed.TotalMoles;
-                    var transferred = before - leftover;
-
-                    // Merge back any leftover into the tile
-                    if (leftover > 0f)
-                    {
-                        _atmosphereSystem.Merge(tile, removed);
-                    }
-                    return transferred > 0f;
-                }
-
-                return false;
+                _atmosphereSystem.Merge(destination, removed);
             }
-
             return true;
         }
 
