@@ -28,6 +28,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.53125,-0.53125
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -726,6 +727,7 @@ entities:
       parent: 1
     - type: DeviceNetwork
       deviceLists:
+      - invalid
       - 194
 - proto: APCBasic
   entities:
@@ -2339,6 +2341,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
       - 445
       - 233
   - uid: 271
@@ -2351,6 +2354,7 @@ entities:
       deviceLists:
       - 317
       - 194
+      - invalid
   - uid: 272
     components:
     - type: Transform
@@ -2360,6 +2364,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
       - 33
       - 503
   - uid: 273
@@ -2371,6 +2376,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
       - 445
       - 233
   - uid: 274
@@ -2382,6 +2388,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
       - 33
       - 503
   - uid: 275
@@ -2393,6 +2400,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
       - 33
       - 503
   - uid: 276
@@ -2417,6 +2425,7 @@ entities:
       deviceLists:
       - 141
       - 194
+      - invalid
   - uid: 278
     components:
     - type: Transform
@@ -2439,6 +2448,7 @@ entities:
       deviceLists:
       - 33
       - 503
+      - invalid
   - uid: 280
     components:
     - type: Transform
@@ -3408,6 +3418,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 400
@@ -3416,6 +3427,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-1.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 401
@@ -3551,6 +3565,9 @@ entities:
     - type: Transform
       pos: -3.5,-0.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 413
@@ -3607,6 +3624,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 194
+      - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 418

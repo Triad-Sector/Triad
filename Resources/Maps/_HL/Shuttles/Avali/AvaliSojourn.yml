@@ -40,6 +40,7 @@ entities:
     - type: Transform
       rot: 0.6738789677692694 rad
       pos: -312.0763,-211.83386
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -8402,6 +8403,8 @@ entities:
           endTime: 0
           startTime: 0
           length: 0.5
+    - type: DeviceNetwork
+      address: 3FC9-5F63
     - type: DeviceLinkSource
       linkedPorts:
         237:
@@ -8427,6 +8430,8 @@ entities:
           endTime: 0
           startTime: 0
           length: 0.5
+    - type: DeviceNetwork
+      address: 6759-7998
     - type: DeviceLinkSource
       linkedPorts:
         208:

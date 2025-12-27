@@ -38,6 +38,7 @@ entities:
       name: ColComm Docks
     - type: Transform
       pos: -97.05884,-97.29649
+      parent: invalid
     - type: MapGrid
       chunks:
         3,2:

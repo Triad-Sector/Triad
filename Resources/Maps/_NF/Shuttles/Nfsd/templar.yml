@@ -32,6 +32,7 @@ entities:
       name: Templar
     - type: Transform
       pos: -0.4761362,-0.4642291
+      parent: invalid
     - type: BecomesStation
       id: Templar
     - type: MapGrid

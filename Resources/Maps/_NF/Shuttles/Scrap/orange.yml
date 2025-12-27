@@ -20,6 +20,7 @@ entities:
       name: Orange
     - type: Transform
       pos: -2.463255,-1.7064548
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

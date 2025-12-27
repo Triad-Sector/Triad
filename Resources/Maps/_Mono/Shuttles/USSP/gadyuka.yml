@@ -31,6 +31,7 @@ entities:
     - type: MetaData
       name: Gadyuka
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -922,6 +923,8 @@ entities:
     - type: Transform
       pos: -0.5,4.5
       parent: 1
+    - type: ShuttleConsoleLock
+      locked: False
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery

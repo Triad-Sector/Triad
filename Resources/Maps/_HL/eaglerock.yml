@@ -54496,6 +54496,11 @@ entities:
     - type: Transform
       pos: -29.5,7.5
       parent: 2
+    - type: UserInterface
+      actors:
+        enum.DisposalUnitUiKey.Key:
+        - invalid
+    - type: ActiveUserInterface
   - uid: 2747
     components:
     - type: Transform
@@ -123241,6 +123246,8 @@ entities:
       pos: -16.5,51.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 21579
     - type: Battery
@@ -123251,6 +123258,8 @@ entities:
       pos: -12.5,51.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 21579
     - type: Battery
@@ -123261,6 +123270,8 @@ entities:
       pos: -16.5,57.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 21579
     - type: Battery
@@ -123271,6 +123282,8 @@ entities:
       pos: -10.5,57.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 21579
     - type: Battery

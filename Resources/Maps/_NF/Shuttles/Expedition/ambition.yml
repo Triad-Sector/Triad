@@ -38,6 +38,7 @@ entities:
       name: Ambition
     - type: Transform
       pos: -0.48525238,-0.53687286
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

@@ -49,6 +49,7 @@ entities:
       name: NSV Shield of Perseus
     - type: Transform
       pos: -0.53125,-0.515625
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -28577,6 +28578,8 @@ entities:
       pos: 17.5,-57.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 5434
   - uid: 3929
@@ -28586,6 +28589,8 @@ entities:
       pos: 17.5,-56.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 5434
   - uid: 3930
@@ -28595,6 +28600,8 @@ entities:
       pos: 17.5,-55.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 5434
 - proto: GasVolumePumpHighFlow

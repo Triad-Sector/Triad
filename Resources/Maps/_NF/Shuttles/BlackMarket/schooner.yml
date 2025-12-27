@@ -33,6 +33,7 @@ entities:
       name: Schooner
     - type: Transform
       pos: -0.77675533,-0.4864323
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

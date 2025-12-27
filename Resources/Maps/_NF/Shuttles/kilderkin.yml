@@ -31,6 +31,7 @@ entities:
       name: Kilderkin
     - type: Transform
       pos: -0.5,-0.53125
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

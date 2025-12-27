@@ -36,6 +36,7 @@ entities:
     - type: MetaData
       name: Comet
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

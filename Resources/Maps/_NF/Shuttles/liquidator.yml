@@ -33,6 +33,7 @@ entities:
       name: Liquidator
     - type: Transform
       pos: -0.4999962,-0.4928913
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1650,6 +1651,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 229
+      - 451
       - 134
   - uid: 201
     components:
@@ -1676,6 +1678,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 229
+      - 451
       - 134
   - uid: 204
     components:
@@ -1684,6 +1687,7 @@ entities:
       parent: 1
     - type: DeviceNetwork
       deviceLists:
+      - 451
       - 134
 - proto: FolderSpawner
   entities:
@@ -2064,6 +2068,7 @@ entities:
       deviceLists:
       - 14
       - 229
+      - 451
       - 134
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -2078,6 +2083,7 @@ entities:
       - 439
       - 229
       - 134
+      - 451
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasVentScrubber
@@ -2093,6 +2099,7 @@ entities:
       - 439
       - 229
       - 134
+      - 451
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 254
@@ -2104,6 +2111,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14
+      - 451
       - 134
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -2152,6 +2160,7 @@ entities:
       deviceLists:
       - 14
       - 229
+      - 451
       - 134
     - type: AtmosPipeColor
       color: '#990000FF'

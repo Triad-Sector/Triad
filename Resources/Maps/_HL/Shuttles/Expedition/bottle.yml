@@ -28,6 +28,7 @@ entities:
       name: Bottle
     - type: Transform
       pos: -0.53125,-0.625
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -4073,6 +4074,8 @@ entities:
       pos: 0.5,9.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeLayers
@@ -4086,6 +4089,8 @@ entities:
       pos: 0.5,3.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeLayers
@@ -4099,6 +4104,8 @@ entities:
       pos: 0.5,-6.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeLayers
@@ -4114,6 +4121,8 @@ entities:
       pos: 0.5,-8.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeColor
@@ -4125,6 +4134,8 @@ entities:
       pos: 0.5,10.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 6
     - type: AtmosPipeColor

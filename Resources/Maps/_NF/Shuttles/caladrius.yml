@@ -57,6 +57,7 @@ entities:
       name: Caladrius
     - type: Transform
       pos: -0.5,-0.484375
+      parent: invalid
     - type: MapGrid
       chunks:
         0,-2:
@@ -2309,6 +2310,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Caladrius
+    - type: ImplicitRoof
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1123

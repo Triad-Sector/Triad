@@ -692,7 +692,7 @@
       amount: 2
 
 - type: entity
-  parent: WeaponCaseFlammable
+  parent: WeaponCaseHeavy
   id: WeaponCaseHeavyFlamethrowerFG
   suffix: Dungeon, Flamethrower
 #  categories: [ HideSpawnMenu ]

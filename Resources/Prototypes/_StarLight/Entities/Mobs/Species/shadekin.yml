@@ -15,7 +15,7 @@
       prototype: Shadekin
       requiredLegs: 2
     - type: Speech
-      allowedEmotes: ["Mar", "Wurble", "Hiss", "Purr"]
+      allowedEmotes: ["ShadekinMar", "ShadekinWurble", "Hisses", "Growl", "Purr"]
     - type: Vocal
       sounds:
         Male: ShadekinMale
@@ -43,7 +43,7 @@
           effects:
             - !type:WashCreamPieReaction
             - !type:Emote
-              emote: Hiss
+              emote: Hisses
               showInChat: false
     - type: Bloodstream
       bloodlossDamage:

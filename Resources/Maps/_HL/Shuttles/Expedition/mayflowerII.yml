@@ -42,6 +42,7 @@ entities:
       name: grid
     - type: Transform
       pos: 0.2982388,12.765411
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -5904,6 +5905,8 @@ entities:
       pos: -4.5,-11.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 711
       - 1241
@@ -5916,6 +5919,8 @@ entities:
       pos: -7.5,-10.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 711
       - 1241
@@ -6013,6 +6018,8 @@ entities:
       pos: -3.5,-3.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 701
     - type: AtmosPipeColor
@@ -6023,6 +6030,8 @@ entities:
       pos: -3.5,-10.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 520
     - type: AtmosPipeColor
@@ -6084,6 +6093,8 @@ entities:
       pos: -7.5,-9.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 711
       - 1241

@@ -44,6 +44,7 @@ entities:
       name: grid
     - type: Transform
       pos: -0.5,-0.46875
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1578,11 +1579,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,15.5
       parent: 1
+    - type: UserInterface
+      actors:
+        enum.GasMixerUiKey.Key:
+        - invalid
     - type: GasMixer
       inletTwoConcentration: 0.20999998
       inletOneConcentration: 0.79
     - type: AtmosPipeColor
       color: '#0335FCFF'
+    - type: ActiveUserInterface
 - proto: GasPassiveVent
   entities:
   - uid: 522
@@ -2439,6 +2445,8 @@ entities:
       pos: 8.5,16.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor
@@ -2449,6 +2457,8 @@ entities:
       pos: -0.5,30.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor
@@ -2460,6 +2470,8 @@ entities:
       pos: -0.5,0.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor
@@ -2473,6 +2485,8 @@ entities:
       pos: 8.5,15.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor
@@ -2484,6 +2498,8 @@ entities:
       pos: 0.5,0.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor
@@ -2494,6 +2510,8 @@ entities:
       pos: 0.5,30.5
       parent: 1
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 639
     - type: AtmosPipeColor

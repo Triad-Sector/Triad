@@ -57,8 +57,8 @@
     animation: WeaponArcFist
     mustBeEquippedToUse: true
   - type: Construction
-    graph: ClothingHandsKnuckleDustersBrass
-    node: crass
+    graph: GraphWeaponBrassKnucklesWhoopie
+    node: WeaponBrassKnucklesWhoopie
   - type: StaminaDamageOnHit
     damage: 4 # 8 per second, similar to the toy hammer
   - type: Armor

@@ -38,6 +38,7 @@ entities:
     - type: MetaData
       name: Broadhead
     - type: Transform
+      parent: invalid
     - type: BecomesStation
       id: Broadhead
     - type: MapGrid

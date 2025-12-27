@@ -190,9 +190,6 @@
   - type: Label
   - type: TrashOnSolutionEmpty
     solution: beaker
-  - type: Tag
-    tags:
-    - Flammable
 
 - type: entity
   parent: JerryCan

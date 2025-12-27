@@ -12,7 +12,11 @@
   - node: icon
     entity: ClothingHandsKnuckleDustersBrass
 
-  # Frontier: crass knuckle dusters
+- type: constructionGraph
+  id: GraphWeaponBrassKnucklesWhoopie
+  start: start
+  graph:
+  - node: start
     edges:
       - to: crass
         steps:

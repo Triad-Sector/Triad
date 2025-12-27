@@ -33,6 +33,7 @@ entities:
     - type: MetaData
       name: Drakon
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -1743,6 +1744,8 @@ entities:
     - type: Transform
       pos: -2.5,1.5
       parent: 1
+    - type: ShuttleConsoleLock
+      locked: False
     - type: ApcPowerReceiver
       powerLoad: 5
     - type: Battery

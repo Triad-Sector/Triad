@@ -33,6 +33,7 @@ entities:
       name: Chisel
     - type: Transform
       pos: -0.5,-0.5000076
+      parent: invalid
     - type: BecomesStation
       id: Chisel
     - type: MapGrid

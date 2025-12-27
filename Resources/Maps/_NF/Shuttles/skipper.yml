@@ -33,6 +33,7 @@ entities:
       name: Skipper
     - type: Transform
       pos: 0.078048706,-0.24390224
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
