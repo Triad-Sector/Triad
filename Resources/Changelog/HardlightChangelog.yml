@@ -209,3 +209,11 @@ Entries:
       message: Item offsets now work properly on Thaven in the customization screen.
   id: 23
   time: '2026-01-04T20:13:15.0000000+00:00'
+- author: warcrazed11
+  changes:
+    - type: Add
+      message: Added Knife rigging to merc loadouts.
+    - type: Add
+      message: Added medipen cases printable at medfabs and purchasable on uplinks.
+  id: 24
+  time: '2026-01-04T22:53:16.0000000+00:00'
