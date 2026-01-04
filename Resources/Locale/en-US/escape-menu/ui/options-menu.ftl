@@ -42,6 +42,13 @@ ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-bwoink-sound = Play AHelp Notification Sound
 ui-options-volume-label = Volume
+ui-options-radio-chime-mute = Play Radio Chime
+ui-options-tts-label = TTS Options
+ui-options-tts-enabled = Enable TTS
+ui-options-tts-radio-queue-enabled = Enable TTS (Radio)
+ui-options-tts-volume = TTS Volume
+ui-options-tts-radio-volume = TTS Volume (Radio)
+ui-options-tts-announce-volume = TTS Volume (Announcements)
 
 ## Graphics menu
 
@@ -164,6 +171,7 @@ ui-options-function-toggle-crawling-under = Toggle crawling under furniture
 
 # _HL
 ui-options-function-offer-item = Offer something
+ui-options-function-al-open-mob-interaction = Interact With Mob
 
 
 ui-options-static-storage-ui = Lock storage window to hotbar
@@ -239,16 +247,16 @@ ui-options-function-hotbar7 = Hotbar slot 7
 ui-options-function-hotbar8 = Hotbar slot 8
 ui-options-function-hotbar9 = Hotbar slot 9
 ui-options-function-hotbar0 = Hotbar slot 0
-ui-options-function-hotbarshift1 = Hotbar slot Shift+1
-ui-options-function-hotbarshift2 = Hotbar slot Shift+2
-ui-options-function-hotbarshift3 = Hotbar slot Shift+3
-ui-options-function-hotbarshift4 = Hotbar slot Shift+4
-ui-options-function-hotbarshift5 = Hotbar slot Shift+5
-ui-options-function-hotbarshift6 = Hotbar slot Shift+6
-ui-options-function-hotbarshift7 = Hotbar slot Shift+7
-ui-options-function-hotbarshift8 = Hotbar slot Shift+8
-ui-options-function-hotbarshift9 = Hotbar slot Shift+9
-ui-options-function-hotbarshift0 = Hotbar slot Shift+0
+ui-options-function-hotbar-shift1 = Hotbar slot Shift+1
+ui-options-function-hotbar-shift2 = Hotbar slot Shift+2
+ui-options-function-hotbar-shift3 = Hotbar slot Shift+3
+ui-options-function-hotbar-shift4 = Hotbar slot Shift+4
+ui-options-function-hotbar-shift5 = Hotbar slot Shift+5
+ui-options-function-hotbar-shift6 = Hotbar slot Shift+6
+ui-options-function-hotbar-shift7 = Hotbar slot Shift+7
+ui-options-function-hotbar-shift8 = Hotbar slot Shift+8
+ui-options-function-hotbar-shift9 = Hotbar slot Shift+9
+ui-options-function-hotbar-shift0 = Hotbar slot Shift+0
 ui-options-function-loadout1 = Hotbar Loadout 1
 ui-options-function-loadout2 = Hotbar Loadout 2
 ui-options-function-loadout3 = Hotbar Loadout 3
@@ -416,6 +424,10 @@ ui-options-header-targeting = Targeting
 ui-options-function-target-head = Target head
 ui-options-function-target-torso = Target torso
 ui-options-function-target-left-arm = Target left arm
+ui-options-function-target-left-hand = Target left hand
 ui-options-function-target-right-arm = Target right arm
+ui-options-function-target-right-hand = Target right hand
 ui-options-function-target-left-leg = Target left leg
+ui-options-function-target-left-foot = Target left foot
 ui-options-function-target-right-leg = Target right leg
+ui-options-function-target-right-foot = Target right foot
