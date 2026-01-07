@@ -235,3 +235,31 @@ Entries:
       message: upgraded backpacks grid should be fixed now
   id: 27
   time: '2026-01-07T04:30:34.0000000+00:00'
+- author: TrylobyteWasTaken
+  changes:
+    - type: Fix
+      message: >-
+        Power Forks can now go into industrial mechs and small mechs e.g. VIM
+        and HAMTR.
+    - type: Add
+      message: >-
+        Exosuit mining drills now have a 60-degree wide-swing, making them
+        faster miners than handheld versions. 
+    - type: Fix
+      message: The diamond exosuit drill can now properly break supercompacted rock.
+    - type: Add
+      message: >-
+        Diamond drills now ignore resistances. Melee a Clarke with an exosuit
+        diamond drill at your own risk.
+    - type: Fix
+      message: The ResistanceBypass melee component now actually works.
+    - type: Fix
+      message: >-
+        The Ripley Mk.II and Clarke now move at regular speeds when under
+        gravity.
+    - type: Fix
+      message: >-
+        Mechs can now wide-swing melee weapons as the raycast no longer collides
+        with the mech itself.
+  id: 28
+  time: '2026-01-07T04:31:01.0000000+00:00'
