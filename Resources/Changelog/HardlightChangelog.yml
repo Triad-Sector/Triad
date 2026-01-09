@@ -291,3 +291,9 @@ Entries:
         ammo boxes.
   id: 32
   time: '2026-01-08T22:52:15.0000000+00:00'
+- author: warcrazed11
+  changes:
+    - type: Add
+      message: Gave security roles roundstart FUCs
+  id: 33
+  time: '2026-01-09T03:46:12.0000000+00:00'
