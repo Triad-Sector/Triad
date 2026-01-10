@@ -303,3 +303,48 @@ Entries:
       message: Mechs should now have flashlights so they can see.
   id: 34
   time: '2026-01-10T12:44:06.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: Medical Quadborgs are now able to dispense candies for patients.
+    - type: Add
+      message: >-
+        Encryption keys are now able to be used on Quadborgs to give them new
+        radio channels.
+    - type: Add
+      message: Quadborgs are finally allowed to cum.
+    - type: Add
+      message: >-
+        New Cyborg Storage Modules are now able to be made at a Protolathe once
+        Bluespace Storage has been researched, allowing Cyborgs to carry bags
+        courtesy of Nookie.
+    - type: Add
+      message: >-
+        Security Quadborgs are now able to be printed at SEC techfabs, albeit
+        without custom sprites or names, so they will appear as normal Cyborg
+        parts.
+    - type: Remove
+      message: Removed several starting comms channels from quadborgs.
+    - type: Remove
+      message: The Cyborg Detective Module no longer comes with a free Detective PDA.
+    - type: Tweak
+      message: >-
+        Changed IPC welding healing to be faster but heal slightly less, made
+        LV, MV, and HV heal incrementally more burn at the cost of slightly
+        longer doafters, and gave Cyborgs the same healing system as IPC.
+    - type: Tweak
+      message: Quadborg job roles now spawn with PDAs.
+    - type: Tweak
+      message: Quadborgs are now able to unlock themselves.
+    - type: Tweak
+      message: All Quadborgs now have an additional module slot.
+    - type: Tweak
+      message: >-
+        IPC no longer spawn with an encryption key, but are now able to spawn
+        with and wear headsets.
+    - type: Fix
+      message: >-
+        Fixed Scientists, Security Officers, and Station Engineers spawning with
+        two PDAs.
+  id: 35
+  time: '2026-01-10T12:49:09.0000000+00:00'
