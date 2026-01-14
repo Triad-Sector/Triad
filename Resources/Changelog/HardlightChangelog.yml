@@ -372,3 +372,42 @@ Entries:
         convention that the other bluespace glassware does
   id: 38
   time: '2026-01-14T00:10:56.0000000+00:00'
+- author: NotLivyathan
+  changes:
+    - type: Add
+      message: Synths now have three new markings; wings, an antenna, and neck panels.
+    - type: Tweak
+      message: >-
+        Synths now bleed inert nanites, which turn back into nanites upon
+        metabolizing.
+    - type: Tweak
+      message: Topicals are now half as effective on Synths.
+    - type: Tweak
+      message: >-
+        Synth passive healing has been increased from 1 to 3 for brute and from
+        1 to 4 for burn.
+    - type: Tweak
+      message: >-
+        Nanites now heal Synths for more, bringing them more in-line with
+        Omnizine.
+    - type: Tweak
+      message: >-
+        Synth damage reductions have been slightly adjusted in a very small
+        nerf.
+    - type: Tweak
+      message: Synth CCU's can now talk just like Positronic Brains.
+    - type: Tweak
+      message: >-
+        Synths now have cyborg panels (temporarily) that need to be opened with
+        a Medical Multitool first in order to insert or remove encryption keys,
+        which can be done with a screwdriver.
+    - type: Tweak
+      message: >-
+        Synth encryption keys can now be seen on examination so long as their
+        panels are open.
+    - type: Fix
+      message: >-
+        Synths now correctly take barotrauma damage from unprotected exposure to
+        space.
+  id: 39
+  time: '2026-01-14T00:12:12.0000000+00:00'
