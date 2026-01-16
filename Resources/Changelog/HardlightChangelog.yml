@@ -485,3 +485,11 @@ Entries:
       message: Eaglerock now has a Butlertron for the station chef
   id: 49
   time: '2026-01-16T20:49:45.0000000+00:00'
+- author: Warcrazed
+  changes:
+    - type: Add
+      message: Added Cargo markets to stations.
+    - type: Fix
+      message: Fixed Cargo market system.
+  id: 50
+  time: '2026-01-16T20:50:19.0000000+00:00'
