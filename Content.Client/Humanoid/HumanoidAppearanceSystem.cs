@@ -247,6 +247,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Gender = profile.Gender;
         humanoid.Age = profile.Age;
         humanoid.Species = profile.Species;
+        humanoid.CustomSpecies = string.IsNullOrEmpty(profile.CustomSpecies) ? null : profile.CustomSpecies;
         humanoid.SkinColor = profile.Appearance.SkinColor; //starlight
         humanoid.EyeColor = profile.Appearance.EyeColor;
         humanoid.EyeGlowing = profile.Appearance.EyeGlowing;
@@ -416,7 +417,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             {
                 continue;
             }
-            
+
             // FLOOF CHANGE START
             var layerSlot = markingPrototype.BodyPart;
             // first, try to see if there are any custom layers for this marking

@@ -84,6 +84,13 @@ namespace Content.Shared.Preferences
         [DataField]
         public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
 
+        /// <summary>
+        /// Optional custom species string that will be shown when examined.
+        /// This does not change the actual species/prototype used for appearance or mechanics.
+        /// </summary>
+        [DataField]
+        public string CustomSpecies { get; set; } = string.Empty;
+
         [DataField]
         public int Age { get; set; } = 18;
 
@@ -145,6 +152,7 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
+            string customSpecies,
             int age,
             Sex sex,
             Gender gender,
@@ -161,6 +169,7 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            CustomSpecies = customSpecies;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -182,7 +191,7 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
-            : this(other.Name, other.FlavorText, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
+            : this(other.Name, other.FlavorText, other.Species, other.CustomSpecies, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts, other.Company)
         {
         }
@@ -192,6 +201,7 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
+                other.CustomSpecies,
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -326,6 +336,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
             return new(this) { Appearance = appearance };
+        }
+
+        public HumanoidCharacterProfile WithCustomSpecies(string customSpecies)
+        {
+            return new(this) { CustomSpecies = customSpecies };
         }
 
         public HumanoidCharacterProfile WithSpawnPriorityPreference(SpawnPriorityPreference spawnPriority)
@@ -476,6 +491,7 @@ namespace Content.Shared.Preferences
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (Species != other.Species) return false;
+            if (CustomSpecies != other.CustomSpecies) return false;
             if (Company != other.Company) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
@@ -731,6 +747,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
+            hashCode.Add(CustomSpecies);
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);

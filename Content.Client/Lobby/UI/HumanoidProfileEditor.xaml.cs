@@ -171,6 +171,7 @@ namespace Content.Client.Lobby.UI
             #region Name
 
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
+            CustomSpeciesEdit.OnTextChanged += args => { SetCustomSpecies(args.Text); };
             NameRandomize.OnPressed += args => RandomizeName();
             RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
@@ -1221,6 +1222,7 @@ namespace Content.Client.Lobby.UI
             JobOverride = null;
 
             UpdateNameEdit();
+            UpdateCustomSpeciesEdit();
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
@@ -1745,6 +1747,12 @@ namespace Content.Client.Lobby.UI
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
         }
 
+        private void SetCustomSpecies(string newCustom)
+        {
+            Profile = Profile?.WithCustomSpecies(newCustom);
+            SetDirty();
+        }
+
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
         {
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
@@ -1793,6 +1801,11 @@ namespace Content.Client.Lobby.UI
         private void UpdateNameEdit()
         {
             NameEdit.Text = Profile?.Name ?? "";
+        }
+
+        private void UpdateCustomSpeciesEdit()
+        {
+            CustomSpeciesEdit.Text = Profile?.CustomSpecies ?? "";
         }
 
         private void UpdateFlavorTextEdit()

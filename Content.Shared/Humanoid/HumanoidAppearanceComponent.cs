@@ -56,6 +56,13 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public ProtoId<SpeciesPrototype> Species { get; set; }
 
     /// <summary>
+    /// Optional custom species string to display for examines. This does not affect the
+    /// actual species prototype used for appearance or mechanics.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? CustomSpecies { get; set; } = null;
+
+    /// <summary>
     ///     The initial profile and base layers to apply to this humanoid.
     /// </summary>
     [DataField]

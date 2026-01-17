@@ -112,7 +112,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
         var identity = Identity.Entity(uid, EntityManager);
-        var species = GetSpeciesRepresentation(component.Species).ToLower();
+        var speciesRep = !string.IsNullOrWhiteSpace(component.CustomSpecies)
+            ? component.CustomSpecies
+            : GetSpeciesRepresentation(component.Species);
+        var species = speciesRep.ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
         // WWDP EDIT
@@ -171,6 +174,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
+        targetHumanoid.CustomSpecies = sourceHumanoid.CustomSpecies;
         if (TryComp<GrammarComponent>(target, out var grammar))
             grammar.Gender = sourceHumanoid.Gender;
 
@@ -399,6 +403,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
+        // Preserve an optional custom species display string from the profile for examine-only purposes.
+        humanoid.CustomSpecies = string.IsNullOrEmpty(profile.CustomSpecies) ? null : profile.CustomSpecies;
         humanoid.EyeColor = profile.Appearance.EyeColor;
         humanoid.EyeGlowing = profile.Appearance.EyeGlowing; //starlight
         var ev = new EyeColorInitEvent(); //starlight

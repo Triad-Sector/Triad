@@ -943,6 +943,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("company");
 
+                    b.Property<string>("CustomSpecies")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("custom_species");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("text")

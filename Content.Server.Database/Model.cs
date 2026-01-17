@@ -440,6 +440,7 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
+        public string CustomSpecies { get; set; } = string.Empty;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -460,7 +461,7 @@ namespace Content.Server.Database
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
-        
+
         public string Company { get; set; } = "None";
 
         public int PreferenceId { get; set; }
