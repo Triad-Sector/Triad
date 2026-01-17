@@ -45,6 +45,7 @@
             Chemist: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ] #intern, not counted
             Paramedic: [ 1, 1 ]
+            Geneticist: [ 1, 1 ]
             #science (4)
             Scientist: [ 4, 4 ]
             ResearchAssistant: [ 2, 2 ] #intern, not counted

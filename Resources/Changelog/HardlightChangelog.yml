@@ -507,3 +507,11 @@ Entries:
       message: Added custom species
   id: 52
   time: '2026-01-17T01:17:21.0000000+00:00'
+- author: Generic_Eagle
+  changes:
+    - type: Fix
+      message: Geneticist can now roll on Eaglerock
+    - type: Fix
+      message: Eaglerock Become Station fixed for billionth time
+  id: 53
+  time: '2026-01-17T01:43:11.0000000+00:00'
