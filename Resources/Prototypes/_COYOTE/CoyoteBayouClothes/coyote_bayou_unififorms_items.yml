@@ -2109,6 +2109,24 @@
 
 - type: entity
   parent: CoolCoyoteClothes
+  id: CoolCoyoteClothesQipaoGreen
+  name: qipao in green
+  description: |
+  components:
+  - type: Sprite
+    overrideDir: South
+    enableOverrideDir: true
+    sprite: _CS/Clothes/cbuniforms.rsi
+    layers:
+    - state: qipao_green
+  - type: Clothing
+    sprite: _CS/Clothes/cbuniforms.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: qipao_green
+
+- type: entity
+  parent: CoolCoyoteClothes
   id: CoolCoyoteClothesQipaoWhite
   name: qipao in white
   description: |

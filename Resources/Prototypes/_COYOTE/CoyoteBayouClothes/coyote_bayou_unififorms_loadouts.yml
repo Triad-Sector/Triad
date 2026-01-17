@@ -1043,6 +1043,15 @@
     jumpsuit: CoolCoyoteClothesQipaoTealNosleeve
 
 - type: loadout
+  id: LoadoutCoolCoyoteClothesQipaoGreen
+  price: 600
+#  effects:
+#  - !type:GroupLoadoutEffect
+#    proto: ContractorT1
+  equipment:
+    jumpsuit: CoolCoyoteClothesQipaoGreen
+
+- type: loadout
   id: LoadoutCoolCoyoteClothesQipaoWhite
   price: 600
 #  effects:
