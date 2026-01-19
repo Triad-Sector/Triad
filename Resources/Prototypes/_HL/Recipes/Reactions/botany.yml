@@ -1,0 +1,28 @@
+- type: reaction
+  id: Alphoranthine
+  impact: Medium
+  reactants:
+    Ultravasculine:
+      amount: 1
+    Stellibinin:
+      amount: 1
+    Left4Zed:
+      amount: 1
+  products:
+    Alphoranthine: 3
+
+- type: reaction
+  id: Havokanthine
+  minTemp: 390
+  impact: High
+  reactants:
+    UnstableMutagen:
+      amount: 2
+    Left4Zed:
+      amount: 2
+    Diethylamine:
+      amount: 1
+    Alphoranthine:
+      amount: 1
+  products:
+    Havokanthine: 2

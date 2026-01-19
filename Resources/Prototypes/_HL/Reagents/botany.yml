@@ -1,0 +1,72 @@
+- type: reagent
+  id: Alphoranthine
+  name: reagent-name-alphoranthine
+  group: Medicine
+  desc: reagent-desc-alphoranthine
+  physicalDesc: reagent-physical-desc-soapy
+  flavor: old-socks
+  color: "#b3ffb3"
+  plantMetabolism:
+    - !type:PlantPhalanximine
+      conditions:
+      - !type:ReagentThreshold
+        min: 4
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: -0.1 # Heals Cellular without complications, but it's slow and you need a lot of it.
+
+- type: reagent
+  id: Havokanthine
+  name: reagent-name-havokanthine
+  group: Toxins
+  desc: reagent-desc-havokanthine
+  physicalDesc: reagent-physical-desc-crystalline
+  flavor: liquid-suffering
+  color: "#ffff00"
+  plantMetabolism:
+  - !type:PlantAdjustMutationLevel
+    amount: 5
+  - !type:PlantAdjustHealth
+    amount: -3
+  - !type:PlantAdjustMutationMod
+    amount: 1
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange # Not the nastiest thing out there, but deals Cellular damage.
+        damage:
+          types:
+            Cellular: 1
+      - !type:Emote
+        conditions:
+        emote: Scream
+        showInChat: true
+        probability: 0.25
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+      - !type:Jitter
+      - !type:ChemRerollPsionic
+        bonusMultiplier: 10  # Better than Widow.  In nearly-lethal doses.
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Havokanthine
+          min: 45
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: ScrambledAccent
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "barozine-effect-skin-burning", "barozine-effect-muscle-contract" ]
+        probability: 0.1
+      - !type:RandomMutation # Funkystation - genetics
+        probability: .05 # Higher chance because it doesn't cause rad damage.
+        minMutations: 1
+        maxMutations: 1

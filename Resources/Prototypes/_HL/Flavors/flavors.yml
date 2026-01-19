@@ -7,3 +7,13 @@
   id: thaslop
   flavorType: complex
   description: flavor-complex-tha-slop
+
+- type: flavor
+  id: old-socks
+  flavorType: complex
+  description: flavor-complex-old-socks
+
+- type: flavor
+  id: liquid-suffering
+  flavorType: complex
+  description: flavor-complex-liquid-suffering

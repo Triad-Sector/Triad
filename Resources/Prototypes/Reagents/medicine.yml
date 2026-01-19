@@ -20,7 +20,7 @@
         type: Add
       - !type:GenericStatusEffect
         key: PsionicsDisabled #Nyano - Summary: disables psinoics from being used by the wearer.
-        component: PsionicsDisabled #Nyano - Summary: see above. 
+        component: PsionicsDisabled #Nyano - Summary: see above.
         type: Add
     Alcohol:
       effects:
@@ -825,6 +825,11 @@
           min: 1
         reagent: Amatoxin
         amount: -3
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: -10
+  - !type:PlantAdjustHealth
+    amount: 1
 
 - type: reagent
   id: Synaptizine
