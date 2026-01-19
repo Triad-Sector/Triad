@@ -571,3 +571,9 @@ Entries:
       message: Egg laying trait
   id: 60
   time: '2026-01-19T04:35:28.0000000+00:00'
+- author: Tichi
+  changes:
+    - type: Tweak
+      message: Let Harpy species have colorful skin color
+  id: 61
+  time: '2026-01-19T04:36:01.0000000+00:00'
