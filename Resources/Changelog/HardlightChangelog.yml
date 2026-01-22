@@ -589,3 +589,9 @@ Entries:
       message: Leash fixes
   id: 63
   time: '2026-01-22T04:37:24.0000000+00:00'
+- author: warcrazed11
+  changes:
+    - type: Add
+      message: Added basic tag lock system for clothing.
+  id: 64
+  time: '2026-01-22T04:37:59.0000000+00:00'
