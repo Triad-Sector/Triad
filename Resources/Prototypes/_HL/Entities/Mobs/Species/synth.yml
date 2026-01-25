@@ -109,14 +109,18 @@
     bloodReagent: InertNanites
     bloodRefreshAmount: 0.0
     updateInterval: 1
-  - type: PassiveDamage
+  - type: HLBloodLevelPassiveDamage
     allowedStates:
     - Alive
     - Critical
+    allowedDamageGroups:
+    - Brute
+    - Burn
+    bloodLevelDecrease: 1.1
     damage:
       groups:
-        Brute: -2
-        Burn: -2
+        Brute: -7
+        Burn: -7
   - type: BlockInjection
     blockHypospray: true
     blockInjectOnProjectile: true
