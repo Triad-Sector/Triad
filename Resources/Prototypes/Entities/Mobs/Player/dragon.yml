@@ -43,10 +43,6 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
-  - type: RandomSprite
-    available:
-    - enum.DamageStateVisualLayers.Base:
-        alive: Rainbow
   - type: Sprite
     sprite: Mobs/Aliens/Carps/dragon.rsi
     noRot: true
@@ -173,6 +169,19 @@
 
 - type: entity
   parent: BaseMobDragon
+  id: ColoredDragon
+  suffix: ""
+  name: space dragon
+  description: A flying leviathan, loosely related to space carps.
+  abstract: true
+  components:
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+        
+- type: entity
+  parent: ColoredDragon
   id: MobDragon
   # abstract: true # Frontier: use NF variants
   components:
@@ -187,6 +196,97 @@
   # - type: GuideHelp # Frontier: removed from guidebook
   #   guides: # Frontier: removed from guidebook
   #   - MinorAntagonists # Frontier: removed from guidebook
+
+- type: entity
+  parent: BaseMobDragon
+  id: MobHoloDragon
+  # abstract: true # Frontier: use NF variants
+  components:
+  - type: Dragon
+    spawnRiftAction: ActionSpawnRift
+    riftPrototype: HoloCarpRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
+  - type: ActionGun
+    action: ActionDragonsBreath
+    gunProto: DragonsBreathGun
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/holodragon.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive-unshaded
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - Opaque
+  - type: TypingIndicator
+    proto: robot
+
+- type: entity
+  parent: BaseMobDragon
+  id: MobRainbowDragon
+  # abstract: true # Frontier: use NF variants
+  components:
+  - type: Dragon
+    spawnRiftAction: ActionSpawnRift
+    riftPrototype: RainbowCarpRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
+  - type: ActionGun
+    action: ActionDragonsBreath
+    gunProto: DragonsBreathGun
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/dragon.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive-unshaded
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+  - type: RgbLightController
+    layers: [ 0 ]
+
+- type: entity
+  parent: BaseMobDragon
+  id: MobMagicDragon
+  # abstract: true # Frontier: use NF variants
+  components:
+  - type: Dragon
+    spawnRiftAction: ActionSpawnRift
+    riftPrototype: MagiCarpRift
+  - type: GhostRole
+    mindRoles:
+    - MindRoleDragon
+  - type: ActionGun
+    action: ActionDragonsBreath
+    gunProto: DragonsBreathGun
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/magidragon.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: alive-unshaded
+      shader: unshaded
 
 - type: entity
 #  categories: [ HideSpawnMenu ]

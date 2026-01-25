@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Content.Server.Spreader;
+﻿using Content.Server.Spreader;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.CM14.Xenos;
@@ -36,10 +35,7 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
         SubscribeLocalEvent<XenoWeedsComponent, SpreadNeighborsEvent>(OnWeedsSpreadNeighbors);
         SubscribeLocalEvent<XenoWeedsComponent, AnchorStateChangedEvent>(OnWeedsAnchorChanged);
         SubscribeLocalEvent<XenoWeedableComponent, AnchorStateChangedEvent>(OnWeedableAnchorStateChanged);
-        // Server-side guarantee: perform weeds spawn & mark handled.
-        SubscribeLocalEvent<XenoComponent, XenoPlantWeedsEvent>(OnXenoPlantWeedsServer);
         // Server-side guarantee: make sure xenos actually have the Plant Weeds action attached.
-        SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInitServer);
         SubscribeLocalEvent<XenoComponent, ComponentStartup>(OnXenoStartupServer);
 
         // Fallback: Intercept action requests and handle weeds planting even if action wasn't fully registered server-side yet.
@@ -54,10 +50,11 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
 
     private void EnsureWeedsAction(Entity<XenoComponent> ent)
     {
-        if (!ent.Comp.Actions.TryGetValue("ActionXenoPlantWeeds", out var actionEnt))
-        {
-            _actions.AddAction(ent, ref actionEnt, "ActionXenoPlantWeeds");
-        }
+        EntityUid? actionEnt = null;
+        if (ent.Comp.Actions.TryGetValue("ActionXenoPlantWeeds", out var existingAction))
+            actionEnt = existingAction;
+        else
+            actionEnt = _actions.AddAction(ent.Owner, "ActionXenoPlantWeeds");
 
         if (actionEnt != null && TryComp<InstantActionComponent>(actionEnt.Value, out var instant))
         {
@@ -65,7 +62,9 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
             instant.RaiseOnUser = true;
             instant.RaiseOnAction = false;
             Dirty(actionEnt.Value, instant);
-            _actions.SetEnabled(actionEnt, true);
+            _actions.SetEnabled(actionEnt.Value, true);
+
+            ent.Comp.Actions["ActionXenoPlantWeeds"] = actionEnt.Value;
 
             Log.Info($"[XenoWeeds] (server) EnsureWeedsAction attached for {ToPrettyString(ent)} -> {ToPrettyString(actionEnt.Value)}; Enabled={instant.Enabled} RaiseOnUser={instant.RaiseOnUser} RaiseOnAction={instant.RaiseOnAction}");
         }
@@ -100,14 +99,12 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
         Log.Info($"[XenoWeeds] (server) Received XenoPlantWeedsEvent from {ToPrettyString(ent)} at {coordinates} cfgProto={ent.Comp.Weedprototype}");
 
         // Prefer to check grid for duplication, but don’t hard-fail if we’re not on a grid.
-        var hasGrid = coordinates.GetGridUid(EntityManager) is { } gridUid && TryComp(gridUid, out MapGridComponent? grid);
-
         // Prevent duplicate weeds on the same tile by checking anchored entities at the target tile.
-        if (hasGrid)
+        if (_transform.GetGrid(coordinates) is { } gridUid && TryComp(gridUid, out MapGridComponent? grid))
         {
-            var tile = _mapSystem.CoordinatesToTile(gridUid!.Value, grid!, coordinates);
+            var tile = _mapSystem.CoordinatesToTile(gridUid, grid, coordinates);
             _anchored.Clear();
-            _mapSystem.GetAnchoredEntities((gridUid!.Value, grid!), tile, _anchored);
+            _mapSystem.GetAnchoredEntities((gridUid, grid), tile, _anchored);
             foreach (var anchored in _anchored)
             {
                 if (HasComp<XenoWeedsComponent>(anchored))
@@ -148,12 +145,11 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
             var coordinates = _transform.GetMoverCoordinates(performer).SnapToGrid(EntityManager, _map);
             Log.Info("[XenoWeeds] (server) RequestPerformActionEvent fallback for " + ToPrettyString(performer) + " at " + coordinates);
 
-            var hasGrid = coordinates.GetGridUid(EntityManager) is { } gridUid && TryComp(gridUid, out MapGridComponent? grid);
-            if (hasGrid)
+            if (_transform.GetGrid(coordinates) is { } gridUid && TryComp(gridUid, out MapGridComponent? grid))
             {
-                var tile = _mapSystem.CoordinatesToTile(gridUid!.Value, grid!, coordinates);
+                var tile = _mapSystem.CoordinatesToTile(gridUid, grid, coordinates);
                 _anchored.Clear();
-                _mapSystem.GetAnchoredEntities((gridUid!.Value, grid!), tile, _anchored);
+                _mapSystem.GetAnchoredEntities((gridUid, grid), tile, _anchored);
                 foreach (var anchored in _anchored)
                 {
                     if (HasComp<XenoWeedsComponent>(anchored))
@@ -179,7 +175,7 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
 
             var chooseEv = new Content.Shared.CM14.Xenos.Construction.Events.XenoChooseStructureActionEvent();
             Log.Info($"[XenoChooseStructure] (server) Fallback raising choose event on {ToPrettyString(performer)}");
-            RaiseLocalEvent(performer, ref chooseEv);
+            RaiseLocalEvent(performer, chooseEv);
             return;
         }
 
@@ -192,13 +188,13 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
             if (ev.EntityCoordinatesTarget is not { } netCoords)
                 return;
 
-            var coords = Coordinates.FromMap(EntityManager, netCoords);
+            var coords = GetCoordinates(netCoords);
             var secretEv = new Content.Shared.CM14.Xenos.Construction.Events.XenoSecreteStructureEvent
             {
                 Target = coords
             };
             Log.Info($"[XenoBuild] (server) Fallback raising secrete event on {ToPrettyString(performer)} at {coords}");
-            RaiseLocalEvent(performer, ref secretEv);
+            RaiseLocalEvent(performer, secretEv);
             return;
         }
 
@@ -231,12 +227,12 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
         var any = false;
         foreach (var neighbor in args.NeighborFreeTiles)
         {
-            var gridOwner = neighbor.Grid.Owner;
-            var coords = _mapSystem.GridTileToLocal(gridOwner, neighbor.Grid, neighbor.Tile);
+            var gridUid = neighbor.Tile.GridUid;
+            var coords = _mapSystem.GridTileToLocal(gridUid, neighbor.Grid, neighbor.Tile.GridIndices);
 
-            var sourceLocal = _mapSystem.CoordinatesToTile(gridOwner, neighbor.Grid, transform.Coordinates);
-            var diff = Vector2.Abs(neighbor.Tile - sourceLocal);
-            if (diff.X >= ent.Comp.Range || diff.Y >= ent.Comp.Range)
+            var sourceLocal = _mapSystem.CoordinatesToTile(gridUid, neighbor.Grid, transform.Coordinates);
+            var diff = neighbor.Tile.GridIndices - sourceLocal;
+            if (Math.Abs(diff.X) >= ent.Comp.Range || Math.Abs(diff.Y) >= ent.Comp.Range)
                 continue;
 
             var neighborWeeds = Spawn(prototype, coords);
@@ -258,11 +254,11 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
             {
                 var dir = (AtmosDirection)(1 << i);
                 var pos = neighbor.Tile.GridIndices.Offset(dir);
-                if (!_mapSystem.TryGetTileRef(gridOwner, neighbor.Grid, pos, out var adjacent))
+                if (!_mapSystem.TryGetTileRef(gridUid, neighbor.Grid, pos, out var adjacent))
                     continue;
 
                 _anchored.Clear();
-                _mapSystem.GetAnchoredEntities((gridOwner, neighbor.Grid), adjacent.GridIndices, _anchored);
+                _mapSystem.GetAnchoredEntities((gridUid, neighbor.Grid), adjacent.GridIndices, _anchored);
                 foreach (var anchored in _anchored)
                 {
                     if (!TryComp(anchored, out XenoWeedableComponent? weedable) ||

@@ -99,6 +99,9 @@
     children:
     - id: ClosetSkeleton
     - id: DragonSpawn
+    - id: RainbowDragonSpawn
+    - id: MagicDragonSpawn
+    - id: HoloDragonSpawn
     - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
@@ -248,6 +251,93 @@
     spawnDistance: 0
   - type: AntagSpawner # Frontier
     prototype: MobDragon # Frontier
+  - type: DragonRule
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+
+- type: entity
+  parent: BaseGameRule
+  id: RainbowDragonSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 40
+    reoccurrenceDelay: 200
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner # Frontier
+    prototype: MobRainbowDragon # Frontier
+  - type: DragonRule
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+      
+- type: entity
+  parent: BaseGameRule
+  id: MagicDragonSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 40
+    reoccurrenceDelay: 200
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner # Frontier
+    prototype: MobMagicDragon # Frontier
+  - type: DragonRule
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+      
+- type: entity
+  parent: BaseGameRule
+  id: HoloDragonSpawn
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 40
+    reoccurrenceDelay: 200
+    minimumPlayers: 15
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner # Frontier
+    prototype: MobHoloDragon # Frontier
   - type: DragonRule
   - type: AntagObjectives
     objectives:

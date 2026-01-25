@@ -298,6 +298,9 @@ public sealed class XenoSystem : EntitySystem
                 //Log.Debug($"[Xeno] Transferred mind {mindId} to evolution {ToPrettyString(evolution)} from {ToPrettyString(ent)}");
             }
 
+            var evolvedEvent = new XenoEvolvedEvent(ent.Owner, evolution);
+            RaiseLocalEvent(evolution, evolvedEvent);
+
             Del(ent.Owner);
             //Log.Debug($"[Xeno] Deleted original xeno {ToPrettyString(ent)} after evolution");
         }
@@ -326,6 +329,8 @@ public sealed class XenoSystem : EntitySystem
         var evolution = Spawn(ent.Comp.EvolvesTo[args.Choice], _transform.GetMoverCoordinates(ent.Owner));
         _mind.TransferTo(mindId, evolution);
         _mind.UnVisit(mindId);
+        var evolvedEvent = new XenoEvolvedEvent(ent.Owner, evolution);
+        RaiseLocalEvent(evolution, evolvedEvent);
         Del(ent.Owner);
 
         if (TryComp(ent, out ActorComponent? actor))

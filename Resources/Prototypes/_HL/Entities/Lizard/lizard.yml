@@ -552,7 +552,7 @@
     baseWalkSpeed: 4
     baseSprintSpeed: 7
   - type: SegmentedEntity
-    numberOfSegments: 4
+    numberOfSegments: 3
     initialRadius: 0.8
     staticOffset: 1.8
     staticScale: 0.9

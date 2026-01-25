@@ -1,18 +1,27 @@
 - type: entity
-  name: space carp
-  id: BaseMobCarp
+  name: fish
+  id: BaseFish
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: It's a space carp.
   abstract: true
   components:
   - type: InputMover
   - type: MobMover
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-sentient-carp-name
+    description: ghost-role-information-sentient-carp-description
+    rules: ghost-role-information-space-dragon-summoned-carp-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonistFlock
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
-    blackboard:
-      NavSmash: !type:Bool
-        true
+      task: DragonCarpCompound
+  - type: LeashAnchor
   - type: NpcFactionMember
     factions:
     - Dragon
@@ -39,12 +48,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+      15: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3.5
   - type: Stamina
-    critThreshold: 100
+    critThreshold: 50
   - type: DamageStateVisuals
     states:
       Alive:
@@ -68,8 +77,8 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Blunt: 5
-        Slash: 7
+        Blunt: 2
+        Slash: 3.5
   - type: TypingIndicator
     proto: alien
   - type: Tag
@@ -86,8 +95,6 @@
     interactFailureString: petting-failure-carp
     interactFailureSound:
       path: /Audio/Effects/bite.ogg
-  - type: LeashAnchor # Floofstation - sometimes you gotta walk that fish
-    kind: Intrinsic
   - type: Carriable # DeltaV
   - type: Body # Shitmed: Special carp organs
     prototype: Carp
@@ -97,12 +104,128 @@
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: Vore 
+  - type: Xeno
+  - type: XenoAIAutoEvolve
 
 - type: entity
-  parent: BaseMobCarp
+  id: BaseMobCarp
+  parent: BaseFish
+  abstract: true
+
+- type: entity
+  parent: BaseFish
+  id: MobFry # Frontier
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/fry.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 60
+    evolvesTo:
+    - MobCarpDragon
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+      enum.DamageStateVisualLayers.BaseUnshaded:
+        mouth: ""
+
+- type: entity
+  parent: BaseFish
+  id: MobHoloFry # Frontier
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/holofry.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 60
+    evolvesTo:
+    - MobCarpHolo
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - Opaque
+  - type: TypingIndicator
+    proto: robot
+
+- type: entity
+  parent: MobFry
+  id: MobMagicFry # Frontier
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/holofry.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobCarpMagic
+
+- type: entity
+  parent: MobFry
+  id: MobRainbowFry # Frontier
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+  - type: RgbLightController
+    layers: [ 0 ]
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobCarpRainbow
+    
+- type: entity
+  parent: BaseFish
   id: MobCarp
   categories: [ HideSpawnMenu ] # Frontier
   components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 5
+        Slash: 7
+  - type: Stamina
+    critThreshold: 100
   - type: Sprite
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -119,7 +242,7 @@
 
 - type: entity
   name: magicarp
-  parent: BaseMobCarp
+  parent: BaseFish
   id: MobCarpMagic
   description: Looks like some kind of fish. Might be magical.
   categories: [ HideSpawnMenu ] # Frontier
@@ -128,7 +251,31 @@
     sprite: Mobs/Aliens/Carps/magic.rsi
   - type: TypingIndicator
     proto: guardian
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobSharkMagic
 
+- type: entity
+  name: magishark
+  parent: MobShark
+  id: MobSharkMagic
+  description: Looks like some kind of fish. Might be magical.
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/magisharkminnow.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: TypingIndicator
+    proto: guardian
+    
 - type: entity
   name: holocarp
   parent: BaseMobCarp
@@ -152,7 +299,41 @@
         - Opaque
   - type: TypingIndicator
     proto: robot
-
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobSharkHolo
+    
+- type: entity
+  id: MobSharkHolo
+  parent: MobShark
+  suffix: "Salvage Ruleset"
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/holosharkminnow.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - Opaque
+  - type: TypingIndicator
+    proto: robot
+    
 - type: entity
   parent: MobCarp
   id: MobCarpRainbow
@@ -165,7 +346,26 @@
     energy: 0.5
   - type: RgbLightController
     layers: [ 0 ]
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobSharkRainbow
 
+- type: entity
+  parent: MobShark
+  id: MobSharkRainbow
+  name: rainbow carp
+  description: Wow such a shiny fishie!
+  categories: [ HideSpawnMenu ] # Frontier
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 0.5
+  - type: RgbLightController
+    layers: [ 0 ]
+    
 - type: entity
   id: MobCarpSalvage
   parent: MobCarp
@@ -181,25 +381,37 @@
   parent: MobCarp
   categories: [ HideSpawnMenu ] # Frontier
   components:
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-sentient-carp-name
-    description: ghost-role-information-sentient-carp-description
-    rules: ghost-role-information-space-dragon-summoned-carp-rules
-    mindRoles:
-    - MindRoleGhostRoleTeamAntagonistFlock
-    raffle:
-      settings: short
-  - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:
       task: DragonCarpCompound
   - type: LeashAnchor # Floofstation - we can't exactly remove this component coming from the parent, so we disable it
     enabled: false
+  - type: Xeno
+    actionIds:
+    - ActionXenoEvolve
+    evolveIn: 180
+    evolvesTo:
+    - MobSharkDragon
 
-
+- type: entity
+  id: MobSharkDragon
+  parent: MobShark
+  suffix: "Salvage Ruleset"
+  components:
+  - type: Sprite
+    sprite: Mobs/Aliens/Carps/sharkminnow.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+      enum.DamageStateVisualLayers.BaseUnshaded:
+        mouth: ""  
 
 - type: entity
   id: MobCarpDungeon
