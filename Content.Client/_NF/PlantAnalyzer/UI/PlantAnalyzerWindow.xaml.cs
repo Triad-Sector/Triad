@@ -72,6 +72,8 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
         if (msg.IsTray)
             PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-plant", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
+        else if (msg.IsSwab)
+            PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-swab", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
         else
             PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-seed", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
         // Basics
@@ -115,7 +117,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-seedless"));
             }
-            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous)) 
+            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous))
             {
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-ligneous"));

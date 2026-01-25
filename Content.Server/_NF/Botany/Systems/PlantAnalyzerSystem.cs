@@ -37,7 +37,7 @@ public sealed class PlantAnalyzerSystem : EntitySystem
         if (ent.Comp.DoAfter != null)
             return;
 
-        if (HasComp<SeedComponent>(args.Target) || TryComp<PlantHolderComponent>(args.Target, out var plantHolder) && plantHolder.Seed != null)
+        if (HasComp<SeedComponent>(args.Target) || TryComp<PlantHolderComponent>(args.Target, out var plantHolder) && plantHolder.Seed != null || TryComp<BotanySwabComponent>(args.Target, out var swabComp) && swabComp.SeedData != null)
         {
 
             if (ent.Comp.Settings.AdvancedScan)
@@ -116,6 +116,15 @@ public sealed class PlantAnalyzerSystem : EntitySystem
             if (plantComp.Seed != null)
             {
                 var state = ObtainingGeneDataSeed(plantComp.Seed, target, true, ent.Comp.Settings.AdvancedScan);
+                _uiSystem.ServerSendUiMessage(ent.Owner, PlantAnalyzerUiKey.Key, state);
+            }
+        }
+        else if (TryComp<BotanySwabComponent>(target, out var swab))
+        {
+            if (swab.SeedData != null)
+            {
+                var state = ObtainingGeneDataSeed(swab.SeedData, target, false, ent.Comp.Settings.AdvancedScan);
+                state.IsSwab = true;
                 _uiSystem.ServerSendUiMessage(ent.Owner, PlantAnalyzerUiKey.Key, state);
             }
         }

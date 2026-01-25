@@ -10,6 +10,7 @@ public sealed class PlantAnalyzerScannedSeedPlantInformation : BoundUserInterfac
 {
     public NetEntity? TargetEntity;
     public bool IsTray;
+    public bool IsSwab;
 
     public string? SeedName;
     public string[]? SeedChem;
