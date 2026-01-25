@@ -61,6 +61,11 @@
   - type: Machine
     board: MaterialReclaimerMachineCircuitboard
   - type: WiresPanel
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedSolution
+      output: PlumbingOutput
+      solutionName: output
   - type: MaterialReclaimer
     whitelist:
       components:
