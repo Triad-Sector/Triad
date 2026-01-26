@@ -62,7 +62,7 @@
     price: 500
 
 - type: entity
-  name: Forktail
+  name: SpiderTest
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseC3SyndicateContraband]
   id: WeaponSniperBigAMR
   description: A not so portable anti-materiel rifle. Fires excessively large 20x82mm shells.
