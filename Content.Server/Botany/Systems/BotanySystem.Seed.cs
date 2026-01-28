@@ -1,6 +1,7 @@
 using Content.Server.Botany.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Botany;
 using Content.Shared.Examine;
@@ -8,6 +9,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -42,6 +44,8 @@ public sealed partial class BotanySystem : EntitySystem
         SubscribeLocalEvent<SeedComponent, ComponentStartup>(OnSeedStartup);
         SubscribeLocalEvent<ProduceComponent, ComponentStartup>(OnProduceStartup);
         SubscribeLocalEvent<ProduceComponent, SolutionContainerChangedEvent>(OnProduceSolutionChanged);
+        SubscribeLocalEvent<SeedComponent, StackSplitEvent>(OnSeedSplit);
+        SubscribeLocalEvent<ProduceComponent, StackSplitEvent>(OnProduceSplit);
     }
 
     public bool TryGetSeed(SeedComponent comp, [NotNullWhen(true)] out SeedData? seed)
@@ -97,6 +101,46 @@ public sealed partial class BotanySystem : EntitySystem
             args.PushMarkup(Loc.GetString($"seed-component-plant-yield-text", ("seedYield", seed.Yield)));
             args.PushMarkup(Loc.GetString($"seed-component-plant-potency-text", ("seedPotency", seed.Potency)));
         }
+    }
+
+    private void OnSeedSplit(EntityUid uid, SeedComponent component, ref StackSplitEvent args)
+    {
+        if (!TryComp(args.NewId, out SeedComponent? newSeed))
+            return;
+
+        if (component.Seed != null)
+            newSeed.Seed = component.Seed.Immutable ? component.Seed : component.Seed.Clone();
+
+        newSeed.SeedId = component.SeedId;
+        newSeed.HealthOverride = component.HealthOverride;
+        UpdateSeedStackSignature(args.NewId, newSeed);
+        Dirty(args.NewId, newSeed);
+    }
+
+    private void OnProduceSplit(EntityUid uid, ProduceComponent component, ref StackSplitEvent args)
+    {
+        Solution? sourceSolution = null;
+        if (_solutionContainerSystem.TryGetSolution(uid, component.SolutionName, out _, out var foundSolution))
+            sourceSolution = foundSolution;
+
+        if (TryComp(args.NewId, out ProduceComponent? newProduce))
+        {
+            if (component.Seed != null)
+                newProduce.Seed = component.Seed.Immutable ? component.Seed : component.Seed.Clone();
+
+            newProduce.SeedId = component.SeedId;
+            Dirty(args.NewId, newProduce);
+        }
+
+        if (sourceSolution != null
+            && _solutionContainerSystem.TryGetSolution(args.NewId, component.SolutionName, out var targetSoln, out _))
+        {
+            _solutionContainerSystem.RemoveAllSolution(targetSoln.Value);
+            _solutionContainerSystem.TryAddSolution(targetSoln.Value, new Solution(sourceSolution));
+        }
+
+        if (TryComp(args.NewId, out ProduceComponent? updatedProduce))
+            UpdateProduceStackSignature(args.NewId, updatedProduce, sourceSolution);
     }
 
     #region SeedPrototype prototype stuff

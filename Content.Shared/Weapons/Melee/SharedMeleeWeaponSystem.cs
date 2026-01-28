@@ -651,7 +651,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         foreach (var entity in entities)
         {
-            if (entity == user ||
+            if (entity == EntityUid.Invalid || entity == user ||
                 !damageQuery.HasComponent(entity))
                 continue;
 
@@ -733,9 +733,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
-        if (appliedDamage.GetTotal() > FixedPoint2.Zero)
+        if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0 && targets[0] != EntityUid.Invalid && TryComp(targets[0], out TransformComponent? targetXform))
         {
-            DoDamageEffect(targets, user, Transform(targets[0]));
+            DoDamageEffect(targets, user, targetXform);
         }
 
         return true;

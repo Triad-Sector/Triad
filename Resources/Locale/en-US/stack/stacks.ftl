@@ -131,6 +131,7 @@ stack-matter-bin = matter bin
 stack-pancake = pancake
 stack-blueberry-pancake = blueberry pancake
 stack-chocolate-chip-pancake = chocolate chip pancake
+stack-produce-slice = produce slice
 stack-pizza-box = pizza box
 stack-dark-tile = dark tile
 stack-dark-steel-diagonal-mini-tile = dark steel diagonal mini tile

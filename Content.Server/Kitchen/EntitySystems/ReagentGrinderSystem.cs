@@ -1,3 +1,4 @@
+using Content.Server.Botany.Components;
 using Content.Server.Chemistry.Containers.EntitySystems; // Frontier
 using Content.Server.Construction; // Frontier
 using Content.Server.Kitchen.Components;
@@ -12,6 +13,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Kitchen;
 using Content.Shared.Kitchen.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Server.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Random;
 using Content.Shared.Stacks;
@@ -178,7 +181,7 @@ namespace Content.Server.Kitchen.EntitySystems
             var heldEnt = args.Used;
             var inputContainer = _containerSystem.EnsureContainer<Container>(entity.Owner, SharedReagentGrinder.InputContainerId);
 
-            if (!HasComp<ExtractableComponent>(heldEnt))
+            if (!HasComp<ExtractableComponent>(heldEnt) && !HasComp<ProduceComponent>(heldEnt))
             {
                 if (!HasComp<FitsInDispenserComponent>(heldEnt))
                 {
@@ -200,8 +203,23 @@ namespace Content.Server.Kitchen.EntitySystems
             if (inputContainer.ContainedEntities.Count >= entity.Comp.StorageMaxEntities)
                 return;
 
-            if (!_containerSystem.Insert(heldEnt, inputContainer))
-                return;
+            if (TryComp<StackComponent>(heldEnt, out var stack) && stack.Count > 1)
+            {
+                var splitEnt = _stackSystem.Split(heldEnt, 1, Transform(heldEnt).Coordinates, stack);
+                if (splitEnt == null)
+                    return;
+
+                if (!_containerSystem.Insert(splitEnt.Value, inputContainer))
+                {
+                    _stackSystem.TryMergeToHands(splitEnt.Value, args.User);
+                    return;
+                }
+            }
+            else
+            {
+                if (!_containerSystem.Insert(heldEnt, inputContainer))
+                    return;
+            }
 
             args.Handled = true;
         }
@@ -343,21 +361,43 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private Solution? GetGrindSolution(EntityUid uid)
         {
-            if (TryComp<ExtractableComponent>(uid, out var extractable)
-                && extractable.GrindableSolution is not null
-                && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var solution))
-            {
+            if (TryGetGrindSolution(uid, out var solution))
                 return solution;
-            }
-            else
-                return null;
+
+            return null;
         }
 
         private bool CanGrind(EntityUid uid)
         {
-            var solutionName = CompOrNull<ExtractableComponent>(uid)?.GrindableSolution;
+            return TryGetGrindSolution(uid, out _);
+        }
 
-            return solutionName is not null && _solutionContainersSystem.TryGetSolution(uid, solutionName, out _, out _);
+        private bool TryGetGrindSolution(EntityUid uid, out Solution solution)
+        {
+            if (TryComp<ExtractableComponent>(uid, out var extractable)
+                && extractable.GrindableSolution is not null
+                && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var found))
+            {
+                solution = found;
+                return true;
+            }
+
+            if (TryComp<FoodComponent>(uid, out var food)
+                && _solutionContainersSystem.TryGetSolution(uid, food.Solution, out _, out var foodSolution))
+            {
+                solution = foodSolution;
+                return true;
+            }
+
+            if (TryComp<ProduceComponent>(uid, out var produce)
+                && _solutionContainersSystem.TryGetSolution(uid, produce.SolutionName, out _, out var produceSolution))
+            {
+                solution = produceSolution;
+                return true;
+            }
+
+            solution = default!;
+            return false;
         }
 
         private bool CanJuice(EntityUid uid)

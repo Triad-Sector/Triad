@@ -2,6 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Botany.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Botany;
@@ -15,6 +16,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Random;
+using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -53,6 +55,8 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!; // Frontier
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
+
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
@@ -207,7 +211,7 @@ public sealed class PlantHolderSystem : EntitySystem
                 if (TryComp(args.Used, out ExtractedSeedOwnerComponent? ownerComp))
                 {
                     // Compare the player's NetUserId from their ActorComponent with the stored owner
-                    if (!TryComp<ActorComponent>(args.User, out var actor) || ownerComp.Owner != actor.PlayerSession.UserId)
+                    if (!TryComp<Robust.Shared.Player.ActorComponent>(args.User, out var actor) || ownerComp.Owner != actor.PlayerSession.UserId)
                     {
                         _popup.PopupCursor(Loc.GetString("plant-holder-component-seed-not-yours"),
                             args.User, PopupType.MediumCaution);
@@ -250,11 +254,19 @@ public sealed class PlantHolderSystem : EntitySystem
                 }
                 component.LastCycle = _gameTiming.CurTime;
 
-                if (TryComp<PaperLabelComponent>(args.Used, out var paperLabel))
+                if (TryComp<StackComponent>(args.Used, out var stack) && stack.Count > 1)
                 {
-                    _itemSlots.TryEjectToHands(args.Used, paperLabel.LabelSlot, args.User);
+                    _stack.SetCount(args.Used, stack.Count - 1, stack);
                 }
-                QueueDel(args.Used);
+                else
+                {
+                    if (TryComp<PaperLabelComponent>(args.Used, out var paperLabel))
+                    {
+                        _itemSlots.TryEjectToHands(args.Used, paperLabel.LabelSlot, args.User);
+                    }
+
+                    QueueDel(args.Used);
+                }
 
                 CheckLevelSanity(uid, component);
                 UpdateSprite(uid, component);
@@ -279,7 +291,7 @@ public sealed class PlantHolderSystem : EntitySystem
                 _popup.PopupCursor(Loc.GetString("plant-holder-component-remove-weeds-message",
                     ("name", Comp<MetaDataComponent>(uid).EntityName)), args.User, PopupType.Medium);
                 _popup.PopupEntity(Loc.GetString("plant-holder-component-remove-weeds-others-message",
-                    ("otherName", Comp<MetaDataComponent>(args.User).EntityName)), uid, Filter.PvsExcept(args.User), true);
+                    ("otherName", Comp<MetaDataComponent>(args.User).EntityName)), uid, Robust.Shared.Player.Filter.PvsExcept(args.User), true);
                 component.WeedLevel = 0;
                 UpdateSprite(uid, component);
             }
@@ -299,7 +311,7 @@ public sealed class PlantHolderSystem : EntitySystem
                 _popup.PopupCursor(Loc.GetString("plant-holder-component-remove-plant-message",
                     ("name", Comp<MetaDataComponent>(uid).EntityName)), args.User, PopupType.Medium);
                 _popup.PopupEntity(Loc.GetString("plant-holder-component-remove-plant-others-message",
-                    ("name", Comp<MetaDataComponent>(args.User).EntityName)), uid, Filter.PvsExcept(args.User), true);
+                    ("name", Comp<MetaDataComponent>(args.User).EntityName)), uid, Robust.Shared.Player.Filter.PvsExcept(args.User), true);
                 RemovePlant(uid, component);
             }
             else
@@ -392,7 +404,7 @@ public sealed class PlantHolderSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("plant-holder-component-compost-others-message",
                 ("user", Identity.Entity(args.User, EntityManager)),
                 ("usingItem", args.Used),
-                ("owner", uid)), uid, Filter.PvsExcept(args.User), true);
+                ("owner", uid)), uid, Robust.Shared.Player.Filter.PvsExcept(args.User), true);
 
             if (_solutionContainerSystem.TryGetSolution(args.Used, produce.SolutionName, out var soln2, out var solution2))
             {

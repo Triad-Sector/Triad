@@ -105,6 +105,7 @@
         type: SurgeryBui
   - type: Vore 
   - type: Xeno
+    allowPlantWeeds: false
   - type: XenoAIAutoEvolve
 
 - type: entity

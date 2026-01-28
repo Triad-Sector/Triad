@@ -1343,6 +1343,11 @@
   id: ProduceSliceBase
   abstract: true
   components:
+  - type: Stack
+    stackType: ProduceSlice
+    count: 1
+  - type: StackSignature
+  - type: StackSpawnSelf
   - type: SolutionContainerManager
     solutions:
       food:

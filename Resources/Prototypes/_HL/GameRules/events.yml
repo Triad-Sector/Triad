@@ -247,6 +247,10 @@
     reoccurrenceDelay: 200
     minimumPlayers: 15
     duration: null
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner # Frontier
@@ -276,6 +280,10 @@
     reoccurrenceDelay: 200
     minimumPlayers: 15
     duration: null
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner # Frontier
@@ -305,6 +313,10 @@
     reoccurrenceDelay: 200
     minimumPlayers: 15
     duration: null
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner # Frontier
@@ -334,6 +346,10 @@
     reoccurrenceDelay: 200
     minimumPlayers: 15
     duration: null
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner # Frontier
@@ -363,6 +379,10 @@
     earliestStart: 30
     reoccurrenceDelay: 200
     minimumPlayers: 10
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -413,6 +433,8 @@
     earliestStart: 20
     reoccurrenceDelay: 200
     minimumPlayers: 10
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -599,6 +621,8 @@
     weight: 5
     duration: 60
     reoccurrenceDelay: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -621,6 +645,8 @@
     weight: 5
     duration: 60
     reoccurrenceDelay: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -643,6 +669,8 @@
     weight: 5
     duration: 60
     reoccurrenceDelay: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -661,6 +689,10 @@
     weight: 1.5
     duration: 60
     reoccurrenceDelay: 60
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider
@@ -676,6 +708,10 @@
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
     maxOccurrences: 1
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -712,6 +748,8 @@
     reoccurrenceDelay: 200
     requiredJobs:
       HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -753,6 +791,8 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -1598,6 +1638,8 @@
     minimumPlayers: 30
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobArgocyteSlurva
@@ -1658,6 +1700,8 @@
     minimumPlayers: 30
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobCarp
@@ -1687,6 +1731,8 @@
     minimumPlayers: 30
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: MobBearSpace
@@ -1712,6 +1758,9 @@
     minimumPlayers: 40
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
+      Warden: 1
   - type: VentCrittersRule
     entries:
     - id: ReagentSlimeBeer
@@ -1789,6 +1838,10 @@
     minimumPlayers: 30
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: VentCrittersRule
     entries:
     - id: XenoEggSpawner
@@ -1854,6 +1907,10 @@
     minimumPlayers: 30
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
+      SecurityOfficer: 1
+      Warden: 1
   - type: VentCrittersRule
     entries:
     - id: MobRogueSiliconScrap
@@ -1909,6 +1966,8 @@
     minimumPlayers: 10
     weight: 6 # Really weak compared to other critters
     duration: 60
+    requiredJobs:
+      HeadOfSecurity: 1
   - type: VentCrittersRule
     entries:
     - id: BlueRainLizard

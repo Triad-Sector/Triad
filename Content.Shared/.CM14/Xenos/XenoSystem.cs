@@ -57,7 +57,11 @@ public sealed class XenoSystem : EntitySystem
             // - Secrete Structure: ensure it is a world target action raised on user as well.
             if (ent.Comp.Actions.TryGetValue("ActionXenoPlantWeeds", out var weedsAction))
             {
-                if (TryComp<InstantActionComponent>(weedsAction, out var instant))
+                if (!ent.Comp.AllowPlantWeeds)
+                {
+                    _action.SetEnabled(weedsAction, false);
+                }
+                else if (TryComp<InstantActionComponent>(weedsAction, out var instant))
                 {
                     instant.Event ??= new XenoPlantWeedsEvent();
                     instant.RaiseOnUser = true;

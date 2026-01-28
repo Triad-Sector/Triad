@@ -50,6 +50,13 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
 
     private void EnsureWeedsAction(Entity<XenoComponent> ent)
     {
+        if (!ent.Comp.AllowPlantWeeds)
+        {
+            if (ent.Comp.Actions.TryGetValue("ActionXenoPlantWeeds", out var existingWeedsAction))
+                _actions.SetEnabled(existingWeedsAction, false);
+            return;
+        }
+
         EntityUid? actionEnt = null;
         if (ent.Comp.Actions.TryGetValue("ActionXenoPlantWeeds", out var existingAction))
             actionEnt = existingAction;
@@ -140,6 +147,9 @@ public sealed class XenoConstructionServerSystem : SharedXenoConstructionSystem
         {
             // Ensure performer is a xeno and get its weeds proto
             if (!TryComp(performer, out XenoComponent? xeno))
+                return;
+
+            if (!xeno.AllowPlantWeeds)
                 return;
 
             var coordinates = _transform.GetMoverCoordinates(performer).SnapToGrid(EntityManager, _map);

@@ -18,6 +18,14 @@
   spawn: FoodBakedPancakeCc
   maxCount: 9
 
+# Produce slices
+
+- type: stack
+  id: ProduceSlice
+  name: stack-produce-slice
+  spawn: FoodPineappleSlice
+  maxCount: 30
+
 # Food Containers
 
 - type: stack

@@ -76,6 +76,8 @@ public sealed partial class BotanySystem
         var builder = new StringBuilder();
         AppendPrototypeId(builder, uid);
         AppendSolutionSignature(builder, solution);
+        if (TryGetSeed(component, out var seed))
+            builder.Append("seed=").Append(BuildSeedChemicalSignature(uid, seed));
         return builder.ToString();
     }
 

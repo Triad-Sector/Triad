@@ -7,6 +7,7 @@ using Content.Server.Station.Events;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Server._NF.Roles.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -22,6 +23,7 @@ public sealed partial class StationJobsSystem
     [Dependency] private readonly IBanManager _banManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!; // Frontier
+    [Dependency] private readonly JobTrackingSystem _jobTracking = default!; // Frontier
 
     private Dictionary<int, HashSet<string>> _jobsByWeight = default!;
     private List<int> _orderedWeights = default!;
@@ -83,6 +85,11 @@ public sealed partial class StationJobsSystem
             {
                 stationJobs.Add(station, GetJobs(station).ToDictionary(x => x.Key, x => x.Value));
             }
+        }
+
+        if (useRoundStartJobs)
+        {
+            ApplyActiveRoleCountsToRoundStartJobs(stationJobs);
         }
 
 
@@ -268,6 +275,74 @@ public sealed partial class StationJobsSystem
 
         endFunc:
         return assigned;
+    }
+
+    private Dictionary<ProtoId<JobPrototype>, int> GetActiveRoleCounts(IEnumerable<ProtoId<JobPrototype>> jobs)
+    {
+        var counts = new Dictionary<ProtoId<JobPrototype>, int>();
+
+        foreach (var job in jobs.Distinct())
+        {
+            var count = _jobTracking.GetNumberOfActiveRoles(job, includeAfk: true);
+            if (count > 0)
+                counts[job] = count;
+        }
+
+        return counts;
+    }
+
+    private void ApplyActiveRoleCountsToRoundStartJobs(Dictionary<EntityUid, Dictionary<ProtoId<JobPrototype>, int?>> stationJobs)
+    {
+        if (stationJobs.Count == 0)
+            return;
+
+        var jobs = stationJobs.Values.SelectMany(x => x.Keys).ToHashSet();
+        if (jobs.Count == 0)
+            return;
+
+        var activeCounts = GetActiveRoleCounts(jobs);
+        if (activeCounts.Count == 0)
+            return;
+
+        foreach (var (job, count) in activeCounts)
+        {
+            var remaining = count;
+            foreach (var station in stationJobs.Keys)
+            {
+                if (remaining <= 0)
+                    break;
+
+                if (!stationJobs[station].TryGetValue(job, out var slots))
+                    continue;
+
+                if (slots is null || slots <= 0)
+                    continue;
+
+                var remove = Math.Min(slots.Value, remaining);
+                stationJobs[station][job] = slots.Value - remove;
+                remaining -= remove;
+            }
+        }
+    }
+
+    private void ApplyActiveRoleCountsToJobList(StationJobsComponent stationJobs)
+    {
+        if (stationJobs.JobList.Count == 0)
+            return;
+
+        var activeCounts = GetActiveRoleCounts(stationJobs.JobList.Keys);
+        if (activeCounts.Count == 0)
+            return;
+
+        foreach (var (job, count) in activeCounts)
+        {
+            if (!stationJobs.JobList.TryGetValue(job, out var slots) || slots is null)
+                continue;
+
+            stationJobs.JobList[job] = Math.Max(slots.Value - count, 0);
+        }
+
+        stationJobs.TotalJobs = stationJobs.JobList.Values.Select(x => x ?? 0).Sum();
     }
 
     /// <summary>
