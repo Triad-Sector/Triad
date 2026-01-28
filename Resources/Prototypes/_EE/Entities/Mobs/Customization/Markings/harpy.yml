@@ -87,6 +87,23 @@
       state: whitescale_harpy_folded
 
 - type: marking
+  id: HarpyWingFoldedWhitescale2
+  bodyPart: RArmExtension # Frontier: RArm<RArmExtension
+  markingCategory: Arms
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
+      state: whitescale_harpy_folded2
+
+- type: marking
   id: HarpyWingOwlHuescale
   bodyPart: RArmExtension # Frontier: RArm<RArmExtension
   markingCategory: Arms

@@ -10,6 +10,9 @@ marking-HarpyWingFoldedHuescale-huescale_harpy_folded = Wings
 marking-HarpyWingFoldedWhitescale = Folded Wings (Whitescale)
 marking-HarpyWingFoldedWhitescale-whitescale_harpy_folded = Wings
 
+marking-HarpyWingFoldedWhitescale2 = Folded Wings 2 (Whitescale)
+marking-HarpyWingFoldedWhitescale2-whitescale_harpy_folded = Wings
+
 marking-HarpyWingOwlHuescale = Owl Wings (Huescale)
 marking-HarpyWingOwlHuescale-huescale_harpy_wing_owl = Wings
 
