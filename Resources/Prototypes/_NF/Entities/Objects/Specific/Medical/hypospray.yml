@@ -439,3 +439,40 @@
       - ReagentId: Inaprovaline
         Quantity: 5
     duration: 7.5
+
+- type: entity
+  name: avali auto-injector
+  parent: NFChemicalMedipen
+  id: AvaliAutoInjector
+  description: A rapid dose of stabilizing chemical agents designed to save Avali lives. Contains amoxla and tranexamic acid.
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#9cbf1f"
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#9cbf1f"
+      - state: base-colorB-inhand-right
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: avalipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    emptySpriteName: avalipen_empty
+  - type: Hypospray
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Amoxla
+          Quantity: 15
+        - ReagentId: TranexamicAcid
+          Quantity: 5
