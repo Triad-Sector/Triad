@@ -60,6 +60,7 @@ public partial record struct SolutionAccessAttemptEvent(string SolutionName)
 [UsedImplicitly]
 public abstract partial class SharedSolutionContainerSystem : EntitySystem
 {
+    private static readonly ProtoId<MixingCategoryPrototype> ElectrolysisCategory = "Electrolysis"; // HardLight
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly ChemicalReactionSystem ChemicalReactionSystem = default!;
     [Dependency] protected readonly ExamineSystemShared ExamineSystem = default!;
@@ -307,7 +308,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var solution = comp.Solution;
 
         // Process reactions
-        if (needsReactionsProcessing && solution.CanReact)
+        var canProcessReactions = solution.CanReact || mixerComponent?.ReactionTypes.Contains(ElectrolysisCategory) == true; // HardLight: Electrolysis can always process reactions
+        if (needsReactionsProcessing && canProcessReactions) // HardLight: solution.CanReact<canProcessReactions
             ChemicalReactionSystem.FullyReactSolution(soln, mixerComponent);
 
         var overflow = solution.Volume - solution.MaxVolume;
