@@ -10,7 +10,7 @@ min_overall_minutes = 240
 disable_with_admins = true
 enable_without_admins = true
 show_reason = true
-custom_reason = "You have not played on a Triad servers long enough to connect to this server. Please play on HardLight servers until you have more playtime."
+custom_reason = "You have not played on Triad long enough to connect to this server. Please play on Triad until you have more playtime."
 
 [infolinks]
 discord    = "https://discord.gg/q6dqdPcMnv"
