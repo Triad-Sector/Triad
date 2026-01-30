@@ -1,6 +1,6 @@
 ﻿[head=3][color=#ff0000]WARNING: You must be 18 or older to play. Users under 18 will be banned immediately.[/head][/color]
 
-[color=#99ff99]Hard Light is an english speaking 18+ medium roleplay server[/color]
+[color=#99ff99]Triad is an english speaking 18+ medium roleplay server[/color]
 
 [color=#a4885c][head=3]0. Implimentation and interpretation of the rules is up to the sole discretion of the Admins.[/head][/color]
 
@@ -8,7 +8,7 @@
 
 [color=#ffff00]If you have any questions about these rules, please use the Admin help menu by hitting F1 in-game, or clicking the "AHelp" button in the lobby, or alternatively, ask for assistance on the discord.[/color]
 
-[head=3][color=#ff0000]rules marked in Hardlight's [color=#00fffb]color[/color] will be enforced at all times. Other rules will only be enforced upon recieving a user report.[/head][/color]
+[head=3][color=#ff0000]rules marked in Triad's [color=#00fffb]color[/color] will be enforced at all times. Other rules will only be enforced upon recieving a user report.[/head][/color]
   # Core Rules
   These rules apply at all times, including between rounds.
 
