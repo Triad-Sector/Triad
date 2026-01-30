@@ -4,10 +4,12 @@
   description: trait-synth-desc
   category: Physical
   cost: 4
+  speciesBlacklist: # HardLight
+  - IPC
+  - Synth
   # Begin DeltaV Additions - blacklist IPCs
   blacklist:
     components:
-      - Silicon
       - BorgChassis
   # End DeltaV Additions - blacklist IPCs
   components:

@@ -21,6 +21,7 @@
         color: "#8afffd"
   - type: ZombieImmune
   - type: Sanitized
+  - type: Uncloneable
   - type: Puller
     needsHands: false
   - type: HumanoidAppearance
@@ -108,7 +109,6 @@
   - type: Bloodstream
     bloodReagent: InertNanites
     bloodRefreshAmount: 0.0
-    updateInterval: 1
   - type: HLBloodLevelPassiveDamage
     allowedStates:
     - Alive
