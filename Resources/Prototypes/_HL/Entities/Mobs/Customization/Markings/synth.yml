@@ -67,7 +67,7 @@
   id: SynthAntennaCurl
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_curl
@@ -75,7 +75,7 @@
   id: SynthAntennaSharp
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_sharp
@@ -83,7 +83,7 @@
   id: SynthAntennaShort
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_short
@@ -91,7 +91,7 @@
   id: SynthAntennaSlash
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_slash
@@ -99,7 +99,7 @@
   id: SynthAntennaThick
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_thick
@@ -107,7 +107,7 @@
   id: SynthAntennaTwin
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_twin
@@ -115,7 +115,7 @@
   id: SynthAntennaSoftCurl
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [ Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/antennae.rsi
     state: synth_antenna_soft_curl
@@ -165,7 +165,7 @@
   id: SynthWings
   bodyPart: Tail
   markingCategory: Chest
-  speciesRestriction: [ Synth ]
+  speciesRestriction: [Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/wings.rsi
     state: wings_synth
