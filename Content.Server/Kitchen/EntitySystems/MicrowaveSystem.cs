@@ -436,7 +436,27 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             args.Handled = true;
-            _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+
+            // Handle stacks: split them before inserting so each item is separate for recipes
+            if (TryComp<StackComponent>(args.Used, out var stack) && stack.Count > 1)
+            {
+                var splitEnt = _stack.Split(args.Used, 1, Transform(args.Used).Coordinates, stack);
+                if (splitEnt == null)
+                    return;
+
+                if (!_container.Insert(splitEnt.Value, ent.Comp.Storage))
+                {
+                    // If insertion failed, try to merge back to user's hands
+                    _stack.TryMergeToHands(splitEnt.Value, args.User);
+                    return;
+                }
+            }
+            else
+            {
+                // Non-stack item or single item stack - use normal insertion
+                _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+            }
+
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 
@@ -654,10 +674,10 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void StopCooking(Entity<MicrowaveComponent> ent)
         {
-            RemCompDeferred<ActiveMicrowaveComponent>(ent);
+            RemComp<ActiveMicrowaveComponent>(ent);
             foreach (var solid in ent.Comp.Storage.ContainedEntities)
             {
-                RemCompDeferred<ActivelyMicrowavedComponent>(solid);
+                RemComp<ActivelyMicrowavedComponent>(solid);
             }
         }
 
@@ -746,11 +766,15 @@ namespace Content.Server.Kitchen.EntitySystems
                     }
                 }
 
+                // Stop cooking first to clean up ActiveMicrowaveComponent and ActivelyMicrowavedComponent
+                StopCooking((uid, microwave));
+                
+                // Now empty the container - all items should eject properly
                 _container.EmptyContainer(microwave.Storage);
+                
                 microwave.CurrentCookTimeEnd = TimeSpan.Zero;
                 UpdateUserInterfaceState(uid, microwave);
                 _audio.PlayPvs(microwave.FoodDoneSound, uid);
-                StopCooking((uid, microwave));
             }
         }
 
