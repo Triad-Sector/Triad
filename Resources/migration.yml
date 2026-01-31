@@ -74,7 +74,7 @@ MountainRock: AsteroidRock
 MountainRockMining: AsteroidRockMining
 
 # 2023-08-08
-WindowTintedDirectional: WindowFrostedDirectional
+# WindowTintedDirectional: WindowFrostedDirectional --Added by Suraru
 
 # 2023-08-10
 SyringeSpaceacillin: null
