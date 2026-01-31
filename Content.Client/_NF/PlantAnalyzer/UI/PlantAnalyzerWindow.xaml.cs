@@ -40,11 +40,11 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         var target = _entityManager.GetEntity(msg.TargetEntity);
         Title = Loc.GetString("plant-analyzer-interface-title");
 
-        if (target == null)
-        {
-            NoData.Visible = true;
-            return;
-        }
+        // The net-entity for the scanned target may not be known on the client
+        // the very first frame the UI opens. Populate the UI regardless of
+        // whether we can resolve the entity; fall back to showing data from
+        // the message itself. Only hide the data if the message contains no
+        // useful information.
         NoData.Visible = false;
 
         if (msg.AdvancedInfo is not null)

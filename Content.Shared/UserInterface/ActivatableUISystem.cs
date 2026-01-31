@@ -277,13 +277,13 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void OnHandDeselected(Entity<ActivatableUIComponent> ent, ref HandDeselectedEvent args)
     {
-        if (ent.Comp.InHandsOnly && ent.Comp.RequireActiveHand)
+        if (ent.Comp.InHandsOnly && ent.Comp.RequireActiveHand && !ent.Comp.KeepOpenWhenUnequipped)
             CloseAll(ent, ent);
     }
 
     private void OnHandUnequipped(Entity<ActivatableUIComponent> ent, ref GotUnequippedHandEvent args)
     {
-        if (ent.Comp.InHandsOnly)
+        if (ent.Comp.InHandsOnly && !ent.Comp.KeepOpenWhenUnequipped)
             CloseAll(ent, ent);
     }
 }

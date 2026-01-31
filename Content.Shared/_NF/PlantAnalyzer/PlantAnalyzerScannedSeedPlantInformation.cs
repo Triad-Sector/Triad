@@ -92,3 +92,42 @@ public sealed class PlantAnalyzerSetMode : BoundUserInterfaceMessage
         AdvancedScan = advancedScan;
     }
 }
+
+/// <summary>
+/// Client -> Server: request the analyzer resend its UI state (used for periodic refreshes).
+/// The server will resend the last-scanned target's state for the analyzer.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PlantAnalyzerRequestRefresh : BoundUserInterfaceMessage
+{
+}
+/// <summary>
+/// Persistent UI state for the Plant Analyzer. This mirrors the scanned message
+/// but is a BoundUserInterfaceState so it can be set via SetUiState.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PlantAnalyzerUserInterfaceState : BoundUserInterfaceState
+{
+    public NetEntity? TargetEntity;
+    public bool IsTray;
+    public bool IsSwab;
+
+    public string? SeedName;
+    public string[]? SeedChem;
+    public AnalyzerHarvestType HarvestType;
+    public GasFlags ExudeGases;
+    public GasFlags ConsumeGases;
+    public float Endurance;
+    public int SeedYield;
+    public float Lifespan;
+    public float Maturation;
+    public float Production;
+    public int GrowthStages;
+    public float SeedPotency;
+    public string[]? Speciation; // Currently only available on server, we need to send strings to the client.
+    public AdvancedScanInfo? AdvancedInfo;
+
+    public PlantAnalyzerUserInterfaceState()
+    {
+    }
+}
