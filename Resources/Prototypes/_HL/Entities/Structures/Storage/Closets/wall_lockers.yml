@@ -21,7 +21,7 @@
     stateDoorOpen: bluespace_open
     stateDoorClosed: icon
   - type: StaticPrice
-    price: 500000
+    price: 25000
   - type: CargoSellBlacklist
   - type: Storage
     maxItemSize: Huge
