@@ -5,6 +5,12 @@
   id: BaseMobShadekin
   abstract: true
   components:
+    - type: Carriable
+    - type: Hunger
+    - type: Thirst
+    - type: LayingDown
+    - type: Genetics # Funkystation - Genetics
+      mutationSlots: 4
     - type: Shadekin
     - type: HumanoidAppearance
       species: Shadekin
@@ -29,7 +35,7 @@
       damage:
         types:
           Slash: 5
-    - type: FlashImmunity
+    #- type: FlashImmunity
     - type: Damageable
       damageContainer: Biological
       damageModifierSet: Shadekin
