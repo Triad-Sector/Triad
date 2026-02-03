@@ -38,6 +38,8 @@
         maxVol: 200
   - type: DrainableSolution
     solution: test
+  - type: RefillableSolution
+    solution: test
   - type: Vacbed
   - type: Damageable
     damageContainer: Inorganic
