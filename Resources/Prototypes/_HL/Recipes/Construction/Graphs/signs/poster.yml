@@ -1,596 +1,596 @@
 - type: constructionGraph
   id: Poster
   start: start
-  graph: &posterGraph
+  graph:
     - node: start
       actions:
         - !type:DestroyEntity {}
       edges:
         # Contraband Posters
-        - to: posterContrabandFreeTonto
+        - to: PosterContrabandFreeTonto
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandAtmosiaDeclarationIndependence
+        - to: PosterContrabandAtmosiaDeclarationIndependence
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandFunPolice
+        - to: PosterContrabandFunPolice
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandLustyExomorph
+        - to: PosterContrabandLustyExomorph
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSyndicateRecruitment
+        - to: PosterContrabandSyndicateRecruitment
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandClown
+        - to: PosterContrabandClown
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSmoke
+        - to: PosterContrabandSmoke
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandGreyTide
+        - to: PosterContrabandGreyTide
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandMissingGloves
+        - to: PosterContrabandMissingGloves
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandHackingGuide
+        - to: PosterContrabandHackingGuide
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRIPBadger
+        - to: PosterContrabandRIPBadger
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandAmbrosiaVulgaris
+        - to: PosterContrabandAmbrosiaVulgaris
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandDonutCorp
+        - to: PosterContrabandDonutCorp
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandEAT
+        - to: PosterContrabandEAT
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandTools
+        - to: PosterContrabandTools
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandPower
+        - to: PosterContrabandPower
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSpaceCube
+        - to: PosterContrabandSpaceCube
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandCommunistState
+        - to: PosterContrabandCommunistState
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandLamarr
+        - to: PosterContrabandLamarr
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandBorgFancy
+        - to: PosterContrabandBorgFancy
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandBorgFancyv2
+        - to: PosterContrabandBorgFancyv2
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandKosmicheskayaStantsiya
+        - to: PosterContrabandKosmicheskayaStantsiya
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRebelsUnite
+        - to: PosterContrabandRebelsUnite
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandC20r
+        - to: PosterContrabandC20r
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandHaveaPuff
+        - to: PosterContrabandHaveaPuff
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRevolver
+        - to: PosterContrabandRevolver
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandDDayPromo
+        - to: PosterContrabandDDayPromo
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSyndicatePistol
+        - to: PosterContrabandSyndicatePistol
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandEnergySwords
+        - to: PosterContrabandEnergySwords
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRedRum
+        - to: PosterContrabandRedRum
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandCC64KAd
+        - to: PosterContrabandCC64KAd
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandPunchShit
+        - to: PosterContrabandPunchShit
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandTheGriffin
+        - to: PosterContrabandTheGriffin
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandFreeDrone
+        - to: PosterContrabandFreeDrone
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandBustyBackdoorExoBabes6
+        - to: PosterContrabandBustyBackdoorExoBabes6
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRobustSoftdrinks
+        - to: PosterContrabandRobustSoftdrinks
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandShamblersJuice
+        - to: PosterContrabandShamblersJuice
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandPwrGame
+        - to: PosterContrabandPwrGame
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSunkist
+        - to: PosterContrabandSunkist
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSpaceCola
+        - to: PosterContrabandSpaceCola
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandSpaceUp
+        - to: PosterContrabandSpaceUp
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandKudzu
+        - to: PosterContrabandKudzu
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandMaskedMen
+        - to: PosterContrabandMaskedMen
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandUnreadableAnnouncement
+        - to: PosterContrabandUnreadableAnnouncement
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandFreeSyndicateEncryptionKey
+        - to: PosterContrabandFreeSyndicateEncryptionKey
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandBountyHunters
+        - to: PosterContrabandBountyHunters
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandTheBigGasTruth
+        - to: PosterContrabandTheBigGasTruth
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandWehWatches
+        - to: PosterContrabandWehWatches
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandVoteWeh
+        - to: PosterContrabandVoteWeh
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandBeachStarYamamoto
+        - to: PosterContrabandBeachStarYamamoto
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandHighEffectEngineering
+        - to: PosterContrabandHighEffectEngineering
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandNuclearDeviceInformational
+        - to: PosterContrabandNuclearDeviceInformational
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRise
+        - to: PosterContrabandRise
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandRevolt
+        - to: PosterContrabandRevolt
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandMoth
+        - to: PosterContrabandMoth
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandCybersun600
+        - to: PosterContrabandCybersun600
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandDonk
+        - to: PosterContrabandDonk
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandEnlistGorlex
+        - to: PosterContrabandEnlistGorlex
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandInterdyne
+        - to: PosterContrabandInterdyne
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandWaffleCorp
+        - to: PosterContrabandWaffleCorp
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterContrabandMissingSpacepen
+        - to: PosterContrabandMissingSpacepen
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
         # Legit Posters
-        - to: posterLegitHereForYourSafety
+        - to: PosterLegitHereForYourSafety
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitNanotrasenLogo
+        - to: PosterLegitNanotrasenLogo
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitCleanliness
+        - to: PosterLegitCleanliness
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitHelpOthers
+        - to: PosterLegitHelpOthers
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitBuild
+        - to: PosterLegitBuild
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitBlessThisSpess
+        - to: PosterLegitBlessThisSpess
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitScience
+        - to: PosterLegitScience
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitIan
+        - to: PosterLegitIan
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitObey
+        - to: PosterLegitObey
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitWalk
+        - to: PosterLegitWalk
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitStateLaws
+        - to: PosterLegitStateLaws
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitLoveIan
+        - to: PosterLegitLoveIan
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSpaceCops
+        - to: PosterLegitSpaceCops
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitUeNo
+        - to: PosterLegitUeNo
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitGetYourLEGS
+        - to: PosterLegitGetYourLEGS
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitDoNotQuestion
+        - to: PosterLegitDoNotQuestion
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitWorkForAFuture
+        - to: PosterLegitWorkForAFuture
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSoftCapPopArt
+        - to: PosterLegitSoftCapPopArt
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyInternals
+        - to: PosterLegitSafetyInternals
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyEyeProtection
+        - to: PosterLegitSafetyEyeProtection
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyReport
+        - to: PosterLegitSafetyReport
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitReportCrimes
+        - to: PosterLegitReportCrimes
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitIonRifle
+        - to: PosterLegitIonRifle
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitFoamForceAd
+        - to: PosterLegitFoamForceAd
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitCohibaRobustoAd
+        - to: PosterLegitCohibaRobustoAd
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegit50thAnniversaryVintageReprint
+        - to: PosterLegit50thAnniversaryVintageReprint
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitFruitBowl
+        - to: PosterLegitFruitBowl
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitPDAAd
+        - to: PosterLegitPDAAd
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitEnlist
+        - to: PosterLegitEnlist
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitNanomichiAd
+        - to: PosterLegitNanomichiAd
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegit12_gauge
+        - to: PosterLegit12_gauge
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitHighClassMartini
+        - to: PosterLegitHighClassMartini
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitTheOwl
+        - to: PosterLegitTheOwl
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitNoERP
+        - to: PosterLegitNoERP
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitCarbonDioxide
+        - to: PosterLegitCarbonDioxide
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitDickGumshue
+        - to: PosterLegitDickGumshue
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitThereIsNoGasGiant
+        - to: PosterLegitThereIsNoGasGiant
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitJustAWeekAway
+        - to: PosterLegitJustAWeekAway
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSecWatch
+        - to: PosterLegitSecWatch
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitAnatomyPoster
+        - to: PosterLegitAnatomyPoster
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitMime
+        - to: PosterLegitMime
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitCarpMount
+        - to: PosterLegitCarpMount
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothDelam
+        - to: PosterLegitSafetyMothDelam
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothEpi
+        - to: PosterLegitSafetyMothEpi
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothPiping
+        - to: PosterLegitSafetyMothPiping
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothMeth
+        - to: PosterLegitSafetyMothMeth
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothHardhat
+        - to: PosterLegitSafetyMothHardhat
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitVacation
+        - to: PosterLegitVacation
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitPeriodicTable
+        - to: PosterLegitPeriodicTable
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitRenault
+        - to: PosterLegitRenault
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitNTTGC
+        - to: PosterLegitNTTGC
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitSafetyMothSSD
+        - to: PosterLegitSafetyMothSSD
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitOppenhopper
+        - to: PosterLegitOppenhopper
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitTyrone
+        - to: PosterLegitTyrone
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
-        - to: posterLegitHelio
+        - to: PosterLegitHelio
           steps:
             - material: Paper
               amount: 1
               doAfter: 1
 
     # Contraband Poster Nodes
-    - node: posterContrabandFreeTonto
+    - node: PosterContrabandFreeTonto
       entity: PosterContrabandFreeTonto
       edges:
         - to: start
@@ -601,8 +601,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandAtmosiaDeclarationIndependence
+    - node: PosterContrabandAtmosiaDeclarationIndependence
       entity: PosterContrabandAtmosiaDeclarationIndependence
       edges:
         - to: start
@@ -613,8 +612,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandFunPolice
+    - node: PosterContrabandFunPolice
       entity: PosterContrabandFunPolice
       edges:
         - to: start
@@ -625,8 +623,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandLustyExomorph
+    - node: PosterContrabandLustyExomorph
       entity: PosterContrabandLustyExomorph
       edges:
         - to: start
@@ -637,8 +634,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSyndicateRecruitment
+    - node: PosterContrabandSyndicateRecruitment
       entity: PosterContrabandSyndicateRecruitment
       edges:
         - to: start
@@ -649,8 +645,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandClown
+    - node: PosterContrabandClown
       entity: PosterContrabandClown
       edges:
         - to: start
@@ -661,8 +656,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSmoke
+    - node: PosterContrabandSmoke
       entity: PosterContrabandSmoke
       edges:
         - to: start
@@ -673,8 +667,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandGreyTide
+    - node: PosterContrabandGreyTide
       entity: PosterContrabandGreyTide
       edges:
         - to: start
@@ -685,8 +678,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandMissingGloves
+    - node: PosterContrabandMissingGloves
       entity: PosterContrabandMissingGloves
       edges:
         - to: start
@@ -697,8 +689,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandHackingGuide
+    - node: PosterContrabandHackingGuide
       entity: PosterContrabandHackingGuide
       edges:
         - to: start
@@ -709,8 +700,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRIPBadger
+    - node: PosterContrabandRIPBadger
       entity: PosterContrabandRIPBadger
       edges:
         - to: start
@@ -721,8 +711,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandAmbrosiaVulgaris
+    - node: PosterContrabandAmbrosiaVulgaris
       entity: PosterContrabandAmbrosiaVulgaris
       edges:
         - to: start
@@ -733,8 +722,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandDonutCorp
+    - node: PosterContrabandDonutCorp
       entity: PosterContrabandDonutCorp
       edges:
         - to: start
@@ -745,8 +733,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandEAT
+    - node: PosterContrabandEAT
       entity: PosterContrabandEAT
       edges:
         - to: start
@@ -757,8 +744,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandTools
+    - node: PosterContrabandTools
       entity: PosterContrabandTools
       edges:
         - to: start
@@ -769,8 +755,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandPower
+    - node: PosterContrabandPower
       entity: PosterContrabandPower
       edges:
         - to: start
@@ -781,8 +766,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSpaceCube
+    - node: PosterContrabandSpaceCube
       entity: PosterContrabandSpaceCube
       edges:
         - to: start
@@ -793,8 +777,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandCommunistState
+    - node: PosterContrabandCommunistState
       entity: PosterContrabandCommunistState
       edges:
         - to: start
@@ -805,8 +788,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandLamarr
+    - node: PosterContrabandLamarr
       entity: PosterContrabandLamarr
       edges:
         - to: start
@@ -817,8 +799,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandBorgFancy
+    - node: PosterContrabandBorgFancy
       entity: PosterContrabandBorgFancy
       edges:
         - to: start
@@ -829,8 +810,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandBorgFancyv2
+    - node: PosterContrabandBorgFancyv2
       entity: PosterContrabandBorgFancyv2
       edges:
         - to: start
@@ -841,8 +821,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandKosmicheskayaStantsiya
+    - node: PosterContrabandKosmicheskayaStantsiya
       entity: PosterContrabandKosmicheskayaStantsiya
       edges:
         - to: start
@@ -853,8 +832,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRebelsUnite
+    - node: PosterContrabandRebelsUnite
       entity: PosterContrabandRebelsUnite
       edges:
         - to: start
@@ -865,8 +843,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandC20r
+    - node: PosterContrabandC20r
       entity: PosterContrabandC20r
       edges:
         - to: start
@@ -877,8 +854,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandHaveaPuff
+    - node: PosterContrabandHaveaPuff
       entity: PosterContrabandHaveaPuff
       edges:
         - to: start
@@ -889,8 +865,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRevolver
+    - node: PosterContrabandRevolver
       entity: PosterContrabandRevolver
       edges:
         - to: start
@@ -901,8 +876,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandDDayPromo
+    - node: PosterContrabandDDayPromo
       entity: PosterContrabandDDayPromo
       edges:
         - to: start
@@ -913,8 +887,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSyndicatePistol
+    - node: PosterContrabandSyndicatePistol
       entity: PosterContrabandSyndicatePistol
       edges:
         - to: start
@@ -925,8 +898,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandEnergySwords
+    - node: PosterContrabandEnergySwords
       entity: PosterContrabandEnergySwords
       edges:
         - to: start
@@ -937,8 +909,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRedRum
+    - node: PosterContrabandRedRum
       entity: PosterContrabandRedRum
       edges:
         - to: start
@@ -949,8 +920,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandCC64KAd
+    - node: PosterContrabandCC64KAd
       entity: PosterContrabandCC64KAd
       edges:
         - to: start
@@ -961,8 +931,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandPunchShit
+    - node: PosterContrabandPunchShit
       entity: PosterContrabandPunchShit
       edges:
         - to: start
@@ -973,8 +942,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandTheGriffin
+    - node: PosterContrabandTheGriffin
       entity: PosterContrabandTheGriffin
       edges:
         - to: start
@@ -985,8 +953,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandFreeDrone
+    - node: PosterContrabandFreeDrone
       entity: PosterContrabandFreeDrone
       edges:
         - to: start
@@ -997,8 +964,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandBustyBackdoorExoBabes6
+    - node: PosterContrabandBustyBackdoorExoBabes6
       entity: PosterContrabandBustyBackdoorExoBabes6
       edges:
         - to: start
@@ -1009,8 +975,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRobustSoftdrinks
+    - node: PosterContrabandRobustSoftdrinks
       entity: PosterContrabandRobustSoftdrinks
       edges:
         - to: start
@@ -1021,8 +986,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandShamblersJuice
+    - node: PosterContrabandShamblersJuice
       entity: PosterContrabandShamblersJuice
       edges:
         - to: start
@@ -1033,8 +997,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandPwrGame
+    - node: PosterContrabandPwrGame
       entity: PosterContrabandPwrGame
       edges:
         - to: start
@@ -1045,8 +1008,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSunkist
+    - node: PosterContrabandSunkist
       entity: PosterContrabandSunkist
       edges:
         - to: start
@@ -1057,7 +1019,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-    - node: posterContrabandSpaceCola
+    - node: PosterContrabandSpaceCola
       entity: PosterContrabandSpaceCola
       edges:
         - to: start
@@ -1068,8 +1030,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandSpaceUp
+    - node: PosterContrabandSpaceUp
       entity: PosterContrabandSpaceUp
       edges:
         - to: start
@@ -1080,8 +1041,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandKudzu
+    - node: PosterContrabandKudzu
       entity: PosterContrabandKudzu
       edges:
         - to: start
@@ -1092,8 +1052,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandMaskedMen
+    - node: PosterContrabandMaskedMen
       entity: PosterContrabandMaskedMen
       edges:
         - to: start
@@ -1104,8 +1063,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandUnreadableAnnouncement
+    - node: PosterContrabandUnreadableAnnouncement
       entity: PosterContrabandUnreadableAnnouncement
       edges:
         - to: start
@@ -1116,8 +1074,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandFreeSyndicateEncryptionKey
+    - node: PosterContrabandFreeSyndicateEncryptionKey
       entity: PosterContrabandFreeSyndicateEncryptionKey
       edges:
         - to: start
@@ -1128,8 +1085,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandBountyHunters
+    - node: PosterContrabandBountyHunters
       entity: PosterContrabandBountyHunters
       edges:
         - to: start
@@ -1140,8 +1096,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandTheBigGasTruth
+    - node: PosterContrabandTheBigGasTruth
       entity: PosterContrabandTheBigGasTruth
       edges:
         - to: start
@@ -1152,8 +1107,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandWehWatches
+    - node: PosterContrabandWehWatches
       entity: PosterContrabandWehWatches
       edges:
         - to: start
@@ -1164,8 +1118,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandVoteWeh
+    - node: PosterContrabandVoteWeh
       entity: PosterContrabandVoteWeh
       edges:
         - to: start
@@ -1176,8 +1129,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandBeachStarYamamoto
+    - node: PosterContrabandBeachStarYamamoto
       entity: PosterContrabandBeachStarYamamoto
       edges:
         - to: start
@@ -1188,8 +1140,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandHighEffectEngineering
+    - node: PosterContrabandHighEffectEngineering
       entity: PosterContrabandHighEffectEngineering
       edges:
         - to: start
@@ -1200,8 +1151,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandNuclearDeviceInformational
+    - node: PosterContrabandNuclearDeviceInformational
       entity: PosterContrabandNuclearDeviceInformational
       edges:
         - to: start
@@ -1212,8 +1162,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRise
+    - node: PosterContrabandRise
       entity: PosterContrabandRise
       edges:
         - to: start
@@ -1224,8 +1173,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandRevolt
+    - node: PosterContrabandRevolt
       entity: PosterContrabandRevolt
       edges:
         - to: start
@@ -1236,8 +1184,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandMoth
+    - node: PosterContrabandMoth
       entity: PosterContrabandMoth
       edges:
         - to: start
@@ -1248,8 +1195,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandCybersun600
+    - node: PosterContrabandCybersun600
       entity: PosterContrabandCybersun600
       edges:
         - to: start
@@ -1260,8 +1206,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandDonk
+    - node: PosterContrabandDonk
       entity: PosterContrabandDonk
       edges:
         - to: start
@@ -1272,8 +1217,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandEnlistGorlex
+    - node: PosterContrabandEnlistGorlex
       entity: PosterContrabandEnlistGorlex
       edges:
         - to: start
@@ -1284,8 +1228,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandInterdyne
+    - node: PosterContrabandInterdyne
       entity: PosterContrabandInterdyne
       edges:
         - to: start
@@ -1296,8 +1239,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandWaffleCorp
+    - node: PosterContrabandWaffleCorp
       entity: PosterContrabandWaffleCorp
       edges:
         - to: start
@@ -1308,8 +1250,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterContrabandMissingSpacepen
+    - node: PosterContrabandMissingSpacepen
       entity: PosterContrabandMissingSpacepen
       edges:
         - to: start
@@ -1322,7 +1263,7 @@
               doAfter: 1
 
     # Legit Poster Nodes
-    - node: posterLegitHereForYourSafety
+    - node: PosterLegitHereForYourSafety
       entity: PosterLegitHereForYourSafety
       edges:
         - to: start
@@ -1333,8 +1274,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitNanotrasenLogo
+    - node: PosterLegitNanotrasenLogo
       entity: PosterLegitNanotrasenLogo
       edges:
         - to: start
@@ -1345,8 +1285,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitCleanliness
+    - node: PosterLegitCleanliness
       entity: PosterLegitCleanliness
       edges:
         - to: start
@@ -1357,8 +1296,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitHelpOthers
+    - node: PosterLegitHelpOthers
       entity: PosterLegitHelpOthers
       edges:
         - to: start
@@ -1369,8 +1307,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitBuild
+    - node: PosterLegitBuild
       entity: PosterLegitBuild
       edges:
         - to: start
@@ -1381,8 +1318,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitBlessThisSpess
+    - node: PosterLegitBlessThisSpess
       entity: PosterLegitBlessThisSpess
       edges:
         - to: start
@@ -1393,8 +1329,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitScience
+    - node: PosterLegitScience
       entity: PosterLegitScience
       edges:
         - to: start
@@ -1405,8 +1340,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitIan
+    - node: PosterLegitIan
       entity: PosterLegitIan
       edges:
         - to: start
@@ -1417,8 +1351,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitObey
+    - node: PosterLegitObey
       entity: PosterLegitObey
       edges:
         - to: start
@@ -1429,8 +1362,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitWalk
+    - node: PosterLegitWalk
       entity: PosterLegitWalk
       edges:
         - to: start
@@ -1441,8 +1373,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitStateLaws
+    - node: PosterLegitStateLaws
       entity: PosterLegitStateLaws
       edges:
         - to: start
@@ -1453,8 +1384,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitLoveIan
+    - node: PosterLegitLoveIan
       entity: PosterLegitLoveIan
       edges:
         - to: start
@@ -1465,8 +1395,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSpaceCops
+    - node: PosterLegitSpaceCops
       entity: PosterLegitSpaceCops
       edges:
         - to: start
@@ -1477,8 +1406,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitUeNo
+    - node: PosterLegitUeNo
       entity: PosterLegitUeNo
       edges:
         - to: start
@@ -1489,8 +1417,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitGetYourLEGS
+    - node: PosterLegitGetYourLEGS
       entity: PosterLegitGetYourLEGS
       edges:
         - to: start
@@ -1501,8 +1428,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitDoNotQuestion
+    - node: PosterLegitDoNotQuestion
       entity: PosterLegitDoNotQuestion
       edges:
         - to: start
@@ -1513,8 +1439,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitWorkForAFuture
+    - node: PosterLegitWorkForAFuture
       entity: PosterLegitWorkForAFuture
       edges:
         - to: start
@@ -1525,8 +1450,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSoftCapPopArt
+    - node: PosterLegitSoftCapPopArt
       entity: PosterLegitSoftCapPopArt
       edges:
         - to: start
@@ -1537,8 +1461,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyInternals
+    - node: PosterLegitSafetyInternals
       entity: PosterLegitSafetyInternals
       edges:
         - to: start
@@ -1549,8 +1472,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyEyeProtection
+    - node: PosterLegitSafetyEyeProtection
       entity: PosterLegitSafetyEyeProtection
       edges:
         - to: start
@@ -1561,8 +1483,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyReport
+    - node: PosterLegitSafetyReport
       entity: PosterLegitSafetyReport
       edges:
         - to: start
@@ -1573,8 +1494,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitReportCrimes
+    - node: PosterLegitReportCrimes
       entity: PosterLegitReportCrimes
       edges:
         - to: start
@@ -1585,8 +1505,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitIonRifle
+    - node: PosterLegitIonRifle
       entity: PosterLegitIonRifle
       edges:
         - to: start
@@ -1597,8 +1516,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitFoamForceAd
+    - node: PosterLegitFoamForceAd
       entity: PosterLegitFoamForceAd
       edges:
         - to: start
@@ -1609,8 +1527,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitCohibaRobustoAd
+    - node: PosterLegitCohibaRobustoAd
       entity: PosterLegitCohibaRobustoAd
       edges:
         - to: start
@@ -1621,8 +1538,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegit50thAnniversaryVintageReprint
+    - node: PosterLegit50thAnniversaryVintageReprint
       entity: PosterLegit50thAnniversaryVintageReprint
       edges:
         - to: start
@@ -1633,8 +1549,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitFruitBowl
+    - node: PosterLegitFruitBowl
       entity: PosterLegitFruitBowl
       edges:
         - to: start
@@ -1645,8 +1560,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitPDAAd
+    - node: PosterLegitPDAAd
       entity: PosterLegitPDAAd
       edges:
         - to: start
@@ -1657,8 +1571,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitEnlist
+    - node: PosterLegitEnlist
       entity: PosterLegitEnlist
       edges:
         - to: start
@@ -1669,8 +1582,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitNanomichiAd
+    - node: PosterLegitNanomichiAd
       entity: PosterLegitNanomichiAd
       edges:
         - to: start
@@ -1681,8 +1593,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegit12_gauge
+    - node: PosterLegit12_gauge
       entity: PosterLegit12_gauge
       edges:
         - to: start
@@ -1693,8 +1604,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitHighClassMartini
+    - node: PosterLegitHighClassMartini
       entity: PosterLegitHighClassMartini
       edges:
         - to: start
@@ -1705,8 +1615,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitTheOwl
+    - node: PosterLegitTheOwl
       entity: PosterLegitTheOwl
       edges:
         - to: start
@@ -1717,8 +1626,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitNoERP
+    - node: PosterLegitNoERP
       entity: PosterLegitNoERP
       edges:
         - to: start
@@ -1729,8 +1637,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitCarbonDioxide
+    - node: PosterLegitCarbonDioxide
       entity: PosterLegitCarbonDioxide
       edges:
         - to: start
@@ -1741,8 +1648,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitDickGumshue
+    - node: PosterLegitDickGumshue
       entity: PosterLegitDickGumshue
       edges:
         - to: start
@@ -1753,8 +1659,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitThereIsNoGasGiant
+    - node: PosterLegitThereIsNoGasGiant
       entity: PosterLegitThereIsNoGasGiant
       edges:
         - to: start
@@ -1765,8 +1670,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitJustAWeekAway
+    - node: PosterLegitJustAWeekAway
       entity: PosterLegitJustAWeekAway
       edges:
         - to: start
@@ -1777,8 +1681,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSecWatch
+    - node: PosterLegitSecWatch
       entity: PosterLegitSecWatch
       edges:
         - to: start
@@ -1789,8 +1692,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitAnatomyPoster
+    - node: PosterLegitAnatomyPoster
       entity: PosterLegitAnatomyPoster
       edges:
         - to: start
@@ -1801,8 +1703,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitMime
+    - node: PosterLegitMime
       entity: PosterLegitMime
       edges:
         - to: start
@@ -1813,8 +1714,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitCarpMount
+    - node: PosterLegitCarpMount
       entity: PosterLegitCarpMount
       edges:
         - to: start
@@ -1825,8 +1725,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothDelam
+    - node: PosterLegitSafetyMothDelam
       entity: PosterLegitSafetyMothDelam
       edges:
         - to: start
@@ -1837,8 +1736,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothEpi
+    - node: PosterLegitSafetyMothEpi
       entity: PosterLegitSafetyMothEpi
       edges:
         - to: start
@@ -1849,8 +1747,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothPiping
+    - node: PosterLegitSafetyMothPiping
       entity: PosterLegitSafetyMothPiping
       edges:
         - to: start
@@ -1861,8 +1758,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothMeth
+    - node: PosterLegitSafetyMothMeth
       entity: PosterLegitSafetyMothMeth
       edges:
         - to: start
@@ -1873,8 +1769,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothHardhat
+    - node: PosterLegitSafetyMothHardhat
       entity: PosterLegitSafetyMothHardhat
       edges:
         - to: start
@@ -1885,8 +1780,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitVacation
+    - node: PosterLegitVacation
       entity: PosterLegitVacation
       edges:
         - to: start
@@ -1897,8 +1791,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitPeriodicTable
+    - node: PosterLegitPeriodicTable
       entity: PosterLegitPeriodicTable
       edges:
         - to: start
@@ -1909,8 +1802,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitRenault
+    - node: PosterLegitRenault
       entity: PosterLegitRenault
       edges:
         - to: start
@@ -1921,8 +1813,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitNTTGC
+    - node: PosterLegitNTTGC
       entity: PosterLegitNTTGC
       edges:
         - to: start
@@ -1933,8 +1824,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitSafetyMothSSD
+    - node: PosterLegitSafetyMothSSD
       entity: PosterLegitSafetyMothSSD
       edges:
         - to: start
@@ -1945,8 +1835,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitOppenhopper
+    - node: PosterLegitOppenhopper
       entity: PosterLegitOppenhopper
       edges:
         - to: start
@@ -1957,8 +1846,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitTyrone
+    - node: PosterLegitTyrone
       entity: PosterLegitTyrone
       edges:
         - to: start
@@ -1969,8 +1857,7 @@
           steps:
             - tool: Prying
               doAfter: 1
-
-    - node: posterLegitHelio
+    - node: PosterLegitHelio
       entity: PosterLegitHelio
       edges:
         - to: start

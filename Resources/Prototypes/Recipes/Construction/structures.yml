@@ -1354,7 +1354,7 @@
   id: Stairs
   graph: StairGraph
   startNode: start
-  targetNode: Stair
+  targetNode: Stairs
   category: construction-category-structures
   objectType: Structure
   placementMode: SnapgridCenter
