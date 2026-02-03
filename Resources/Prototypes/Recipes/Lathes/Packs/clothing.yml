@@ -239,3 +239,17 @@
   - ClothingUniformJumpsuitRepairmanSyndieNF # Frontier
   - ClothingOuterCoatSyndieCap # Frontier
   - ClothingShoesBootsWinterSyndicate # Frontier
+
+- type: latheRecipePack # HL
+  id: PillowsStandard
+  recipes:
+  - PillowSmallWhite
+  - PillowLongWhite
+  - PillowLumpBlue
+  - PillowLumpRed
+  - PillowLumpWhite
+  - PillowSmallBlue
+  - PillowSmallRed
+  - PillowSquareBlue
+  - PillowSquareRed
+  - PillowSquareWhite

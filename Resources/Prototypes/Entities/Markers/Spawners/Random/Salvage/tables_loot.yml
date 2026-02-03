@@ -125,6 +125,8 @@
     - id: WristwatchGold
     - !type:NestedSelector
       tableId: RingTableCommon
+    - !type:NestedSelector
+      tableId: PillowTableUncommon
 
 - type: entityTable
   id: SalvageTreasureRare
@@ -164,6 +166,8 @@
       weight: 0.005 # Frontier
     - !type:NestedSelector # Frontier
       tableId: TableStashVariety # Frontier
+    - !type:NestedSelector  #HL
+      tableId: PillowTableRare #HL
 
 - type: entityTable
   id: SalvageTreasureLegendary

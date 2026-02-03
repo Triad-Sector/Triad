@@ -867,6 +867,7 @@
     - NFUniformSpecial # Frontier
     - NFUniformCloaks # Frontier
     - NFWallets # Frontier
+    - PillowsStandard # HL
     dynamicPacks: # Frontier
     - NFPouches # Frontier
   - type: EmagLatheRecipes
