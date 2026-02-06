@@ -19,8 +19,6 @@ using Content.Shared.Damage;
 using Content.Server.Chat.Managers;
 using Robust.Shared.Player;
 using Content.Shared.Chat;
-using Content.Shared.CM14.NightVision;
-
 
 namespace Content.Server._Starlight;
 
@@ -93,7 +91,7 @@ public sealed class ShadekinSystem : EntitySystem
         {
             var msg = Loc.GetString("shadekin-alert-" + ent.Comp.LightExposure);
             _chatManager.ChatMessageToOne(ChatChannel.Notifications, msg, msg, EntityUid.Invalid, false, actor.PlayerSession.Channel);
-        }        
+        }
         args.Handled = true;
     }
 

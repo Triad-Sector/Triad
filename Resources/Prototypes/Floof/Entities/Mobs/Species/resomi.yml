@@ -61,6 +61,7 @@
         Male: UnisexResomi
         Unsexed: UnisexResomi
         Female: UnisexResomi
+    - type: NightVision
     - type: Hands
       handDisplacement:
         sizeMaps:
