@@ -371,7 +371,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: VulpkaninScreams # Floofstation
+      collection: KitsuneScream #HL
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -395,7 +395,7 @@
     Hew:
       collection: Hew
     Growl:
-      collection: VulpkaninGrowls
+      collection: KitsuneGrowl #HL
     Snarl:
       collection: VulpkaninSnarls
     Bark:
@@ -416,6 +416,11 @@
       collection: VulpkaninYaps
     Gekker: # Floof
       collection: VulpkaninGekkers
+    Squeak: #HL
+      path: /Audio/Animals/fox_squeak.ogg #HL
+    Yip: #HL
+      path: /Audio/_Starlight/Effects/yip.ogg #HL
+
 
 
 - type: emoteSounds
@@ -424,7 +429,7 @@
     variation: 0.125
   sounds:
     Scream:
-      collection: VulpkaninScreams # Floofstation
+      collection: KitsuneScream #HL
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -448,7 +453,7 @@
     Hew:
       collection: Hew
     Growl:
-      collection: VulpkaninGrowls
+      collection: KitsuneGrowl #HL
     Snarl:
       collection: VulpkaninSnarls
     Bark:
@@ -469,3 +474,8 @@
       collection: VulpkaninYaps
     Gekker: # Floof
       collection: VulpkaninGekkers
+    Squeak: #HL
+      path: /Audio/Animals/fox_squeak.ogg #HL
+    Yip: #HL
+      path: /Audio/_Starlight/Effects/yip.ogg #HL
+
