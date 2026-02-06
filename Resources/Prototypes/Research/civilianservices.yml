@@ -280,6 +280,7 @@
   cost: 10000
   recipeUnlocks:
   - BluespaceBeaker
+  - BluespaceCryobeaker
   - SyringeBluespace
   - JugBluespace # Frontier
   - VialBluespace # Frontier
