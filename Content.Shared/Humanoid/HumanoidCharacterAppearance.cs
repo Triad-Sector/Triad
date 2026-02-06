@@ -93,7 +93,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     // starlight start
     public HumanoidCharacterAppearance WithHairGlowing(bool newGlowing)
     {
-        return new(HairStyleId, HairColor, newGlowing, FacialHairStyleId, FacialHairColor, FacialHairGlowing, EyeColor, EyeGlowing, SkinColor, Markings);
+        return new(HairStyleId, HairColor, newGlowing, FacialHairStyleId, FacialHairColor, FacialHairGlowing, EyeColor, EyeGlowing, SkinColor, Markings, Height, Width); // HardLight: Added Height & Width to prevent height sliders resetting.
     }
     // starlight end
 
@@ -106,7 +106,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     // starlight start
     public HumanoidCharacterAppearance WithFacialHairGlowing(bool newGlowing)
     {
-        return new(HairStyleId, HairColor, HairGlowing, FacialHairStyleId, FacialHairColor, newGlowing, EyeColor, EyeGlowing, SkinColor, Markings);
+        return new(HairStyleId, HairColor, HairGlowing, FacialHairStyleId, FacialHairColor, newGlowing, EyeColor, EyeGlowing, SkinColor, Markings, Height, Width); // HardLight: Added Height & Width to prevent height sliders resetting.
     }
     // starlight end
 
@@ -125,7 +125,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     // starlight start
     public HumanoidCharacterAppearance WithEyeGlowing(bool newGlowing)
     {
-        return new(HairStyleId, HairColor, HairGlowing, FacialHairStyleId, FacialHairColor, FacialHairGlowing, EyeColor, newGlowing, SkinColor, Markings);
+        return new(HairStyleId, HairColor, HairGlowing, FacialHairStyleId, FacialHairColor, FacialHairGlowing, EyeColor, newGlowing, SkinColor, Markings, Height, Width); // HardLight: Added Height & Width to prevent height sliders resetting.
     }
     // starlight end
 
