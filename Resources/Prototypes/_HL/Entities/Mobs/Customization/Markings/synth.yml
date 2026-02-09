@@ -9,7 +9,36 @@
   speciesRestriction: [ Synth ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/tails.rsi
-    state: tail_synth
+    state: synth_tail
+
+- type: marking
+  id: SynthTailXenoCurl
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/tails.rsi
+    state: synth_tail_xeno_curl
+
+- type: marking
+  id: SynthTailXenoSpike
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/tails.rsi
+    state: synth_tail_xeno_spike
+
+# tail lights
+
+- type: marking
+  id: SynthTailXenoLight
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/tails.rsi
+    state: synth_tail_xeno_light
 
 # snout
 
@@ -20,24 +49,15 @@
   speciesRestriction: [ Synth ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/snouts.rsi
-    state: visor_synth
+    state: synth_frame
   - sprite: _HL/Mobs/Customization/Synth/snouts.rsi
-    state: frame_synth
+    state: synth_jaw
   - sprite: _HL/Mobs/Customization/Synth/snouts.rsi
-    state: snout_synth
+    state: synth_nose
   - sprite: _HL/Mobs/Customization/Synth/snouts.rsi
-    state: jaw_synth
+    state: synth_visor
 
 # eyes
-
-- type: marking
-  id: SynthEyesGlow
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Synth ]
-  sprites:
-  - sprite: _HL/Mobs/Customization/Synth/eyes.rsi
-    state: eyes_synth_glow
 
 # head
 
@@ -168,7 +188,7 @@
   speciesRestriction: [Synth, Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/wings.rsi
-    state: wings_synth
+    state: synth_wings
 
 # wing lights
 
@@ -179,4 +199,4 @@
   speciesRestriction: [ Synth ]
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/wings.rsi
-    state: wings_synth_light
+    state: synth_wings_light
