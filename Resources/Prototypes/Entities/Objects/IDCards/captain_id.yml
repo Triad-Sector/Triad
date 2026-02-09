@@ -1,6 +1,6 @@
 - type: entity
   id: StationCaptainIDCard
-  parent: IDCardStandard
+  parent: CaptainIDCard
   name: station captain ID card
   components:
   - type: Sprite
@@ -8,3 +8,5 @@
     layers:
     - state: gold
     - state: idcaptain
+  - type: PresetIdCard
+    job: StationCaptain
