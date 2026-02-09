@@ -9,4 +9,5 @@
       icon:
         sprite: _Starlight/Interface/Actions/shadekin.rsi
         state: phase
+      checkCanInteract: false
       event: !type:NullPhaseActionEvent
