@@ -33,6 +33,11 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Server.Construction.Components;
 using Content.Shared._HL.Shipyard;
+// HardLight start
+using Robust.Shared.Prototypes;
+using Content.Shared.Mind.Components;
+using Content.Shared._Common.Consent;
+// HardLight end
 
 namespace Content.Server._NF.Shipyard.Systems;
 
@@ -50,6 +55,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // HardLight
 
     private ISawmill _sawmill = default!;
     private MapLoaderSystem _mapLoader = default!;
@@ -186,6 +192,9 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             // This mutates the live grid, but only removes objects explicitly deemed non-persistent by design.
             PurgeTransientEntities(gridUid);
 
+            // HardLight: Remove components that fail serialization (e.g., player state) from entities on the grid.
+            RemoveSerializationBlockingComponentsOnGrid(gridUid);
+
             //_sawmill.Info($"Serializing ship grid {gridUid} as '{shipName}' after transient purge using direct serialization");
 
             // 1) Serialize the grid and its children to a MappingDataNode (engine-standard format)
@@ -232,8 +241,42 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
         }
         catch (Exception ex)
         {
-            //_sawmill.Error($"Exception during non-destructive ship save: {ex}");
+            Logger.Error($"Ship save failed for '{shipName}' on grid {gridUid}: {ex}");
             return false;
+        }
+        finally
+        {
+            // No-op: mind containers are intentionally removed during ship save.
+        }
+    }
+
+    /// <summary>
+    /// HardLight start: Utility method to write a MappingDataNode to a YAML string using YamlDotNet, without touching disk.
+    /// </summary>
+    private void RemoveSerializationBlockingComponentsOnGrid(EntityUid gridUid)
+    {
+        var toRemove = new HashSet<EntityUid>();
+
+        var mindQuery = _entityManager.EntityQueryEnumerator<MindContainerComponent, TransformComponent>();
+        while (mindQuery.MoveNext(out var uid, out var _, out var xform))
+        {
+            if (xform.GridUid != gridUid)
+                continue;
+            toRemove.Add(uid);
+        }
+
+        var consentQuery = _entityManager.EntityQueryEnumerator<ConsentComponent, TransformComponent>();
+        while (consentQuery.MoveNext(out var uid, out var _, out var xform))
+        {
+            if (xform.GridUid != gridUid)
+                continue;
+            toRemove.Add(uid);
+        }
+
+        foreach (var uid in toRemove)
+        {
+            _entityManager.RemoveComponent<MindContainerComponent>(uid);
+            _entityManager.RemoveComponent<ConsentComponent>(uid);
         }
     }
 
@@ -627,7 +670,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
         if (!root.TryGet("entities", out SequenceDataNode? protoSeq) || protoSeq == null)
             return;
 
-        var filteredTypes = new HashSet<string>
+        var filteredTypes = new HashSet<string> // HardLight: Components you want removed from entities on save and restored on load go here.
         {
             "Joint",
             "StationMember",
@@ -642,6 +685,32 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "UserInterface", // Contains invalid EntityUid references
             "Docking", // Contains invalid EntityUid references to docked entities
             "ActionGrant", // Contains invalid EntityUid references to granted actions
+            "Mind", // Contains player state that can't be serialized and isn't relevant to ship blueprints
+            "MindContainer", // Contains player state that can't be serialized and isn't relevant to ship blueprints
+            "VendingMachine", // Vending machines restock on ship load, sometimes infinitely; this should prevent that behavior
+        };
+
+        var fillComponentTypes = new HashSet<string>(StringComparer.Ordinal) // HardLight: Components you want permanently removed from entities go here.
+        {
+            "StorageFill", // Remove refill-on-spawn behavior on ship save only
+            "ContainerFill", // Remove refill-on-spawn behavior on ship save only
+            "EntityTableContainerFill", // Remove refill-on-spawn behavior on ship save only
+        };
+
+        var fillComponentWhitelistPrototypes = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase) // HardLight: Entities you want to bypass the fill component removal for go here.
+        {
+            "AirAlarm",
+        };
+
+        /// <summary>
+        /// HardLight: Explicitly preserve case-sensitive component names that are known to cause issues if included in ship saves, even if they exist on entities.
+        /// This is a blunt tool but it ensures we won't accidentally break ship saves by adding new components in the future without remembering to filter them here.
+        /// </summary>
+        var forcedMissingComponents = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "StorageFill",
+            "ContainerFill",
+            "EntityTableContainerFill",
         };
 
         // Prototype-level exclusions for obvious non-ship entities.
@@ -665,78 +734,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "GeneralStationRecordConsole",
             // Uplinks and bundled items
             "BaseMercenaryUplinkRadio",
-            "BriefcaseSyndieLobbyingBundleFilled",
-            "BriefcaseThiefBribingBundleFilled",
-        //    "VendingMachineRobotics",
-        //    "MachineFlatpacker",
-            "ClothingBackpackDuffelEVABundleAtmosTech",
-            "ClothingBackpackDuffelEVABundleBoxerBlue",
-            "ClothingBackpackDuffelEVABundleBoxerGreen",
-            "ClothingBackpackDuffelEVABundleBoxerRandom",
-            "ClothingBackpackDuffelEVABundleBoxerRed",
-            "ClothingBackpackDuffelEVABundleBoxerYellow",
-            "ClothingBackpackDuffelEVABundleCaptain",
-            "ClothingBackpackDuffelEVABundleCargo",
-            "ClothingBackpackDuffelEVABundleChaplain",
-            "ClothingBackpackDuffelEVABundleContractor",
-            "ClothingBackpackDuffelEVABundleEngineer",
-            "ClothingBackpackDuffelEVABundleJanitor",
-            "ClothingBackpackDuffelEVABundleMail",
-            "ClothingBackpackDuffelEVABundleMedical",
-            "ClothingBackpackDuffelEVABundleMercenary",
-            "ClothingBackpackDuffelEVABundleNfsd",
-            "ClothingBackpackDuffelEVABundlePilot",
-            "ClothingBackpackDuffelEVABundlePrivateSec",
-            "ClothingBackpackDuffelEVABundleSalvage",
-            "ClothingBackpackDuffelEVABundleScientist",
-            "ClothingBackpackDuffelEVABundleServiceWorker",
-            "ClothingBackpackDuffelEVABundleSr",
-            "ClothingBackpackDuffelHoldingNitchFilled",
-            "ClothingBackpackDuffelHoldingShiftTheGlaceon",
-            "ClothingBackpackDuffelHoldingVulrikFilled",
-            "ClothingBackpackDuffelSurgeryAdvancedFilled",
-            "ClothingBackpackDuffelSurgeryFilled",
-            "ClothingBackpackDuffelSurgeryImpovFilled",
-            "ClothingBackpackDuffelSyndicateAmmoFilled",
-            "ClothingBackpackDuffelSyndicateDecoyKitFilled",
-            "ClothingBackpackDuffelSyndicateFilledAtreides",
-            "ClothingBackpackDuffelSyndicateFilledCarbine",
-            "ClothingBackpackDuffelSyndicateFilledGrenadeLauncher",
-            "ClothingBackpackDuffelSyndicateFilledLMG",
-            "ClothingBackpackDuffelSyndicateFilledMedical",
-            "ClothingBackpackDuffelSyndicateFilledRevolver",
-            "ClothingBackpackDuffelSyndicateFilledShotgun",
-            "ClothingBackpackDuffelSyndicateFilledSMG",
-            "ClothingBackpackDuffelSyndicateFilledWSPR",
-            "ClothingBackpackDuffelSyndicateMedicalBundleFilled",
-            "ClothingBackpackMessengerChaplainMarrikFilled",
-            "ClothingBackpackMessengerColorGreenJosephFilled",
-            "ClothingBackpackPirateBundle",
-            "ClothingBackpackSatchelHoldingNirouFilled",
-            "ClothingBackpackSatchelLeatherWinterFilled",
-            "ClothingBackpackSatchelSmugglerFilled",
-            "ClothingBeltArcadiaArachneFilled",
-            "ClothingBeltAssaultMarrikFilled",
-            "ClothingBeltChaplainSashFilled",
-            "ClothingBeltChefFilled",
-            "ClothingBeltChiefEngineerFilled",
-            "ClothingBeltHolsterFilled",
-            "ClothingBeltHolsterJosephFilled",
-            "ClothingBeltJanitorFilled",
-            "ClothingBeltMedicalEMTFilled",
-            "ClothingBeltMedicalFilled",
-            "ClothingBeltMedicalNitchFilled",
-            "ClothingBeltMilitaryWebbingGrenadeFilled",
-            "ClothingBeltMilitaryWebbingMedFilled",
-            "ClothingBeltNfsdFilled",
-            "ClothingBeltNfsdWebbingFilled",
-            "ClothingBeltNfsdWebbingFilledBrigmedic",
-            "ClothingBeltPilotFilled",
-            "ClothingBeltSalvageWebbingFilledNF",
-            "ClothingBeltSecurityFilled",
-            "ClothingBeltSecurityWebbingFilled",
-            "ClothingBeltWandFilled",
-            "ClothingWalletLeatherBlackArachneFilled",
+            "MachineFlatpacker",
             "ComputerContrabandPalletConsole",
             "ComputerContrabandPalletConsolePirate",
             "ComputerCriminalRecords",
@@ -782,264 +780,31 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "ComputerTabletopShuttleAntag",
             "ComputerTabletopStationRecords",
             "ComputerWallmountStationRecords",
-            "CowToolboxFilled",
-            "CrateCybersunDarkGygaxBundle",
-            "CrateCybersunJuggernautBundle",
-            "CrateCybersunMaulerBundle",
-            "CrateFunToyBox",
-            "CrateMaterialsBasicFilled",
             "DEBUGVendingMachineAmmoBoxes",
             "DEBUGVendingMachineMagazines",
             "DEBUGVendingMachineRangedWeapons",
-            "LessLethalVendingMachine",
-        //    "LessLethalVendingMachinePOI",
-        //    "LockerMaterialsBasicFilled",
-        //    "LockerWallMaterialsBasicFilled",
-        //    "ClosetFsbEvaFilled",
-        //    "LockerWallEVAColorFsbFilled",
-        //    "LockerWallEVAColorChaplainFilled",
-        //    "LockerChemistryFilled",
-        //    "LockerClownFilled",
-        //    "LockerEvacRepairFilled",
-        //    "LockerWallEVAColorMailFilled",
-        //    "ClosetFscEvaFilled",
-        //    "LockerWallEVAColorFscFilled",
-        //    "LockerWallColorL1FireFilled",
-        //    "LockerWallEVAColorCargoFilled",
-        //    "HLLockerChemistryFilled",
-        //    "LockerWallEVAColorContractorFilled",
-        //    "LockerWallEvacRepairFilled",
-        //    "LockerMailCarrierFilled",
-        //    "LockerMaterialsBasic10Filled",
-        //    "LockerWallColorL2RadiationFilled",
-        //    "LockerWallColorL3BiohazardFilled",
-        //    "LockerWallColorL4BombFilled",
-            "HLLockerCaptainFilledLaser",
-        //    "LockerWallColorChemistryFilled",
-            "HLLockerDetectiveFilled",
-        //    "LockerFreezerSushi",
-        //    "LockerWallEVAColorLvhiFilled",
-        //    "LockerWallEVAColorNfsdFilled",
-        //    "LockerNfsdBailiff",
-            "HLLockerCaptainFilledHardsuit",
-            "LockerChiefEngineerFilled",
-        //    "LockerWallEVAColorMedicalFilled",
-        //    "LockerWallEVAColorGoblinFilled",
-        //    "LockerWallMaterialsBasic10Filled",
-        //    "LockerMedicalFilled",
-        //    "LockerNfsdBrigmedic",
-        //    "LockerNfsdSheriff",
-        //    "LockerNfsdCopper",
-            "HLLockerCaptainFilledNoLaser",
-            "LockerChiefEngineerFilledHardsuit",
-        //    "LockerElectricalSuppliesFilled",
-            "LockerHeadOfPersonnelFilled",
-        //    "HLLockerMedicalFilled",
-        //    "LockerWallMedicalDoctorFilled",
-            "LockerCaptainFilledHardsuit",
-            "LockerCaptainFilled",
-            "LockerCaptainFilledNoLaser",
-            "HLLockerChiefEngineerFilled",
-            "HLLockerChiefEngineerFilledHardsuit",
-            "LockerHeadOfSecurityFilled",
-            "LockerHeadOfSecurityFilledHardsuit",
-            "HLLockerHeadOfSecurityFilled",
-            "HLLockerHeadOfSecurityFilledHardsuit",
-        //    "HLLockerBrigmedicFilled",
-        //    "HLLockerBrigmedicFilledNoHardsuit",
-            "HLLockerHeadOfPersonnelFilled",
-            "LockerChiefMedicalOfficerFilled",
-            "LockerChiefMedicalOfficerFilledHardsuit",
-            "HLLockerChiefMedicalOfficerFilled",
-            "HLLockerChiefMedicalOfficerFilledHardsuit",
-            "LockerSalvageSpecialistFilled",
-            "HLLockerResearchDirectorFilled",
-            "HLLockerResearchDirectorFilledHardsuit",
-            "LockerResearchDirectorFilled",
-            "LockerResearchDirectorFilledHardsuit",
-            "LockerQuarterMasterFilled",
-            "LockerQuarterMasterFilledHardsuit",
-            "HLLockerQuarterMasterFilled",
-            "HLLockerSalvageSpecialistFilled",
-            "HLLockerWardenFilled",
-            "HLLockerWardenFilledHardsuit",
-            "HLLockerSecurityFilled",
-            "NFLockerSecurityFilled",
-        //    "HLLockerSalvageSpecialistFilledHardsuit",
-        //    "LockerSalvageSpecialistFilled",
-        //    "LockerWallColorSalvageFilled",
-        //    "LockerWallEVAColorSalvageFilled",
-        //    "LockerWallEVAColorSrFilled",
-        //    "LockerStationRepresentativeFilled",
-        //    "LockerNfsdSilverDetectiveFilled",
-        //    "LockerNfsdSheriffFilled",
-        //    "LockerNfsdSergeant",
-        //    "HLLockerElectricalSuppliesFilled",
-        //    "LockerWallColorMedicalDoctorFilled",
-        //    "HLLockerWallMedicalDoctorFilled",
-        //    "LockerNfsdSilver",
-        //    "LockerSyndicatePersonalFilled",
-        //    "LockerWallEVAColorAtmosTechFilled",
-        //    "LockerWallEVAColorEmergencyFilled",
-        //    "LockerMedicineFilled",
-        //    "HLLockerMedicineFilled",
-        //    "LockerAtmosphericsFilled",
-        //    "LockerAtmosphericsFilledHardsuit",
-        //    "HLLockerAtmosphericsFilled",
-        //    "LockerWallEVAColorEngineerFilled",
-        //    "LockerWallMedicalFilled",
-        //    "LockerWallColorMedicalFilled",
-        //    "HLLockerAtmosphericsFilledHardsuit",
-        //    "LockerWallMaterialsFuelBananiumFilled",
-        //    "LockerWallMaterialsFuelBananiumFilled2",
-        //    "LockerWallEVAColorCaptainFilled",
-        //    "LockerEngineerFilled",
-        //    "HLLockerWallMedicalFilled",
-        //    "LockerWallEVAColorMercenaryFilled",
-        //    "LockerBoozeFilled",
-        //    "HLLockerBoozeFilled",
-        //    "LockerWallEVAColorHydroponicsFilled",
-        //    "LockerEngineerFilledHardsuit",
-        //    "LockerMercenaryFilled",
-        //    "LockerWallEVAColorParamedicFilled",
-        //    "LockerWallColorHydroponicsFilled",
-        //    "LockerBotanistFilled",
-        //    "HLLockerBotanistFilled",
-        //    "HLLockerEngineerFilled",
-        //    "LockerWallEVAColorJanitorFilled",
-        //    "LockerParamedicFilled",
-        //    "LockerParamedicFilledHardsuit",
-        //    "LockerWallMaterialsFuelWeldingFilled",
-        //    "LockerWallEVAColorStcFilled",
-        //    "LockerWeldingSuppliesFilled",
-        //    "HLLockerWeldingSuppliesFilled",
-        //    "HLLockerScienceFilled",
-        //    "NFLockerScienceFilled",
-        //    "LockerWallEVAColorScientistFilled",
-        //    "LockerWallEVAColorServiceWorkerFilled",
-        //    "LockerWallMaterialsFuelUraniumFilled",
-        //    "LockerWallMaterialsFuelUraniumFilled2",
-        //    "LockerWallEVAColorBoxerBlueFilled",
-        //    "LockerWallEVAColorBoxerGreenFilled",
-        //    "LockerWallEVAColorBoxerRandomFilled",
-        //    "LockerWallEVAColorBoxerRedFilled",
-        //    "LockerWallEVAColorBoxerYellowFilled",
-        //    "HLLockerEngineerFilledHardsuit",
-        //    "LockerJanitorFilled",
-        //    "HLLockerParamedicFilledNoHardsuit",
-        //    "HLLockerParamedicFilled",
-        //    "LockerWallColorParamedicFilled",
-        //    "LockerWallEVAColorPilotFilled",
-        //    "LockerPilotFilled",
-        //    "LockerWallMaterialsFuelPlasmaFilled",
-        //    "LockerWallMaterialsFuelPlasmaFilled2",
-        //    "LockerWallEVAColorPrivateSecFilled",
-        //    "LockerPsychologistFilled",
-            "MedicalPodFilled",
-            "NFPouchMercenaryArachneFilled",
-            "NFTelecomServerFilled",
-            "NFVendingMachineCart",
-            "NFVendingMachineCartNfsd",
-            "NonLethalVendingMachine",
             "PsionicsRecordsComputerCircuitboard",
             "StationAiUploadComputer",
-            "StructureRackBloodCultFilled",
-            "StructureRackWallmountedSalvageFilled",
-            "StructurePistolRackPiratesFilled",
-            "StructurePistolRackWallmountedMercenaryFilled",
-            "TelecomServerFilledArcadia",
-            "TelecomServerFilledCartel",
-            "TelecomServerFilledColComm",
-            "TelecomServerFilledEvent",
-            "TelecomServerFilledFreelance",
-            "TelecomServerFilledNotrasen",
-            "TelecomServerFilledNfsd",
-            "TelecomServerFilledShuttle",
-            "TelecomServerFilledStatic",
-            "TelecomServerFilledSyndicate",
-            "TelecomServerFilledViperCell",
-            "ToolboxElectricalFilled",
-            "ToolboxElectricalTurretFilled",
-        //    "ToolboxMechanicalFilled",
-        //    "ToolboxMechanicalFilledAllTools",
-        //    "ToolboxSyndicateFilled",
-            // "VendingBarDrobe",
-             "VendingMachineAmmo",
-             "VendingMachineAmmoPOI",
-             "VendingMachineArcadia",
-            // "VendingMachineAstroVend",
-            // "VendingMachineAstroVendPOI",
-            // "VendingMachineAtmosDrobe",
-            // "VendingMachineAutoTuneVend",
-            // "VendingMachineBooze",
-            // "VendingMachineBoozePOI",
-            // "VendingMachineBoozeSyndicate",
-            // "VendingMachineBountyVend",
-            // "VendingMachineBountyVendPOI",
-            // "VendingMachineBountyVendPunk",
-            // "VendingMachineBoxingDrobe",
-            // "VendingMachineCargoDrobe",
-            // "VendingMachineCart",
-            // "VendingMachineCentDrobe",
-            // "VendingMachineChang",
-            // "VendingMachineChapel",
-            // "VendingMachineChefDrobe",
-            // "VendingMachineChefvend",
-            // "VendingMachineChemDrobe",
-            // "VendingMachineChemicals",
-            // "VendingMachineChemicalsSyndicate",
-            // "VendingMachineCigs",
-            // "VendingMachineCigsPOI",
-            // "VendingMachineCiviMed",
-            // "VendingMachineCiviMedPlus",
-            // "VendingMachineClothing",
-            // "VendingMachineClothingPunk",
-            // "VendingMachineCoffee",
-            // "VendingMachineCola",
-            // "VendingMachineColaBlack",
-            // "VendingMachineColaRed",
-            // "VendingMachineCondim",
-            // "VendingMachineCuddlyCritterVend",
-            // "VendingMachineCuraDrobe",
-            // "VendingMachineDetDrobe",
-            // "VendingMachineDinnerware",
-            // "VendingMachineDiscount",
-            // "VendingMachineDonut",
-            // "VendingMachineDrGibb",
-            // "VendingMachineEngiDrobe",
-            // "VendingMachineEngivend",
-            // "VendingMachineEngivendPOI",
-             "VendingMachineExpeditionaryFlatpackVend",
-             "VendingMachineFlatpackVend",
-            // "VendingMachineFuelVend",
-            // "VendingMachineGames",
-            // "VendingMachineGamesPOI",
-            // "VendingMachineGeneDrobe",
-            // "VendingMachineHappyHonk",
-            // "VendingMachineHydrobe",
-            // "VendingMachineJaniDrobe",
-            // "VendingMachineLawDrobe",
-            // "VendingMachineMagivend",
-            // "VendingMachineMailDrobe",
-            // "VendingMachineMailVend",
-            // "VendingMachineMedical",
-            // "VendingMachineMediDrobe",
-            // "VendingMachineMediDrobePOI",
-             "VendingMachineMercVend",
-             "VendingMachineSyndieDrobe",
-            // "VendingMachineTankDisserEngineering",
-            // "VendingMachineTankDisserEVA",
-            // "VendingMachineTankDisserEVAPOI",
-            // "VendingMachineTheater",
-            // "VendingMachineValetDrobe",
-            // "VendingMachineVendomat",
-            // "VendingMachineVendomatPOI",
-            // "VendingMachineViroDrobe",
-            // "VendingMachineWallMedical",
-            // "VendingMachineWinter",
-            // "VendingMachineYarrrDrobe",
-            // "VendingMachineYouTool",
-            // "VendingMachineYouToolPOI",
+            "VendingMachineAmmoPOI",
+            "VendingMachineAstroVendPOI",
+            "VendingMachineBoozePOI",
+            "VendingMachineBountyVendPOI",
+            "VendingMachineCigsPOI",
+            "VendingMachineEngivendPOI",
+            "VendingMachineExpeditionaryFlatpackVend",
+            "VendingMachineFlatpackVend",
+            "VendingMachineFuelVend",
+            "VendingMachineGamesPOI",
+            "LessLethalVendingMachinePOI",
+            "VendingMachineMediDrobePOI",
+            "VendingMachineMercVend",
+            "VendingMachinePickNPackPOI",
+            "VendingMachinePottedPlantVendPOI",
+            "VendingMachineSalvagePOI",
+            "VendingMachineSyndieContraband",
+            "VendingMachineTankDispenserEVAPOI",
+            "VendingMachineVendomatPOI",
+            "VendingMachineYouToolPOI",
             "BaseMercenaryUplinkRadio",
             "BaseUplinkRadio",
             "BaseUplinkRadio20TC",
@@ -1076,9 +841,14 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
 
                 // Optional: Drop entities that are clearly unrelated by prototype id.
                 // Each proto group node contains a "proto" key with the prototype id string.
+                var hasProtoGroup = false;
+                var allowFillComponents = false; // HardLight
+                HashSet<string>? protoMissing = null;
                 if (protoMap.TryGet("proto", out ValueDataNode? protoIdNode) && protoIdNode != null)
                 {
+                    hasProtoGroup = true;
                     var protoId = protoIdNode.Value;
+                    allowFillComponents = fillComponentWhitelistPrototypes.Contains(protoId); // HardLight
                     if (filteredPrototypes.Contains(protoId))
                     {
                         // Remove this entity entirely
@@ -1086,6 +856,27 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                         i--;
                         continue;
                     }
+
+                    // HardLight start: If this prototype is on the fill component whitelist, allow fill components to remain even if they are on the forced missing list.
+                    // This ensures critical entities like air alarms keep their fill components for proper functionality.
+                    if (_prototypeManager.TryIndex<EntityPrototype>(protoId, out var proto))
+                    {
+                        if (!allowFillComponents && proto.Components.ContainsKey("Door"))
+                            allowFillComponents = true;
+
+                        if (!allowFillComponents) // If a prototype contains components that are forced missing, track them so we can remove those components from all entities of that prototype below.
+                        {
+                            foreach (var name in forcedMissingComponents)
+                            {
+                                if (proto.Components.ContainsKey(name))
+                                {
+                                    protoMissing ??= new HashSet<string>(StringComparer.Ordinal);
+                                    protoMissing.Add(name);
+                                }
+                            }
+                        }
+                    }
+                    // HardLight end
                 }
 
                 // Components cleanup
@@ -1109,7 +900,28 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                     }
                 }
 
+                // HardLight start: If this entity has a Door component, we should allow fill components to remain even if they are on the forced missing list,
+                // since many doors require a StorageFill or ContainerFill to function properly.
+                var hasDoorComponent = false;
+                foreach (var c in compsNotNull)
+                {
+                    if (c is MappingDataNode cm && cm.TryGet("type", out ValueDataNode? t) && t != null && t.Value == "Door")
+                    {
+                        hasDoorComponent = true;
+                        break;
+                    }
+                }
+
+                if (hasDoorComponent)
+                {
+                    allowFillComponents = true;
+                    // Door-based allow list should not mark fill components as missing.
+                    protoMissing = null;
+                }
+                // HardLight end
+
                 var newComps = new SequenceDataNode();
+                var removedFromPrototype = hasProtoGroup ? new HashSet<string>(StringComparer.Ordinal) : null; // HardLight: Track which components were removed due to prototype-level filtering so we can log them at the end.
                 foreach (var compNode in compsNotNull)
                 {
                     if (compNode is not MappingDataNode compMap)
@@ -1125,7 +937,19 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
 
                     // Filter out undesired component types entirely
                     if (filteredTypes.Contains(typeName))
+                    {
+                        // HardLight start: If this component is on a prototype with forced missing components, track it so we can remove those components from all entities of that prototype below.
+                        if (allowFillComponents && fillComponentTypes.Contains(typeName))
+                        {
+                            newComps.Add(compMap);
+                            continue;
+                        }
+
+                        if (forcedMissingComponents.Contains(typeName))
+                            removedFromPrototype?.Add(typeName);
                         continue;
+                        // HardLight end
+                    }
 
                     // Transform: remove rotation on the grid root to match blueprint expectations
                     if (typeName == "Transform" && hasMapGrid)
@@ -1184,7 +1008,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                         compMap.Remove("mainDiscipline");
                         compMap.Remove("MainDiscipline");
                     }
-					
+
                     // Battery: reset charge to 0
                     // Battery: reset charge to 0
                     if (typeName == "Battery")
@@ -1199,20 +1023,20 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                     {
                         // Explicitly DO NOTHING - let the solution data pass through unchanged
                         // The bug was that solutions were being modified or cleared somewhere
-                        
+
                         // Log the solution data for debugging
                         if (compMap.TryGetValue("solutions", out var solutionsNode) && solutionsNode is MappingDataNode solutionsMap)
                         {
                             foreach (var (solutionName, solutionData) in solutionsMap)
                             {
                                 Logger.Info($"Preserving solution '{solutionName}' in SolutionContainerManager");
-                                
+
                                 if (solutionData is MappingDataNode solutionMap)
                                 {
                                     if (solutionMap.TryGetValue("contents", out var contentsNode) && contentsNode is SequenceDataNode contents)
                                     {
                                         Logger.Info($"  Solution has {contents.Count} reagent entries");
-                                        
+
                                         // Verify each reagent entry maintains its structure
                                         foreach (var contentNode in contents)
                                         {
@@ -1246,32 +1070,81 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
 
                     // ActionGrant: remove to prevent invalid EntityUid references to granted actions
                     // (This is handled by filteredTypes but adding explicit note)
-					
+
                     // Solution: Force canReact to false to prevent reagent mixing on load
-                    // This is critical for ChemMaster buffers and other containers where reagents must remain separated (like cryostasis beakers)
+                    // Only apply to solutions named "buffer" which are ChemMaster buffers, instead of literally everything
                     if (typeName == "Solution")
                     {
                         // Check if this component has a solution field
-                        if (compMap.TryGetValue("solution", out var solutionNode) && 
+                        if (compMap.TryGetValue("solution", out var solutionNode) &&
                             solutionNode is MappingDataNode solutionMap)
                         {
-                            // Always set canReact to false for saved solutions
-                            // This prevents reagents from mixing when the ship is loaded
-                            solutionMap["canReact"] = new ValueDataNode("false");
+                            // Only set canReact to false for ChemMaster buffers
+                            // Check if the solution name is "buffer"
+                            if (solutionMap.TryGetValue("name", out var nameNode) && 
+                                nameNode is ValueDataNode nameValue && 
+                                nameValue.Value == "buffer")
+                            {
+                                // This is a ChemMaster buffer - prevent mixing
+                                solutionMap["canReact"] = new ValueDataNode("false");
+                                Logger.Info("Set ChemMaster buffer to non-reactive");
+                            }
                         }
                     }
-                    
+
                     // ReagentDispenser: Clear storage slot data to force regeneration
                     if (typeName == "ReagentDispenser")
                     {
-                        compMap.Remove("storageSlots");      
-                        compMap.Remove("storageSlotIds");    
-                        compMap.Remove("autoLabel");         
-                        
+                        compMap.Remove("storageSlots");
+                        compMap.Remove("storageSlotIds");
+                        compMap.Remove("autoLabel");
+
                         Logger.Info("Cleared ReagentDispenser storage slots for regeneration");
                     }
                     newComps.Add(compMap);
                 }
+
+                // HardLight start: If a prototype contains components that are forced missing, we need to remove those components from all entities of that prototype below and log them for debugging.
+                if (removedFromPrototype != null && removedFromPrototype.Count > 0 || protoMissing != null && protoMissing.Count > 0)
+                {
+                    var existingMissing = new HashSet<string>(StringComparer.Ordinal);
+                    if (entMap.TryGet("missingComponents", out SequenceDataNode? missingNode) && missingNode != null)
+                    {
+                        foreach (var missing in missingNode)
+                        {
+                            if (missing is ValueDataNode value)
+                                existingMissing.Add(value.Value);
+                        }
+                    }
+
+                    var mergedSet = new HashSet<string>(existingMissing, StringComparer.Ordinal);
+                    if (removedFromPrototype != null)
+                    {
+                        foreach (var name in removedFromPrototype)
+                            mergedSet.Add(name);
+                    }
+
+                    if (protoMissing != null)
+                    {
+                        foreach (var name in protoMissing)
+                            mergedSet.Add(name);
+                    }
+
+                    if (allowFillComponents) // HardLight: If this entity is allowed to have fill components, make sure they aren't marked as missing even if the prototype has them forced missing.
+                    {
+                        foreach (var name in fillComponentTypes)
+                            mergedSet.Remove(name);
+                    }
+
+                    if (mergedSet.Count > 0)
+                    {
+                        var mergedMissing = new SequenceDataNode();
+                        foreach (var name in mergedSet)
+                            mergedMissing.Add(new ValueDataNode(name));
+                        entMap["missingComponents"] = mergedMissing;
+                    }
+                }
+                // HardLight end
 
                 if (newComps.Count > 0)
                 {
@@ -1380,7 +1253,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                 // Remove problematic atmospheric state
                 if (_entityManager.RemoveComponent<AtmosDeviceComponent>(entity))
                     componentsRemoved++;
-				
+
 				// ChemMaster: Log buffer solution state for debugging
                 if (_entityManager.TryGetComponent<ChemMasterComponent>(entity, out var chemMaster))
                 {
@@ -1396,7 +1269,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                         }
                     }
                 }
-				
+
                 // Remove any other problematic components
                 // Note: We're being conservative here - removing things that commonly cause issues
             }
