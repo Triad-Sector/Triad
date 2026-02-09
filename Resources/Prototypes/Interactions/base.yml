@@ -41,3 +41,13 @@
     sound: {path: /Audio/Effects/thudswoosh.ogg}
   effectDelayed:
     popup: DangerousDelayed
+
+# Floof - Base interaction requiring a free mouth
+- type: Interaction
+  id: BaseMouth
+  abstract: true
+  priority: -15
+  requiresCanInteract: true # Do check CanAccess
+  checkInteractionBlocker: false # Don't check CanInteract
+  requiresHands: false
+  requiresConsciousness: true
