@@ -285,6 +285,26 @@
   - type: PirateBountyItem # Frontier
     id: GeneratorRTG # Frontier
 
+- type: entity
+  parent: GeneratorRTG
+  id: XenoGeneratorRTG
+  name: XenoRTG
+  description: A Radioisotope Thermoelectric Generator for long term power.
+  suffix: 20kW
+  components:
+  - type: PowerSupplier
+    supplyRate: 20000 # supposed to be low power at no fuel cost to power derelicts
+  - type: Sprite
+    sprite: Structures/Power/Generation/xenoborgrtg.rsi
+    layers:
+      - state: rtg_damaged
+      - state: rtg_glow
+  - type: PowerMonitoringDevice
+    sprite: Structures/Power/Generation/xenoborgrtg.rsi
+    state: rtg
+  - type: RadiationSource # ideally only when opened.
+    intensity: 1
+    
 # TODO: need radioactive fallout when destroyed
 
 - type: entity

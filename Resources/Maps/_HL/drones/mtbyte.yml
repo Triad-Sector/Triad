@@ -548,7 +548,7 @@ entities:
     - type: Transform
       pos: 3.5685635,0.44502974
       parent: 1
-- proto: GeneratorRTG
+- proto: XenoGeneratorRTG
   entities:
   - uid: 88
     components:
@@ -602,7 +602,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,0.5
       parent: 1
-- proto: NFSpawnMobWeaponTurretLaserSyndicate
+- proto: AIWeaponTurretShredder
   entities:
   - uid: 217
     components:

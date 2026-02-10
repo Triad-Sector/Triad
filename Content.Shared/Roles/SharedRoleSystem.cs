@@ -372,7 +372,13 @@ public abstract class SharedRoleSystem : EntitySystem
         [NotNullWhen(true)] out Entity<MindRoleComponent, T>? role) where T : IComponent
     {
         role = null;
-        if (!Resolve(mind.Owner, ref mind.Comp))
+        if (mind.Comp is null)
+        {
+            if (!TryComp(mind.Owner, out MindComponent? mindComp))
+                return false;
+
+            mind.Comp = mindComp;
+        }
             return false;
 
         foreach (var roleEnt in mind.Comp.MindRoles)

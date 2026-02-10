@@ -451,8 +451,158 @@
     rootTask:
       task: ShuttleDeedTurretCompound
     blackboard:
+      RotateSpeed: !type:Single
+        3.141
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
+        
+- type: entity
+  id: AIWeaponTurretScythe
+  name: Hostile energy thrower
+  parent: [ WeaponTurretScythe ]
+  description: An AI controlled weapon, you're too close.  
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
+  - type: MobState # otherwise NPCs won't attack the entity
+  - type: CombatMode
+    toggleMouseRotator: false
+  - type: Sprite
+    sprite: _HL/Objects/ShuttleWeapons/scythe.rsi
+    scale: 0.5, 0.5
+    layers:
+    - state: space_artillery
+  - type: Tag
+    tags:
+    - AIShipWeapon
+  - type: HTN
+    rootTask:
+      task: ShuttleDeedTurretCompound
+    blackboard:
+      RotateSpeed: !type:Single
+        3.141
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+
+- type: entity
+  id: AIWeaponTurretShredder
+  name: Hostile energy thrower
+  parent: [ WeaponLaserTurretFlayer ]
+  description: An AI controlled weapon, you're too close.  
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
+  - type: MobState # otherwise NPCs won't attack the entity
+  - type: CombatMode
+    toggleMouseRotator: false
+  - type: Sprite
+    sprite: _HL/Objects/ShuttleWeapons/hoplite.rsi
+    scale: 0.5, 0.5
+    layers:
+    - state: space_artillery
+  - type: Tag
+    tags:
+    - AIShipWeapon
+  - type: HitscanBatteryAmmoProvider
+    proto: ShredderRound
+    fireCost: 25
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/_HL/Freeallegiance/lturret.ogg
+ 
+- type: entity
+  parent: MobRogueSiliconGuardian
+  id: MobXenoSiliconGuardian
+  name: guardian unit
+  description: An advanced security silicon, typically used to safeguard high-security areas such as vaults and server rooms. After being hacked, this unit carries out the AI's will.
+#  categories: [ HideSpawnMenu ]
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+  - type: HitscanBatteryAmmoProvider
+    proto: ShredderRound
+    fireCost: 10
+
+- type: entity
+  name: guardian unit spawner
+  suffix: AI, Hostile
+  id: SpawnMobXenoSiliconGuardian
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - state: ai
+      - sprite: _NF/Mobs/RogueSilicons/netguardian.rsi
+        state: netguardian
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoSiliconGuardian
+ 
+- type: entity
+  id: AIWeaponTurretpointflayer
+  name: Hostile energy thrower
+  parent: [ WeaponLaserTurretFlayer ]
+  description: An AI controlled weapon, you're too close.  
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Xenoborg
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: Input
+    context: "human"
+  - type: MobState # otherwise NPCs won't attack the entity
+  - type: CombatMode
+    toggleMouseRotator: false
+  - type: Sprite
+    sprite: _HL/Objects/ShuttleWeapons/entropy.rsi
+    layers:
+    - state: space_artillery
+  - type: Tag
+    tags:
+    - AIShipWeapon
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/_HL/Freeallegiance/lturret.ogg
 
 - type: entity
   id: CVWeaponTurretFang
@@ -707,3 +857,5 @@
       machine_parts: !type:Container
   - type: Machine
     board: CivVanykWeaponBoard
+    
+    
