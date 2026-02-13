@@ -39,9 +39,9 @@
           bounds: "-0.25,-0.25,0.25,0.25"
         density: 800
         mask:
-        - MachineMask
+        - FullTileMask
         layer:
-        - MachineLayer
+        - WallLayer
   - type: Transform
     anchored: true
   - type: Rotatable
