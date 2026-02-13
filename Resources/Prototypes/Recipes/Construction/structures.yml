@@ -1338,6 +1338,20 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: recipes-fungal-soil-name
+  id: FungalSoil
+  graph: Soil
+  startNode: start
+  targetNode: fungalSoil
+  category: construction-category-structures
+  description: recipes-fungal-soil-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: StationAiCore
   graph: StationAiCore
   startNode: start

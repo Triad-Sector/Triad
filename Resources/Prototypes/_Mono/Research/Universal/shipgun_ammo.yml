@@ -24,7 +24,7 @@
     state: subnuclear
   discipline: Arsenal
   tier: 3
-  cost: 80000
+  cost: 20000
   recipeUnlocks:
   - CharonSubnuclearSlugUniversal
   technologyPrerequisites:
