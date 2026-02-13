@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterMarsHoodie
+  name: pink hoodie
+  components:
+  - type: Sprite
+    sprite: _Floof/Clothing/OuterClothing/Misc/marshoodie.rsi
+  - type: Clothing
+    sprite: _Floof/Clothing/OuterClothing/Misc/marshoodie.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodMarsHoodieHood
