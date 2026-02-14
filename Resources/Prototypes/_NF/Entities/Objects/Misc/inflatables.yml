@@ -187,7 +187,7 @@
   sprite: /Textures/_NF/Objects/Misc/inflatable_floor.rsi/inflatable-floor.png
   baseTurf: Space
   isSubfloor: true
-  deconstructTools: [ Prying ]
+  deconstructTools: [ Screwing ]
   footstepSounds:
     collection: FootstepClown
     params:
