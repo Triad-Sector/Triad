@@ -5,16 +5,23 @@
   description: A civilian variant of the chameleon backpack.
 
 - type: entity
-  parent: [ClothingBeltSecurityWebbing, BaseCivilianContraband]
-  id: ClothingBeltSecurityWebbingChameleon
-  name: Civilian chameleon Webbing
-  description: A Civilian variant of the chameleon Webbing.
+  parent: [NFClothingBeltStorageBase, BaseCivilianContraband]
+  id: ClothingBeltChameleonCiv
+  name: civilian chameleon belt
+  description: A civilian variant of the chameleon belt.
+  suffix: Chameleon
   components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Belt/utility.rsi
     - type: ChameleonClothing
       slot: [belt]
-      default: ClothingBeltBase
+      default: ClothingBeltUtility
     - type: UserInterface
       interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
 
@@ -54,22 +61,29 @@
   description: A civilian variant of the chameleon gas mask.
 
 - type: entity
-  parent: [ClothingNeckChameleon, BaseCivilianContraband]
+  parent: [ClothingNeckChameleon, ClothingNeckCollarBase, BaseCivilianContraband]
   id: ClothingNeckChameleonCiv
   name: civilian chameleon scarf
   description: A civilian variant of the chameleon scarf.
 
 - type: entity
-  parent: [ClothingOuterVestTank, BaseCivilianContraband]
+  parent: [ClothingOuterStorageBase, BaseCivilianContraband]
   id: ClothingOuterChameleonCiv
   name: civilian chameleon vest
   description: A civilian variant of the chameleon vest.
+  suffix: Chameleon
   components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Vests/vest.rsi
     - type: ChameleonClothing
       slot: [outerClothing]
-      default: DummyOuterInvisible
+      default: ClothingOuterVest
     - type: UserInterface
       interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
 
