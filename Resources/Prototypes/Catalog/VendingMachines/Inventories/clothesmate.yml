@@ -115,6 +115,13 @@
     ClothingUniformloinclothWhite: 2
     ClothingOuterBeltedWear: 2
     ClothingOuterTransparentOuterwear: 2
+    # Coats ported from RMC to Hardlight by Rtasva
+    RMCCoatBomberBlack: 2
+    RMCCoatBomber: 2
+    RMCCoatBomberGrey: 2
+    RMCCoatBomberKhaki: 2
+    RMCCoatBomberRed: 2
+    # End Coats
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1

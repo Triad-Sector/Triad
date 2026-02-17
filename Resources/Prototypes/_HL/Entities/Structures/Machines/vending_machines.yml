@@ -72,3 +72,31 @@
     radius: 1.8
     energy: 1.6
     color: "#B63BB8"
+
+- type: entity
+  parent: [BaseStructureDisableAnchoring, VendingMachine]
+  id: VendingMachineRMCDrobe
+  name: UNMC Surplus Dispenser
+  description: A vendor advertising military surplus from some far off conflict.
+  components:
+  - type: VendingMachine
+    pack: UnmcDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _HL/Structures/Machines/VendingMachines/unmcdrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: PointLight
+    radius: 1.8
+    energy: 1.8
+    softness: 0.9
+    offset: "0, -0.6"
+    color: "#bed4bf"
