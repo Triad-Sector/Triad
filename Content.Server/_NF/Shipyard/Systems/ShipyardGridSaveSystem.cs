@@ -819,7 +819,6 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "BasePirateUplink",
             "BasePirateUplinkRadioPirateCaptain",
             "BasePirateUplinkPirateCrew",
-
         };
 
         foreach (var protoNode in protoSeq)
