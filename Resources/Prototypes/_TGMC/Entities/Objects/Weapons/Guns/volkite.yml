@@ -6,8 +6,10 @@
   maxLength: 60
   damage:
     types:
-      Heat: 60
-      Structural: 120
+      Heat: 18
+      Slash: 2
+      Piercing: 10
+      Structural: 60
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy3
@@ -23,8 +25,10 @@
   maxLength: 45
   damage:
     types:
-      Heat: 35
-      Structural: 20
+      Heat: 13
+      Slash: 2
+      Piercing: 10
+      Structural: 30
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy3
@@ -37,11 +41,13 @@
 
 - type: hitscan
   id: VolkiteBeamLight
-  maxLength: 15
+  maxLength: 30
   damage:
     types:
-      Heat: 15
-      Structural: 5
+      Heat: 8
+      Slash: 2
+      Piercing: 10
+      Structural: 15
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy3
@@ -95,7 +101,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
-    fireRate: 4
+    fireRate: 6.5
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -105,7 +111,7 @@
     minAngle: 30
     maxAngle: 50
   - type: HitscanBatteryAmmoProvider
-    proto: VolkiteBeamHeavy
+    proto: VolkiteBeam
     fireCost: 50
   - type: Wieldable
     unwieldOnUse: false
@@ -146,7 +152,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
-    fireRate: 1.5
+    fireRate: 4
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -185,7 +191,7 @@
     steps: 4
     zeroVisible: true
   - type: Gun
-    fireRate: 6
+    fireRate: 5
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -207,10 +213,10 @@
     fireCost: 50
 
 - type: entity
-  name: volkite pistol
+  name: volkite Serpenta
   parent: WeaponBaseVolkite
   id: WeaponVolkitePistol
-  description: The pistol is the most compact and concealable of the volkite weapons, and is often used as a sidearm by those who carry larger volkite arms.
+  description: The Serpenta is the most compact and concealable of the volkite weapons, and is often used as a sidearm by those who carry larger volkite arms.
   components:
   - type: Sprite
     sprite: _TGMC/Objects/Weapons/Guns/Volkite/vx12.rsi
@@ -225,7 +231,7 @@
     steps: 4
     zeroVisible: true
   - type: Gun
-    fireRate: 2
+    fireRate: 2.8
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -236,6 +242,9 @@
       params:
         variation: 0.250
         volume: -5
+  - type: HitscanBatteryAmmoProvider
+    proto: VolkiteBeamHeavy
+    fireCost: 50
 
 # Backpack
 

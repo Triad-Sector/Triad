@@ -18,6 +18,7 @@
   - type: Tag
     tags:
     - NFTrackingDart
+    - DartGunAmmo
   - type: Ammo
     muzzleFlash: null
   - type: Sprite

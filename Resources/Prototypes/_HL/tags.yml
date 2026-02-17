@@ -11,6 +11,9 @@
 - type: Tag
   id: Admin
 
+- type: Tag
+  id: DartGunAmmo
+
 #region Docking Tags
 - type: Tag
   id: SecDock
