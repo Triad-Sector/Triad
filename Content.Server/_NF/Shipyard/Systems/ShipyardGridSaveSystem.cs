@@ -843,6 +843,20 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "VendingMachineTankDispenserEVAPOI",
             "VendingMachineVendomatPOI",
             "VendingMachineYouToolPOI",
+            "BaseMercenaryUplinkRadio",
+            "BaseUplinkRadio",
+            "BaseUplinkRadio20TC",
+            "BaseUplinkRadio25TC",
+            "BaseUplinkRadio40TC",
+            "BaseUplinkRadio60TC",
+            "UplinkImplanter",
+            "BaseSecurityUplinkRadio",
+            "BaseSecurityUplinkRadioSheriff",
+            "BaseSecurityUplinkRadioOfficer",
+            "BaseSecurityUplinkRadioDeputy",
+            "BasePirateUplink",
+            "BasePirateUplinkRadioPirateCaptain",
+            "BasePirateUplinkPirateCrew",
         };
 
         // Component-level exclusions for non-ship entities.
