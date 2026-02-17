@@ -13,9 +13,6 @@
     entity: Ash
     stage: 2
   - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 250
   - type: Sprite
     state: produce
   - type: Stack
@@ -40,9 +37,6 @@
   abstract: true
   components:
   - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 250
   - type: Sprite
     state: produce
   - type: Stack
@@ -71,6 +65,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Flour
           Quantity: 10
@@ -93,6 +88,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -115,6 +111,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Oats
           Quantity: 10
@@ -139,6 +136,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Sugar
           Quantity: 10
@@ -174,6 +172,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -261,6 +260,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Histamine
           Quantity: 3
@@ -293,6 +293,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 15
@@ -354,6 +355,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -395,6 +397,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: MuteToxin
           Quantity: 5
@@ -541,6 +544,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: JuiceCarrot
           Quantity: 5
@@ -578,6 +582,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -609,6 +614,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -640,6 +646,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -677,6 +684,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Vitamin
           Quantity: 4
@@ -770,6 +778,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Haloperidol
           Quantity: 5
@@ -812,6 +821,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -849,6 +859,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -890,6 +901,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -948,6 +960,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -998,6 +1011,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Blood
           Quantity: 10
@@ -1050,6 +1064,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1078,6 +1093,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1113,6 +1129,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1153,6 +1170,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1188,6 +1206,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Cornmeal
           Quantity: 15
@@ -1247,6 +1266,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1279,6 +1299,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1308,6 +1329,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1388,6 +1410,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1418,6 +1441,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1446,6 +1470,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
           - ReagentId: Nutriment
             Quantity: 4
@@ -1481,6 +1506,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
           - ReagentId: Nutriment
             Quantity: 4
@@ -1549,6 +1575,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1580,6 +1607,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1612,6 +1640,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Ultravasculine
           Quantity: 20
@@ -1646,6 +1675,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Bicaridine
           Quantity: 5
@@ -1690,6 +1720,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Omnizine
           Quantity: 3
@@ -1731,6 +1762,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Stellibinin
           Quantity: 25
@@ -1767,6 +1799,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Razorium
           Quantity: 15
@@ -1833,6 +1866,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Amatoxin
           Quantity: 10
@@ -1867,6 +1901,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
 #        - ReagentId: Nutriment # Frontier
 #          Quantity: 5 # Frontier
@@ -1899,6 +1934,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
 #        - ReagentId: Nutriment # Frontier
 #          Quantity: 5 # Frontier
@@ -1946,6 +1982,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Rice
           Quantity: 10
@@ -1963,6 +2000,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -1997,6 +2035,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -2025,6 +2064,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -2060,6 +2100,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -2123,6 +2164,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -2161,6 +2203,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -2225,6 +2268,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -2259,6 +2303,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -2291,6 +2336,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -2330,6 +2376,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -2392,6 +2439,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -2423,6 +2471,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Happiness
           Quantity: 3
@@ -2459,6 +2508,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: PumpkinFlesh
           Quantity: 20
@@ -2508,6 +2558,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Ammonia
           Quantity: 10
@@ -2557,6 +2608,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Fiber
           Quantity: 10
@@ -2585,6 +2637,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Fiber
           Quantity: 5
@@ -2618,6 +2671,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -2691,6 +2745,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -2719,6 +2774,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 250
         reagents:
         - ReagentId: Pomelustine
           Quantity: 30
@@ -2755,6 +2811,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 100
         reagents:
         - ReagentId: Pomelustine
           Quantity: 15
