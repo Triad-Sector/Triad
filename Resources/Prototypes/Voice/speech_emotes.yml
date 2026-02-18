@@ -390,14 +390,24 @@
   category: Vocal
   icon: Interface/Emotes/weh.png
   chatMessages: ["chat-emote-msg-weh"]
-
+  chatTriggers: # Floof - you can weh now
+    - weh
+    - wehs
+    - wehed
+    - wehing
+    
 - type: emote
   id: Hew
   name: chat-emote-name-hew
   category: Vocal
   icon: Interface/Emotes/hew.png
   chatMessages: ["chat-emote-msg-hew"]
-
+  chatTriggers: # Floof - you can weh now
+    - hew
+    - hews
+    - hewed
+    - hewing
+    
 - type: emote
   id: NymphChirp
   name: chat-emote-name-chirp
