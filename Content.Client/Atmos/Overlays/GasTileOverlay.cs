@@ -14,6 +14,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Light.Components; // HardLight
+using Content.Shared.Light.EntitySystems; // HardLight
 
 namespace Content.Client.Atmos.Overlays
 {
@@ -22,6 +24,12 @@ namespace Content.Client.Atmos.Overlays
         private readonly IEntityManager _entManager;
         private readonly IMapManager _mapManager;
         private readonly SharedTransformSystem _xformSys;
+        // HardLight start
+        private readonly SharedMapSystem _mapSystem;
+        private readonly SharedRoofSystem _roofSystem;
+        private List<Entity<MapGridComponent>> _grids = new();
+        private readonly HashSet<Vector2i> _occludedTiles = new();
+        // HardLight end
 
         public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities | OverlaySpace.WorldSpaceBelowWorld;
         private readonly ShaderInstance _shader;
@@ -53,6 +61,8 @@ namespace Content.Client.Atmos.Overlays
         {
             _entManager = entManager;
             _mapManager = IoCManager.Resolve<IMapManager>();
+            _mapSystem = _entManager.System<SharedMapSystem>(); // HardLight
+            _roofSystem = _entManager.System<SharedRoofSystem>(); // HardLight
             _xformSys = xformSys;
                 _shader = protoMan.Index(UnshadedShaderId).Instance();
             ZIndex = GasOverlayZIndex;
@@ -165,7 +175,7 @@ namespace Content.Client.Atmos.Overlays
                 xformQuery,
                 _xformSys);
 
-            var mapUid = _mapManager.GetMapEntityId(args.MapId);
+            var mapUid = _mapSystem.GetMap(args.MapId); // HardLight: _mapManager.GetMapEntityId<_mapSystem.GetMap
 
             if (_entManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var atmos))
                 DrawMapOverlay(drawHandle, args, mapUid, atmos);
@@ -274,6 +284,35 @@ namespace Content.Client.Atmos.Overlays
             if (!mapGrid && args.Space != OverlaySpace.WorldSpaceBelowWorld)
                 return;
 
+            // HardLight start: Weather occlusion for gas overlay
+            _occludedTiles.Clear();
+            _grids.Clear();
+            _mapManager.FindGridsIntersecting(args.MapId, args.WorldAABB, ref _grids, approx: true);
+
+            foreach (var grid in _grids)
+            {
+                var hasImplicitRoof = _entManager.HasComponent<ImplicitRoofComponent>(grid.Owner);
+                var hasRoof = _entManager.TryGetComponent(grid.Owner, out RoofComponent? roofComp);
+
+                if (!hasImplicitRoof && !hasRoof)
+                    continue;
+
+                var tileEnumerator = _mapSystem.GetTilesEnumerator(grid.Owner, grid.Comp, args.WorldAABB);
+
+                while (tileEnumerator.MoveNext(out var tileRef))
+                {
+                    if (tileRef.Tile.IsEmpty)
+                        continue;
+
+                    if (hasImplicitRoof || (roofComp != null && _roofSystem.IsWeatherOccluding((grid.Owner, grid.Comp, roofComp), tileRef.GridIndices)))
+                    {
+                        var worldPos = _mapSystem.GridTileToWorldPos(grid.Owner, grid.Comp, tileRef.GridIndices);
+                        _occludedTiles.Add(worldPos.Floored());
+                    }
+                }
+            }
+            // HardLight end
+
             var bottomLeft = args.WorldAABB.BottomLeft.Floored();
             var topRight = args.WorldAABB.TopRight.Ceiled();
 
@@ -282,6 +321,9 @@ namespace Content.Client.Atmos.Overlays
                 for (var y = bottomLeft.Y; y <= topRight.Y; y++)
                 {
                     var tilePosition = new Vector2(x, y);
+
+                    if (_occludedTiles.Contains(new Vector2i(x, y))) // HardLight: Skip drawing gas overlay on tiles occluded by roofs
+                        continue;
 
                     for (var i = 0; i < atmos.OverlayData.Opacity.Length; i++)
                     {

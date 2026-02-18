@@ -3,5 +3,6 @@
   suffix: UV
   parent: Poweredlight
   components:
-  - type: PoweredLight
-    hasLampOnSpawn: LightTubeUltraviolet
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightTubeUltraviolet ]

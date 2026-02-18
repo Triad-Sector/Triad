@@ -98,6 +98,7 @@
         whitelist:
           components:
           - GasTank
+  - type: HLPersistOnShipSave # HardLight
   - type: UseDelay
     delay: 1
 

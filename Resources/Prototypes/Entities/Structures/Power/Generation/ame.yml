@@ -97,6 +97,7 @@
   - type: ContainerContainer
     containers:
       fuelSlot: !type:ContainerSlot
+  - type: HLPersistOnShipSave # HardLight
   - type: GuideHelp
     guides:
     - AME
