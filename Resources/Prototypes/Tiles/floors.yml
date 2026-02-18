@@ -1439,6 +1439,7 @@
   footstepSounds:
     collection: FootstepTile
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrass
@@ -1452,6 +1453,7 @@
     collection: FootstepGrass
   itemDrop: FloorTileItemGrass
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassJungle
@@ -1465,6 +1467,7 @@
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassJungle
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassDark
@@ -1484,6 +1487,7 @@
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassDark # Delta V
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassLight
@@ -1503,6 +1507,7 @@
     collection: FootstepGrass
   itemDrop: FloorTileItemGrassLight
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorDirt
@@ -1521,6 +1526,7 @@
     collection: FootstepAsteroid
   itemDrop: FloorTileItemDirt # Delta V
   heatCapacity: 10000
+  weather: true
 
 # Asteroid
 
@@ -1548,6 +1554,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidSandDug
@@ -1558,6 +1565,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidSandRed
@@ -1583,6 +1591,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidTile
@@ -1594,6 +1603,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsand
@@ -1621,6 +1631,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidSandUnvariantized
@@ -1631,6 +1642,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsandUnvariantized
@@ -1641,6 +1653,7 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
+  weather: true
 
 # Caves
 - type: tile
@@ -1922,6 +1935,7 @@
   isSubfloor: false
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroAsteroidSand
+  weather: false
 
 - type: tile
   id: FloorWoodLarge

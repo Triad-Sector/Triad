@@ -109,7 +109,6 @@ public sealed class DoorSystem : SharedDoorSystem
 
                 return;
             case DoorState.Closed:
-            case DoorState.Welded: // HardLight
                 foreach (var (layer, layerState) in entity.Comp.ClosedSpriteStates)
                 {
                     _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);

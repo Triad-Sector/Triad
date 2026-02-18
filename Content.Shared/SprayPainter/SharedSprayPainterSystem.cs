@@ -38,8 +38,6 @@ public abstract class SharedSprayPainterSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SprayPainterComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<SprayPaintedComponent, ComponentStartup>(OnSprayPaintedStartup); // HardLight
-        SubscribeLocalEvent<SprayPaintedComponent, MapInitEvent>(OnSprayPaintedMapInit); // HardLight
 
         SubscribeLocalEvent<SprayPainterComponent, SprayPainterDoAfterEvent>(OnPainterDoAfter);
         SubscribeLocalEvent<SprayPainterComponent, GetVerbsEvent<AlternativeVerb>>(OnPainterGetAltVerbs);
@@ -74,26 +72,6 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             SetPipeColor(ent, ent.Comp.ColorPalette.First().Key);
     }
 
-    // HardLight start: Apply saved paint appearance on startup and map init so that spray-painted visuals are restored on ship/grid load.
-    private void OnSprayPaintedStartup(Entity<SprayPaintedComponent> ent, ref ComponentStartup args)
-    {
-        ApplySavedPaintAppearance(ent);
-    }
-
-    private void OnSprayPaintedMapInit(Entity<SprayPaintedComponent> ent, ref MapInitEvent args)
-    {
-        ApplySavedPaintAppearance(ent);
-    }
-
-    private void ApplySavedPaintAppearance(Entity<SprayPaintedComponent> ent)
-    {
-        if (string.IsNullOrWhiteSpace(ent.Comp.PaintedPrototype))
-            return;
-
-        Appearance.SetData(ent, PaintableVisuals.Prototype, ent.Comp.PaintedPrototype);
-    }
-    // HardLight end
-
     private void SetPipeColor(Entity<SprayPainterComponent> ent, string? paletteKey)
     {
         if (paletteKey == null || paletteKey == ent.Comp.PickedColor)
@@ -126,7 +104,6 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 
         var paintedComponent = EnsureComp<SprayPaintedComponent>(target);
         paintedComponent.DryTime = _timing.CurTime + ent.Comp.FreshPaintDuration;
-        paintedComponent.PaintedPrototype = args.Prototype; // HardLight
         Dirty(target, paintedComponent);
 
         var ev = new EntityPaintedEvent(

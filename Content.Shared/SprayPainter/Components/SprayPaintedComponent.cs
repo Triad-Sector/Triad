@@ -15,10 +15,4 @@ public sealed partial class SprayPaintedComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan DryTime;
-
-    /// <summary>
-    /// HardLight: Prototype used for painted visuals so ship serialization can restore appearance on load.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public string? PaintedPrototype;
 }

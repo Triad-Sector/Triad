@@ -126,9 +126,8 @@
     state: base
   - type: PointLight
     enabled: true
-  - type: ContainerFill # HardLight
-    containers:
-      light_bulb: [ LightTube ]
+  - type: PoweredLight
+    hasLampOnSpawn: LightTube
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -15
@@ -156,9 +155,8 @@
     energy: 1
     softness: 0.9
     color: "#EEEEFF"
-  - type: ContainerFill # HardLight
-    containers:
-      light_bulb: [ LedLightTube ]
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightTube
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -15
@@ -194,7 +192,7 @@
   - type: Construction
     graph: ResinStructures
     node: Xenolight
-
+    
 - type: entity
   id: WallXenolight
   name: alien light
@@ -218,3 +216,4 @@
   - type: Construction
     graph: ResinStructures
     node: WallXenolight
+  

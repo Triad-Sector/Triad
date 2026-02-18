@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Light.Components;
 
 /// <summary>
-/// Will draw shadows over tiles flagged as roof tiles on the attached grid. ImplicitRoofComponent will get removed if the grid has this component.
+/// Will draw shadows over tiles flagged as roof tiles on the attached grid.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RoofComponent : Component
@@ -18,10 +18,4 @@ public sealed partial class RoofComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<Vector2i, ulong> Data = new();
-
-    /// <summary>
-    /// Chunk origin and bitmask of weather occlusion value in chunk.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<Vector2i, ulong> WeatherOcclusionData = new();
 }

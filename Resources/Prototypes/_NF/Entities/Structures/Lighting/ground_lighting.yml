@@ -7,6 +7,5 @@
     layers:
     - state: base
       map: [ "enum.PoweredLightLayers.Base" ]
-  - type: ContainerFill # HardLight
-    containers:
-      light_bulb: [ LightTubeCrystalRed ]
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeCrystalRed
