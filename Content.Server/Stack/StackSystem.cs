@@ -102,6 +102,9 @@ namespace Content.Server.Stack
                     if (!StackSignaturesCompatible(uid, nearbyUid))
                         continue;
 
+                    if (GetAvailableSpace(nearbyStack) == 0)
+                        continue;
+
                     // Calculate how much to transfer
                     var transferred = Math.Min(nearbyStack.Count, GetAvailableSpace(stack));
                     if (transferred <= 0)
