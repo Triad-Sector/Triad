@@ -36,6 +36,7 @@ public sealed class AmeControllerSystem : EntitySystem
 
         SubscribeLocalEvent<AmeControllerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<AmeControllerComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<AmeControllerComponent, MapInitEvent>(OnMapInit); // HardLight
         SubscribeLocalEvent<AmeControllerComponent, EntInsertedIntoContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<AmeControllerComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<AmeControllerComponent, PowerChangedEvent>(OnPowerChanged);
@@ -48,6 +49,20 @@ public sealed class AmeControllerSystem : EntitySystem
 
         UpdateUi(uid, component);
     }
+
+    // HardLight start: Restore injection state after map load when node groups are established
+    private void OnMapInit(EntityUid uid, AmeControllerComponent component, MapInitEvent args)
+    {
+        // Restore injection state after map load when node groups are established
+        if (component.WasInjecting && !component.Injecting)
+        {
+            // Wait a bit for node groups to fully establish, then restore injection
+            component.Injecting = true;
+            UpdateDisplay(uid, component.Stability, component);
+            UpdateUi(uid, component);
+        }
+    }
+    // HardLight end
 
     public override void Update(float frameTime)
     {
@@ -232,6 +247,7 @@ public sealed class AmeControllerSystem : EntitySystem
             return;
 
         controller.Injecting = value;
+        controller.WasInjecting = value; // HardLight: Keep saved state in sync
         UpdateDisplay(uid, controller.Stability, controller);
         if (!value && TryComp<PowerSupplierComponent>(uid, out var powerOut))
             powerOut.MaxSupply = 0;

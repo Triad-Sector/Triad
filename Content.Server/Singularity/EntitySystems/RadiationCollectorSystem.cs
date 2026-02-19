@@ -58,6 +58,7 @@ public sealed class RadiationCollectorSystem : EntitySystem
     {
         TryGetLoadedGasTank(uid, out var gasTank);
         UpdateTankAppearance(uid, component, gasTank);
+        UpdateMachineAppearance(uid, component); // HardLight: Restore visual state on load
     }
 
     private void OnTankChanged(EntityUid uid, RadiationCollectorComponent component, ContainerModifiedMessage args)

@@ -8,10 +8,10 @@ using Content.Shared.Popups;
 using Content.Shared.Physics;
 using Content.Shared._Starlight;
 using System.Linq;
-using Content.Server.Light.Components;
 using Content.Server.Ghost;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Light.Components; // HardLight: Merged with upstream
 
 namespace Content.Server._Starlight.NullSpace;
 
