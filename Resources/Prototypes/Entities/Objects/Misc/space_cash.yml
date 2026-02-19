@@ -64,6 +64,21 @@
   - type: CargoSellBlacklist
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
+  - type: Food
+    solution: food
+    delay: 1
+    forceFeedDelay: 3
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
 
 - type: material
   id: Credit
