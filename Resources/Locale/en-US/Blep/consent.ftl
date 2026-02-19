@@ -16,6 +16,9 @@ consent-NoClone = Disallow Paradox Anomaly
 consent-NSFWDescriptions = See NSFW Descriptions
     .desc = Turn this on to see any temporary descriptions that are flagged as NSFW.
 
+consent-MindControl = Interact with mind control
+    .desc = Allow yourself to be mind-controlled/hypnotised/brainwashed.
+
 consent-GenitalMarkings = See Genital Markings
     .desc = Turn this on to allow showing/hiding genital markings in-game.
 

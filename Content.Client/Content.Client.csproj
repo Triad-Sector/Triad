@@ -24,10 +24,16 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="_HL\Brainwashing\HypnotizedPopup\" />
     <Folder Include="_Impstation\" />
     <Folder Include="_Starlight\Achievement\" />
     <Folder Include="_Starlight\Actions\" />
     <Folder Include="_Starlight\Audio\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="_DV\RoundEnd\NoEorgPopup.xaml.cs">
+      <DependentUpon>HypnotizedPopup.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <DisableXamlIL>true</DisableXamlIL>
