@@ -5,6 +5,7 @@
     - id: PillowLongWhite
     - id: PillowLumpBlue
     - id: PillowLumpRed
+    - id: PillowLumpWhite
     - id: PillowSmallBlue
     - id: PillowSmallRed
     - id: PillowSmallWhite
@@ -17,10 +18,42 @@
   id: PillowTableUncommon
   table: !type:GroupSelector
     children:
+    - id: PillowBlueSegAgis
+    - id: PillowBotanical
+    - id: PillowFunny
+    - id: PillowLongRedReigal
+    - id: PillowLunarNonanimated
+    - id: PillowLunarNonanimatedHalfmoon
+    - id: PillowLunarNonanimatedNewmoon
+    - id: PillowNsfd
+    - id: PillowCargo
+    - id: PillowEngi
+    - id: PillowMed
+    - id: PillowNt
+    - id: PillowOfPillowOfPillow
+    - id: PillowPillow
+    - id: PillowSci
+    - id: PillowRippedGore
+    - id: PillowRippedRocks
+    - id: PillowRippedStuffing
+    - id: PillowSegAgisRed
+    - id: PillowSolar
+    - id: PillowSolidGold
+    - id: PillowVeryLargeSyndicate
+    - id: PillowCyan
+    - id: PillowFleshTendion
+    - id: PillowRuntime
+    - id: PillowWeh
     - id: PillowLove
     - id: PillowPawPrint
     - id: PillowReigalRed
     - id: PillowStarbirst
+    - id: PillowEdenpump
+    - id: PillowHeadHumpper
+#    - id: PillowLunarAnimated
+    - id: PillowPirate
+    - id: PillowPrototypemechacat
+    - id: PillowSalmon
     - id: PillowStiff
     - id: PillowStiffLong
     - id: PillowStiffGreen
@@ -39,4 +72,15 @@
     - id: PillowBodyUrist
     - id: PillowBodyMiku
     - id: PillowBodyNebula
+    - id: PillowBodyDrDino
     - id: PillowBodyPICO
+    - id: PillowBodyAi
+    - id: PillowBodyHardscale
+    - id: PillowBodyClownjumpscare
+    - id: PillowBodyXenoQueen
+    - id: PillowBodyMosin
+    - id: PillowBodySafteyMoth
+    - id: PillowBodySexyPirate
+    - id: PillowBodySexyPirateB
+    - id: PillowBodySyndieBlood
+    - id: PillowBodySpaceBear

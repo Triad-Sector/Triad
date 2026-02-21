@@ -39,4 +39,5 @@ lathe-category-command = Command
 lathe-category-hats = Hats
 lathe-category-jumpsuits = Jumpsuits
 lathe-category-neck = Neck
-lathe-category-pillows = Pillows # HL
+# HL
+lathe-category-pillows = Pillows

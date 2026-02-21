@@ -200,6 +200,314 @@
 # special pillows
 
 - type: entity
+  id: PillowBlueSegAgis
+  parent: BasePillow
+  name: blue sec agis pillow
+  description: Guarding over your dreams.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_blue_seg_agis
+
+- type: entity
+  id: PillowBotanical
+  parent: BasePillow
+  name: botanical pillow
+  description: A pillow with a beautiful botanical print.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_botanical
+
+- type: entity
+  id: PillowFunny
+  parent: BasePillow
+  name: funny pillow
+  description: This pillow is quite funny.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_funny
+
+- type: entity
+  id: PillowLongRedReigal
+  parent: BasePillow
+  name: long red reigal pillow
+  description: For the longest of royal snoozes.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_long_red_reigal
+
+- type: entity
+  id: PillowLunarNonanimated
+  parent: BasePillow
+  name: lunar pillow
+  description: A pillow with a moon on it.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_lunar_nonanimated
+
+- type: entity
+  id: PillowLunarNonanimatedHalfmoon
+  parent: BasePillow
+  name: half moon pillow
+  description: A pillow with a half moon on it.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_lunar_nonanimated_halfmoon
+
+- type: entity
+  id: PillowLunarNonanimatedNewmoon
+  parent: BasePillow
+  name: new moon pillow
+  description: A pillow with a new moon on it.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_lunar_nonanimated_newmoon
+
+
+- type: entity
+  id: PillowNsfd
+  parent: BasePillow
+  name: NSFD pillow
+  description: Not Safe For Dreams.
+  components:
+  - type: Item
+    heldPrefix: greenpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_nsfd
+
+- type: entity
+  id: PillowCargo
+  parent: BasePillow
+  name: cargo pillow
+  description: For the hardworking cargo techs.
+  components:
+  - type: Item
+    heldPrefix: greenpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_cargo
+
+- type: entity
+  id: PillowEngi
+  parent: BasePillow
+  name: engineering pillow
+  description: For the hardworking engineers.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_engi
+
+- type: entity
+  id: PillowMed
+  parent: BasePillow
+  name: medical pillow
+  description: For the hardworking doctors.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_med
+
+- type: entity
+  id: PillowNt
+  parent: BasePillow
+  name: Nanotrasen pillow
+  description: Property of Nanotrasen.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_nt
+
+- type: entity
+  id: PillowOfPillowOfPillow
+  parent: BasePillow
+  name: pillow of pillow of pillow
+  description: It's pillows all the way down.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_of_pillow_of_pillow
+
+- type: entity
+  id: PillowPillow
+  parent: BasePillow
+  name: pillow pillow
+  description: A pillow that looks like a pillow.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_pillow
+
+- type: entity
+  id: PillowSci
+  parent: BasePillow
+  name: science pillow
+  description: For the hardworking scientists.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_sci
+
+- type: entity
+  id: PillowRippedGore
+  parent: BasePillow
+  name: ripped gore pillow
+  description: Someone had a bad dream.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_ripped_gore
+
+- type: entity
+  id: PillowRippedRocks
+  parent: BasePillow
+  name: ripped rocks pillow
+  description: Why was this filled with rocks?
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ToyFall
+    damage:
+      types:
+        Blunt: 5
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_ripped_rocks
+
+- type: entity
+  id: PillowRippedStuffing
+  parent: BasePillow
+  name: ripped stuffing pillow
+  description: There's stuffing everywhere!
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_ripped_stuffing
+
+- type: entity
+  id: PillowSegAgisRed
+  parent: BasePillow
+  name: red sec agis pillow
+  description: Watching over your dreams.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_seg_agis_red
+
+- type: entity
+  id: PillowSolar
+  parent: BasePillow
+  name: solar pillow
+  description: Praise the sun!
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_solar
+
+- type: entity
+  id: PillowSolidGold
+  parent: BasePillow
+  name: solid gold pillow
+  description: Not too comfy.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_solid_gold
+
+- type: entity
+  id: PillowVeryLargeSyndicate
+  parent: BasePillow
+  name: very large bloodred pillow
+  description: This has to be illegal, right?
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_very_large_syndicate
+
+- type: entity
+  id: PillowCyan
+  parent: BasePillow
+  name: cyan pillow
+  description: A comfy cyan pillow.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_cyan
+
+- type: entity
+  id: PillowFleshTendion
+  parent: BasePillow
+  name: flesh tendion pillow
+  description: It feels... alive.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_flesh_tendion
+
+- type: entity
+  id: PillowRuntime
+  parent: BasePillow
+  name: runtime pillow
+  description: The perfect pillow for a station pet.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_runtime
+
+- type: entity
   id: PillowLove
   parent: BasePillow
   name: love pillow
@@ -222,6 +530,66 @@
   - type: Sprite
     sprite: _HL/Objects/Fun/pillows_special.rsi
     state: pillow_paw_print
+
+- type: entity
+  id: PillowEdenpump
+  parent: BasePillow
+  name: edenpump pillow
+  description: A once highly invasive plant brought to extinction, memorialized in a pillow!
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_edenpump
+
+- type: entity
+  id: PillowHeadHumpper
+  parent: BasePillow
+  name: head humpper pillow
+  description: You dont have to be a animal person to like this extraterestial invader!
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_head_humpper
+
+- type: entity
+  id: PillowPirate
+  parent: BasePillow
+  name: pirate pillow
+  description: A pillow with a pirate design.
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_pirate
+
+- type: entity
+  id: PillowPrototypemechacat
+  parent: BasePillow
+  name: Prototype Medic cat pillow
+  description: A prototype of a prototype of what became the Quadborg.
+  components:
+  - type: Item
+    heldPrefix: greenpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_prototypemechacat
+
+- type: entity
+  id: PillowSalmon
+  parent: BasePillow
+  name: salmon pillow
+  description: A pillow with a salmon design.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_special.rsi
+    state: pillow_salmon
 
 - type: entity
   id: PillowReigalRed
@@ -521,3 +889,175 @@
       map: [ "base" ]
     - state: pillow_body_pico_back
       map: [ "back" ]
+
+- type: entity
+  id: PillowBodyAi
+  parent: PillowBodyBase
+  name: AI body pillow
+  description: it takes you a second, but this image is infact AI generated because no living lizard could wear pants like those with that shirt.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_ai_front
+      map: ["base"]
+    - state: pillow_body_ai_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodyFoxfires
+  parent: PillowBodyBase
+  name: foxfires body pillow
+  description: A life-sized pillow of the spirit Foxfires in her human form. Her aurora-colored hair and tails seem to shimmer against the fabric, radiating a gentle, supernatural warmth. Perfect for warding off chills and bad omens alike, perfect for cuddles.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_foxfires_front
+      map: ["base"]
+    - state: pillow_body_foxfires_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodyHardscale
+  parent: PillowBodyBase
+  name: hardscale body pillow
+  description: A pillow depicting Hardscale, a legend.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_hardscale_front
+      map: ["base"]
+    - state: pillow_body_hardscale_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodyClownjumpscare
+  parent: PillowBodyBase
+  name: clown jumpscare body pillow
+  description: HONK!
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_clownjumpscare_front
+      map: ["base"]
+    - state: pillow_body_clownjumpscare_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodyXenoQueen
+  parent: PillowBodyBase
+  name: highly compressed xeno queen body pillow
+  description: It's very compressed.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    state: pillow_body_xeno_queen_front
+
+- type: entity
+  id: PillowBodyMosin
+  parent: PillowBodyBase
+  name: mosin body pillow
+  description: For those who love their rifles a bit too much.
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_mosin_front
+      map: ["base"]
+    - state: pillow_body_mosin_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodySafteyMoth
+  parent: PillowBodyBase
+  name: safety moth body pillow
+  description: its official Safety moth merchandise!
+  components:
+  - type: Item
+    heldPrefix: whitepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_saftey_moth_front
+      map: ["base"]
+    - state: pillow_body_saftey_moth_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodySexyPirate
+  parent: PillowBodyBase
+  name: sexy pirate body pillow
+  description: Yarr...
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_sexy_pirate_front
+      map: ["base"]
+    - state: pillow_body_sexy_pirate_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodySexyPirateB
+  parent: PillowBodyBase
+  name: sexy pirate body pillow
+  description: Yarr...
+  components:
+  - type: Item
+    heldPrefix: bluepillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_sexy_pirate_front
+      map: ["base"]
+    - state: pillow_body_sexy_pirate_back_b
+      map: ["back"]
+
+- type: entity
+  id: PillowBodySyndieBlood
+  parent: PillowBodyBase
+  name: syndicate blood red body pillow
+  description: Why is he jacked?
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_syndie_blood_front
+      map: ["base"]
+    - state: pillow_body_syndie_blood_back
+      map: ["back"]
+
+- type: entity
+  id: PillowBodySpaceBear
+  parent: PillowBodyBase
+  name: Space bear (?) body pillow
+  description: this could be any number of things, let alone a spacebear.
+  components:
+  - type: Item
+    heldPrefix: redpillow
+  - type: Sprite
+    sprite: _HL/Objects/Fun/pillows_body.rsi
+    layers:
+    - state: pillow_body_spacebear
+      map: ["base"]
+    - state: pillow_body_spacebear_back
+      map: ["back"]

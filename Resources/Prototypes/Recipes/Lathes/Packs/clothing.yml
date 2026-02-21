@@ -239,6 +239,7 @@
   - ClothingUniformJumpsuitRepairmanSyndieNF # Frontier
   - ClothingOuterCoatSyndieCap # Frontier
   - ClothingShoesBootsWinterSyndicate # Frontier
+  - PillowVeryLargeSyndicate # HL
 
 - type: latheRecipePack # HL
   id: PillowsStandard
