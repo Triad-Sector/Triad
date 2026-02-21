@@ -31,6 +31,7 @@ chat-emote-name-cathisses = Cat Hisses
 chat-emote-name-monkeyscreeches = Monkey Screeches
 chat-emote-name-robotbeep = Robot
 chat-emote-name-yawn = Yawn
+chat-emote-name-flap = Flap Wings
 chat-emote-name-stroke = Stroke
 chat-emote-name-plap = Plap
 chat-emote-name-wetplap = Wet Plap
@@ -73,7 +74,7 @@ chat-emote-msg-catmeow = meows.
 chat-emote-msg-cathisses = hisses!
 chat-emote-msg-monkeyscreeches = screeches!
 chat-emote-msg-yawn = yawns.
-chat-emote-msg-snore = snores.
+chat-emote-msg-flap = flaps {POSS-ADJ($entity)} wings.
 
 # Floof - Feroxi Port
 chat-emote-msg-gnash = gnashes {POSS-ADJ($entity)} teeth.

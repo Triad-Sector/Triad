@@ -31,7 +31,7 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Moth # Frontier: upstream#37297
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
   - type: TypingIndicator
     proto: moth
   - type: Butcherable
@@ -54,6 +54,8 @@
       Male: UnisexMoth
       Female: UnisexMoth
       Unsexed: UnisexMoth
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
   - type: MovementSpeedModifier
     weightlessAcceleration: 1.5 # Move around more easily in space.
     weightlessFriction: 1
