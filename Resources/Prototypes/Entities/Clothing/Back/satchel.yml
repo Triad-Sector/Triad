@@ -194,3 +194,6 @@
       - state: equipped-BACKPACK # Frontier
       - state: equipped-BACKPACK-unlit # Frontier
         shader: unshaded # Frontier
+  - type: Tag
+    tags:
+    - ScurretWearable
