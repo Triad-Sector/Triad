@@ -51,7 +51,7 @@
       required: true
       defaultMarkings: [ SynthVisor ]
     Tail:
-      points: 2
+      points: 2 # I already know this will cause visual issues, but there's ways to circumvent this, so. I'm leaving it at 2 for now.
       required: true
       defaultMarkings: [ SynthTail ]
     HeadTop:
