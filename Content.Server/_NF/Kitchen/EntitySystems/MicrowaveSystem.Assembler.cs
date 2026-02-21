@@ -32,17 +32,20 @@ public sealed partial class MicrowaveSystem : EntitySystem
             string? solidID = null;
             int amountToAdd = 1;
 
-            // If a microwave recipe uses a stacked item, use the default stack prototype id instead of prototype id
-            if (TryComp<StackComponent>(item, out var stackComp))
+            // Prefer the entity's actual prototype id. Only fall back to the StackPrototype
+            // spawn id when the entity prototype is missing (some stacks may be wrapper
+            // entities where the underlying prototype is stored on the stack prototype).
+            var metaData = MetaData(item); //this simply begs for cooking refactor
+            if (metaData.EntityPrototype is not null)
+            {
+                solidID = metaData.EntityPrototype.ID;
+                if (TryComp<StackComponent>(item, out var stackComp))
+                    amountToAdd = stackComp.Count;
+            }
+            else if (TryComp<StackComponent>(item, out var stackComp))
             {
                 solidID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
                 amountToAdd = stackComp.Count;
-            }
-            else
-            {
-                var metaData = MetaData(item); //this simply begs for cooking refactor
-                if (metaData.EntityPrototype is not null)
-                    solidID = metaData.EntityPrototype.ID;
             }
 
             if (solidID is null)
