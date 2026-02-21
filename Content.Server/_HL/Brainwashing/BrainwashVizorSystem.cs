@@ -1,12 +1,15 @@
 using Content.Server._Common.Consent;
 using Content.Server.DoAfter;
 using Content.Server.EUI;
+using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._HL.Brainwashing;
 using Content.Shared.Clothing;
+using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
@@ -28,6 +31,7 @@ public sealed class BrainwashVizorSystem : SharedBrainwashVizorSystem
     [Dependency] private readonly SharedFlashSystem _flashSystem = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly ConsentSystem _consentSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<BrainwashVizorComponent, GetVerbsEvent<Verb>>(ConfigureVerb);
@@ -53,6 +57,14 @@ public sealed class BrainwashVizorSystem : SharedBrainwashVizorSystem
         TryGetNetEntity(user, out var userNetEntity);
         if (userNetEntity == null || brainwashedComponent == null)
             return;
+
+        var userIsMindshielded = HasComp<MindShieldComponent>(user);
+        if (userIsMindshielded)
+        {
+            _popupSystem.PopupCoordinates("Installation failed!", user.ToCoordinates());
+            return;
+        }
+
         _audioSystem.PlayPvs(brainwashedComponent.EngageSound, uid, new AudioParams());
         _statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(user,
             _flashSystem.FlashedKey,
