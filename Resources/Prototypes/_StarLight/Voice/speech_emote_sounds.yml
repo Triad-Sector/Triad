@@ -78,3 +78,91 @@
       collection: FelionoidPurrs
     Growl:
       collection: FelionoidGrowls
+      
+- type: emoteSounds
+  id: MaleFelionoid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelionoidScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Mew:
+      collection: FelionoidMews
+    Hiss:
+      collection: FelionoidHisses
+    Meow:
+      collection: FelionoidMeows
+    Purr:
+      collection: FelionoidPurrs
+    Growl:
+      collection: FelionoidGrowls
+    Trill:
+      collection: FelionoidTrills
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+
+- type: emoteSounds
+  id: FemaleFelionoid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelionoidScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Crying:
+      collection: FemaleCry
+    Sigh:
+      collection: FemaleSigh
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Whistle:
+      collection: Whistles
+    Mew:
+      collection: FelionoidMews
+    Hiss:
+      collection: FelionoidHisses
+    Meow:
+      collection: FelionoidMeows
+    Purr:
+      collection: FelionoidPurrs
+    Growl:
+      collection: FelionoidGrowls
+    Trill:
+      collection: FelionoidTrills
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew

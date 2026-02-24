@@ -27,6 +27,7 @@
     - Vulpkanin # DeltaV
     - Harpy # DeltaV
     - Felinid # DeltaV
+    - Felionoid # Starlight
     - Oni # DeltaV
     - Chitinid # DeltaV
     - Rodentia # DeltaV
@@ -137,4 +138,10 @@
   id: Thaven
   name: species-name-thaven
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Thaven.xml"
+
+  # Starlight 
+- type: guideEntry
+  id: Felionoid
+  name: species-name-felionoid
+  text: "/ServerInfo/_StarLight/Guidebook/Mobs/Felionoid.xml"
 
