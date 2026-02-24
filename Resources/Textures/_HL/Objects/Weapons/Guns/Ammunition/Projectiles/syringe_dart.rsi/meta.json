@@ -17,6 +17,12 @@
     },
     {
       "name": "icon"
+    },
+    {
+        "name": "cryo"
+    },
+    {
+        "name": "explosive"
     }
   ]
 }
