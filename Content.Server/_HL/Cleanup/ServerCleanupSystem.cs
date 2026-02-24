@@ -366,8 +366,8 @@ public sealed class ServerCleanupSystem : EntitySystem
             if (!EntityManager.EntityExists(playerUid))
                 continue;
 
-            RescuePlayerFromDeletingGrid(playerUid, gridUid);
-            rescued++;
+            if (RescuePlayerFromDeletingGrid(playerUid, gridUid))
+                rescued++;
         }
 
         if (rescued > 0)
@@ -380,10 +380,15 @@ public sealed class ServerCleanupSystem : EntitySystem
     /// Relocates a player entity to a safe location when their current grid is being deleted.
 	/// Tries to find a nearby grid to place them on, or spawns them as a ghost at the default map if no safe grid is found.
     /// </summary>
-    private void RescuePlayerFromDeletingGrid(EntityUid playerUid, EntityUid deletingGridUid)
+    private bool RescuePlayerFromDeletingGrid(EntityUid playerUid, EntityUid deletingGridUid)
     {
+        if (!EntityManager.EntityExists(playerUid)
+            || EntityManager.IsQueuedForDeletion(playerUid)
+            || TerminatingOrDeleted(playerUid))
+            return false;
+
         if (!TryComp<TransformComponent>(playerUid, out var playerXform))
-            return;
+            return false;
 
         var playerWorldPos = _transformSystem.GetWorldPosition(playerXform);
         var mapId = playerXform.MapID;
@@ -402,7 +407,7 @@ public sealed class ServerCleanupSystem : EntitySystem
             if (gridXform.MapID != mapId)
                 continue;
 
-            if (EntityManager.IsQueuedForDeletion(gridUid))
+            if (!IsSafeRelocationTarget(gridUid))
                 continue;
 
             var gridPos = _transformSystem.GetWorldPosition(gridXform);
@@ -415,31 +420,65 @@ public sealed class ServerCleanupSystem : EntitySystem
             }
         }
 
-        if (bestGrid != null && bestDistance < 500f)
+        if (bestGrid != null && bestDistance < 500f && IsSafeRelocationTarget(bestGrid.Value))
         {
             var targetCoords = new EntityCoordinates(bestGrid.Value, Vector2.Zero);
-            _transformSystem.SetCoordinates(playerUid, targetCoords);
-            _sawmill.Info($"Relocated player {ToPrettyString(playerUid)} to nearby grid {ToPrettyString(bestGrid.Value)}");
-            return;
+            if (TrySetCoordinatesSafely(playerUid, targetCoords))
+            {
+                _sawmill.Info($"Relocated player {ToPrettyString(playerUid)} to nearby grid {ToPrettyString(bestGrid.Value)}");
+                return true;
+            }
         }
+
         var mapUid = _mapManager.GetMapEntityId(mapId);
-        if (EntityManager.EntityExists(mapUid))
+        if (IsSafeRelocationTarget(mapUid))
         {
-            _transformSystem.SetCoordinates(playerUid, new EntityCoordinates(mapUid, playerWorldPos));
-            _sawmill.Info($"Detached player {ToPrettyString(playerUid)} from grid to map space.");
-            return;
+            if (TrySetCoordinatesSafely(playerUid, new EntityCoordinates(mapUid, playerWorldPos)))
+            {
+                _sawmill.Info($"Detached player {ToPrettyString(playerUid)} from grid to map space.");
+                return true;
+            }
         }
 
         var defaultMapUid = _mapManager.GetMapEntityId(_gameTicker.DefaultMap);
-        if (EntityManager.EntityExists(defaultMapUid))
+        if (IsSafeRelocationTarget(defaultMapUid))
         {
-            _transformSystem.SetCoordinates(playerUid, new EntityCoordinates(defaultMapUid, Vector2.Zero));
-            _sawmill.Warning($"Emergency relocation: moved player {ToPrettyString(playerUid)} to default map origin.");
+            if (TrySetCoordinatesSafely(playerUid, new EntityCoordinates(defaultMapUid, Vector2.Zero)))
+            {
+                _sawmill.Warning($"Emergency relocation: moved player {ToPrettyString(playerUid)} to default map origin.");
+                return true;
+            }
         }
-        else
+
+        _sawmill.Warning($"Could not find safe relocation target for player {ToPrettyString(playerUid)} while grid {ToPrettyString(deletingGridUid)} was terminating.");
+        return false;
+    }
+
+    private bool IsSafeRelocationTarget(EntityUid uid)
+    {
+        return uid.IsValid()
+               && EntityManager.EntityExists(uid)
+               && !EntityManager.IsQueuedForDeletion(uid)
+               && !TerminatingOrDeleted(uid);
+    }
+
+    private bool TrySetCoordinatesSafely(EntityUid entityUid, EntityCoordinates coordinates)
+    {
+        if (!EntityManager.EntityExists(entityUid)
+            || EntityManager.IsQueuedForDeletion(entityUid)
+            || TerminatingOrDeleted(entityUid)
+            || !IsSafeRelocationTarget(coordinates.EntityId))
+            return false;
+
+        try
         {
-            _sawmill.Error($"CRITICAL: Could not find any safe location for player {ToPrettyString(playerUid)}! " +
-                           $"Player may be lost when grid {ToPrettyString(deletingGridUid)} is deleted.");
+            _transformSystem.SetCoordinates(entityUid, coordinates);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _sawmill.Warning($"Failed to relocate {ToPrettyString(entityUid)} to {ToPrettyString(coordinates.EntityId)} during grid termination: {ex.Message}");
+            return false;
         }
     }
 }
