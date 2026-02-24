@@ -1,34 +1,40 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;
+using Content.Shared._DeltaV.NanoChat; // DeltaV
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using System.Text;
+using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed class LogProbeCartridgeSystem : EntitySystem
+public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - Made partial
 {
-    [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
+    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly LabelSystem _label = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
+        InitializeNanoChat(); // DeltaV
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeAfterInteractEvent>(AfterInteract);
         SubscribeLocalEvent<LogProbeCartridgeComponent, CartridgeMessageEvent>(OnMessage);
@@ -45,15 +51,25 @@ public sealed class LogProbeCartridgeSystem : EntitySystem
         if (args.InteractEvent.Handled || !args.InteractEvent.CanReach || args.InteractEvent.Target is not { } target)
             return;
 
+        // DeltaV begin - Add NanoChat card scanning
+        if (TryComp<NanoChatCardComponent>(target, out var nanoChatCard))
+        {
+            ScanNanoChatCard(ent, args, target, nanoChatCard);
+            args.InteractEvent.Handled = true;
+            return;
+        }
+        // DeltaV end
+
         if (!TryComp(target, out AccessReaderComponent? accessReaderComponent))
             return;
 
         //Play scanning sound with slightly randomized pitch
-        _audio.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target);
+        _audio.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target, AudioHelpers.WithVariation(0.25f, _random));
         _popup.PopupCursor(Loc.GetString("log-probe-scan", ("device", target)), args.InteractEvent.User);
 
         ent.Comp.EntityName = Name(target);
         ent.Comp.PulledAccessLogs.Clear();
+        ent.Comp.ScannedNanoChatData = null; // DeltaV - Clear any previous NanoChat data
 
         foreach (var accessRecord in accessReaderComponent.AccessLog)
         {
@@ -121,7 +137,13 @@ public sealed class LogProbeCartridgeSystem : EntitySystem
 
     private void UpdateUiState(Entity<LogProbeCartridgeComponent> ent, EntityUid loaderUid)
     {
-        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs);
-        _cartridge.UpdateCartridgeUiState(loaderUid, state);
+        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs, ent.Comp.ScannedNanoChatData); // DeltaV - NanoChat support
+        _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
+    }
+
+    private void UpdateUiState((EntityUid uid, LogProbeCartridgeComponent comp) ent, EntityUid loaderUid)
+    {
+        var state = new LogProbeUiState(ent.comp.EntityName, ent.comp.PulledAccessLogs, ent.comp.ScannedNanoChatData);
+        _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 }

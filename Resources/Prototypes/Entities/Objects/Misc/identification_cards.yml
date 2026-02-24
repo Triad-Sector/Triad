@@ -25,6 +25,7 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # DeltaV
   - type: StaticPrice # Frontier
     price: 5 # Frontier The card need to cost less then the PDA that comes with a card and a pen in it.
   - type: CargoSellBlacklist # Frontier
@@ -487,6 +488,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CentralCommandOfficial
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -504,6 +507,8 @@
     job: ERTLeader
   - type: Item
     heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -521,6 +526,8 @@
     job: ERTChaplain
   - type: Item
     heldPrefix: blue
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -536,6 +543,8 @@
     - state: ert_engineer
   - type: PresetIdCard
     job: ERTEngineer
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -551,6 +560,8 @@
     - state: ert_janitor
   - type: PresetIdCard
     job: ERTJanitor
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -566,6 +577,8 @@
     - state: ert_medic
   - type: PresetIdCard
     job: ERTMedical
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -581,6 +594,8 @@
     - state: ert_security
   - type: PresetIdCard
     job: ERTSecurity
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -609,6 +624,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: DeathSquad
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   name: contractor ID card # Frontier: passenger<contractor
@@ -644,6 +661,8 @@
         type: AgentIDCardBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+  - type: NanoChatCard # DeltaV
+    listNumber: false
   - type: Contraband # Frontier
     hideValues: true # Frontier
 
@@ -658,6 +677,8 @@
     - Maintenance
     - SyndicateAgent
     - NuclearOperative
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -683,6 +704,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: [IDCardStandard, BaseC3PirateContraband] # Frontier: added BaseC3PirateContraband
@@ -697,6 +720,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -771,6 +796,8 @@
     heldPrefix: blue
   - type: PresetIdCard
     job: CBURN
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -785,6 +812,8 @@
   - type: IdCard
     jobTitle: job-title-cluwne
   - type: Unremoveable
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: EngineeringIDCard
@@ -842,6 +871,8 @@
     - Wizard
     - External
     - Maintenance
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -871,12 +902,13 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - Xenoborg
-    - Pirate # Mono
   - type: Tag #  Ignore Chameleon tags
     tags:
     - Admin
     - DoorBumpOpener
+  - type: NanoChatCard # DeltaV
+    notificationsMuted: true
+    listNumber: false
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
