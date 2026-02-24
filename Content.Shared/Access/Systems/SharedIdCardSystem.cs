@@ -47,9 +47,6 @@ public abstract class SharedIdCardSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, IdCardComponent id, MapInitEvent args)
     {
-        if (id.LocalizedJobTitle == null && id.JobTitle is { } jobTitle)
-            id.LocalizedJobTitle = Loc.GetString(jobTitle);
-
         UpdateEntityName(uid, id);
     }
 
