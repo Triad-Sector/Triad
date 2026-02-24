@@ -18,11 +18,12 @@
     - type: HumanoidAppearance
       species: Resomi
     - type: Hunger
-    - type: Puller
     - type: Thirst
     - type: Icon
       sprite: Floof/Mobs/Species/Resomi/parts.rsi
       state: full
+    - type: Puller
+      needsHands: false
     - type: Body
       prototype: Resomi
       requiredLegs: 2
