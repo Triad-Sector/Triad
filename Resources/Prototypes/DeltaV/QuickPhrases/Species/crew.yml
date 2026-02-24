@@ -113,3 +113,8 @@
   id: SpeciesSynthPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-synth
+
+- type: quickPhrase
+  id: BorgPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: job-name-borg

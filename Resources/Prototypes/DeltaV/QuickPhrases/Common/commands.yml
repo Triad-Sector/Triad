@@ -65,6 +65,11 @@
   text: phrase-go-away
 
 - type: quickPhrase
+  id: LeaveMeAlonePhrase
+  parent: BaseImperativePhrase
+  text: phrase-leave-me-alone
+
+- type: quickPhrase
   id: LeavePhrase
   parent: BaseImperativePhrase
   text: phrase-leave

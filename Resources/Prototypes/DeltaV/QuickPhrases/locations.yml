@@ -264,6 +264,11 @@
   text: station-beacon-surgery
 
 - type: quickPhrase
+  parent: BaseMedicalLocationPhrase
+  id: LocationGeneticsPhrase
+  text: station-beacon-genetics
+
+- type: quickPhrase
   parent: BaseSecurityLocationPhrase
   id: LocationSecurityPhrase
   text: station-beacon-security

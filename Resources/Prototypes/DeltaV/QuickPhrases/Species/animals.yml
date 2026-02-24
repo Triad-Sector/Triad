@@ -163,3 +163,13 @@
   id: SpeciesGoatPhrase
   parent: BaseAnimalSpeciesPhrase
   text: phrase-species-goat
+
+- type: quickPhrase
+  id: SpeciesScurretPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-scurret
+
+- type: quickPhrase
+  id: SpeciesWawaPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-wawa

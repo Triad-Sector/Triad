@@ -28,6 +28,7 @@ station-beacon-morgue = Morgue
 station-beacon-surgery = Surgery
 station-beacon-psychology = Psychology
 station-beacon-clinic = Clinic
+station-beacon-genetics = Genetics
 
 station-beacon-science = Science
 station-beacon-research-and-development = Research

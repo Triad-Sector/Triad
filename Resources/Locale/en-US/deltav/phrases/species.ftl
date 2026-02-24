@@ -40,3 +40,5 @@ phrase-species-ghost = ghost
 phrase-species-pest = pest
 phrase-species-insect = insect
 phrase-species-pet = pet
+phrase-species-scurret = scurret
+phrase-species-wawa = wawa

@@ -63,3 +63,8 @@
   id: MePhrase
   parent: BaseNounsPhrase
   text: phrase-me
+
+- type: quickPhrase
+  id: UsPhrase
+  parent: BaseNounsPhrase
+  text: phrase-us

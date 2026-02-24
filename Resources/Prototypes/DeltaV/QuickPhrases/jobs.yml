@@ -116,11 +116,6 @@
   id: ResearchAssistantPhrase
   text: job-name-research-assistant
 
-- type: quickPhrase
-  parent: BaseEpistemicsJobPhrase
-  id: BorgPhrase
-  text: job-name-borg
-
 # Logistics
 
 - type: quickPhrase
@@ -192,6 +187,11 @@
   id: MedicalInternPhrase
   text: job-name-intern
 
+- type: quickPhrase
+  parent: BaseMedicalJobPhrase
+  id: GeneticistPhrase
+  text: job-name-geneticist
+
 # Security
 
 - type: quickPhrase
@@ -225,6 +225,11 @@
   text: job-name-detective
 
 # Service
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
+  id: ServiceWorkerPhrase
+  text: job-name-serviceworker
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
@@ -307,3 +312,8 @@
   parent: BaseSecurityJobPhrase
   id: CorpsmanPhrase
   text: job-name-brigmedic
+
+- type: quickPhrase
+  parent: BaseCivilianJobPhrase
+  id: FreelancerPhrase
+  text: job-name-mercenary
