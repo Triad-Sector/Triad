@@ -26,7 +26,7 @@
     # - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
-    - BaseStationDeliveries
+    # - BaseStationDeliveries
     - BaseStationSectorServices
     - NFBaseStationCargo
     - BaseStationSectorNews
@@ -82,7 +82,7 @@
   - BaseStationMagnet
   - BaseStationExpeditions
   - BaseStationNanotrasen
-  - BaseStationDeliveries
+  # - BaseStationDeliveries
   categories: [ HideSpawnMenu ]
   components:
   - type: Transform
