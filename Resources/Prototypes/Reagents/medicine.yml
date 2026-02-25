@@ -297,6 +297,15 @@
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
+        - !type:OrganType #starliight
+          type: Resomi
+          shouldHave: false
+        damage:
+          types:
+            Asphyxiation: -1
+            Bloodloss: -0.5
+      - !type:HealthChange
+        conditions:
         - !type:ReagentThreshold
           min: 20
         damage:
@@ -314,6 +323,14 @@
         conditions:
         - !type:OrganType
           type: Avali
+          shouldHave: true
+        damage:
+          types:
+            Poison: 1.5 #Avali blood is ammonia based, so chems made to treat normal bloodloss poison them instead (Lethal Dose: 20u)
+            Asphyxiation: 1
+            Bloodloss: 1
+        - !type:OrganType
+          type: Resomi
           shouldHave: true
         damage:
           types:
@@ -341,6 +358,13 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
+        - !type:OrganType #starliight
+          type: Resomi
+          shouldHave: false
+        damage:
+          types:
+            Asphyxiation: -3.5
+            Bloodloss: -3
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -360,6 +384,14 @@
         conditions:
         - !type:OrganType
           type: Avali
+          shouldHave: true
+        damage:
+          types:
+            Poison: 2.5 #Avali blood is ammonia based, so chems made to treat normal bloodloss poison them instead. Dex+ is worse. (Lethal Dose: 15u)
+            Asphyxiation: 1.5
+            Bloodloss: 1
+        - !type:OrganType
+          type: Resomi
           shouldHave: true
         damage:
           types:
@@ -773,6 +805,9 @@
           - !type:OrganType
            type: Avali
            shouldHave: false
+          - !type:OrganType
+           type: Resomi
+           shouldHave: false
           - !type:OrganType # HardLight
            type: Synth
            shouldHave: false
@@ -781,6 +816,10 @@
           conditions:
           - !type:OrganType
            type: Avali
+           shouldHave: true
+          amount: 2
+          - !type:OrganType
+           type: Resomi
            shouldHave: true
           amount: 2
         - !type:HealthChange
@@ -793,6 +832,15 @@
               Poison: 12 #This is on par with giving someone the wrong blood-type (very lethal) / (Lethal Dose: 10u, VERY FAST ACTING)
               Caustic: 2 #Split to prevent 15u RRing someone, as caustic can be healed with topicals.
               Slash: 1 #Allows it to heal bleeding.
+          - !type:OrganType
+           type: Resomi
+           shouldHave: true
+          damage:
+            types:
+              Poison: 12 #This is on par with giving someone the wrong blood-type (very lethal) / (Lethal Dose: 10u, VERY FAST ACTING)
+              Caustic: 2 #Split to prevent 15u RRing someone, as caustic can be healed with topicals.
+              Slash: 1 #Allows it to heal bleeding.
+
 
 - type: reagent
   id: Siderlac
