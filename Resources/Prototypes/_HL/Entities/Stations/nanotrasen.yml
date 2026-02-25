@@ -32,7 +32,7 @@
     - BaseStationSectorNews
     - BaseStationSiliconLawFrontierStation
     - BaseStationRenameWarpPoints
-    - BaseStationMail
+    # - BaseStationMail
     # - BaseStationCargoMarket # bugged
   categories: [ HideSpawnMenu ]
   components:
@@ -70,7 +70,7 @@
   - BaseStationRecords
   - BaseStationSiliconLawFrontierStation
   - BaseStationSectorNews
-  - BaseStationMail # Mail
+  # - BaseStationMail # Mail
   - BaseStationSectorServices # Hosts all sector-wide services
   - BaseStationDampening
   - BaseStationDeadDropHintExempt # No hints
