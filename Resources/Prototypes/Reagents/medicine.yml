@@ -360,6 +360,8 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
+      - !type:HealthChange
+        conditions:
         - !type:OrganType #starliight
           type: Resomi
           shouldHave: false
