@@ -164,6 +164,11 @@
   text: phrase-bag
 
 - type: quickPhrase
+  id: GatewayPhrase
+  parent: BaseSubjectPhrase
+  text: phrase-gateway
+
+- type: quickPhrase
   id: BaseMaterialPhrase
   parent: BaseSubjectPhrase
   group: Materials
@@ -228,3 +233,8 @@
   id: BluespacePhrase
   parent: BaseMaterialPhrase
   text: phrase-bluespace
+
+- type: quickPhrase
+  id: GlassPhrase
+  parent: BaseMaterialPhrase
+  text: phrase-glass

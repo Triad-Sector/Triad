@@ -64,3 +64,13 @@
   id: HostileGunPhrase
   parent: BaseHostileThreatPhrase
   text: phrase-hostile-gun
+
+- type: quickPhrase
+  id: HostileRevPhrase
+  parent: BaseHostileThreatPhrase
+  text: roles-antag-rev-name
+
+- type: quickPhrase
+  id: HostileZombiePhrase
+  parent: BaseHostileThreatPhrase
+  text: job-name-zombie

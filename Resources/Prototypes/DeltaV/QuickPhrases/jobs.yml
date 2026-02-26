@@ -72,6 +72,11 @@
   id: CentralCommandOfficialPhrase
   text: job-name-centcomoff
 
+- type: quickPhrase
+  parent: BaseCommandJobPhrase
+  id: HarbourmasterPhrase
+  text: job-name-stc
+
 # Engineering
 
 - type: quickPhrase

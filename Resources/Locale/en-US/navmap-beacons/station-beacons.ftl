@@ -43,6 +43,7 @@ station-beacon-cargo = Cargo
 station-beacon-cargo-bay = Cargo Bay
 station-beacon-qm = QM
 station-beacon-salvage = Salvage
+station-beacon-mailroom = Mailroom
 
 station-beacon-engineering = Engineering
 station-beacon-ce = CE

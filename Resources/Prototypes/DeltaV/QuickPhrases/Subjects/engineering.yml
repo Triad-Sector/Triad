@@ -117,3 +117,13 @@
   id: MagbootsPhrase
   parent: BaseEngineeringSubjectPhrase
   text: phrase-magboots
+
+- type: quickPhrase
+  id: ReactorPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-reactor
+
+- type: quickPhrase
+  id: TurbinePhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-turbine

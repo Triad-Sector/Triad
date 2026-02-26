@@ -106,3 +106,13 @@
   id: SafetyLostPhrase
   parent: BaseSafetyStatusPhrase
   text: phrase-safety-lost
+
+- type: quickPhrase
+  id: SafetyPainPhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-safety-pain
+
+- type: quickPhrase
+  id: SafetyUnconsciousPhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-safety-unconscious

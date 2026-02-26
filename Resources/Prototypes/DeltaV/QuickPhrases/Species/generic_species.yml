@@ -20,11 +20,6 @@
   text: phrase-species-corpse
 
 - type: quickPhrase
-  id: SpeciesRobotPhrase
-  parent: BaseGenericSpeciesPhrase
-  text: phrase-species-robot
-
-- type: quickPhrase
   id: SpeciesAlienPhrase
   parent: BaseGenericSpeciesPhrase
   text: phrase-species-alien

@@ -1,0 +1,18 @@
+- type: startingGear
+  id: BaiheColcomGear
+  equipment:
+    # pocket1:
+    pocket2: DoorRemoteAll
+    head: ClothingHeadHelmetChameleon
+    neck: ClothingNeckCloakCentcom
+    # mask:
+    eyes: ClothingEyesGlassesNfsd
+    ears: ClothingHeadsetAltColCom
+    # gloves:
+    shoes: ClothingShoesBootsCombat
+    # suitstorage:
+    outerClothing: ClothingOuterArmorChameleon
+    jumpsuit: CoolCoyoteClothesDarkHanfu
+    belt: ClothingBeltSheathFilled
+    back: WeaponEnergyHalberd
+    id: CentcomPDA

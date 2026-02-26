@@ -115,6 +115,6 @@
   text: species-name-synth
 
 - type: quickPhrase
-  id: BorgPhrase
+  id: SpeciesFeroxiPhrase
   parent: BaseCrewSpeciesPhrase
-  text: job-name-borg
+  text: species-name-feroxi

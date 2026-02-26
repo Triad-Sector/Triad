@@ -68,10 +68,15 @@
   id: LocationHopPhrase
   text: station-beacon-hop
 
-#- type: quickPhrase
-#  parent: BaseCommandLocationPhrase
-#  id: LocationConferenceRoomPhrase
-#  text: station-beacon-conference-room
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationConferenceRoomPhrase
+  text: station-beacon-conference
+
+- type: quickPhrase
+  parent: BaseCommandLocationPhrase
+  id: LocationAICorePhrase
+  text: station-beacon-ai-core
 
 - type: quickPhrase
   parent: BaseEngineeringLocationPhrase
@@ -213,10 +218,10 @@
   id: LocationSalvagePhrase
   text: station-beacon-salvage
 
-#- type: quickPhrase
-#  parent: BaseLogisticsLocationPhrase
-#  id: LocationMailPhrase
-#  text: station-beacon-mailroom
+- type: quickPhrase
+  parent: BaseLogisticsLocationPhrase
+  id: LocationMailPhrase
+  text: station-beacon-mailroom
 
 - type: quickPhrase
   parent: BaseLogisticsLocationPhrase
@@ -349,6 +354,11 @@
   text: station-beacon-theater
 
 - type: quickPhrase
+  parent: BaseServiceLocationPhrase
+  id: LocationShopPhrase
+  text: phrase-location-shop
+
+- type: quickPhrase
   parent: BaseCivilianLocationPhrase
   id: LocationLibraryPhrase
   text: station-beacon-library
@@ -417,3 +427,38 @@
   parent: BaseCivilianLocationPhrase
   id: LocationMaintenancePhrase
   text: phrase-location-maintenance
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationOfficePhrase
+  text: phrase-location-office
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationBathroomPhrase
+  text: phrase-location-bathroom
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationStoragePhrase
+  text: phrase-location-storage
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationRoomPhrase
+  text: phrase-location-room
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationBedroomPhrase
+  text: phrase-location-bedroom
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationStationPhrase
+  text: phrase-location-station
+
+- type: quickPhrase
+  parent: BaseCivilianLocationPhrase
+  id: LocationDockPhrase
+  text: phrase-location-dock
