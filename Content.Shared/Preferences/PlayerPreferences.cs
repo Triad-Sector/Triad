@@ -38,7 +38,21 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public ICharacterProfile SelectedCharacter
+        {
+            get
+            {
+                if (_characters.TryGetValue(SelectedCharacterIndex, out var selected))
+                    return selected;
+
+                foreach (var character in _characters.Values)
+                {
+                    return character;
+                }
+
+                throw new InvalidOperationException("Player has no character profiles.");
+            }
+        }
 
         public Color AdminOOCColor { get; set; }
 
