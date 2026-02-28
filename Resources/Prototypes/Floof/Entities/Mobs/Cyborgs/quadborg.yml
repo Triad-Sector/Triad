@@ -5,6 +5,7 @@
   - type: Body
     prototype: Quadborg
   - type: Inventory
+    speciesId: quadborg
     templateId: borgquad #Hardlight - Changes Quadborgs over to use our armor slots
   - type: Sprite
     sprite: Floof/Mobs/Silicon/quad.rsi

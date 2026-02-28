@@ -20,7 +20,7 @@
     - Crucifix
 
 - type: entity
-  parent: ClothingNeckCollarBase # Floofstation - changed from ClothingNeckBase
+  parent: ClothingNeckCollarBase # Floofstation: Changed from ClothingNeckBase
   id: ClothingNeckBellCollar
   name: bell collar
   description: A way to inform others about your presence, or just to annoy everyone around you!
@@ -29,6 +29,10 @@
     sprite: _NF/Clothing/Neck/bellcollar.rsi
   - type: Clothing
     sprite: _NF/Clothing/Neck/bellcollar.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_bell_quad.rsi
+        state: equipped-NECK-quadborg
   - type: EmitsSoundOnMove
     soundCollection:
       collection: FootstepJester
