@@ -133,7 +133,7 @@ public sealed class FTLDiskCommand : LocalizedCommands
                 // create the FTL disk
                 EntityUid cdUid = _entManager.SpawnEntity(CoordinatesDisk, coords);
                 var cd = _entManager.EnsureComponent<ShuttleDestinationCoordinatesComponent>(cdUid);
-                cd.Destination = dest;
+                cd.Destination = _entManager.GetNetEntity(dest);
                 _entManager.Dirty(cdUid, cd);
 
                 // create disk case

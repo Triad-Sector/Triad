@@ -654,6 +654,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Validate client
         for (var i = entities.Count - 1; i >= 0; i--)
         {
+            var candidate = entities[i];
+
+            if (candidate == EntityUid.Invalid
+                || !EntityManager.EntityExists(candidate)
+                || EntityManager.IsQueuedForDeletion(candidate)
+                || TerminatingOrDeleted(candidate)
+                || !HasComp<TransformComponent>(candidate))
+            {
+                entities.RemoveAt(i);
+                continue;
+            }
+
             if (ArcRaySuccessful(entities[i],
                     userPos,
                     direction.ToWorldAngle(),

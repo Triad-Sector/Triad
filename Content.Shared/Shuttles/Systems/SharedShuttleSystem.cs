@@ -72,7 +72,14 @@ public abstract partial class SharedShuttleSystem : EntitySystem
 
                 var diskCoords = diskCoordinates.Destination;
 
-                if (diskCoords == null || !TryComp<FTLDestinationComponent>(diskCoords.Value, out var diskDestination) || diskDestination != destination)
+                if (diskCoords == null)
+                    return false;
+
+                var diskDestinationUid = GetEntity(diskCoords.Value);
+
+                if (diskDestinationUid == EntityUid.Invalid
+                    || !TryComp<FTLDestinationComponent>(diskDestinationUid, out var diskDestination)
+                    || diskDestination != destination)
                 {
                     return false;
                 }

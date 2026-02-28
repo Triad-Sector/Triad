@@ -204,7 +204,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         if (CoordinatesDisk.HasValue)
         {
             var cd = _entManager.EnsureComponent<ShuttleDestinationCoordinatesComponent>(CoordinatesDisk.Value);
-            cd.Destination = mapUid;
+            cd.Destination = _entManager.GetNetEntity(mapUid);
             _entManager.Dirty(CoordinatesDisk.Value, cd);
         }
 
