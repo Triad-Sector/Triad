@@ -31,6 +31,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared.Bed.Cryostorage; // HardLight
 
 namespace Content.Server._NF.CryoSleep;
 
@@ -45,6 +46,7 @@ public sealed partial class CryoSleepSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // HardLight
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ShipyardSystem _shipyard = default!; // For the FoundOrganics method
     [Dependency] private readonly GhostSystem _ghost = default!;
@@ -88,6 +90,7 @@ public sealed partial class CryoSleepSystem : EntitySystem
     private void OnInit(EntityUid uid, CryoSleepComponent component, ComponentStartup args)
     {
         component.BodyContainer = _container.EnsureContainer<ContainerSlot>(uid, "body_container");
+        UpdateOccupancyAppearance(uid, IsOccupied(component)); // HardLight
     }
 
     private void AddInsertOtherVerb(Entity<CryoSleepComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
@@ -242,6 +245,8 @@ public sealed partial class CryoSleepSystem : EntitySystem
         if (!_container.Insert(toInsert.Value, cryopod.Comp.BodyContainer))
             return false;
 
+        UpdateOccupancyAppearance(cryopod.Owner, true); // HardLight
+
         if (session != null)
             _euiManager.OpenEui(new CryoSleepEui(toInsert.Value, cryopod, this), session);
 
@@ -297,6 +302,7 @@ public sealed partial class CryoSleepSystem : EntitySystem
 
         var storage = GetStorageMap();
         _container.Remove(bodyId, cryo.BodyContainer, reparent: false, force: true);
+        UpdateOccupancyAppearance(cryopod, false); // HardLight
         _transform.SetCoordinates(bodyId, new EntityCoordinates(storage, Vector2.Zero));
 
         RaiseLocalEvent(bodyId, new CryosleepEnterEvent(cryopod, mind?.UserId), true);
@@ -336,6 +342,7 @@ public sealed partial class CryoSleepSystem : EntitySystem
             return false;
 
         _container.Remove(toEject.Value, component.BodyContainer, force: true);
+        UpdateOccupancyAppearance(pod, false); // HardLight
 
         if (component.CryosleepDoAfter != null && _doAfter.GetStatus(component.CryosleepDoAfter) == DoAfterStatus.Running)
             _doAfter.Cancel(component.CryosleepDoAfter);
@@ -347,6 +354,14 @@ public sealed partial class CryoSleepSystem : EntitySystem
     {
         return component.BodyContainer.ContainedEntity != null;
     }
+
+    // HardLight start: Method to update the visual state of the cryopod based on whether it's occupied or not.
+    // It is called whenever a body is inserted or ejected from the pod.
+    private void UpdateOccupancyAppearance(EntityUid uid, bool occupied)
+    {
+        _appearance.SetData(uid, CryostorageVisuals.Full, occupied);
+    }
+    // HardLight end
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
