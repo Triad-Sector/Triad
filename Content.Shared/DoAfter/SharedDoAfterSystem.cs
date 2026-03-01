@@ -360,6 +360,28 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         Dirty(entity, comp);
     }
 
+    /// <summary>
+    ///     HardLight: Cancels and immediately removes all do-afters on an entity.
+    ///     Useful when moving entities to paused maps where update-driven cleanup would not run.
+    /// </summary>
+    public void CancelAndClearAll(EntityUid entity, DoAfterComponent? comp = null)
+    {
+        if (!Resolve(entity, ref comp, false))
+            return;
+
+        if (comp.DoAfters.Count == 0)
+            return;
+
+        foreach (var doAfter in comp.DoAfters.Values)
+        {
+            InternalCancel(doAfter, comp);
+        }
+
+        comp.DoAfters.Clear();
+        RemCompDeferred<ActiveDoAfterComponent>(entity);
+        Dirty(entity, comp);
+    }
+
     private void InternalCancel(DoAfter doAfter, DoAfterComponent component)
     {
         if (doAfter.Cancelled || doAfter.Completed)
