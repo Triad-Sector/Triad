@@ -743,3 +743,158 @@
   components:
   - type: Sprite
     state: plainwhite-vinyl-sleeve
+
+#Hardlight
+- type: entity
+  name: "vinyl disk: turf war vol 1"
+  id: VinylDiskTWV1
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar1.ogg
+
+- type: entity
+  name: "vinyl disk: turf war vol 2"
+  id: VinylDiskTWV2
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar2.ogg
+
+- type: entity
+  name: "vinyl disk: turf war vol 3"
+  id: VinylDiskTWV3
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar3.ogg
+
+- type: entity
+  name: "vinyl disk: turf war vol 4"
+  id: VinylDiskTWV4
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar4.ogg
+
+- type: entity
+  name: "vinyl disk: turf war vol 5"
+  id: VinylDiskTWV5
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar5.ogg
+
+- type: entity
+  name: "vinyl disk: turf war vol 6"
+  id: VinylDiskTWV6
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/turfwar6.ogg
+
+- type: entity
+  name: "vinyl disk: Nebula"
+  id: VinylDiskNebula
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/nebula.ogg
+
+- type: entity
+  name: "vinyl disk: Icosa"
+  id: VinylDiskIcosa
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/icosa.ogg
+
+- type: entity
+  name: "vinyl disk: tetracosa"
+  id: VinylDiskTetracosa
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/tetracosa.ogg
+
+- type: entity
+  name: "vinyl disk: ACES"
+  id: VinylDiskAces
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/aces.ogg
+
+- type: entity
+  name: "vinyl disk: raindrop prelude"
+  id: VinylDiskRaindrop
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/raindropprelude.ogg
+
+- type: entity
+  name: "vinyl disk: Standchen"
+  id: VinylDiskStandchen
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/standchen.ogg
+
+- type: entity
+  name: "vinyl disk: The Show Begins"
+  id: VinylDiskShowBegins
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/showbegins.ogg
+
+- type: entity
+  name: "vinyl disk: Young Spirits"
+  id: VinylDiskYoungSpirit
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_HL/RadioStation/music/youngspirit.ogg
