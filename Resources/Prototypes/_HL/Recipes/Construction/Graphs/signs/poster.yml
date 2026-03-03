@@ -483,6 +483,11 @@
             - material: Paper
               amount: 1
               doAfter: 1
+        - to: PosterLegitYesERP
+          steps:
+          - material: Paper
+            amount: 1
+            doAfter: 1
         - to: PosterLegitCarbonDioxide
           steps:
             - material: Paper
@@ -1663,6 +1668,17 @@
           steps:
             - tool: Prying
               doAfter: 1
+    - node: PosterLegitYesERP
+      entity: PosterLegitYesERP
+      edges:
+      - to: start
+        completed:
+        - !type:SpawnPrototype
+          prototype: SheetPaper
+          amount: 1
+        steps:
+        - tool: Prying
+          doAfter: 1
     - node: PosterLegitCarbonDioxide
       entity: PosterLegitCarbonDioxide
       edges:
