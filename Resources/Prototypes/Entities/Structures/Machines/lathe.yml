@@ -395,6 +395,7 @@
     - ChemistryStatic
     - SurgeryStatic
     dynamicPacks:
+    - ServiceBoardsGoob
     - AdvancedTools
     - ScienceEquipment
     - ScienceExplosives

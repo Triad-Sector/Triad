@@ -1,7 +1,7 @@
 - type: radioChannel
-  id: Future
-  name: chat-radio-future
-  keycode: '5'
-  frequency: 9999
-  color: "#91E8E5"
+  id: RadioShow
+  name: chat-radio-radioshow
+  keycode: '6'
+  frequency: 145
+  color: "#bc1ac4"
   longRange: true
