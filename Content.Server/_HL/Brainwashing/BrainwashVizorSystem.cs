@@ -94,7 +94,10 @@ public sealed class BrainwashVizorSystem : SharedBrainwashVizorSystem
             args.Wearer,
             TimeSpan.FromSeconds(3),
             new EngagedEvent(netEntity.Value),
-            uid);
+            uid)
+        {
+            RequireCanInteract = false,
+        };
         var startDoAfterSuccess = _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId, doAfterComponent);
         if (!startDoAfterSuccess)
             return;
