@@ -1,0 +1,50 @@
+# Example of an injector collar: contains a solution and will feed the wearer when
+# the trigger is activated.  You can give the `SolutionContainerManager` any
+# reagents you like in prototypes or spawn scripts.
+- type: entity
+  parent: ClothingNeckCollarBase
+  id: ClothingNeckInjectorCollar
+  name: injector collar
+  description: A collar that injects its contents into the wearer when triggered.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Neck/Collars/injector.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Neck/Collars/injector.rsi
+    equipDelay: 1
+    unequipDelay: 10
+  - type: SolutionContainerManager
+    solutions:
+      internal:
+        maxVol: 30
+        # reagents can be added by map scripts or at runtime
+  - type: RefillableSolution
+    solution: internal
+  - type: InjectOnTrigger
+    solution: internal
+    amount: 5
+    cooldown: 3
+  - type: TriggerOnSignal
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: LeashAnchor
+    offset: 0, 0.22
+    kind: Clothing
+
+- type: entity
+  parent: ClothingNeckInjectorCollar
+  id: ClothingNeckInjectorCollarCryo
+  name: cryostasis injector collar
+  description: A collar that injects its contents into the wearer when triggered, This one is a cryostasis design.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      internal:
+        maxVol: 15
+        canReact: false

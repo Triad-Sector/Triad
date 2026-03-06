@@ -1,0 +1,16 @@
+- type: latheRecipe
+  id: InjectorCollar
+  result: ClothingNeckInjectorCollar
+  completetime: 5
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: InjectorCollarCryo
+  result: ClothingNeckInjectorCollarCryo
+  completetime: 5
+  materials:
+      Steel: 1000
+      Plastic: 500
+      Glass: 500
