@@ -51,7 +51,7 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
-            
+
             // NEW: Subscribe to MapInit to verify solution integrity after load
             SubscribeLocalEvent<ChemMasterComponent, MapInitEvent>(OnChemMasterMapInit);
 
@@ -351,6 +351,12 @@ namespace Content.Server.Chemistry.EntitySystems
             }
 
             if (!TryComp(container, out StorageComponent? storage))
+                return null;
+
+            // HardLight: Null check to prevent ship load failures when the output slot contains a pill bottle.
+            // I assume ChemMasters attempt to load the contents of the pill bottle before the container itself,
+            // which is obviously impossible if true and thus results in a fail.
+            if (storage.Container == null)
                 return null;
 
             var pills = storage.Container.ContainedEntities.Select((Func<EntityUid, (string, FixedPoint2 quantity)>) (pill =>
