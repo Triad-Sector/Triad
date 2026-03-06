@@ -15,3 +15,14 @@
   components:
   - type: Flatpack
     entity: StationRadioServer
+
+# Hardlight Start - Adds station radio player flatpack for spawns
+- type: entity
+  parent: BaseFlatpack
+  id: RadioReceiverFlatpack
+  name: radio receiver flatpack
+  description: A flatpack used for constructing a radio receiver.
+  components:
+  - type: Flatpack
+    entity: StationRadioReceiver
+# Hardlight End
