@@ -861,7 +861,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "HumanoidAppearance",
             "IdCard",
             "IdCardConsole",
-            "MarketModifier",
+            "MarketConsole",
             "NFCargoOrderConsole",
             "Pda",
             "ShipyardConsole",
