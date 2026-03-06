@@ -18,6 +18,7 @@
   - type: Tag # HardLight
     tags:
     - BorgWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckCollarBase
