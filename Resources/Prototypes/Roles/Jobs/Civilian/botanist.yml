@@ -6,7 +6,7 @@
   setPreference: true # Frontier
   startingGear: BotanistGear
   icon: "JobIconBotanist"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance

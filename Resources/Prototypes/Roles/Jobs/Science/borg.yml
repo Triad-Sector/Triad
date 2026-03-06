@@ -11,7 +11,7 @@
     time: 18000  # 5 hrs
   # canBeAntag: false
   icon: JobIconStationAi
-  supervisors: job-supervisors-hire # Frontier: rd<hire
+  supervisors: job-supervisors-ai
   jobEntity: StationAiBrain
   jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false

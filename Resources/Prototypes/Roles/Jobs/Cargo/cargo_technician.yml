@@ -6,7 +6,7 @@
   setPreference: true # Frontier
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-qm
   access:
   - Cargo
   - Maintenance

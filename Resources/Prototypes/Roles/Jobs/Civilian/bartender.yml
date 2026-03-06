@@ -10,7 +10,7 @@
       time: 1800 #0.5 hr
   startingGear: BartenderGear
   icon: "JobIconBartender"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-hop # Frontier
   access:
   - Service
   - Maintenance

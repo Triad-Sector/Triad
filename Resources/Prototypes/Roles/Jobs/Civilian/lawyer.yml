@@ -9,7 +9,7 @@
       time: 9000 # 2.5 hrs
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hire
+  supervisors: job-supervisors-centcom
   # canBeAntag: false
   access:
   - Service

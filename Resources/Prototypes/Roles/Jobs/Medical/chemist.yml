@@ -9,7 +9,7 @@
     time: 10800
   startingGear: ChemistGear
   icon: "JobIconChemist"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-cmo
   access:
   - Medical
   - Chemistry
