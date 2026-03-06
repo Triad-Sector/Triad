@@ -1,4 +1,4 @@
-- type: construction
+﻿﻿- type: construction
   id: ContrabandDetector
   name: contraband detector
   description: A security device that scans for contraband items.

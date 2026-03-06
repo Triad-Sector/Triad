@@ -1,4 +1,4 @@
-- type: constructionGraph
+﻿﻿- type: constructionGraph
   id: ContrabandDetector
   start: start
   graph:
