@@ -101,6 +101,9 @@
 # TODO: Make medical mech, I will.
 
 - type: Tag
+  id: ContrabandDetectorCircuitboard
+
+- type: Tag
   id: SpecialMech
 
 - type: Tag
