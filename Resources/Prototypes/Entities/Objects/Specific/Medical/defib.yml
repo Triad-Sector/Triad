@@ -100,7 +100,7 @@
 - type: entity
   id: DefibrillatorSyndicate
   parent: [ DefibrillatorCompact, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
-  name: interdyne defibrillator
+  name: syndicate defibrillator
   description: Doubles as a self-defense weapon against war-crime inclined tiders.
   components:
   - type: Sprite
@@ -132,3 +132,27 @@
       types:
         Blunt: 8
         Shock: 16
+
+
+- type: entity
+  id: DefibrillatorInterdyne
+  parent: [ DefibrillatorCompact ]
+  name: interdyne defibrillator
+  description: A compact defibrillator bearing the colors of Interdyne Pharmaceuticals. Comes with a microreactor.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Specific/Interdyne/defib.rsi
+    layers:
+    - state: icon
+    - state: screen
+      map: [ "enum.ToggleVisuals.Layer" ]
+      visible: false
+      shader: unshaded
+    - state: ready
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      shader: unshaded
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
