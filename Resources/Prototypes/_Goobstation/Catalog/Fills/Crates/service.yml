@@ -15,7 +15,7 @@
   id: CrateRadioStationVinyls
   parent: CrateGenericSteel
   name: vinyls crate
-  description: A crate with 12 vinyls so you'll NEVER play the same song twice, they come in sleeves!
+  description: A crate with a random vinyl to play with the vinyl player. Collect them all!
   components:
   - type: EntityTableContainerFill
     containers:
@@ -23,6 +23,22 @@
         children:
         - !type:NestedSelector
           tableId: RandomVinylSleeve
+
+- type: entity
+  id: CrateRadioStationVinyls5
+  parent: CrateGenericSteel
+  name:  5 vinyls crate
+  description: A crate with 5 random vinyls to play with the vinyl player. Collect them all!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: RandomVinylSleeve
+          rolls: !type:ConstantNumberSelector
+            value: 5
+
 
 - type: entityTable
   id: RandomCDDisk
@@ -72,8 +88,6 @@
         weight: 0.1
       - id: CdDiskXgOnboarding4
         weight: 0.1
-      - id: VinylDiskForgotten
-        weight: 0.05
 
 - type: entityTable
   id: RandomVinylDisk
@@ -94,7 +108,7 @@
       - id: VinylDiskLightBlue
         weight: 0.6
       - id: VinylDiskBanana
-        weight: 0.6
+        weight: 0.05 # 'funny song'
       - id: VinylDiskCarrot
         weight: 0.6
       - id: VinylDiskCyan
@@ -112,7 +126,7 @@
       - id: VinylDiskWhite
         weight: 0.6
       - id: VinylDiskLightRed
-        weight: 0.6
+        weight: 0.05 # 'funny song'
       - id: VinylDiskDarkBlue
         weight: 0.6
       - id: VinylDiskPink
@@ -135,6 +149,36 @@
         weight: 0.6
       - id: VinylDiskBachCello
         weight: 0.6
+      - id: VinylDiskTWV1
+        weight: 0.6
+      - id: VinylDiskTWV2
+        weight: 0.6
+      - id: VinylDiskTWV3
+        weight: 0.6
+      - id: VinylDiskTWV4
+        weight: 0.6
+      - id: VinylDiskTWV5
+        weight: 0.6
+      - id: VinylDiskTWV6
+        weight: 0.6
+      - id: VinylDiskNebula
+        weight: 0.6
+      - id: VinylDiskIcosa
+        weight: 0.6
+      - id: VinylDiskTetracosa
+        weight: 0.6
+      - id: VinylDiskAces
+        weight: 0.6
+      - id: VinylDiskRaindrop
+        weight: 0.6
+      - id: VinylDiskStandchen
+        weight: 0.6
+      - id: VinylDiskShowBegins
+        weight: 0.6
+      - id: VinylDiskYoungSpirit
+        weight: 0.6
+      - id: VinylDiskForgotten
+        weight: 0.05 # 'funny song'
 
 - type: entityTable
   id: RandomVinylSleeve

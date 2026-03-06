@@ -38,6 +38,8 @@
     damage:
       types:
         Slash: 5
+  - type: StaticPrice
+    price: 50
   - type: Tag
     tags:
     - VinylSleeveFit
@@ -61,6 +63,8 @@
         showEnts: false
         occludes: true
         ent: null
+  - type: StaticPrice
+    price: 10
   - type: ItemSlots
     slots:
       vinyl:

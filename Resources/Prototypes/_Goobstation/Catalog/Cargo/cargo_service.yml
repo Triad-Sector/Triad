@@ -17,3 +17,13 @@
   cost: 3000
   category: cargoproduct-category-name-service
   group: market
+
+- type: cargoProduct
+  id: RadioVinylCrateCargo5
+  icon:
+    sprite: _Goobstation/Objects/Misc/RadioStation/vinyls.rsi
+    state: red-vinyl-disk
+  product: CrateRadioStationVinyls5
+  cost: 15000
+  category: cargoproduct-category-name-service
+  group: market
