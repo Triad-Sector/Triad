@@ -2,6 +2,8 @@
 - type: entity
   id: BaseNuclearReactor
   parent: BaseStructure
+  abstract: true
+  categories: [ HideSpawnMenu ]
   name: nuclear reactor
   description: A nuclear reactor vessel, with slots for fuel rods and other components. Hey wait, didn't one of these explode once?
   components:
@@ -67,8 +69,6 @@
           True: { visible: true }
           False: { visible: false }
   - type: Appearance
-  - type: Physics
-    bodyType: Static
   - type: InteractionOutline
   - type: Rotatable
   - type: Fixtures
@@ -83,7 +83,27 @@
         layer:
         - MachineLayer
         - HighImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralReactorCasing
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NuclearReactorMelted:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Anchorable
+    delay: 10
   - type: AtmosDevice
   - type: AtmosMonitoringConsoleDevice # TODO: this doesn't work?
     navMapBlip: Thermoregulator
@@ -105,6 +125,7 @@
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSource
+    range: 50
     ports:
       - NuclearReactorDataSender
   - type: DeviceLinkSink
@@ -118,6 +139,18 @@
     interfaces:
       enum.NuclearReactorUiKey.Key:
         type: NuclearReactorBoundUserInterface
+  - type: GuideHelp
+    guides:
+    - NuclearReactor
+    - Power
+
+# Crew nuclear reactors
+- type: entity
+  id: NuclearReactorCrew
+  parent: BaseNuclearReactor
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
   - type: AccessReader # You got a permit for that meltdown?
     access: [["Engineering"]]
   - type: Lock
@@ -130,16 +163,20 @@
     - Power
 
 - type: entity
+  id: NuclearReactorNormal
+  parent: NuclearReactorCrew
+
+- type: entity
   id: NuclearReactorEmpty
-  parent: BaseNuclearReactor
+  parent: NuclearReactorCrew
   suffix: Empty
   components:
   - type: NuclearReactor
-    prefab: empty
+    prefab: ReactorPrefabEmpty
 
 - type: entity
   id: NuclearReactorRandom
-  parent: BaseNuclearReactor
+  parent: NuclearReactorCrew
   suffix: Random
   components:
   - type: NuclearReactor
@@ -147,25 +184,49 @@
 
 - type: entity
   id: NuclearReactorMeltdown
-  parent: BaseNuclearReactor
+  parent: NuclearReactorCrew
   suffix: Meltdown
   components:
   - type: NuclearReactor
-    prefab: meltdown
+    prefab: ReactorPrefab7x7Meltdown
 
 - type: entity
-  id: NuclearReactorMelted
-  parent: NuclearReactorEmpty
+  id: NuclearReactorMelted # This is more of a decoration than anything else
+  parent: BaseStructure
   suffix: Melted
-  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  name: nuclear reactor
+  description: A broken nuclear reactor vessel. It glows with heat and radiation.
   components:
-  - type: NuclearReactor
-    melted: true
-    meltdownRadiation: 8
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_reactor.rsi
+    layers:
+    - state: reactorbroken
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5,-2.5,2.5,2"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: RadiationSource
+    intensity: 7
+  - type: InteractionOutline
+  - type: PointLight
+    energy: 0.1
+    falloff: 2
+    radius: 3.5
+    color: "#FFAAAAFF"
 
+# Small crew nuclear reactors
 - type: entity
   id: NuclearReactorSmall
-  parent: BaseNuclearReactor
+  parent: NuclearReactorCrew
   name: small nuclear reactor
   components:
   - type: Sprite
@@ -186,13 +247,29 @@
     thermalMass: 302400
     reactorGridWidth: 5
     reactorGridHeight: 5
-    prefab: normal5x5
+    prefab: ReactorPrefab5x5Normal
     inletPos: -1, 1
     inletRot: 180
     outletPos: 1, 1
     outletRot: 180
     arrowPrototype: ReactorSmallFlowArrow
     gridbounds: [ 12, 11, 0, 0 ]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 700
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          NuclearReactorSmallMelted:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: NuclearReactorSmallRandom
@@ -204,34 +281,149 @@
 
 - type: entity
   id: NuclearReactorSmallMelted
-  parent: NuclearReactorSmall
+  parent: NuclearReactorMelted
   suffix: Melted
-  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  name: small nuclear reactor
+  description: A broken nuclear reactor vessel. It glows with heat and radiation.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_nuclear_reactor.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: RadiationSource
+    intensity: 5
+  - type: PointLight
+    radius: 2.5
+
+# Salvage nuclear reactors
+- type: entity
+  id: NuclearReactorSalvage
+  parent: BaseNuclearReactor
+  abstract: true
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  id: NuclearReactorNormalSalvage
+  parent: NuclearReactorSalvage
+  suffix: Salvage
+
+- type: entity
+  id: NuclearReactorEmptySalvage
+  parent: NuclearReactorSalvage
+  suffix: "Empty, Salvage"
   components:
   - type: NuclearReactor
-    prefab: empty
-    melted: true
-    meltdownRadiation: 5
+    prefab: ReactorPrefabEmpty
+
+- type: entity
+  id: NuclearReactorRandomSalvage
+  parent: NuclearReactorSalvage
+  suffix: "Random, Salvage"
+  components:
+  - type: NuclearReactor
+    prefab: random
+
+- type: entity
+  id: NuclearReactorMeltedSalvage
+  parent: NuclearReactorMelted
+  suffix: "Melted, Salvage"
+  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  components:
+  - type: RadiationSource
+    intensity: 3.5
+  - type: PointLight
+    energy: 0.025
+
+# Small salvage nuclear reactors
+- type: entity
+  id: NuclearReactorSmallSalvage
+  parent: NuclearReactorSalvage
+  suffix: Salvage
+  name: small nuclear reactor
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/small_nuclear_reactor.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - HighImpassable
+  - type: NuclearReactor
+    thermalMass: 302400
+    reactorGridWidth: 5
+    reactorGridHeight: 5
+    prefab: ReactorPrefab5x5Normal
+    inletPos: -1, 1
+    inletRot: 180
+    outletPos: 1, 1
+    outletRot: 180
+    arrowPrototype: ReactorSmallFlowArrow
+    gridbounds: [ 12, 11, 0, 0 ]
+
+- type: entity
+  id: NuclearReactorSmallRandomSalvage
+  parent: NuclearReactorSmall
+  suffix: "Random, Salvage"
+  components:
+  - type: NuclearReactor
+    prefab: random
+
+- type: entity
+  id: NuclearReactorSmallMeltedSalvage
+  parent: NuclearReactorSmallMelted
+  suffix: "Melted, Salvage"
+  description: A nuclear reactor vessel, long since melted down. It still glows with residual heat and radiation.
+  components:
+  - type: RadiationSource
+    intensity: 2.5
+  - type: PointLight
+    energy: 0.025
 
 # Nuclear debris resultant from a meltdown
 - type: entity
   id: NuclearDebrisChunk
   parent: BaseItem
   name: nuclear debris
+  description: You do not see the graphite on the floor. You're in shock. Report to medical.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_waste.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/nuclear_debris.rsi
     layers:
-      - state: nuclear_waste
+      - state: graphite_damaged_0
         map: [ "base" ]
   - type: Item
     size: Huge
-  - type: MultiHandedItem
   - type: RandomSprite
     available:
     - base:
-        nuclear_waste: "" # Allows for multiple debris sprites... even though there's just one
+        graphite_damaged_0: ""
+        graphite_damaged_0_mirrored: ""
+        graphite_damaged_1: ""
+        graphite_damaged_1_mirrored: ""
+        graphite_damaged_2: ""
+        graphite_damaged_2_mirrored: ""
+        graphite_damaged_3: ""
+        graphite_damaged_3_mirrored: ""
+        graphite_damaged_4: ""
+        graphite_damaged_4_mirrored: ""
   - type: RadiationSource
     intensity: 15
     slope: 0.1
@@ -278,6 +470,7 @@
   components:
   - type: Transform
     anchored: true
+  - type: Anchorable
   - type: NodeContainer
     nodes:
       pipe:
@@ -304,6 +497,18 @@
     - pipe2
     outlets:
     - pipe
+  - type: PipeRestrictOverlap
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: ReactorAlarmEntity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AmbientSound
+    volume: -3
+    range: 15
+    enabled: false
+    sound:
+      path: /Audio/_FarHorizons/Machines/reactor_alarm_1.ogg

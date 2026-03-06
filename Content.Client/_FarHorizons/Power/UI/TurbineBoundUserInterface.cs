@@ -9,6 +9,7 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using JetBrains.Annotations;
 using Robust.Client.Timing;
 using Robust.Client.UserInterface;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Client._FarHorizons.Power.UI;
 
@@ -33,16 +34,21 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface
 
     protected override void Open()
     {
+        EntityUid? turbineUid = null;
+        if (_entityManager.TryGetComponent<GasTurbineMonitorComponent>(Owner, out var turbineMonitorComponent))
+            if (!_entityManager.TryGetEntity(turbineMonitorComponent.turbine, out turbineUid) || turbineUid == null
+                || !_entityManager.HasComponent<TurbineComponent>(turbineUid))
+                return;
+
         base.Open();
 
         _pred = new BuiPredictionState(this, _gameTiming);
 
         _window = this.CreateWindow<TurbineWindow>();
-        _window.SetEntity(Owner);
-        _window.TurbineFlowRateChanged += val =>
-        {
-            _pred?.SendMessage(new TurbineChangeFlowRateMessage(val));
-        };
+        if (_entityManager.EntityExists(turbineUid))
+            _window.SetEntity(turbineUid.Value, Owner);
+        else
+            _window.SetEntity(Owner);
 
         _window.TurbineStatorLoadChanged += val =>
         {
@@ -57,7 +63,8 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface
             return;
 
         if (!_entityManager.TryGetComponent<TurbineComponent>(Owner, out var comp))
-            return;
+            if(!TryGetTurbineComp(Owner, out comp))
+                return;
 
         foreach (var replayMsg in _pred!.MessagesToReplay())
         {
@@ -68,11 +75,27 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface
                     break;
 
                 case TurbineChangeStatorLoadMessage setStatorLoad:
-                    turbineState.StatorLoad = Math.Clamp(setStatorLoad.StatorLoad, 0f, comp.StatorLoadMax);
+                    turbineState.StatorLoad = Math.Max(setStatorLoad.StatorLoad, 1000f);
                     break;
             }
         }
 
         _window?.Update(turbineState);
+    }
+
+    public bool TryGetTurbineComp(EntityUid uid, [NotNullWhen(true)] out TurbineComponent? turbineComponent)
+    {
+        turbineComponent = null;
+        if (!_entityManager.TryGetComponent<GasTurbineMonitorComponent>(uid, out var turbineMonitor))
+            return false;
+
+        if (!_entityManager.TryGetEntity(turbineMonitor.turbine, out var turbineUid) || turbineUid == null)
+            return false;
+
+        if (!_entityManager.TryGetComponent<TurbineComponent>(turbineUid, out var turbine))
+            return false;
+
+        turbineComponent = turbine;
+        return true;
     }
 }

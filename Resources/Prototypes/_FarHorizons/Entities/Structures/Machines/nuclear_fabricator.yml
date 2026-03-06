@@ -38,3 +38,5 @@
     - ReactorControlRods
     - ReactorGasChannels
     - ReactorHeatExchangers
+    - GasTurbineBlades
+    - GasTurbineStators
