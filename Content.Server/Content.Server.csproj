@@ -33,5 +33,9 @@
   <ItemGroup>
     <Compile Include=".CM14\**\*.cs" />
   </ItemGroup>
+  <!-- Additional server code from Goobstation modules (outside the regular project folder) -->
+  <ItemGroup>
+    <Compile Include="..\Content.Goobstation.Server\**\*.cs" />
+  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>
