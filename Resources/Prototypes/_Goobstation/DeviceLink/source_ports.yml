@@ -11,11 +11,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: sourcePort
-  id: SignalContrabandDetected
-  name: signal-port-name-contraband-detected #TODO Add localisation
-  description: signal-port-description-contraband-detected
-
-- type: sourcePort
   id: Powered
   name: signal-port-name-powered
   description: signal-port-description-powered
@@ -147,14 +142,14 @@
   name: signal-port-name-rad-full
   description: signal-port-description-rad-full
 
-# Fax Machine
+  # Fax Machine
 
 - type: sourcePort
   id: Triggered
   name: signal-port-name-triggered-signaller
   description: signal-port-description-triggered-signaller
 
-# Vinyl Player
+# Vinyl player
 
 - type: sourcePort
   id: VinylPlayerPort

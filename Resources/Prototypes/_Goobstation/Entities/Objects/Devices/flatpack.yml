@@ -1,19 +1,5 @@
 - type: entity
   parent: BaseFlatpack
-  id: ContrabandDetectorFlatpack
-  name: contraband detector flatpack
-  description: A flatpack used for constructing a contraband detector.
-  components:
-  - type: Flatpack
-    entity: ContrabandDetectorSecure
-  - type: Sprite
-    layers:
-    - state: fax-machine
-  - type: StaticPrice
-    price: 500
-
-- type: entity
-  parent: BaseFlatpack
   id: RadioRigFlatpack
   name: radio rig flatpack
   description: A flatpack used for constructing a radio rig.

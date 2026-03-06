@@ -61,7 +61,6 @@
   - ShuttleGunFriendshipCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunSvalinnMachineGunCircuitboard
-  - ContrabandDetectorCircuitboard # Goobstation
 
 - type: latheRecipePack
   parent:

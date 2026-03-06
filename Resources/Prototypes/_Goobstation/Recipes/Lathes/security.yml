@@ -89,10 +89,3 @@
     Steel: 1500
     Glass: 750
     Silver: 150
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
-  id: ContrabandDetectorCircuitboard
-  result: ContrabandDetectorCircuitboard
-  completetime: 4
