@@ -206,7 +206,20 @@ entities:
     - type: BecomesStation
       id: Brigand
     - type: SalvageMobRestrictionsGrid
-      mobsToKill: []
+      mobsToKill:
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
+      - invalid
 - proto: AirlockGlassShuttleXenoborgLocked
   entities:
   - uid: 2

@@ -125,9 +125,7 @@ public abstract partial class InteractionTest
             await Server.WaitPost(() =>
             {
                 Assert.That(HandSys.TryDrop(SEntMan.GetEntity(Player), null, false, true, Hands));
-                if (SEntMan.EntityExists(held) && !SEntMan.Deleted(held))
-                    SEntMan.DeleteEntity(held);
-
+                SEntMan.DeleteEntity(held);
                 SLogger.Debug($"Deleting held entity");
             });
         }
@@ -804,13 +802,7 @@ public abstract partial class InteractionTest
 
     protected async Task Delete(EntityUid uid)
     {
-        await Server.WaitPost(() =>
-        {
-            if (!SEntMan.EntityExists(uid) || SEntMan.Deleted(uid))
-                return;
-
-            SEntMan.DeleteEntity(uid);
-        });
+        await Server.WaitPost(() => SEntMan.DeleteEntity(uid));
         await RunTicks(5);
     }
 

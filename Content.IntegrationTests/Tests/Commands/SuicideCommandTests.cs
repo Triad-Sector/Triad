@@ -72,16 +72,20 @@ public sealed class SuicideCommandTests
         var entManager = server.ResolveDependency<IEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
         var mindSystem = entManager.System<SharedMindSystem>();
+        var mobStateSystem = entManager.System<MobStateSystem>();
 
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
         var mind = mindSystem.GetMind(player);
 
         MindComponent mindComponent = default;
+        MobStateComponent mobStateComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
+
+            mobStateComp = entManager.GetComponent<MobStateComponent>(player);
         });
 
 
@@ -122,18 +126,22 @@ public sealed class SuicideCommandTests
 
         var damageableSystem = entManager.System<DamageableSystem>();
         var mindSystem = entManager.System<SharedMindSystem>();
+        var mobStateSystem = entManager.System<MobStateSystem>();
 
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
         var mind = mindSystem.GetMind(player);
 
         MindComponent mindComponent = default;
+        MobStateComponent mobStateComp = default;
         MobThresholdsComponent mobThresholdsComp = default;
         DamageableComponent damageableComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
+
+            mobStateComp = entManager.GetComponent<MobStateComponent>(player);
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
@@ -179,16 +187,19 @@ public sealed class SuicideCommandTests
         var entManager = server.ResolveDependency<IEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
         var mindSystem = entManager.System<SharedMindSystem>();
+        var mobStateSystem = entManager.System<MobStateSystem>();
         var tagSystem = entManager.System<TagSystem>();
 
         // We need to know the player and whether they can be hurt, killed, and whether they have a mind
         var player = playerMan.Sessions.First().AttachedEntity!.Value;
         var mind = mindSystem.GetMind(player);
         MindComponent mindComponent = default;
+        MobStateComponent mobStateComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
+            mobStateComp = entManager.GetComponent<MobStateComponent>(player);
         });
 
         tagSystem.AddTag(player, CannotSuicideTag);
@@ -229,6 +240,7 @@ public sealed class SuicideCommandTests
 
         var handsSystem = entManager.System<SharedHandsSystem>();
         var mindSystem = entManager.System<SharedMindSystem>();
+        var mobStateSystem = entManager.System<MobStateSystem>();
         var transformSystem = entManager.System<TransformSystem>();
         var damageableSystem = entManager.System<DamageableSystem>();
 
@@ -237,6 +249,7 @@ public sealed class SuicideCommandTests
         var mind = mindSystem.GetMind(player);
 
         MindComponent mindComponent = default;
+        MobStateComponent mobStateComp = default;
         MobThresholdsComponent mobThresholdsComp = default;
         DamageableComponent damageableComp = default;
         HandsComponent handsComponent = default;
@@ -244,6 +257,8 @@ public sealed class SuicideCommandTests
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
+
+            mobStateComp = entManager.GetComponent<MobStateComponent>(player);
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
             handsComponent = entManager.GetComponent<HandsComponent>(player);
@@ -303,6 +318,7 @@ public sealed class SuicideCommandTests
 
             var handsSystem = entManager.System<SharedHandsSystem>();
             var mindSystem = entManager.System<SharedMindSystem>();
+            var mobStateSystem = entManager.System<MobStateSystem>();
             var transformSystem = entManager.System<TransformSystem>();
             var damageableSystem = entManager.System<DamageableSystem>();
 
@@ -311,6 +327,7 @@ public sealed class SuicideCommandTests
             var mind = mindSystem.GetMind(player);
 
             MindComponent mindComponent = default;
+            MobStateComponent mobStateComp = default;
             MobThresholdsComponent mobThresholdsComp = default;
             DamageableComponent damageableComp = default;
             HandsComponent handsComponent = default;
@@ -318,6 +335,8 @@ public sealed class SuicideCommandTests
             {
                 if (mind != null)
                     mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
+
+                mobStateComp = entManager.GetComponent<MobStateComponent>(player);
                 mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
                 damageableComp = entManager.GetComponent<DamageableComponent>(player);
                 handsComponent = entManager.GetComponent<HandsComponent>(player);

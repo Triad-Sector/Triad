@@ -61,7 +61,7 @@ public sealed class GuidebookRichPrototypeLink : Control, IPrototypeLinkControl
             args.Handle();
         }
         else
-            Logger.GetSawmill("hardlight").Warning("Warning! No valid IAnchorClickHandler found.");
+            Logger.Warning("Warning! No valid IAnchorClickHandler found.");
     }
 }
 

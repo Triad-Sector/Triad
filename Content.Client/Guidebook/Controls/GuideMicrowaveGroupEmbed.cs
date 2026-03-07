@@ -34,7 +34,7 @@ public sealed partial class GuideMicrowaveGroupEmbed : BoxContainer, IDocumentTa
         control = null;
         if (!args.TryGetValue("Group", out var group))
         {
-            Logger.GetSawmill("hardlight").Error("Microwave group embed tag is missing group argument");
+            Logger.Error("Microwave group embed tag is missing group argument");
             return false;
         }
 

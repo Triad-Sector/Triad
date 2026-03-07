@@ -55,19 +55,13 @@ public sealed partial class CryoSleepSystem
 
         var cryopod = storedBody!.Value.Cryopod;
         var body = storedBody.Value.Body;
-        if (TerminatingOrDeleted(body))
-            return ReturnToBodyStatus.BodyMissing;
-
         if (!Exists(cryopod) || Deleted(cryopod) || !TryComp<CryoSleepComponent>(cryopod, out var cryoComp))
         {
             var fallbackQuery = EntityQueryEnumerator<CryoSleepFallbackComponent, CryoSleepComponent>();
             bool foundFallback = false;
             while (fallbackQuery.MoveNext(out cryopod, out _, out cryoComp))
             {
-                if (!IsOccupied(cryoComp)
-                    && !TerminatingOrDeleted(body)
-                    && !TerminatingOrDeleted(cryoComp.BodyContainer.Owner)
-                    && _container.Insert(body, cryoComp.BodyContainer))
+                if (!IsOccupied(cryoComp) && _container.Insert(body, cryoComp.BodyContainer))
                 {
                     foundFallback = true;
                     break;
@@ -81,10 +75,7 @@ public sealed partial class CryoSleepSystem
         else
         {
             // NOTE: if the pod is occupied but still exists, do not let the user teleport.
-            if (IsOccupied(cryoComp!)
-                || TerminatingOrDeleted(body)
-                || TerminatingOrDeleted(cryoComp!.BodyContainer.Owner)
-                || !_container.Insert(body, cryoComp!.BodyContainer))
+            if (IsOccupied(cryoComp!) || !_container.Insert(body, cryoComp!.BodyContainer))
                 return ReturnToBodyStatus.Occupied;
         }
 
@@ -120,7 +111,6 @@ public sealed partial class CryoSleepSystem
         }
 
         if (body != null
-            && !TerminatingOrDeleted(body.Value.Body)
             && Transform(body.Value.Body).MapUid == _storageMap)
         {
             QueueDel(body.Value.Body);

@@ -396,9 +396,6 @@ namespace Content.IntegrationTests.Tests
                 "ActivatableUI", // Frontier: Requires enum key
                 "AlertLevel", // Frontier: requires alert set
                 "BluespaceErrorRule", // Frontier
-                "MutationCryokinesis", // Frontier: throws when deleting test entity in this harness
-                "MutationFirebreath", // Frontier: throws when deleting test entity in this harness
-                "RadiationCollector", // Frontier: throws when deleting test entity in this harness
             };
 
             await using var pair = await PoolManager.GetServerClient();

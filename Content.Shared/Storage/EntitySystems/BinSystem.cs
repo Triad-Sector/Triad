@@ -129,18 +129,13 @@ public sealed class BinSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(toInsert) || TerminatingOrDeleted(component.ItemContainer.Owner))
-            return false;
-
         if (component.Items.Count >= component.MaxItems)
             return false;
 
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, toInsert))
             return false;
 
-        if (!_container.Insert(toInsert, component.ItemContainer))
-            return false;
-
+        _container.Insert(toInsert, component.ItemContainer);
         component.Items.Add(toInsert);
         Dirty(uid, component);
         return true;
@@ -158,16 +153,10 @@ public sealed class BinSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(component.ItemContainer.Owner))
-            return false;
-
         if (component.Items.Count == 0)
             return false;
 
         if (toRemove == null || toRemove != component.Items.LastOrDefault())
-            return false;
-
-        if (TerminatingOrDeleted(toRemove.Value))
             return false;
 
         if (!_container.Remove(toRemove.Value, component.ItemContainer))

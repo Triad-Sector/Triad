@@ -24,9 +24,6 @@ public sealed class MutationStomachSwapSystem : EntitySystem
 
     private void OnStartup(Entity<MutationStomachSwapComponent> ent, ref ComponentStartup args)
     {
-        if (IsUnavailable(ent.Owner))
-            return;
-
         var comp = ent.Comp;
         var hiddenContainer = _container.EnsureContainer<ContainerSlot>(ent.Owner, HiddenStorageContainerId);
 
@@ -38,8 +35,7 @@ public sealed class MutationStomachSwapSystem : EntitySystem
         }
 
         comp.OriginalStomach = originalStomach;
-        if (!IsUnavailable(originalStomach) && !IsUnavailable(hiddenContainer.Owner))
-            _container.Insert(originalStomach, hiddenContainer);
+        _container.Insert(originalStomach, hiddenContainer);
 
         // Spawn new stomach
         var newStomach = Spawn(comp.NewStomachPrototype, Transform(ent.Owner).Coordinates);
@@ -50,21 +46,16 @@ public sealed class MutationStomachSwapSystem : EntitySystem
 
         if (!TryGetStomachSlot(ent.Owner, out var stomachSlot) || stomachSlot is null)
         {
-            if (!IsUnavailable(newStomach))
-                Del(newStomach);
+            Del(newStomach);
             RemComp<MutationStomachSwapComponent>(ent.Owner);
             return;
         }
 
-        if (!IsUnavailable(newStomach) && !IsUnavailable(stomachSlot.Owner))
-            _container.Insert(newStomach, stomachSlot);
+        _container.Insert(newStomach, stomachSlot);
     }
 
     private void OnShutdown(Entity<MutationStomachSwapComponent> ent, ref ComponentShutdown args)
     {
-        if (IsUnavailable(ent.Owner))
-            return;
-
         var comp = ent.Comp;
 
         if (comp.OriginalStomach is not { Valid: true } original ||
@@ -76,25 +67,18 @@ public sealed class MutationStomachSwapSystem : EntitySystem
 
         if (stomachSlot.ContainedEntity is { } current)
         {
-            if (!IsUnavailable(current) && !IsUnavailable(stomachSlot.Owner))
-                _container.Remove(current, stomachSlot);
-
-            if (!IsUnavailable(current))
-                Del(current);
+            _container.Remove(current, stomachSlot);
+            Del(current);
         }
 
         if (_container.TryGetContainer(ent.Owner, HiddenStorageContainerId, out var baseHiddenContainer) &&
             baseHiddenContainer is ContainerSlot hiddenContainer &&
             hiddenContainer.ContainedEntity is { } storedStomach)
         {
-            if (!IsUnavailable(storedStomach) && !IsUnavailable(hiddenContainer.Owner))
-                _container.Remove(storedStomach, hiddenContainer);
+            _container.Remove(storedStomach, hiddenContainer);
+            _container.Insert(storedStomach, stomachSlot);
 
-            if (!IsUnavailable(storedStomach) && !IsUnavailable(stomachSlot.Owner))
-                _container.Insert(storedStomach, stomachSlot);
-
-            if (!IsUnavailable(swapped) && !IsUnavailable(storedStomach))
-                TransferOrganSolutions(swapped, storedStomach);
+            TransferOrganSolutions(swapped, storedStomach);
         }
 
         comp.OriginalStomach = null;
@@ -133,9 +117,6 @@ public sealed class MutationStomachSwapSystem : EntitySystem
 
     private void TransferOrganSolutions(EntityUid from, EntityUid to)
     {
-        if (IsUnavailable(from) || IsUnavailable(to))
-            return;
-
         var solutionNames = new[] { "stomach", "food", "organ" };
 
         foreach (var name in solutionNames)
@@ -156,10 +137,5 @@ public sealed class MutationStomachSwapSystem : EntitySystem
                 _solution.TryAddSolution(toSolEnt, drained);
             }
         }
-    }
-
-    private bool IsUnavailable(EntityUid uid)
-    {
-        return TerminatingOrDeleted(uid);
     }
 }

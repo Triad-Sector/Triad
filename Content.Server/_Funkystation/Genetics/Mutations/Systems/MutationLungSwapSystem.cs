@@ -21,9 +21,6 @@ public sealed class MutationLungSwapSystem : EntitySystem
 
     private void OnStartup(Entity<MutationLungSwapComponent> ent, ref ComponentStartup args)
     {
-        if (IsUnavailable(ent.Owner))
-            return;
-
         var comp = ent.Comp;
 
         // Find current lung
@@ -44,33 +41,22 @@ public sealed class MutationLungSwapSystem : EntitySystem
         comp.OriginalLung = originalLung;
 
         // Remove original from body
-        if (IsUnavailable(originalLung) || IsUnavailable(lungSlot.Owner))
-        {
-            RemComp<MutationLungSwapComponent>(ent.Owner);
-            return;
-        }
-
         _container.Remove(originalLung, lungSlot);
 
         // Create hidden storage and stash original
         var hiddenContainer = _container.EnsureContainer<ContainerSlot>(ent.Owner, HiddenStorageContainerId);
-        if (!IsUnavailable(hiddenContainer.Owner))
-            _container.Insert(originalLung, hiddenContainer);
+        _container.Insert(originalLung, hiddenContainer);
 
         // Spawn new lung
         var newLung = Spawn(comp.NewLungPrototype, Transform(ent.Owner).Coordinates);
         comp.SwappedLung = newLung;
 
         // Insert new lung
-        if (!IsUnavailable(newLung) && !IsUnavailable(lungSlot.Owner))
-            _container.Insert(newLung, lungSlot);
+        _container.Insert(newLung, lungSlot);
     }
 
     private void OnShutdown(Entity<MutationLungSwapComponent> ent, ref ComponentShutdown args)
     {
-        if (IsUnavailable(ent.Owner))
-            return;
-
         var comp = ent.Comp;
 
         if (comp.OriginalLung is not { Valid: true } original ||
@@ -83,11 +69,8 @@ public sealed class MutationLungSwapSystem : EntitySystem
         // Remove current (mutated) lung
         if (lungSlot.ContainedEntity is { } current)
         {
-            if (!IsUnavailable(current) && !IsUnavailable(lungSlot.Owner))
-                _container.Remove(current, lungSlot);
-
-            if (!IsUnavailable(current))
-                Del(current);
+            _container.Remove(current, lungSlot);
+            Del(current);
         }
 
         // Retrieve original from hidden storage
@@ -95,11 +78,8 @@ public sealed class MutationLungSwapSystem : EntitySystem
             baseHiddenContainer is ContainerSlot hiddenContainer &&
             hiddenContainer.ContainedEntity is { } storedLung)
         {
-            if (!IsUnavailable(storedLung) && !IsUnavailable(hiddenContainer.Owner))
-                _container.Remove(storedLung, hiddenContainer);
-
-            if (!IsUnavailable(storedLung) && !IsUnavailable(lungSlot.Owner))
-                _container.Insert(storedLung, lungSlot);
+            _container.Remove(storedLung, hiddenContainer);
+            _container.Insert(storedLung, lungSlot);
         }
 
         comp.OriginalLung = null;
@@ -112,11 +92,6 @@ public sealed class MutationLungSwapSystem : EntitySystem
         {
             _container.ShutdownContainer(cleanupSlot);
         }
-    }
-
-    private bool IsUnavailable(EntityUid uid)
-    {
-        return TerminatingOrDeleted(uid);
     }
 
     private bool TryGetLungOrgan(EntityUid body, out EntityUid? lung)
