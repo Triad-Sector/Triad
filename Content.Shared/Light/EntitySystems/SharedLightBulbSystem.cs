@@ -21,7 +21,7 @@ public abstract class SharedLightBulbSystem : EntitySystem
 
     private void OnInit(EntityUid uid, LightBulbComponent bulb, ComponentInit args)
     {
-        // HardLight: Initialize appearance data for bulbs even when values are already defaults
+        // update default state of bulbs
         UpdateAppearance(uid, bulb);
     }
 
