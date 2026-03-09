@@ -269,6 +269,27 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public LocId? ExamineCaliber;
+
+    /// <summary>
+    /// Goobstation
+    /// Whether the system won't change gun target when we stop aiming at it while firing in burst mode.
+    /// </summary>
+    [DataField]
+    public bool LockOnTargetBurst;
+
+    /// <summary>
+    /// Goobstation
+    /// Muzzle flash will be rotated by this angle if the weapon is dropped
+    /// </summary>
+    [DataField]
+    public Angle MuzzleFlashRotationOffset;
+
+    /// <summary>
+    /// Mono
+    /// Recoil to incur per ammo shot, kg*m/s.
+    /// </summary>
+    [DataField]
+    public float Recoil = 25f;
 }
 
 [Flags]

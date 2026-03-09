@@ -1,7 +1,7 @@
 - type: entity
   parent: [ BaseMachinePowered ]
   id: DroneController
-  name: drone server
+  name: drone control server
   description: Pilots the drone it's on, if controlled by a drone control console.
   components:
   - type: Sprite
@@ -53,14 +53,18 @@
     anchored: true
   - type: Pullable
   - type: DroneControl
+  - type: ShipNpcTarget
   - type: HTN
+    sleepPlayerCheckRangeOverride: 100000 # 100k aka basically never sleep
     rootTask:
       task: DroneCompound
+  - type: WorldLoader
+    radius: 256
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: DroneControl
   - type: WirelessNetworkConnection
-    range: 4000
+    range: 100000 # keep same as sleep range
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -81,6 +85,7 @@
   - type: Computer
     board: DroneControlCircuitboard
   - type: DroneControlConsole
+    maxOrderRadius: 4000
   - type: ActivatableUI
     key: enum.DroneConsoleUiKey.Key
   - type: UserInterface
@@ -94,8 +99,17 @@
     deviceNetId: Wireless
     transmitFrequencyId: DroneControl
   - type: WirelessNetworkConnection
-    range: 4000
+    range: 100000
   - type: DeviceList
+
+- type: entity
+  parent: ComputerDroneControl
+  id: ComputerDroneControlStation
+  name: station drone control console
+  description: A console that lets you control linked drones.
+  components:
+  - type: DroneControlConsole
+    maxOrderRadius: null # infinite
 
 - type: deviceFrequency
   id: DroneControl
@@ -115,14 +129,16 @@
   id: DroneCompound
   branches:
   - preconditions:
-    - !type:KeyExistsPrecondition
-      key: MoveToTarget
+    - !type:KeyEqualsPrecondition
+      key: DroneCommand
+      value: drone_cmd_move
     tasks:
     - !type:HTNCompoundTask
       task: DroneMoveCompound
   - preconditions:
-    - !type:KeyExistsPrecondition
-      key: ShootTarget
+    - !type:KeyEqualsPrecondition
+      key: DroneCommand
+      value: drone_cmd_target
     tasks:
     - !type:HTNCompoundTask
       task: DroneAttackCompound
@@ -136,10 +152,10 @@
         shutdownState: TaskFinished
         removeKeyOnFinish: true
         inRangeMaxSpeed: 0.1
-        range: 4
+        range: 15
         leadingEnabled: false # nothing to lead
         alwaysFaceTarget: true
-        targetKey: MoveToTarget
+        targetKey: DroneTarget
 
 - type: htnCompound
   id: DroneAttackCompound
@@ -153,10 +169,10 @@
         inRangeMaxSpeed: 1
         range: 250
         rangeTolerance: 50
-        targetKey: ShootTarget
+        targetKey: DroneTarget
     - !type:HTNPrimitiveTask
       operator: !type:ShipFireGunsOperator
         shutdownState: TaskFinished
         removeKeyOnFinish: true
         leadingAccuracy: 0.4
-        targetKey: ShootTarget
+        targetKey: DroneTarget

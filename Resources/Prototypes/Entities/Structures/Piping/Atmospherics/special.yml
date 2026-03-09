@@ -40,6 +40,10 @@
     delay: 6
   - type: Pullable # Mono
   - type: Rotatable # Mono
+  # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 10
 
 - type: entity
   id: AtmosDeviceFanDirectional
@@ -87,3 +91,7 @@
     delay: 6
   - type: Pullable # Mono
   - type: Rotatable # Mono
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8

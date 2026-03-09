@@ -172,3 +172,9 @@
 
 - type: Tag
   id: NFHotdog
+
+- type: Tag
+  id: ShipRepairTool
+
+- type: Tag
+  id: ADSRepairTool

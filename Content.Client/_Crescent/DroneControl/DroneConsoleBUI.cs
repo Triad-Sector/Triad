@@ -26,15 +26,37 @@ public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
         _window = new DroneConsoleWindow();
         _window.OnClose += Close;
         _window.OpenCentered();
+        _window.OnMoveOrder += OnMoveOrder;
+        _window.OnAttackOrder += OnAttackOrder;
+    }
 
-        _window.OnRadarOrder += OnRadarClick;
+    private void OnMoveOrder(EntityCoordinates coord)
+    {
+        if (_window == null) return;
+
+        var selected = _window.SelectedDrones;
+        if (selected.Count == 0) return;
+
+        var target = _entMan.GetNetCoordinates(_xform.ToCoordinates(_xform.ToMapCoordinates(coord)));
+        SendMessage(new DroneConsoleMoveMessage(selected, target));
+    }
+
+    private void OnAttackOrder(EntityCoordinates coord)
+    {
+        if (_window == null) return;
+
+        var selected = _window.SelectedDrones;
+        if (selected.Count == 0) return;
+
+        var target = _entMan.GetNetCoordinates(_xform.ToCoordinates(_xform.ToMapCoordinates(coord)));
+        SendMessage(new DroneConsoleTargetMessage(selected, target));
     }
 
     private void OnRadarClick(EntityCoordinates coord)
     {
         if (_window == null) return;
 
-        var selected = _window.GetSelectedDrones();
+        var selected = _window.SelectedDrones;
         if (selected.Count == 0) return;
 
         var worldPos = _xform.ToMapCoordinates(coord).Position;
@@ -54,10 +76,11 @@ public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
             return false; // Stop at first grid found
         }, true, false);
 
+        var target = _entMan.GetNetCoordinates(new EntityCoordinates(_mapManager.GetMapEntityId(mapId), worldPos));
         if (foundGrid != null)
-            SendMessage(new DroneConsoleTargetMessage(selected, _entMan.GetNetEntity(foundGrid.Value)));
+            SendMessage(new DroneConsoleTargetMessage(selected, target));
         else
-            SendMessage(new DroneConsoleMoveMessage(selected, worldPos));
+            SendMessage(new DroneConsoleMoveMessage(selected, target));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -73,6 +96,9 @@ public sealed class DroneConsoleBoundUserInterface : BoundUserInterface
     {
         base.Dispose(disposing);
         if (disposing)
-            _window?.Dispose();
+        {
+            _window?.Close();
+            _window = null;
+        }
     }
 }

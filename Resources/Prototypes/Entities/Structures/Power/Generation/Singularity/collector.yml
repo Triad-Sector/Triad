@@ -81,6 +81,7 @@
       - RadLow
       - RadFull
   - type: PowerSupplier
+  - type: ThermalSignature # Mono
   - type: Anchorable
   - type: Rotatable
   - type: Pullable

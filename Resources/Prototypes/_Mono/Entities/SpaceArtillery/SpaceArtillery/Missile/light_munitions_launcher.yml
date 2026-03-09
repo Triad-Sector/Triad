@@ -18,6 +18,8 @@
   - type: Gun
     projectileSpeed: 10
     fireRate: 0.8
+    recoil: 5
+    # shootThermalSignature: 8000000 # Deprecated field removed
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
     soundEmpty:

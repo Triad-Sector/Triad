@@ -95,7 +95,7 @@
   id: ComputerEmergencyShuttle
   name: emergency shuttle console
   description: Handles authorization to early launch the shuttle.
-  # categories: [ HideSpawnMenu ] # Frontier
+  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: AccessReader
     access:
@@ -115,13 +115,15 @@
     color: "#43ccb5"
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess # Mono
   id: BaseComputerShuttle
   name: shuttle console
   description: Used to pilot a shuttle.
   abstract: true
   components:
   - type: ShuttleConsole
+  - type: ShipNpcTarget # Mono
+    needPower: true
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface
@@ -132,7 +134,7 @@
           type: WiresBoundUserInterface
   - type: RadarConsole
   - type: WorldLoader
-    radius: 256 # Mono
+    radius: 384 # Mono
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -156,6 +158,20 @@
   - type: GuideHelp
     guides:
     - ShuttleCraft
+  - type: DeviceLinkSource # Mono
+    ports:
+    - device-button-1
+    - device-button-2
+    - device-button-3
+    - device-button-4
+    - device-button-5
+    - device-button-6
+    - device-button-7
+    - device-button-8
+  # Mono
+  - type: ShipRepairable
+    repairTime: 10
+    repairCost: 30
 
 - type: entity
   parent: [BaseComputerShuttle, BaseShuttleIntercom] # Frontier - BaseShuttleIntercom
@@ -201,7 +217,7 @@
   id: ComputerShuttleSyndie
   name: syndicate shuttle console
   description: Used to pilot a syndicate shuttle.
-  # categories: [ HideSpawnMenu ] # Frontier
+  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: Sprite
     layers:
@@ -219,9 +235,8 @@
     tags:
       - Syndicate
   - type: RadarConsole
-    maxRange: 256
   - type: WorldLoader
-    radius: 256
+    radius: 1536
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -252,7 +267,6 @@
     components:
       - type: CargoShuttle
   - type: RadarConsole
-    maxRange: 256
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -300,27 +314,12 @@
   suffix: Syndicate
   description: Allows you to control the IFF and stealth characteristics of this vessel.
   components:
-  - type: DisableToolUse
-    anchoring: true
-    prying: true
-    screwing: true
-    cutting: true
-    welding: true
-    pulsing: true
-    slicing: true
-    sawing: true
-    honking: true
-    rolling: true
-    digging: true
   - type: IFFConsole
     allowedFlags:
       - Hide
       - HideLabel
   - type: ActivatableUI
     key: enum.IFFConsoleUiKey.Key
-  - type: Anchorable
-    flags:
-    - Unanchorable
   - type: UserInterface
     interfaces:
         enum.IFFConsoleUiKey.Key:
@@ -499,6 +498,10 @@
   - type: GuideHelp
     guides:
     - Forensics
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -568,7 +571,7 @@
   - type: UserInterface
     interfaces:
       enum.ResearchConsoleUiKey.Key:
-        type: ResearchConsoleBoundUserInterface
+        type: ResearchConsoleBoundUserInterface # R&D Console rework
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
       enum.WiresUiKey.Key:
@@ -577,8 +580,8 @@
     powerLoad: 1000
   - type: Computer
     board: ResearchComputerCircuitboard
-  # - type: AccessReader
-    # access: [["Research"]]
+#  - type: AccessReader
+#    access: [["Research"]]
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -672,9 +675,6 @@
         type: WiresBoundUserInterface
   - type: CrewManifestViewer
     ownerKey: enum.IdCardConsoleUiKey.Key
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Pai
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -737,12 +737,12 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [["Command"]]
+    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     global: true #SR WILL NOT BE IGNORED
   - type: DeviceNetwork
-    deviceNetId: Wireless
+    deviceNetId: Wireless # Frontier
     transmitFrequencyId: ShuttleTimer
   - type: ActivatableUI
     key: enum.CommunicationsConsoleUiKey.Key
@@ -918,8 +918,6 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: RadarConsole
-    maxRange: 256 # Frontier
-    maxIffRange: 512 # Frontier
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
@@ -959,13 +957,17 @@
         params:
           loop: true
           volume: 1
+  # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   id: ComputerCargoShuttle
   parent: BaseComputerAiAccess
   name: cargo shuttle computer
   description: Used to order the shuttle.
-  # categories: [ HideSpawnMenu ] # Frontier
+  categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1004,7 +1006,7 @@
   id: ComputerCargoOrders
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: add BaseStructureDisableToolUse, BaseStructureIndestructible
   name: cargo request computer
-  description: Used to purchase supplies in from Colonial Command. # Frontier
+  description: Used to order supplies and approve requests.
   components:
   - type: Sprite
     layers:
@@ -1015,25 +1017,23 @@
     - map: ["computerLayerScreen"]
       state: request
     - map: ["computerLayerKeys"]
-      state: generic_keys
+      state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: NFCargoOrderConsole # Frontier: use NF component
+  - type: NFCargoOrderConsole
     taxAccounts: # Frontier
       Frontier: 0.25 # Frontier
-      ColSec: 0.15 # Frontier, HardLight: Nfsd<ColSec
-    # removeLimitAccess: [ "Quartermaster" ] # Frontier
-  # - type: ActiveRadio # Frontier
-  #   channels: # Frontier
-  #   - Supply # Frontier
+      Colsec: 0.15 # Frontier
+      Medical: 0.1 # Mono
+#  - type: ActiveRadio # Frontier
+#    channels: # Frontier
+#    - Supply # Frontier
   - type: ActivatableUI
     key: enum.NFCargoConsoleUiKey.Orders # Frontier:
   - type: UserInterface
     interfaces:
       enum.NFCargoConsoleUiKey.Orders:
         type: CargoOrderConsoleNFBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
   - type: Computer
     board: CargoRequestComputerCircuitboard
   - type: PointLight
@@ -1270,12 +1270,12 @@
   - type: AccessReader
     access: [["Service"]]
 
+
 - type: entity
   id: ComputerCargoBounty
   parent: BaseComputerAiAccess
   name: cargo bounty computer
   description: Used to manage currently active bounties.
-  # categories: [HideSpawnMenu] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1305,12 +1305,13 @@
     energy: 1.6
     color: "#b89f25"
   - type: AccessReader
-    access: [["Quartermaster"]]
+    #access: [["Quartermaster"]] #Monolith Change: Allows Serzhants and Kommissars to skip bounties
+    access: [["USSPHigh"]]
   # - type: GuideHelp # Frontier
   #   guides: # Frontier
   #   - CargoBounties # Frontier
   #   - Cargo # Frontier
-
+  
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerFundingAllocation
@@ -1405,8 +1406,8 @@
 - type: entity
   id: ComputerSalvageExpedition
   parent: BaseComputerAiAccess
-  name: expedition console # Frontier: salvage expeditions computer<expedition console
-  description: Used to go on expeditions, if you're tough enough. # Frontier: "accept salvage missions"<"go on expeditions"
+  name: salvage expeditions computer
+  description: Used to accept salvage missions, if you're tough enough.
   components:
     - type: Sprite
       layers:
@@ -1550,12 +1551,13 @@
   - type: WirelessNetworkConnection
     range: 2000
 
+
+
 - type: entity
   id: ComputerPalletConsole
   parent: BaseComputerAiAccess
-  name: Station cargo sale computer
+  name: cargo sale computer
   description: Used to sell goods loaded onto cargo pallets.
-  # categories: [HideSpawnMenu, DoNotMap] # Frontier
   components:
   - type: Sprite
     layers:
@@ -1564,9 +1566,9 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: transfer
+      state: request
     - map: ["computerLayerKeys"]
-      state: tech_key # Frontier: generic_keys<tech_key
+      state: tech_key
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: Anchorable
@@ -1588,6 +1590,8 @@
     radius: 1.5
     energy: 1.6
     color: "#b89f25"
+  - type: MarketModifier # In the case someone got a computer board from QM locker, they can use it to sell on a ship if they have the grids, just to make sure its useless.
+    mod: 0
   # - type: GuideHelp # Frontier: guidebook removed
   #   guides: # Frontier: guidebook removed
   #   - Cargo # Frontier: guidebook removed
@@ -1763,7 +1767,7 @@
   id: StationAiUploadComputer
   parent: BaseComputer
   name: AI upload console
-  description: Used to update the laws of the station AI.
+  description: Used to update the laws of the vessel AI.
   components:
   - type: Sprite
     layers:
