@@ -14,10 +14,4 @@ public sealed partial class ActionGrantComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<EntityUid> ActionEntities = new();
-
-    /// <summary>
-    /// Actions will only be available if the item is in the clothing slot.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool ActiveIfWorn;
 }
