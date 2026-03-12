@@ -52,8 +52,11 @@ public sealed class HitscanRadarVisualizationSystem : EntitySystem
         // The radar system maintains its own state and doesn't need constant updates
         if (toRemove.Count > 0)
         {
-            var hitscanList = _activeHitscans.Keys.ToList();
-            var ev = new GiveBlipsEvent(new List<(NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)>(), hitscanList);
+            var hitscanList = _activeHitscans.Keys
+                .Select(h => ((NetEntity?) null, h.Start, h.End, h.Thickness, h.Color))
+                .ToList();
+            var emptyBlips = new List<BlipNetData>();
+            var ev = new GiveBlipsEvent(emptyBlips, hitscanList);
             RaiseNetworkEvent(ev);
         }
     }
@@ -63,15 +66,14 @@ public sealed class HitscanRadarVisualizationSystem : EntitySystem
         if (args.Canceled || args.Gun == null)
             return;
 
-        var gunXform = Transform(args.Gun.Value);
-        if (!gunXform.MapUid.HasValue)
+        if (!TryComp<TransformComponent>(args.Gun.Value, out var gunXform) || !gunXform.MapUid.HasValue)
             return;
 
         var fromPos = _transform.GetMapCoordinates(args.Gun.Value);
         
         // Determine end position
         Vector2 toPos;
-        if (args.HitEntity != null && TryComp<TransformComponent>(args.HitEntity.Value, out var hitXform))
+        if (args.HitEntity != null)
         {
             toPos = _transform.GetMapCoordinates(args.HitEntity.Value).Position;
         }
@@ -96,8 +98,11 @@ public sealed class HitscanRadarVisualizationSystem : EntitySystem
         _activeHitscans[hitscanLine] = expiryTime;
         
         // Immediately broadcast the new hitscan to clients
-        var hitscanList = _activeHitscans.Keys.ToList();
-        var ev = new GiveBlipsEvent(new List<(NetCoordinates Position, Vector2 Vel, float Scale, Color Color, RadarBlipShape Shape)>(), hitscanList);
+        var hitscanList = _activeHitscans.Keys
+            .Select(h => ((NetEntity?) null, h.Start, h.End, h.Thickness, h.Color))
+            .ToList();
+        var newEmptyBlips = new List<BlipNetData>();
+        var ev = new GiveBlipsEvent(newEmptyBlips, hitscanList);
         RaiseNetworkEvent(ev);
     }
 }
