@@ -28,11 +28,15 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
         _outputQuery = GetEntityQuery<ExclusiveOutputSlotComponent>();
 
         SubscribeLocalEvent<ExclusiveInputSlotComponent, ComponentInit>(OnInputInit);
+        SubscribeLocalEvent<ExclusiveInputSlotComponent, ComponentStartup>(OnInputStartup);
+        SubscribeLocalEvent<ExclusiveInputSlotComponent, MapInitEvent>(OnInputMapInit);
         SubscribeLocalEvent<ExclusiveInputSlotComponent, LinkAttemptEvent>(OnInputLinkAttempt);
         SubscribeLocalEvent<ExclusiveInputSlotComponent, NewLinkEvent>(OnInputNewLink);
         SubscribeLocalEvent<ExclusiveInputSlotComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         SubscribeLocalEvent<ExclusiveOutputSlotComponent, ComponentInit>(OnOutputInit);
+        SubscribeLocalEvent<ExclusiveOutputSlotComponent, ComponentStartup>(OnOutputStartup);
+        SubscribeLocalEvent<ExclusiveOutputSlotComponent, MapInitEvent>(OnOutputMapInit);
         SubscribeLocalEvent<ExclusiveOutputSlotComponent, LinkAttemptEvent>(OnOutputLinkAttempt);
         SubscribeLocalEvent<ExclusiveOutputSlotComponent, NewLinkEvent>(OnOutputNewLink);
         SubscribeLocalEvent<ExclusiveOutputSlotComponent, PortDisconnectedEvent>(OnPortDisconnected);
@@ -42,6 +46,13 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
     private void OnInputInit(Entity<ExclusiveInputSlotComponent> ent, ref ComponentInit args)
     {
         _device.EnsureSinkPorts(ent, ent.Comp.Port);
+        UpdateSlot(ent.Comp);
+    }
+
+    private void OnInputStartup(Entity<ExclusiveInputSlotComponent> ent, ref ComponentStartup args)
+    {
+        // Some linked machines/slots or their solution containers may not be initialized yet during ComponentInit
+        // due to deserialization ordering. Re-resolve the linked slot now that components have started.
         UpdateSlot(ent.Comp);
     }
 
@@ -62,6 +73,24 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
         UpdateSlot(ent.Comp);
     }
 
+    private void OnOutputStartup(Entity<ExclusiveOutputSlotComponent> ent, ref ComponentStartup args)
+    {
+        // Re-resolve linked slot after startup to ensure AutomationSlot is available.
+        UpdateSlot(ent.Comp);
+        var machineStr = ent.Comp.LinkedMachine is {} m ? ToPrettyString(m) : "<null>";
+        var portStr = ent.Comp.LinkedPort ?? "<null>";
+        var slotResolved = ent.Comp.LinkedSlot is not null;
+        Log.Info($"[ExclusiveSlots] Output startup for {ToPrettyString(ent.Owner)} linkedMachine={machineStr} linkedPort={portStr} slotResolved={slotResolved}");
+    }
+
+    private void OnInputMapInit(Entity<ExclusiveInputSlotComponent> ent, ref MapInitEvent args)
+    {
+        // MapInit runs after components have been started and map-specific containers/solutions are created.
+        UpdateSlot(ent.Comp);
+    }
+
+    
+
     private void OnOutputLinkAttempt(Entity<ExclusiveOutputSlotComponent> ent, ref LinkAttemptEvent args)
     {
         if (TryCancelLink((ent, ent.Comp), args.Source, args.SourcePort, args.Sink, args.SinkPort))
@@ -71,6 +100,19 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
     private void OnOutputNewLink(Entity<ExclusiveOutputSlotComponent> ent, ref NewLinkEvent args)
     {
         NewLink(ent, args.Source, args.SourcePort, args.Sink, args.SinkPort);
+        var machineStr = ent.Comp.LinkedMachine is {} m ? ToPrettyString(m) : "<null>";
+        var portStr = ent.Comp.LinkedPort ?? "<null>";
+        var slotResolved = ent.Comp.LinkedSlot is not null;
+        Log.Info($"[ExclusiveSlots] Output NewLink for {ToPrettyString(ent.Owner)} linkedMachine={machineStr} linkedPort={portStr} slotResolved={slotResolved}");
+    }
+
+    private void OnOutputMapInit(Entity<ExclusiveOutputSlotComponent> ent, ref MapInitEvent args)
+    {
+        UpdateSlot(ent.Comp);
+        var machineStr = ent.Comp.LinkedMachine is {} m ? ToPrettyString(m) : "<null>";
+        var portStr = ent.Comp.LinkedPort ?? "<null>";
+        var slotResolved = ent.Comp.LinkedSlot is not null;
+        Log.Info($"[ExclusiveSlots] Output mapinit for {ToPrettyString(ent.Owner)} linkedMachine={machineStr} linkedPort={portStr} slotResolved={slotResolved}");
     }
     #endregion
 
@@ -123,7 +165,9 @@ public sealed class ExclusiveSlotsSystem : EntitySystem
     public void UpdateSlot(IExclusiveSlotComponent comp)
     {
         if (comp.LinkedMachine is {} machine && comp.LinkedPort is {} port)
-            comp.LinkedSlot = _automation.GetSlot(machine, port, input: comp.IsInput);
+            // When resolving the linked slot on the *other* machine, the input/output
+            // polarity is inverted relative to this component. Match NewLink's logic.
+            comp.LinkedSlot = _automation.GetSlot(machine, port, input: !comp.IsInput);
     }
     #endregion
 

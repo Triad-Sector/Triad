@@ -763,7 +763,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             "IFF",
             "LinkedLifecycleGridParent",
             "AccessReader", // Door logs
-            "DeviceList",
+            // "DeviceList", Don't remove this it breaks air alarms.
             "DeviceNetwork",
             "DeviceNetworkComponent",
             "UserInterface", // Contains invalid EntityUid references
