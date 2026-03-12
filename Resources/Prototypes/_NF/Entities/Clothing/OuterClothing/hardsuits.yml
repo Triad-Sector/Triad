@@ -193,6 +193,7 @@
   id: ClothingOuterHardsuitNfsdGold
   name: ColSec M73 tacsuit
   description: The standard-issue ColSec tacsuit for patrol duty. This gold variant has senior rank markings.
+
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_gold.rsi

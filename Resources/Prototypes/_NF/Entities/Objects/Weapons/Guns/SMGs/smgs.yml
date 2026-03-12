@@ -20,6 +20,7 @@
   name: C-20r
   description: |-
     An illegal firearm that is often used by the infamous nuclear operatives.
+  categories: [ HideSpawnMenu ] #Triad
   components:
   - type: Gun
     soundGunshot:
@@ -40,6 +41,7 @@
   parent: [ WeaponSubMachineGunDrozd, NFBaseWeaponFrameSubMachineGunNanotrasen ]
   name: Drozd
   description: A fully automatic SMG.
+  categories: [ HideSpawnMenu ] #Triad
   components: &drozdComponents
   - type: Gun
     soundGunshot:

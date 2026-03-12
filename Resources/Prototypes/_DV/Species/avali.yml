@@ -179,6 +179,7 @@
   id: Stasis
   name: Avali Stasis
   description: Allows Avali to enter nanite induced stasis.
+  categories: [ HideSpawnMenu ] # Triad
   components:
     - type: Stasis
       enterStasisAction: ActionStasisEnter

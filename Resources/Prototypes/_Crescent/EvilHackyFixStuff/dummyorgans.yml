@@ -1,5 +1,6 @@
 - type: entity
   id: OrganCrescentDummy
+  categories: [ HideSpawnMenu ] # Triad
   components:
   - type: DeleteOnMapInit
   - type: BodyPart

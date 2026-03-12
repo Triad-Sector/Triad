@@ -108,7 +108,7 @@
   parent:
   - BaseExpeditionWeaponTier1
   - NFWeaponPistolMk58
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponPistolMk58Expedition
   name: worn Mk58
 
@@ -116,7 +116,7 @@
   parent:
   - BaseExpeditionWeaponTier1
   - NFWeaponPistolPollockHighCapacityMag
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponPistolPollockExpedition
   name: worn Pollock
 
@@ -125,7 +125,7 @@
   parent:
   - BaseExpeditionWeaponTier1
   - NFWeaponRevolverArgenti
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverArgentiExpedition
   name: worn Argenti
 
@@ -133,7 +133,7 @@
   parent:
   - BaseExpeditionWeaponTier1
   - NFWeaponRevolverFaith
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverFaithExpedition
   name: worn Faith
 
@@ -141,7 +141,7 @@
   parent:
   - BaseExpeditionWeaponTier1
   - WeaponRevolverDeckard
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: WeaponRevolverDeckardExpedition
   name: worn Deckard
 
@@ -149,7 +149,7 @@
   parent:
   - BaseExpeditionWeaponTier1Syndicate
   - NFWeaponRevolverRitland45
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverRitland45Expedition
   name: worn Ritland .45
 
@@ -158,7 +158,7 @@
   parent:
   - BaseExpeditionWeaponTier1Syndicate
   - WeaponSniperMosin
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: WeaponSniperMosinExpedition
   name: worn Mosin
 
@@ -169,7 +169,7 @@
   parent:
   - BaseExpeditionWeaponTier2Syndicate
   - NFWeaponPistolViper
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponPistolViperExpedition
   name: worn Viper
 
@@ -178,7 +178,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponRevolverFitz
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverFitzExpedition
   name: worn Fitz
 
@@ -186,7 +186,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponRevolverLucky
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverLuckyExpedition
   name: worn Lucky
 
@@ -194,7 +194,7 @@
   parent:
   - BaseExpeditionWeaponTier2Pirate
   - NFWeaponRevolverPirate
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverPirateExpedition
   name: worn Pirate revolver
 
@@ -202,7 +202,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponRevolverWard45
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRevolverWard45Expedition
   name: worn Ward .45
 
@@ -211,7 +211,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - WeaponShotgunKammerer # HL
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponShotgunKammererExpedition
   name: worn Kammerer
 
@@ -220,7 +220,7 @@
   parent:
   - BaseExpeditionWeaponTier2Syndicate
   - NFWeaponSubMachineGunC20r
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponSubMachineGunC20rExpedition
   name: worn C20R
 
@@ -229,7 +229,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponRifleAssaultNovaliteC1
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultNovaliteC1Expedition
   name: worn Novalite C1
 
@@ -237,7 +237,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponRifleAssaultGestio
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultGestioExpedition
   name: worn Gestio
 
@@ -248,7 +248,7 @@
   parent:
   - BaseExpeditionWeaponTier2
   - NFWeaponEnergyPistolLaser
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyPistolLaserExpedition
 
 # region Tier 3
@@ -257,7 +257,7 @@
   parent:
   - BaseExpeditionWeaponTier3
   - NFWeaponRifleAssaultLecter
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultLecterExpedition
   name: worn Lecter
 
@@ -265,7 +265,7 @@
   parent:
   - BaseExpeditionWeaponTier3Syndicate
   - NFWeaponRifleAssaultM90GrenadeLauncher
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultM90GrenadeLauncherExpedition
   name: worn M90 rifle
 
@@ -273,7 +273,7 @@
   parent:
   - BaseExpeditionWeaponTier3Syndicate
   - WeaponRifleAk
-  #  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: WeaponRifleAkExpedition
   name: worn AKM
 
@@ -281,7 +281,7 @@
   parent:
   - BaseExpeditionWeaponTier3Syndicate
   - WeaponRifleAK502
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: WeaponRifleAK502Expedition
   name: worn AK502
 
@@ -290,7 +290,7 @@
   parent:
   - BaseExpeditionWeaponTier3Syndicate
   - WeaponSniperHristov # HL
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleSniperHristovExpedition
   name: worn Hristov
 
@@ -299,7 +299,7 @@
   parent:
   - BaseExpeditionWeaponTier3
   - NFWeaponSubMachineGunWt550
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponSubMachineGunWt550Expedition
   name: worn WT-550
 
@@ -307,7 +307,7 @@
   parent:
   - BaseExpeditionWeaponTier3
   - NFWeaponSubMachineGunDrozd
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponSubMachineGunDrozdExpedition
   name: worn Drozd
 
@@ -315,7 +315,7 @@
   parent:
   - BaseExpeditionWeaponTier3Syndicate
   - NFWeaponSubMachineGunAtreides
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponSubMachineGunAtreidesExpedition
   name: worn Atreides
 
@@ -323,7 +323,7 @@
   parent:
   - BaseExpeditionWeaponTier3
   - NFWeaponSubMachineGunTypewriter
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponSubMachineGunTypewriterExpedition
   name: worn Typewriter
 
@@ -332,7 +332,7 @@
   parent:
   - BaseExpeditionWeaponTier3
   - WeaponLaserSvalinn
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyPistolLaserSvalinnExpedition
   name: worn Svalinn
 
@@ -342,7 +342,7 @@
   parent:
   - BaseExpeditionWeaponTier4
   - NFWeaponShotgunEnforcer
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponShotgunEnforcerExpedition
   name: worn Enforcer
 
@@ -350,7 +350,7 @@
   parent:
   - BaseExpeditionWeaponTier4Syndicate
   - NFWeaponShotgunBulldog
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponShotgunBulldogExpedition
   name: worn Bulldog
 
@@ -359,7 +359,7 @@
   parent:
   - BaseExpeditionWeaponTier4Syndicate
   - NFWeaponRifleAssaultSm
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultSmExpedition
   name: worn SM rifle
 
@@ -367,7 +367,7 @@
   parent:
   - BaseExpeditionWeaponTier4
   - NFWeaponRifleAssaultVulcan
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultVulcanExpedition
   name: worn Vulcan
 
@@ -376,21 +376,21 @@
   parent:
   - BaseExpeditionWeaponTier4
   - NFWeaponEnergyRifleCarbine
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyRifleCarbineExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier4
   - NFWeaponEnergyPistolLaserAdvanced
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyPistolLaserAdvancedExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier4
   - NFWeaponEnergyPistolLaserAntique
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyPistolLaserAntiqueExpedition
 
 # region Tier 5
@@ -399,7 +399,7 @@
   parent:
   - BaseExpeditionWeaponTier5
   - WeaponTurretAsmgtHostileUniversallyPacked
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: WeaponTurretAsmgtHostileUniversallyPackedExpedition
 
 # Launchers
@@ -407,14 +407,14 @@
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponLauncherRocket
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponLauncherRocketExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier5Syndicate
   - NFWeaponLauncherChinaLake
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponLauncherChinaLakeExpedition
 
 # LMGs
@@ -422,7 +422,7 @@
   parent:
   - BaseExpeditionWeaponTier5Syndicate
   - NFWeaponLightMachineGunL6
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponLightMachineGunL6Expedition
   name: worn L6
 
@@ -431,21 +431,21 @@
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponEnergySubMachineGunDeltaV
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergySubMachineGunDeltaVExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponEnergyRifleSniperXrayCannon
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyRifleSniperXrayCannonExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponEnergyRifleSniperCannon
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyRifleSniperCannonExpedition
   components: #Hardlight change
   - type: Tag
@@ -456,13 +456,13 @@
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponEnergyRifleTemperature
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponEnergyRifleTemperatureExpedition
 
 - type: entity
   parent:
   - BaseExpeditionWeaponTier5
   - NFWeaponRifleAssaultJackdaw
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this spawning in the wild for now
   id: NFWeaponRifleAssaultJackdawExpedition
   name: worn Jackdaw

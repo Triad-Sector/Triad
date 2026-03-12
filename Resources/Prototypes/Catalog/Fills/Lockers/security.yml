@@ -226,7 +226,7 @@
       value: 5
     children:
     - id: NFWeaponEnergySubMachineGunDisabler # HL
-    
+
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
@@ -308,7 +308,7 @@
     rolls: !type:ConstantNumberSelector
       value: 2
     children:
-    - id: NFWeaponShotgunEnforcer # Frontier: WeaponShotgunEnforcer<NFWeaponShotgunEnforcer
+    - id: WeaponShotgunEnforcer # Frontier: WeaponShotgunEnforcer<NFWeaponShotgunEnforcer  ## TRAID CHANGE
     - id: AmmoBox12_gaugeBuckshot #HL
     - id: AmmoBox12_gaugeBuckshot #HL
 

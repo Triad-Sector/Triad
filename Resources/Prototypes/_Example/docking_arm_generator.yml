@@ -4,6 +4,7 @@
 - type: entity
   id: DockingArmGeneratorStation
   parent: BaseStation
+  categories: [ HideSpawnMenu ] #Triad 
   components:
   - type: DockingArmGenerator
     proto: Gateway

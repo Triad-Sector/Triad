@@ -6,6 +6,7 @@
   name: GSW LMG-6
   description: |-
     A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. An illegal firearm often used by Syndicate agents.
+  categories: [ HideSpawnMenu ] # Triad change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi

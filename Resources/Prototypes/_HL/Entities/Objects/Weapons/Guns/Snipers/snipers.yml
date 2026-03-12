@@ -61,67 +61,68 @@
   - type: StaticPrice
     price: 500
 
-- type: entity
-  name: Forktail
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC3SyndicateContraband]
-  id: WeaponSniperBigAMR
-  description: A not so portable anti-materiel rifle. Fires excessively large 20x82mm shells.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/amr.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-      - state: barrel
-        visible: true
-        map: ["enum.ToggleVisuals.Layer"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/amr.rsi
-  - type: GunRequiresWield
-  - type: Gun
-    projectileSpeed: 30
-  - type: SpeedModifiedOnWield
-    walkModifier: 0
-    sprintModifier: 0
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-  - type: ContainerFill
-    containers:
-      gun_magazine:
-      - MagazineAMR
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-
-- type: entity
-  id: MagazineAMR
-  name: magazine (20x82mm)
-  parent: BaseMagazineLightRifle
-  components:
-  - type: Tag # Hardlight change
-    tags:
-      - MagazineAMR
-  - type: BallisticAmmoProvider
-    proto: CartridgeAntiMaterielBig
-    capacity: 3
-    mayTransfer: true
-    whitelist:
-      tags:
-        - CartridgeAntiMaterielBig
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
+# Triad change   we dont really need this for now
+#- type: entity
+#  name: Forktail
+#  parent: [BaseWeaponSniper, BaseGunWieldable, BaseC3SyndicateContraband]
+#  id: WeaponSniperBigAMR
+#  description: A not so portable anti-materiel rifle. Fires excessively large 20x82mm shells.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/Snipers/amr.rsi
+#    layers:
+#      - state: base
+#        map: ["enum.GunVisualLayers.Base"]
+#      - state: mag-0
+#        map: ["enum.GunVisualLayers.Mag"]
+#      - state: barrel
+#        visible: true
+#        map: ["enum.ToggleVisuals.Layer"]
+#  - type: Clothing
+#    sprite: Objects/Weapons/Guns/Snipers/amr.rsi
+#  - type: GunRequiresWield
+#  - type: Gun
+#    projectileSpeed: 30
+#  - type: SpeedModifiedOnWield
+#    walkModifier: 0
+#    sprintModifier: 0
+#  - type: ContainerContainer
+#    containers:
+#      gun_magazine: !type:ContainerSlot
+#      gun_chamber: !type:ContainerSlot
+#  - type: ContainerFill
+#    containers:
+#      gun_magazine:
+#      - MagazineAMR
+#  - type: MagazineVisuals
+#    magState: mag
+#    steps: 1
+#    zeroVisible: true
+#
+#- type: entity
+#  id: MagazineAMR
+#  name: magazine (20x82mm)
+#  parent: BaseMagazineLightRifle
+#  components:
+#  - type: Tag # Hardlight change
+#    tags:
+#      - MagazineAMR
+#  - type: BallisticAmmoProvider
+#    proto: CartridgeAntiMaterielBig
+#    capacity: 3
+#    mayTransfer: true
+#    whitelist:
+#      tags:
+#        - CartridgeAntiMaterielBig
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+#    layers:
+#    - state: base
+#      map: ["enum.GunVisualLayers.Base"]
+#    - state: mag-1
+#      map: ["enum.GunVisualLayers.Mag"]
+#  - type: MagazineVisuals
+#    magState: mag
+#    steps: 2
+#    zeroVisible: false
+#  - type: Appearance

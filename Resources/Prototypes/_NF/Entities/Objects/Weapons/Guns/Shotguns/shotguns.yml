@@ -5,6 +5,7 @@
   name: Bulldog
   description: |-
     An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids.
+  categories: [ HideSpawnMenu ] #Triad
   components:
  # - type: BallisticAmmoProvider  # this is causing it to have 2 shells and then an 8 shell cap Hardlight change
  #   capacity: 2
@@ -46,6 +47,7 @@
   id: NFWeaponShotgunEnforcer
   parent: [ NFBaseWeaponShotgunChamber50, NFBaseWeaponFrameShotgunNanotrasen ]
   name: Enforcer
+  categories: [ HideSpawnMenu ] #Triad
   description: |-
     A premium semi-automatic shotgun, featuring an upgraded tube capacity.
   components:
@@ -193,6 +195,7 @@
   id: NFWeaponShotgunEnforcerLessLethal
   parent: NFWeaponShotgunEnforcer
   suffix: Less-lethal
+  categories: [ HideSpawnMenu ] #Triad
   components:
   - type: BallisticAmmoProvider
     proto: NFShellShotgunBeanbag

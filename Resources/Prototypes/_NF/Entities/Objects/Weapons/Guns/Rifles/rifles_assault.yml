@@ -114,6 +114,7 @@
   name: Gestio
   description: |-
     An old burst-fire rifle designed by Silver Industries that never left trials.
+  categories: [ HideSpawnMenu ] # Triad change
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Rifles/gestio.rsi

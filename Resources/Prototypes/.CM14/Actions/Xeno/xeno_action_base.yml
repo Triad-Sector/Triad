@@ -1,3 +1,4 @@
 ﻿- type: entity
   id: ActionXenoBase
   parent: CMEntityBase
+  categories: [ HideSpawnMenu ] # Triad

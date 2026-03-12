@@ -4,6 +4,7 @@
   parent: [ NFBaseWeaponRifleChamber60, NFBaseWeaponFrameRifleSniperCybersun ]
   name: Hristov
   description: A portable anti-materiel rifle.
+  categories: [ HideSpawnMenu ] # Triad change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi

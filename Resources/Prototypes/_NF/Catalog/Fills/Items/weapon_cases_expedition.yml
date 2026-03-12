@@ -669,7 +669,7 @@
   parent: WeaponCaseLong
   id: WeaponCaseLongLauncherChinaLake
   suffix: Dungeon, China Lake
-#  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu ] # Triad change, we dont want this in the spawn menu for now
   components:
   - type: StorageFill
     contents:
