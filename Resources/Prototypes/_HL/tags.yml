@@ -356,3 +356,9 @@
 
 - type: Tag
   id: GaslockFrameMachineCircuitBoard
+
+# Forged Rifle Mag
+- type: Tag
+  id: ForgedRifleMagazine
+
+

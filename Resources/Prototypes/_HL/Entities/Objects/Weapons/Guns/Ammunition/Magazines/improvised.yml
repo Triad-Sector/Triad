@@ -1,0 +1,54 @@
+- type: entity
+  id: Magazine556/762x39Improvised
+  name: improvised rifle magazine (556/762x39)
+  parent: [ BaseC1Contraband, RecyclableItemSteelTiny, BaseMagazineLightRifle ]
+  components:
+  - type: Tag
+    tags:
+      - ForgedRifleMagazine
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge762x39mmFMJ
+        - Cartridge556x45mmFMJ
+        - Cartridge556x45mmImprovised
+    proto: Cartridge556x45mmFMJ
+    capacity: 20
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle30_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-7
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 8
+    zeroVisible: false
+
+- type: entity
+  id: Magazine635x44mm/762x54rImprovised
+  name: improvised rifle magazine (635x44mm/762x54r)
+  parent: [ BaseC1Contraband, RecyclableItemSteelTiny, BaseMagazineLightRifle ]
+  components:
+  - type: Tag
+    tags:
+      - ForgedRifleMagazine
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Cartridge762x54mmRFMJ
+        - Cartridge635x40mmCaseless
+    proto: Cartridge635x40mmCaseless
+    capacity: 10
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle30_low_cap_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-6
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    steps: 7

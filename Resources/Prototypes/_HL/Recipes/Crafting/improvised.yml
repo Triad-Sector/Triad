@@ -33,3 +33,27 @@
   category: construction-category-clothing
   description: improvised-scrap-ring-hv-desc
   objectType: Item
+
+- type: construction
+  id: WeaponRifleForged
+  graph: ForgedRifleGraph
+  startNode: start
+  targetNode: shotgun
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: Magazine556/762x39Improvised
+  graph: Improvised556/762x39MagazineGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  objectType: Item
+
+- type: construction
+  id: Magazine635x44mm/762x54rImprovised
+  graph: Improvised635x44mm/762x54rMagazineGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  objectType: Item

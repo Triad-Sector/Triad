@@ -1,0 +1,127 @@
+- type: entity
+  name: WT-440 (46x30mm)
+  parent: [ BaseWeaponPistol, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  id: WeaponPistolWT440446x30mm
+  description: A rarely seen modification of the WT550, this high capacity pistol is a cut-down version of the famous SMG, lacking an arm brace or alternate firemodes. Easier to conceal, and with all serial numbers expertly removed. Takes 4.6x30mm WT magazines.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Pistols/wt440.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _HL/Objects/Weapons/Guns/Pistols/wt440.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,2,1
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+  - type: Gun
+    fireRate: 4.5
+    minAngle: 1
+    maxAngle: 8
+    angleIncrease: 1.5
+    angleDecay: 6
+    selectedMode: SemiAuto
+    shotsPerBurst: 5
+    burstCooldown: 0.2
+    burstFireRate: 7
+    availableModes:
+    - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine46x30mmSubMachineGunTopMountedFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine46x30mmSubMachineGunTopMountedFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge46x30mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge46x30mmFMJ
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: WT-440 (57x28mm)
+  parent: [ BaseWeaponPistol, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  id: WeaponPistolWT44057x28mm
+  description: A rarely seen modification of the WT550, this high capacity pistol is a cut-down version of the famous SMG, lacking an arm brace or alternate firemodes. Easier to conceal, and with all serial numbers expertly removed. Takes 5.7x28mm WT magazines.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Pistols/wt440.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _HL/Objects/Weapons/Guns/Pistols/wt440.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,2,1
+  - type: ChamberMagazineAmmoProvider
+    boltClosed: null
+  - type: Gun
+    fireRate: 4.5
+    minAngle: 1
+    maxAngle: 8
+    angleIncrease: 1.5
+    angleDecay: 6
+    selectedMode: SemiAuto
+    shotsPerBurst: 5
+    burstCooldown: 0.2
+    burstFireRate: 7
+    availableModes:
+    - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine57x28mmSubMachineGunTopMountedFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine57x28mmSubMachineGunTopMountedFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge57x28mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge57x28mmFMJ
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance

@@ -1,0 +1,21 @@
+
+- type: entity
+  parent: BaseItem
+  id: UnfinishedRifleForged
+  name: forged rifle parts
+  description: Some assembly may be reqiured. Needs welding.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Rifles/forgedrifle.rsi
+    state: unfinished
+  - type: ToolRefinable
+    refineResult:
+    - id: WeaponRifleForged
+  - type: Tag
+    tags:
+    - Metal
+  - type: Construction
+    graph: ForgedRifleGraph
+    node: shotgun
