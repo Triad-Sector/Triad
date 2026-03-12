@@ -1,0 +1,14 @@
+- type: entity
+  parent: WeaponCaseLong
+  id: WeaponCaseLongMisriah
+  suffix: Dungeon, Misriah
+#  categories: [ HideSpawnMenu ]
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleMMisriahAutorifle
+      amount: 1
+    - id: Magazine762x51mmFMJ
+      amount: 3
+    - id: AmmoBox762x51mmFMJ
+      amount: 2

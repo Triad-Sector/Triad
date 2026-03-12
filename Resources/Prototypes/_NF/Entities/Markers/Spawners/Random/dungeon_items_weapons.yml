@@ -291,6 +291,9 @@
     - WeaponCaseLongRailgunPeregrine # HL. Intended rarity for the Peregrine
     #Hardlight start
     - WeaponCaseLongVortex
+
+    # Triad start
+    - WeaponCaseLongMisriah # this might need to become tier 5
     chance: 1.0
     offset: 0.0
     rarePrototypes:
