@@ -10,16 +10,7 @@
     WeaponShotgunKammerer: 6
     #Hardlight end
   # Magazines
-    Magazine9x19mmPistolFMJ: 6
-    Magazine762x39mmLowCapacityFMJ: 6
-    MagazineNovaliteC1: 6
-    Magazine45_ACPPistolFMJ: 6
   # Ammo boxes
-    AmmoBox9x19mmBigFMJ: 6
-    AmmoBox556x45mmBigFMJ: 6
-    AmmoBox762x39mmBigFMJ: 6
-    AmmoBox45_ACPBigFMJ: 6
-    AmmoBox12_gaugeBuckshot: 6
     AmmoBox12_gaugeBeanbag: 6
   emaggedInventory:
 
