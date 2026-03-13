@@ -20,7 +20,7 @@ public sealed partial class MonoCVars
     ///     Whether to log every single entity cleanup deletes.
     /// </summary>
     public static readonly CVarDef<bool> CleanupLog =
-        CVarDef.Create("mono.cleanup.log", true, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.log", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Don't delete non-grids at most this close to a grid.
