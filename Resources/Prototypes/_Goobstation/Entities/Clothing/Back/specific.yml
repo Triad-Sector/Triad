@@ -46,7 +46,7 @@
       - id: StasisCage
         amount: 4
       - id: MedkitCombatStasiziumFilled
-      - id: StasisBaton
+#      - id: StasisBaton  #Triad unsure what this is removing for now due to errors
       - id: FreedomImplanter
       - id: ScramImplanter
       - id: MindShieldImplanter

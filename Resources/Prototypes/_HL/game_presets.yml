@@ -83,7 +83,8 @@
   showInVote: false #4boring4vote
   description: greenshift-description
   rules:
-   - SpaceTrafficControlFriendlyEventScheduler
+ #  - SpaceTrafficControlFriendlyEventScheduler # Triad change
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: Secret
@@ -115,7 +116,7 @@
   showInVote: false #Admin Use
   description: secret-description
   rules:
-    - SpaceTrafficControlFriendlyEventScheduler
+    #- SpaceTrafficControlFriendlyEventScheduler # Triad
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -214,7 +215,7 @@
   - SubGamemodesRuleNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
+  # - SpaceTrafficControlEventScheduler  Triad change
   - BasicRoundstartVariation
 
 - type: gamePreset

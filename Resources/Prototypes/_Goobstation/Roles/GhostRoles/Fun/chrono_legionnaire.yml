@@ -7,10 +7,12 @@
     eyes: ClothingEyesHudChronoUnremoveable
     ears: ClothingHeadsetChronolegioneerUnremoveable
     gloves: ClothingHandsGlovesChronoLegioneerUnremoveable
-    outerClothing: ClothingOuterHardsuitChronolegioneerUnremoveable
+    # outerClothing: ClothingOuterHardsuitChronolegioneerUnremoveable
     suitstorage: JetpackChronoUnremoveable
     shoes: ClothingShoesBootsChronoUnremoveable
     id: ChronoPDA
-    belt: WeaponStasisGun
+    # belt: WeaponStasisGun
     pocket1: PinpointerStation
     pocket2: SonicScrewdriver
+
+    # This is a temp fix until we know if we wnat this or not  #TRAID  changes

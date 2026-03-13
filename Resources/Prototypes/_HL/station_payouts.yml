@@ -114,7 +114,8 @@
 - type: stationPay
   id: SergeantPay
   payPerHour: 14000 # Danger x2
-  job: Sergeant
+  job: SeniorOfficer # Triad fix  now sergent gets paid
+
 
 - type: stationPay
   id: BrigmedicPay
