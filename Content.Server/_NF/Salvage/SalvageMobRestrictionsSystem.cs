@@ -56,10 +56,16 @@ public sealed class SalvageMobRestrictionsSystem : EntitySystem
 
     private void OnRemoveGrid(EntityUid uid, SalvageMobRestrictionsGridComponent component, ComponentRemove args)
     {
-        foreach (EntityUid target in component.MobsToKill)
+        if (!uid.IsValid() || !EntityManager.EntityExists(uid))
+            return;
+
+        foreach (var target in component.MobsToKill.ToArray())
         {
+            if (!target.IsValid() || !EntityManager.EntityExists(target))
+                continue;
+
             // Don't destroy yourself, don't destroy things being destroyed.
-            if (uid == target || MetaData(target).EntityLifeStage >= EntityLifeStage.Terminating)
+            if (uid == target || Terminating(target))
                 continue;
 
             if (TryComp(target, out BodyComponent? body))
@@ -67,13 +73,13 @@ public sealed class SalvageMobRestrictionsSystem : EntitySystem
                 // Creates a pool of blood on death, but remove the organs.
                 var gibs = _body.GibBody(target, body: body, gibOrgans: true);
                 foreach (var gib in gibs)
-                    Del(gib);
+                    QueueDel(gib);
             }
             else
             {
                 // No body, probably a robot - explode it and delete the body
                 _explosion.QueueExplosion(target, ExplosionSystem.DefaultExplosionPrototypeId, 5, 10, 5);
-                Del(target);
+                QueueDel(target);
             }
         }
     }
@@ -140,13 +146,11 @@ public sealed class SalvageMobRestrictionsSystem : EntitySystem
 
     // Returns true if the given entity is invalid or terminating
     private bool Terminating(EntityUid uid)
-{
-    if (!TryComp(uid, out MetaDataComponent? meta))
     {
-        // Handle the case where MetaDataComponent does not exist
-        return true; // or false, depending on your desired behavior
+        if (!TryComp(uid, out MetaDataComponent? meta))
+            return true;
+
+        return meta.EntityLifeStage >= EntityLifeStage.Terminating;
     }
-    return meta.EntityLifeStage >= EntityLifeStage.Terminating;
-}
 }
 

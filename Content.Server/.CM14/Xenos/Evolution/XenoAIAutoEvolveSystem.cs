@@ -47,10 +47,26 @@ public sealed class XenoAIAutoEvolveSystem : EntitySystem
         base.Update(frameTime);
 
         var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<XenoAIAutoEvolveComponent, XenoComponent>();
-
-        while (query.MoveNext(out var uid, out var autoEvolve, out var xeno))
+        var toProcess = new List<EntityUid>();
+        try
         {
+            var query = EntityQueryEnumerator<XenoAIAutoEvolveComponent, XenoComponent>();
+            while (query.MoveNext(out var uid, out _, out _))
+            {
+                toProcess.Add(uid);
+            }
+        }
+        catch (InvalidOperationException)
+        {
+            return;
+        }
+
+        foreach (var uid in toProcess)
+        {
+            if (!TryComp<XenoAIAutoEvolveComponent>(uid, out var autoEvolve) ||
+                !TryComp<XenoComponent>(uid, out var xeno))
+                continue;
+
             // Skip player-controlled xenos - only AI xenos should auto-evolve
             if (HasComp<ActorComponent>(uid))
                 continue;

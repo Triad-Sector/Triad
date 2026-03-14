@@ -54,6 +54,9 @@ public abstract class SharedArmorSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess || !component.ShowArmorOnExamine)
             return;
 
+        if (component.Modifiers == null)
+            return;
+
         var examineMarkup = GetArmorExamine(component.Modifiers);
 
         var ev = new ArmorExamineEvent(examineMarkup);
@@ -69,8 +72,14 @@ public abstract class SharedArmorSystem : EntitySystem
         var msg = new FormattedMessage();
         msg.AddMarkupOrThrow(Loc.GetString("armor-examine"));
 
+        if (armorModifiers == null)
+            return msg;
+
         foreach (var coefficientArmor in armorModifiers.Coefficients)
         {
+            if (string.IsNullOrEmpty(coefficientArmor.Key))
+                continue;
+
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
@@ -82,6 +91,9 @@ public abstract class SharedArmorSystem : EntitySystem
 
         foreach (var flatArmor in armorModifiers.FlatReduction)
         {
+            if (string.IsNullOrEmpty(flatArmor.Key))
+                continue;
+
             msg.PushNewline();
 
             var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());

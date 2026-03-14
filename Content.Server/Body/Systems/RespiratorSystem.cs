@@ -66,9 +66,26 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
-        while (query.MoveNext(out var uid, out var respirator, out var body))
+        var toProcess = new List<EntityUid>();
+        try
         {
+            var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
+            while (query.MoveNext(out var uid, out _, out _))
+            {
+                toProcess.Add(uid);
+            }
+        }
+        catch (Exception e) when (e is InvalidOperationException || e.Message.Contains("Collection was modified"))
+        {
+            return;
+        }
+
+        foreach (var uid in toProcess)
+        {
+            if (!TryComp<RespiratorComponent>(uid, out var respirator) ||
+                !TryComp<BodyComponent>(uid, out var body))
+                continue;
+
             if (_gameTiming.CurTime < respirator.NextUpdate)
                 continue;
 

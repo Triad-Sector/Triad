@@ -375,14 +375,21 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
         var othersFilter = Filter.Pvs(othersTarget).RemoveWhereAttachedEntity(ent => ent == user || ent == target);
 
         // Popups
-        if (_protoMan.TryIndex(specifier.Popup, out var popup))
+        if (specifier.Popup is { } popupId && _protoMan.TryIndex(popupId, out var popup))
         {
             var locPrefix = $"interaction-{proto.ID}-{prefix.ToString().ToLower()}";
 
+            var userIdentity = user.Valid && EntityManager.EntityExists(user)
+                ? Identity.Entity(user, EntityManager).ToString()
+                : ToPrettyString(user).ToString();
+            var targetIdentity = target.Valid && EntityManager.EntityExists(target)
+                ? Identity.Entity(target, EntityManager).ToString()
+                : ToPrettyString(target).ToString();
+
             (string, object)[] localeArgs =
             [
-                ("user", Identity.Entity(user, EntityManager)), // Floof - use identity
-                ("target", Identity.Entity(target, EntityManager)), // Floof - use identity
+                ("user", userIdentity),
+                ("target", targetIdentity),
                 ("used", used ?? EntityUid.Invalid),
                 ("selfTarget", user == target),
                 ("hasUsed", used != null)

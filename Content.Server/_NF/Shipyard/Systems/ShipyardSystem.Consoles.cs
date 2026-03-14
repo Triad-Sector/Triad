@@ -284,10 +284,30 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 TryComp<FingerprintComponent>(player, out var fingerprintComponent);
                 TryComp<DnaComponent>(player, out var dnaComponent);
                 TryComp<StationRecordsComponent>(shuttleStation, out var stationRec);
-                _records.CreateGeneralRecord(shuttleStation.Value, targetId, profile.Name, profile.Age, profile.Species, profile.Gender, $"Captain", fingerprintComponent!.Fingerprint, dnaComponent!.DNA, profile, stationRec!);
+
+                var fingerprint = fingerprintComponent?.Fingerprint ?? string.Empty;
+                var dna = dnaComponent?.DNA ?? string.Empty;
+
+                if (stationRec != null)
+                {
+                    _records.CreateGeneralRecord(
+                        shuttleStation.Value,
+                        targetId,
+                        profile.Name,
+                        profile.Age,
+                        profile.Species,
+                        profile.Gender,
+                        $"Captain",
+                        fingerprint,
+                        dna,
+                        profile,
+                        stationRec);
+                }
             }
         }
-        _records.Synchronize(shuttleStation!.Value);
+
+        if (shuttleStation != null)
+            _records.Synchronize(shuttleStation.Value);
 
         EntityManager.AddComponents(shuttleUid, vessel.AddComponents);
 
@@ -653,7 +673,25 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 TryComp<FingerprintComponent>(player, out var fingerprintComponent);
                 TryComp<DnaComponent>(player, out var dnaComponent);
                 TryComp<StationRecordsComponent>(shuttleStation, out var stationRec);
-                _records.CreateGeneralRecord(shuttleStation.Value, targetId, playerProfile.Name, playerProfile.Age, playerProfile.Species, playerProfile.Gender, $"Captain", fingerprintComponent!.Fingerprint, dnaComponent!.DNA, playerProfile, stationRec!);
+
+                var fingerprint = fingerprintComponent?.Fingerprint ?? string.Empty;
+                var dna = dnaComponent?.DNA ?? string.Empty;
+
+                if (stationRec != null)
+                {
+                    _records.CreateGeneralRecord(
+                        shuttleStation.Value,
+                        targetId,
+                        playerProfile.Name,
+                        playerProfile.Age,
+                        playerProfile.Species,
+                        playerProfile.Gender,
+                        $"Captain",
+                        fingerprint,
+                        dna,
+                        playerProfile,
+                        stationRec);
+                }
             }
         }
         if (shuttleStation != null)

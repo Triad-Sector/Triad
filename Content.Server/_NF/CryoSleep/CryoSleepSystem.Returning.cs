@@ -111,7 +111,8 @@ public sealed partial class CryoSleepSystem
         }
 
         if (body != null
-            && Transform(body.Value.Body).MapUid == _storageMap)
+            && TryComp<TransformComponent>(body.Value.Body, out var bodyXform)
+            && bodyXform.MapUid == _storageMap)
         {
             QueueDel(body.Value.Body);
         }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Linq;
 using Content.Server.StationEvents.Components;
 using Content.Shared._NF.Bank.Components;
 using Content.Shared.Humanoid;
@@ -57,12 +58,15 @@ public sealed class LinkedLifecycleGridSystem : EntitySystem
 
     private void OnMasterRemoved(EntityUid uid, LinkedLifecycleGridParentComponent component, ref ComponentRemove args)
     {
+        if (!TryComp<MetaDataComponent>(uid, out var meta))
+            return;
+
         // Somebody destroyed our component, but the entity lives on, do not destroy the grids.
-        if (MetaData(uid).EntityLifeStage < EntityLifeStage.Terminating)
+        if (meta.EntityLifeStage < EntityLifeStage.Terminating)
             return;
 
         // Destroy child entities
-        foreach (var entity in component.LinkedEntities)
+        foreach (var entity in component.LinkedEntities.ToArray())
             UnparentPlayersFromGrid(entity, true);
     }
 
@@ -177,13 +181,19 @@ public sealed class LinkedLifecycleGridSystem : EntitySystem
     // Deletes a grid, reparenting every humanoid and player character that's on it.
     public void UnparentPlayersFromGrid(EntityUid grid, bool deleteGrid, bool ignoreLifeStage = false)
     {
-        if (!ignoreLifeStage && MetaData(grid).EntityLifeStage >= EntityLifeStage.Terminating)
+        if (!TryComp<MetaDataComponent>(grid, out var gridMeta))
+            return;
+
+        if (!ignoreLifeStage && gridMeta.EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
         var reparentEntities = GetEntitiesToReparent(grid);
 
         foreach (var target in reparentEntities)
         {
+            if (!TryComp<MetaDataComponent>(target.Entity.Owner, out _))
+                continue;
+
             // If the item has already been moved to nullspace, skip it.
             if (Transform(target.Entity).MapID == MapId.Nullspace)
                 continue;
@@ -198,6 +208,9 @@ public sealed class LinkedLifecycleGridSystem : EntitySystem
 
         foreach (var target in reparentEntities)
         {
+            if (!TryComp<MetaDataComponent>(target.Entity.Owner, out _))
+                continue;
+
             // If the item has already been moved out of nullspace, skip it.
             if (Transform(target.Entity).MapID != MapId.Nullspace)
                 continue;

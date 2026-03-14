@@ -47,14 +47,24 @@ public sealed class UserDbDataManager : IPostInjectInit
     {
         _users.Remove(session.UserId, out var data);
         if (data == null)
-            throw new InvalidOperationException("Did not have cached data in ClientDisconnect!");
+        {
+            _sawmill.Warning($"Did not have cached data in ClientDisconnect for user {session}.");
+            return;
+        }
 
         data.Cancel.Cancel();
         data.Cancel.Dispose();
 
-        foreach (var onDisconnect in _onPlayerDisconnect)
+        foreach (var onDisconnect in _onPlayerDisconnect.ToArray())
         {
-            onDisconnect(session);
+            try
+            {
+                onDisconnect(session);
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"OnPlayerDisconnect callback failed for {session}: {e}");
+            }
         }
     }
 
@@ -66,7 +76,7 @@ public sealed class UserDbDataManager : IPostInjectInit
         try
         {
             var tasks = new List<Task>();
-            foreach (var action in _onLoadPlayer)
+            foreach (var action in _onLoadPlayer.ToArray())
             {
                 tasks.Add(action(session, cancel));
             }
@@ -77,7 +87,7 @@ public sealed class UserDbDataManager : IPostInjectInit
 
             cancel.ThrowIfCancellationRequested();
 
-            foreach (var action in _onFinishLoad)
+            foreach (var action in _onFinishLoad.ToArray())
             {
                 action(session);
             }

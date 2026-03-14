@@ -54,7 +54,9 @@ public sealed partial class PathfindingSystem
         if (ev.Changes.Length == 0)
             return;
 
-        var grid = Comp<MapGridComponent>(ev.Entity);
+        if (!TryComp<MapGridComponent>(ev.Entity, out var grid))
+            return;
+
         foreach (var change in ev.Changes)
         {
             if (change.OldTile.IsEmpty == change.NewTile.IsEmpty)
@@ -305,7 +307,8 @@ public sealed partial class PathfindingSystem
         EnsureComp<GridPathfindingComponent>(ev.EntityUid);
 
         // Pathfinder refactor
-        var mapGrid = Comp<MapGridComponent>(ev.EntityUid);
+        if (!TryComp<MapGridComponent>(ev.EntityUid, out var mapGrid))
+            return;
 
         for (var x = Math.Floor(mapGrid.LocalAABB.Left); x <= Math.Ceiling(mapGrid.LocalAABB.Right + ChunkSize); x += ChunkSize)
         {
@@ -333,7 +336,7 @@ public sealed partial class PathfindingSystem
 
         var currentTime = _timing.CurTime;
 
-        if (comp.NextUpdate < currentTime && !MetaData(gridUid).EntityPaused)
+        if (comp.NextUpdate < currentTime && TryComp<MetaDataComponent>(gridUid, out var meta) && !meta.EntityPaused)
             comp.NextUpdate = currentTime + UpdateCooldown;
 
         var chunks = comp.DirtyChunks;

@@ -421,7 +421,8 @@ namespace Content.Server.Atmos.EntitySystems
         public override void Update(float frameTime)
         {
             // process all fire events
-            foreach (var (flammable, deltaTemp) in _fireEvents)
+            var fireEvents = new List<KeyValuePair<Entity<FlammableComponent>, float>>(_fireEvents);
+            foreach (var (flammable, deltaTemp) in fireEvents)
             {
                 // 100 -> 1, 200 -> 2, 400 -> 3...
                 var fireStackMod = Math.Max(MathF.Log2(deltaTemp / 100) + 1, 0);
@@ -443,9 +444,19 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
+            var toProcess = new List<EntityUid>();
             var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var flammable, out _))
+            while (query.MoveNext(out var uid, out _, out _))
             {
+                toProcess.Add(uid);
+            }
+
+            foreach (var uid in toProcess)
+            {
+                if (!TryComp<FlammableComponent>(uid, out var flammable) ||
+                    !TryComp<TransformComponent>(uid, out _))
+                    continue;
+
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
                 {

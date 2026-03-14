@@ -56,14 +56,42 @@ public abstract class SharedCustomExamineSystem : EntitySystem
                  publicRangeHidden = hasPublic && (!hasSubtle || subtleRangeHidden) && !_examine.InRangeUnOccluded(args.Examiner, args.Examined, publicData.VisibilityRange);
 
             if (hasPublic && !publicConsentHidden && !publicRangeHidden)
-                args.PushMarkup(publicData.Content!);
+            {
+                try
+                {
+                    args.PushMarkup(publicData.Content!);
+                }
+                catch
+                {
+                    args.PushText(FormattedMessage.RemoveMarkupPermissive(publicData.Content!));
+                }
+            }
 
             if (hasSubtle && !subtleConsentHidden && !subtleRangeHidden)
-                args.PushMarkup(subtleData.Content!);
+            {
+                try
+                {
+                    args.PushMarkup(subtleData.Content!);
+                }
+                catch
+                {
+                    args.PushText(FormattedMessage.RemoveMarkupPermissive(subtleData.Content!));
+                }
+            }
 
             // If something is hidden due to consent preferences, add a note (but only if in range)
             if (hasPublic && !publicRangeHidden && publicConsentHidden || hasSubtle && !subtleRangeHidden && subtleConsentHidden)
-                args.PushMarkup(Loc.GetString("custom-examine-nsfw-hidden"));
+            {
+                var hiddenText = Loc.GetString("custom-examine-nsfw-hidden");
+                try
+                {
+                    args.PushMarkup(hiddenText);
+                }
+                catch
+                {
+                    args.PushText(FormattedMessage.RemoveMarkupPermissive(hiddenText));
+                }
+            }
         }
     }
 
