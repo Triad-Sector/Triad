@@ -1,16 +1,8 @@
 - type: entity
-  parent: AdminPDA
-  id: ChronoPDA
-  name: futuristic PDA
-  description: A powerful quantum computer disguised as a regular pda for disguise.
+  parent: BasePDA
+  id: RadioHostPDA
+  name: radio host PDA
+  description: You're listening to the smooth sounds of 145.9 FM.
   components:
   - type: Pda
-    id: ChronoIDCard
-    penSlot:
-      startingItem: PenFuture
-      whitelist:
-        tags:
-        - Write
-  - type: PdaBorderColor
-    borderColor: "#dee4e7"
-    accentVColor: "#59bcee"
+    id: RadioHostIDCard

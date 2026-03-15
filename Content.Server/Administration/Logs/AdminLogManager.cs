@@ -400,7 +400,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     {
         if (TrySearchCache(filter, out var results))
         {
-            return results;
+            return results ?? new List<SharedAdminLog>();
         }
 
         var initialSize = Math.Min(filter?.Limit ?? 0, 1000);

@@ -13,10 +13,10 @@
     torso:
       part: TorsoResomi
       organs:
-        heart: OrganHumanHeart
+        heart: OrganResomiHeart
         lungs: OrganHumanLungs
         stomach: OrganResomiStomach # Goobstation - classic furries can eat everything except chocolate :)
-        liver: OrganHumanLiver
+        liver: OrganResomiLiver
         kidneys: OrganHumanKidneys
       connections:
       - right arm

@@ -52,6 +52,13 @@
   armorCoefficientPrice: 2
   armorFlatPrice: 10
 
+# Legacy compatibility alias used by some old content/data.
+- type: damageType
+  id: Pierce
+  name: damage-type-piercing
+  armorCoefficientPrice: 2
+  armorFlatPrice: 10
+
 # Poison damage. Generally caused by various reagents being metabolised.
 - type: damageType
   id: Poison
@@ -70,6 +77,18 @@
   name: damage-type-shock
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+
+- type: damageType
+  id: Ion
+  name: damage-type-ion
+  armorCoefficientPrice: 2.5
+  armorFlatPrice: 20
+
+- type: damageType
+  id: Stamina
+  name: damage-type-stamina
+  armorCoefficientPrice: 2
+  armorFlatPrice: 10
 
 - type: damageType
   id: Slash

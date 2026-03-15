@@ -3,7 +3,7 @@
 
 # Syndicate High Command Suit
 - type: entity
-  parent: [ClothingUniformJumpsuitSyndieFormal, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingUniformJumpsuitSyndieFormal, ContrabandClothing]
   id: ClothingUniformJumpsuitSyndicateHighCommand
   name: syndicate high command suit
   description: An elegant formal suit reserved for high-ranking Syndicate commanders. Features premium materials and distinguished styling.
@@ -18,7 +18,7 @@
 
 # Cybersun Suit
 - type: entity
-  parent: [ClothingUniformJumpsuitSyndieFormal, BaseC3SyndicateContraband, ContrabandClothing]
+  parent: [ClothingUniformJumpsuitSyndieFormal, ContrabandClothing]
   id: ClothingUniformJumpsuitCybersun
   name: cybersun suit
   description: A sophisticated corporate suit featuring Cybersun's distinctive styling and high-quality construction.
@@ -27,4 +27,48 @@
     sprite: _HL/Clothing/Uniforms/cybersunsuit.rsi
   - type: Clothing
     sprite: _HL/Clothing/Uniforms/cybersunsuit.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitSyndieFormal
+  id: ClothingUniformJumpsuitInterdyne
+  name: interdyne jumpsuit
+  description: A high-quality jumpsuit designed for Interdyne personnel.
+  components:
+    - type: Sprite
+      sprite: _HL/Clothing/Uniforms/interdynejumpsuit.rsi
+    - type: Clothing
+      sprite: _HL/Clothing/Uniforms/interdynejumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitSyndieFormal
+  id: ClothingUniformJumpskirtInterdyne
+  name: interdyne jumpskirt
+  description: A high-quality jumpskirt designed for Interdyne personnel.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Uniforms/interdynejumpskirt.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Uniforms/interdynejumpskirt.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitSyndieFormal
+  id: ClothingUniformJumpsuitInterdyneDirector
+  name: interdyne director jumpsuit
+  description: A high-quality jumpsuit designed for Interdyne heads.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Uniforms/interdynedirectorjumpsuit.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Uniforms/interdynedirectorjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitSyndieFormal
+  id: ClothingUniformJumpskirtInterdyneDirector
+  name: interdyne director jumpskirt
+  description: A high-quality jumpskirt designed for Interdyne heads.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Uniforms/interdynedirectorjumpskirt.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Uniforms/interdynedirectorjumpskirt.rsi
 

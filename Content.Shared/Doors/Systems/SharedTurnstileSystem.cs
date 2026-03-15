@@ -3,6 +3,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -32,6 +33,8 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
 
     private void OnPreventCollide(Entity<TurnstileComponent> ent, ref PreventCollideEvent args)
     {
+        SanitizeCollideExceptions(ent);
+
         if (args.Cancelled || !args.OurFixture.Hard || !args.OtherFixture.Hard)
             return;
 
@@ -126,6 +129,15 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
             diff = MathHelper.TwoPi - diff;
 
         return diff < Math.PI / 4;
+    }
+
+    private void SanitizeCollideExceptions(Entity<TurnstileComponent> ent)
+    {
+        ent.Comp.CollideExceptions.RemoveWhere(uid =>
+            !EntityManager.EntityExists(uid)
+            || EntityManager.IsQueuedForDeletion(uid)
+            || TerminatingOrDeleted(uid)
+            || !HasComp<MetaDataComponent>(uid));
     }
 
     protected virtual void PlayAnimation(EntityUid uid, string stateId)

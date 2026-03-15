@@ -39,8 +39,15 @@ public sealed class TelepathicArtifactSystem : EntitySystem
                 msgArr = component.Messages;
             }
 
+            if (msgArr == null || msgArr.Count == 0)
+                continue;
+
             // pick a random message
             var msgId = _random.Pick(msgArr);
+
+            if (string.IsNullOrEmpty(msgId))
+                continue;
+
             var msg = Loc.GetString(msgId);
 
             // show it as a popup, but only for the victim

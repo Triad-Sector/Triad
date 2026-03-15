@@ -10,7 +10,7 @@
       time: 1800 #0.5 hr
   startingGear: ChefGear
   icon: "JobIconChef"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance

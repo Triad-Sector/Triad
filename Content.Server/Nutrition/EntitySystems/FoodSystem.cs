@@ -1,12 +1,16 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Solution = Content.Shared.Chemistry.Components.Solution;
 using Content.Server.Inventory;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Shared.Administration.Logs;
+using System;
+using System.Text;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry;
@@ -74,6 +78,7 @@ public sealed class FoodSystem : EntitySystem
         SubscribeLocalEvent<FoodComponent, AfterInteractEvent>(OnFeedFood);
         SubscribeLocalEvent<FoodComponent, GetVerbsEvent<AlternativeVerb>>(AddEatVerb);
         SubscribeLocalEvent<FoodComponent, ConsumeDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<FoodComponent, ComponentStartup>(OnFoodStartup);
         SubscribeLocalEvent<InventoryComponent, IngestionAttemptEvent>(OnInventoryIngestAttempt);
     }
 
@@ -249,9 +254,20 @@ public sealed class FoodSystem : EntitySystem
         var forceFeed = args.User != args.Target;
 
         args.Handled = true;
-        var transferAmount = entity.Comp.TransferAmount != null ? FixedPoint2.Min((FixedPoint2) entity.Comp.TransferAmount, solution.Volume) : solution.Volume;
+        StackComponent? stackComp = null;
+        if (TryComp<StackComponent>(entity, out var foundStack))
+            stackComp = foundStack;
 
-        var split = _solutionContainer.SplitSolution(soln.Value, transferAmount);
+        var stackCount = stackComp?.Count ?? 1;
+        var isStacked = stackCount > 1;
+        var sourceSolution = isStacked ? new Solution(solution) : solution;
+        var transferAmount = entity.Comp.TransferAmount != null
+            ? FixedPoint2.Min((FixedPoint2) entity.Comp.TransferAmount, sourceSolution.Volume)
+            : sourceSolution.Volume;
+
+        var split = isStacked
+            ? sourceSolution.SplitSolution(transferAmount)
+            : _solutionContainer.SplitSolution(soln.Value, transferAmount);
 
         // Get the stomach with the highest available solution volume
         var highestAvailable = FixedPoint2.Zero;
@@ -314,19 +330,15 @@ public sealed class FoodSystem : EntitySystem
 
         args.Repeat = !forceFeed;
 
-        _solutionContainer.SetCapacity(soln.Value, soln.Value.Comp.Solution.MaxVolume - transferAmount); // Frontier: remove food capacity after taking a bite.
-
-        if (TryComp<StackComponent>(entity, out var stack))
+        if (stackComp != null && stackComp.Count > 1)
         {
-            //Not deleting whole stack piece will make troubles with grinding object
-            if (stack.Count > 1)
-            {
-                _stack.SetCount(entity.Owner, stack.Count - 1);
-                _solutionContainer.TryAddSolution(soln.Value, split);
-                return;
-            }
+            // Consume a single item from the stack without altering remaining reagents.
+            _stack.SetCount(entity.Owner, stackComp.Count - 1);
+            return;
         }
-        else if (GetUsesRemaining(entity.Owner, entity.Comp) > 0)
+
+        _solutionContainer.SetCapacity(soln.Value, soln.Value.Comp.Solution.MaxVolume - transferAmount); // Frontier: remove food capacity after taking a bite.
+        if (GetUsesRemaining(entity.Owner, entity.Comp) > 0)
         {
             return;
         }
@@ -376,6 +388,41 @@ public sealed class FoodSystem : EntitySystem
                 // Put the trash in the user's hand
                 _hands.TryPickupAnyHand(user, spawnedTrash);
             }
+        }
+    }
+
+    private void OnFoodStartup(EntityUid uid, FoodComponent component, ComponentStartup args)
+    {
+        if (!TryComp<StackComponent>(uid, out _))
+            return;
+
+        if (!_solutionContainer.TryGetSolution(uid, component.Solution, out _, out var solution))
+            return;
+
+        var stackSig = EnsureComp<StackSignatureComponent>(uid);
+        var builder = new StringBuilder();
+        var prototypeId = Prototype(uid)?.ID;
+        if (prototypeId != null)
+            builder.Append(prototypeId).Append('|');
+
+        AppendSolutionSignature(builder, solution);
+
+        var signature = builder.ToString();
+        if (stackSig.Signature == signature)
+            return;
+
+        stackSig.Signature = signature;
+        Dirty(uid, stackSig);
+    }
+
+    private static void AppendSolutionSignature(StringBuilder builder, Solution solution)
+    {
+        foreach (var reagent in solution.Contents.OrderBy(r => r.Reagent.Prototype, StringComparer.Ordinal))
+        {
+            builder.Append(reagent.Reagent.Prototype)
+                .Append('=')
+                .Append(reagent.Quantity.Value)
+                .Append(';');
         }
     }
 

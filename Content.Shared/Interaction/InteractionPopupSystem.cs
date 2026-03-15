@@ -131,10 +131,17 @@ public sealed class InteractionPopupSystem : EntitySystem
         {
             _popupSystem.PopupEntity(msg, uid, user);
 
-            if (component.SoundPerceivedByOthers)
-                _audio.PlayPvs(sfx, target);
-            else
-                _audio.PlayEntity(sfx, Filter.Entities(user, target), target, false);
+            try
+            {
+                if (component.SoundPerceivedByOthers)
+                    _audio.PlayPvs(sfx, target);
+                else
+                    _audio.PlayEntity(sfx, Filter.Entities(user, target), target, false);
+            }
+            catch (ArgumentException)
+            {
+            }
+
             return;
         }
 
@@ -145,18 +152,38 @@ public sealed class InteractionPopupSystem : EntitySystem
 
         if (component.SoundPerceivedByOthers)
         {
-            _audio.PlayPredicted(sfx, target, user);
+            try
+            {
+                _audio.PlayPredicted(sfx, target, user);
+            }
+            catch (ArgumentException)
+            {
+            }
             return;
         }
 
         if (_netMan.IsClient)
         {
             if (_gameTiming.IsFirstTimePredicted)
-                _audio.PlayEntity(sfx, Filter.Local(), target, true);
+            {
+                try
+                {
+                    _audio.PlayEntity(sfx, Filter.Local(), target, true);
+                }
+                catch (ArgumentException)
+                {
+                }
+            }
         }
         else
         {
-            _audio.PlayEntity(sfx, Filter.Empty().FromEntities(target), target, false);
+            try
+            {
+                _audio.PlayEntity(sfx, Filter.Empty().FromEntities(target), target, false);
+            }
+            catch (ArgumentException)
+            {
+            }
         }
     }
 }

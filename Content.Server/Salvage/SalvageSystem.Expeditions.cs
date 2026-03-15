@@ -38,6 +38,17 @@ public sealed partial class SalvageSystem
     private const double SalvageJobTime = 0.002;
     private readonly List<(ProtoId<SalvageDifficultyPrototype> id, int value)> _missionDifficulties = [("NFEasy", 0),("NFModerate", 1), ("NFHazardous", 2),("NFExtreme", 3), ("NFNightmare", 4)]; // Frontier: mission difficulties with order
 
+    // HardLight start
+    private static readonly Dictionary<string, string> RewardPrototypeByDifficulty = new()
+    {
+        ["NFEasy"] = "SpaceCashExpeditionT1",
+        ["NFModerate"] = "SpaceCashExpeditionT2",
+        ["NFHazardous"] = "SpaceCashExpeditionT3",
+        ["NFExtreme"] = "SpaceCashExpeditionT4",
+        ["NFNightmare"] = "SpaceCashExpeditionT5",
+    };
+    // HardLight end
+
     [Dependency] private readonly IConfigurationManager _cfgManager = default!; // Frontier
 
     private float _cooldown;
@@ -147,9 +158,10 @@ public sealed partial class SalvageSystem
         }
         else
         {
-            // HARDLIGHT: For round persistence, expedition data might have been moved to a console's LocalExpeditionData
-            // This is a graceful fallback for when station entities are recreated
-            Log.Info($"Expedition shutdown: No expedition data found on station {component.Station}, expedition likely handled by local console data");
+            // HardLight: Some flows (e.g. disk-launched missions on fresh ships) may not have station expedition data.
+            // Still award completion rewards and announce result so payouts do not silently fail.
+            HandleExpeditionOutcome(uid, component);
+            Log.Info($"Expedition shutdown: No expedition data on {component.Station}, used fallback outcome handling.");
         }
     }
 
@@ -217,16 +229,15 @@ public sealed partial class SalvageSystem
         {
             component.NextOffer = _timing.CurTime + TimeSpan.FromSeconds(_cooldown);
             component.CooldownTime = TimeSpan.FromSeconds(_cooldown);
-            Announce(uid, Loc.GetString("salvage-expedition-mission-completed"));
-            // HARDLIGHT: Spawn expedition reward at the originating console based on difficulty
-            TrySpawnExpeditionRewardAtConsole(expeditionComp);
         }
         else
         {
             component.NextOffer = _timing.CurTime + TimeSpan.FromSeconds(_failedCooldown);
             component.CooldownTime = TimeSpan.FromSeconds(_failedCooldown);
-            Announce(uid, Loc.GetString("salvage-expedition-mission-failed"));
         }
+
+        HandleExpeditionOutcome(uid, expeditionComp); // HardLight
+
         // End Frontier: separate timeout/announcement for success/failures
         component.ActiveMission = 0;
         component.Cooldown = true;
@@ -236,43 +247,85 @@ public sealed partial class SalvageSystem
 
         UpdateConsoles(expedition);
     }
-     // HARDLIGHT: Spawn appropriate briefcase reward at the console that started the expedition
-    private void TrySpawnExpeditionRewardAtConsole(SalvageExpeditionComponent expeditionComp)
+
+    // HardLight start
+    private void HandleExpeditionOutcome(EntityUid expeditionUid, SalvageExpeditionComponent expeditionComp)
     {
-        if (expeditionComp.Console == null || !Exists(expeditionComp.Console.Value))
+        if (expeditionComp.Completed)
         {
-            Log.Warning("Expedition completed but console reference missing; cannot spawn reward.");
+            Announce(expeditionUid, Loc.GetString("salvage-expedition-mission-completed"));
+            TrySpawnExpeditionReward(expeditionComp);
             return;
         }
 
-        if (!TryComp(expeditionComp.Console.Value, out TransformComponent? consoleXform))
+        Announce(expeditionUid, Loc.GetString("salvage-expedition-mission-failed"));
+    }
+
+    // Spawn expedition reward at the best available location (console first, then fallback locations).
+    private void TrySpawnExpeditionReward(SalvageExpeditionComponent expeditionComp)
+    {
+        var diffId = expeditionComp.MissionParams.Difficulty;
+        var rewardProto = RewardPrototypeByDifficulty.GetValueOrDefault(diffId, "SpaceCashExpeditionT1");
+
+        if (!TryGetExpeditionRewardSpawnCoordinates(expeditionComp, out var rewardCoords, out var source))
         {
-            Log.Warning($"Expedition completed but console {ToPrettyString(expeditionComp.Console.Value)} has no transform; cannot spawn reward.");
+            Log.Warning("Expedition completed but no valid reward spawn location was found (console/station/grid). Reward not spawned.");
             return;
         }
-
-        // Map difficulty to reward tier entity
-        var diffId = expeditionComp.MissionParams.Difficulty.ToString();
-        string rewardProto = diffId switch
-        {
-            "NFEasy" => "SpaceCashExpeditionT1",
-            "NFModerate" => "SpaceCashExpeditionT2",
-            "NFHazardous" => "SpaceCashExpeditionT3",
-            "NFExtreme" => "SpaceCashExpeditionT4",
-            "NFNightmare" => "SpaceCashExpeditionT5",
-            _ => "SpaceCashExpeditionT1"
-        };
 
         try
         {
-            EntityManager.SpawnEntity(rewardProto, consoleXform.Coordinates);
-            Log.Info($"Spawned expedition reward {rewardProto} at console {ToPrettyString(expeditionComp.Console.Value)} for difficulty {diffId}.");
+            EntityManager.SpawnEntity(rewardProto, rewardCoords);
+            Log.Info($"Spawned expedition reward {rewardProto} at {source} for difficulty {diffId}.");
         }
         catch (Exception ex)
         {
-            Log.Error($"Failed to spawn expedition reward {rewardProto} at console {ToPrettyString(expeditionComp.Console.Value)}: {ex}");
+            Log.Error($"Failed to spawn expedition reward {rewardProto} at {source}: {ex}");
         }
     }
+
+    /// <summary>
+    /// Resolves a robust payout location for expedition rewards.
+    /// Prefer the initiating console; fall back to the expedition's station/grid.
+    /// </summary>
+    private bool TryGetExpeditionRewardSpawnCoordinates(
+        SalvageExpeditionComponent expeditionComp,
+        out EntityCoordinates coordinates,
+        out string source)
+    {
+        coordinates = default;
+        source = "unknown";
+
+        if (expeditionComp.Console != null && Exists(expeditionComp.Console.Value) &&
+            TryComp(expeditionComp.Console.Value, out TransformComponent? consoleXform))
+        {
+            coordinates = consoleXform.Coordinates;
+            source = $"console {ToPrettyString(expeditionComp.Console.Value)}";
+            return true;
+        }
+
+        if (Exists(expeditionComp.Station) && TryComp(expeditionComp.Station, out TransformComponent? stationXform))
+        {
+            coordinates = stationXform.Coordinates;
+            source = $"station/grid {ToPrettyString(expeditionComp.Station)}";
+            return true;
+        }
+
+        if (TryComp(expeditionComp.Station, out StationDataComponent? stationData))
+        {
+            var largestGrid = _station.GetLargestGrid(stationData);
+            if (largestGrid != null && Exists(largestGrid.Value) && TryComp(largestGrid.Value, out TransformComponent? gridXform))
+            {
+                coordinates = gridXform.Coordinates;
+                source = $"largest station grid {ToPrettyString(largestGrid.Value)}";
+                return true;
+            }
+        }
+
+        return false;
+    }
+    // HardLight end
+
     private void GenerateMissions(SalvageExpeditionDataComponent component)
     {
         // HARDLIGHT: Prevent duplicate mission generation

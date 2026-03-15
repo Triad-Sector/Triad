@@ -15,6 +15,8 @@ stack-reinforced-plasma-glass = reinforced plasma glass
 stack-reinforced-uranium-glass = reinforced uranium glass
 stack-gunpowder = gunpowder
 stack-cardboard = cardboard
+stack-botany-produce = produce
+stack-botany-seed = seeds
 
 stack-bones = {$amount ->
     [1] bone
@@ -129,6 +131,7 @@ stack-matter-bin = matter bin
 stack-pancake = pancake
 stack-blueberry-pancake = blueberry pancake
 stack-chocolate-chip-pancake = chocolate chip pancake
+stack-produce-slice = produce slice
 stack-pizza-box = pizza box
 stack-dark-tile = dark tile
 stack-dark-steel-diagonal-mini-tile = dark steel diagonal mini tile

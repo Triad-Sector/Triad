@@ -3,3 +3,6 @@
   recipes:
   - LauncherSyringe
   - MiniSyringe
+  - SyringeDart
+  - NFDartTracking
+  - DartGun

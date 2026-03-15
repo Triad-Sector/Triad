@@ -178,7 +178,7 @@
         shutdownState: TaskFinished
         removeKeyOnFinish: false
         inRangeMaxSpeed: 0.1
-        range: 50
+        range: 200
         rangeTolerance: 5
         alwaysFaceTarget: true
         targetKey: TargetCoordinates
@@ -202,7 +202,7 @@
         removeKeyOnFinish: false
         alwaysFaceTarget: true
         inRangeMaxSpeed: 1
-        range: 50
+        range: 150
         rangeTolerance: 5
         targetKey: TargetCoordinates
     - !type:HTNPrimitiveTask

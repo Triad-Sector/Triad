@@ -61,6 +61,8 @@ namespace Content.Shared.StatusEffect
         {
             // Using new(...) To avoid mispredictions due to MergeImplicitData. This will mean the server-side code is
             // slightly slower, and really this function should just be overridden by the client...
+            component.ActiveEffects ??= new();
+            component.AllowedEffects ??= new();
             args.State = new StatusEffectsComponentState(new(component.ActiveEffects), new(component.AllowedEffects));
         }
 
@@ -68,6 +70,11 @@ namespace Content.Shared.StatusEffect
         {
             if (args.Current is not StatusEffectsComponentState state)
                 return;
+
+            component.ActiveEffects ??= new();
+            component.AllowedEffects ??= new();
+            state.ActiveEffects ??= new();
+            state.AllowedEffects ??= new();
 
             component.AllowedEffects.Clear();
             component.AllowedEffects.AddRange(state.AllowedEffects);

@@ -203,6 +203,9 @@
     - id: XenoborgDroneMtbyte
       prob: 0.01
       orGroup: wreck
+    - id: XenoborgTransistorHub
+      prob: 0.01
+      orGroup: wreck
     - id: XenoborgDroneSgbyte
       prob: 0.02
       orGroup: wreck

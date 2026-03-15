@@ -1,3 +1,4 @@
+using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Robust.Shared.Serialization;
 
@@ -17,7 +18,7 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
     public Dictionary<TargetBodyPart, TargetIntegrity>? Body; // Shitmed Change
     public NetEntity? Part; // Shitmed Change
     public bool? Unrevivable;
-    public bool? Unclonable; // Frontier
+    public bool? Uncloneable; // DeltaV
 
     public HealthAnalyzerScannedUserMessage(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable, bool? uncloneable, Dictionary<TargetBodyPart, TargetIntegrity>? body, NetEntity? part = null) // Shitmed Change
     {
@@ -29,7 +30,7 @@ public sealed class HealthAnalyzerScannedUserMessage : BoundUserInterfaceMessage
         Body = body; // Shitmed Change
         Part = part; // Shitmed Change
         Unrevivable = unrevivable;
-        //Unclonable = unclonable; // Frontier
+        Uncloneable = uncloneable; // DeltaV
     }
 }
 

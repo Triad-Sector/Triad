@@ -137,7 +137,7 @@
       path: "/Audio/Weapons/smash.ogg"
   - type: Appearance
   - type: AccessReader
-    access: [["Research"], ["Cargo"]]
+    # access: [["Research"], ["Cargo"]] # HardLight
   - type: Lock
   - type: SuppressArtifactContainer
   - type: RadiationBlockingContainer

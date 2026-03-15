@@ -1,14 +1,18 @@
-# Floofstation - port from EE, which got it from Delta-V, which got it from Nyanotrasen
+# Floofstation: Port from EE, which got it from Delta-V, which got it from Nyanotrasen
 - type: entity
   parent: ClothingNeckCollarBase
   id: ClothingNeckShockCollar
   name: shock collar
-  description: Shocking. # DeltaV: sprite is fine
+  description: Shocking. # DeltaV: Sprite is fine
   components:
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Neck/Misc/shock.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Neck/Misc/shock.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_shock_quad.rsi
+        state: equipped-NECK-quadborg
     equipDelay: 1
     unequipDelay: 10 # It's a collar meant to be used on prisoners (or not), so it probably has some sort of safety.
   - type: ShockOnTrigger
@@ -24,6 +28,6 @@
   - type: DeviceLinkSink
     ports:
     - Trigger
-  - type: LeashAnchor # floofstation
+  - type: LeashAnchor # Floofstation
     offset: 0, 0.22
     kind: Clothing

@@ -146,11 +146,8 @@
   id: StasisCage
 
 - type: Tag
+
   id: Cartridge127x99mm
 
-
-
-
-# Triad Changes Combing _Goobstation and Goobstation together
 - type: Tag
-  id: HEVSuit
+  id: VinylSleeveFit

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Message;
+using Content.Shared._DV.Traits.Assorted; // DeltaV
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Shitmed.Targeting; // Shitmed
@@ -36,6 +37,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
+        private readonly UnborgableSystem _unborgable; // DeltaV
 
         // Shitmed Change Start
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
@@ -57,6 +59,7 @@ namespace Content.Client.HealthAnalyzer.UI
             _spriteSystem = _entityManager.System<SpriteSystem>();
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
+            _unborgable = _entityManager.System<UnborgableSystem>(); // DeltaV
             // Shitmed Change Start
             _bodyPartControls = new Dictionary<TargetBodyPart, TextureButton>
             {
@@ -157,11 +160,18 @@ namespace Content.Client.HealthAnalyzer.UI
                 : Loc.GetString("health-analyzer-window-entity-unknown-text"));
             NameLabel.SetMessage(name);
 
-            SpeciesLabel.Text =
-                _entityManager.TryGetComponent<HumanoidAppearanceComponent>(_target.Value,
-                    out var humanoidAppearanceComponent)
-                    ? Loc.GetString(_prototypes.Index<SpeciesPrototype>(humanoidAppearanceComponent.Species).Name)
-                    : Loc.GetString("health-analyzer-window-entity-unknown-species-text");
+            // HardLight start: Add a check for Synths/IPCs to not show Uncloneable alert.
+            var hasHumanoidAppearance = _entityManager.TryGetComponent<HumanoidAppearanceComponent>(_target.Value,
+                out var humanoidAppearanceComponent);
+
+            SpeciesLabel.Text = hasHumanoidAppearance
+                ? Loc.GetString(_prototypes.Index<SpeciesPrototype>(humanoidAppearanceComponent!.Species).Name)
+                : Loc.GetString("health-analyzer-window-entity-unknown-species-text");
+
+            var isSynth = hasHumanoidAppearance && humanoidAppearanceComponent!.Species == "Synth";
+            var isIpc = hasHumanoidAppearance && humanoidAppearanceComponent!.Species == "IPC";
+            var showUncloneableAlert = msg.Uncloneable == true && !isSynth && !isIpc;
+            // HardLight end
 
             // Basic Diagnostic
 
@@ -184,7 +194,8 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Alerts
 
-            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || msg.Unclonable == true; // Frontier: add Unclonable cond
+            var unborgable = _unborgable.IsUnborgable(_target.Value); // DeltaV
+            var showAlerts = msg.Unrevivable == true || msg.Bleeding == true || unborgable || showUncloneableAlert; // DeltaV: Unborgable/Uncloneable, HardLight: msg.Uncloneable == true<showUncloneableAlert
 
             AlertsDivider.Visible = showAlerts;
             AlertsContainer.Visible = showAlerts;
@@ -200,20 +211,26 @@ namespace Content.Client.HealthAnalyzer.UI
                     MaxWidth = 300
                 });
 
-            // Frontier: unclonable text
-            if (msg.Unclonable == true)
-                AlertsContainer.AddChild(new RichTextLabel
-                {
-                    Text = Loc.GetString("health-analyzer-window-entity-unclonable-text"),
-                    Margin = new Thickness(0, 4),
-                    MaxWidth = 300
-                });
-            // End Frontier
-
             if (msg.Bleeding == true)
                 AlertsContainer.AddChild(new RichTextLabel
                 {
                     Text = Loc.GetString("health-analyzer-window-entity-bleeding-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+
+            if (unborgable) // DeltaV
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-unborgable-text"),
+                    Margin = new Thickness(0, 4),
+                    MaxWidth = 300
+                });
+
+            if (showUncloneableAlert) // DeltaV, HardLight: msg.Uncloneable == true<showUncloneableAlert
+                AlertsContainer.AddChild(new RichTextLabel
+                {
+                    Text = Loc.GetString("health-analyzer-window-entity-uncloneable-text"),
                     Margin = new Thickness(0, 4),
                     MaxWidth = 300
                 });

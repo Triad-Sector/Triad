@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.NPC.HTN;
 
 namespace Content.Server.NPC.Systems;
@@ -13,5 +14,16 @@ public sealed partial class NPCSystem
 
         var blackboard = component.Blackboard;
         blackboard.SetValue(key, value);
+    }
+
+    public bool TryGetBlackboardValue<T>(EntityUid uid, string key, [NotNullWhen(true)] out T? value, HTNComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+        {
+            value = default;
+            return false;
+        }
+
+        return component.Blackboard.TryGetValue(key, out value, EntityManager);
     }
 }

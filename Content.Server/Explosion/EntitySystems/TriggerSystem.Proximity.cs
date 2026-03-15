@@ -121,6 +121,7 @@ public sealed partial class TriggerSystem
     private void UpdateProximity()
     {
         var curTime = _timing.CurTime;
+        var toActivate = new List<(EntityUid Trigger, EntityUid User)>();
 
         var query = EntityQueryEnumerator<TriggerOnProximityComponent>();
         while (query.MoveNext(out var uid, out var trigger))
@@ -149,9 +150,19 @@ public sealed partial class TriggerSystem
                     continue;
 
                 // Trigger!
-                Activate(uid, collidingUid, trigger);
+                toActivate.Add((uid, collidingUid));
                 break;
             }
+        }
+
+        foreach (var (triggerUid, userUid) in toActivate)
+        {
+            if (!TryComp<TriggerOnProximityComponent>(triggerUid, out var trigger) ||
+                !trigger.Enabled ||
+                curTime < trigger.NextTrigger)
+                continue;
+
+            Activate(triggerUid, userUid, trigger);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Content.Shared.Chemistry.Reaction
 {
     public sealed class ChemicalReactionSystem : EntitySystem
     {
+        private static readonly ProtoId<MixingCategoryPrototype> ElectrolysisCategory = "Electrolysis"; // HardLight
+
         /// <summary>
         /// Foam reaction protoId.
         /// </summary>
@@ -101,6 +103,19 @@ namespace Content.Shared.Chemistry.Reaction
             var solution = soln.Comp.Solution;
 
             lowestUnitReactions = FixedPoint2.MaxValue;
+            // HardLight start: Allow reactions even if solution.CanReact is false when Electrolysis is involved
+            if (!solution.CanReact)
+            {
+                if (mixerComponent == null
+                    || reaction.MixingCategories == null
+                    || !reaction.MixingCategories.Contains(ElectrolysisCategory)
+                    || !mixerComponent.ReactionTypes.Contains(ElectrolysisCategory))
+                {
+                    lowestUnitReactions = FixedPoint2.Zero;
+                    return false;
+                }
+            }
+            // HardLight end
             if (solution.Temperature < reaction.MinimumTemperature)
             {
                 lowestUnitReactions = FixedPoint2.Zero;

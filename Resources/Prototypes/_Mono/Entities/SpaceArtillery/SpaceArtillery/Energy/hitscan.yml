@@ -33,6 +33,22 @@
     state: impact_beam_heavy2
 
 - type: hitscan
+  id: PrometheusLaser
+  damage:
+    types:
+      Heat: 120
+      Structural: 500
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_beam_heavy2
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_heavy2
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_beam_heavy2
+
+- type: hitscan
   id: TachyonLaser
   damage:
     types:
@@ -95,3 +111,22 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_laser
+
+- type: hitscan
+  id: ShipGlassingBeamPlasmaProjectile
+  damage:
+    types:
+      Radiation: 700
+      Structural: 4000
+      Heat: 5000
+      Ion: 500
+  muzzleFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: muzzle_superheavy_prefrac
+  travelFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: Beam_SuperHeavy_prefrac
+  impactFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: impact_superheavy_prefrac
+  maxLength: 250

@@ -1,0 +1,8 @@
+- type: loadout
+  id: LoadoutClothingOuterMarsHoodie
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 500
+  equipment:
+    outerClothing: ClothingOuterMarsHoodie

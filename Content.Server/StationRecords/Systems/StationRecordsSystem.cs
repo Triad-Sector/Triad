@@ -258,7 +258,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     {
         entry = default;
 
-        if (!Resolve(key.OriginStation, ref records))
+        if (!Resolve(key.OriginStation, ref records, false))
             return false;
 
         return records.Records.TryGetRecordEntry(key.Id, out entry);

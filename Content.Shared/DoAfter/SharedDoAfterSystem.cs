@@ -82,10 +82,13 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         ev.Repeat = false;
         ev.DoAfter = doAfter;
 
-        if (Exists(doAfter.Args.EventTarget))
-            RaiseLocalEvent(doAfter.Args.EventTarget.Value, (object)ev, doAfter.Args.Broadcast);
-        else if (doAfter.Args.Broadcast)
-            RaiseLocalEvent((object)ev);
+        if (doAfter.CancelledTime == null) // Not sure why in hell we've just been calling canceled doAfters... Fuck anyone who cancels a doAfter I guess???
+        {
+            if (Exists(doAfter.Args.EventTarget))
+                RaiseLocalEvent(doAfter.Args.EventTarget.Value, (object)ev, doAfter.Args.Broadcast);
+            else if (doAfter.Args.Broadcast)
+                RaiseLocalEvent((object)ev);
+        }
 
         // <Goobstation>
         if (component.RaiseEndedEvent
@@ -354,6 +357,28 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         }
 
         InternalCancel(doAfter, comp);
+        Dirty(entity, comp);
+    }
+
+    /// <summary>
+    ///     HardLight: Cancels and immediately removes all do-afters on an entity.
+    ///     Useful when moving entities to paused maps where update-driven cleanup would not run.
+    /// </summary>
+    public void CancelAndClearAll(EntityUid entity, DoAfterComponent? comp = null)
+    {
+        if (!Resolve(entity, ref comp, false))
+            return;
+
+        if (comp.DoAfters.Count == 0)
+            return;
+
+        foreach (var doAfter in comp.DoAfters.Values)
+        {
+            InternalCancel(doAfter, comp);
+        }
+
+        comp.DoAfters.Clear();
+        RemCompDeferred<ActiveDoAfterComponent>(entity);
         Dirty(entity, comp);
     }
 

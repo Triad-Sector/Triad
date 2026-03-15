@@ -6,6 +6,8 @@
     mode: SnapgridCenter
   components:
   - type: DragonRift
+    spawnPrototype: MobFry
+    spawnCooldown: 15
   - type: Transform
     anchored: true
   - type: Physics
@@ -45,3 +47,33 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+
+- type: entity
+  id: HoloCarpRift
+  parent: CarpRift
+  name: carp rift
+  description: A rift akin to the ones space carp use to travel long distances.
+  components:
+  - type: DragonRift
+    spawnPrototype: MobHoloFry
+    spawnCooldown: 15
+    
+- type: entity
+  id: RainbowCarpRift
+  parent: CarpRift
+  name: carp rift
+  description: A rift akin to the ones space carp use to travel long distances.
+  components:
+  - type: DragonRift
+    spawnPrototype: MobRainbowFry
+    spawnCooldown: 15
+
+- type: entity
+  id: MagiCarpRift
+  parent: CarpRift
+  name: carp rift
+  description: A rift akin to the ones space carp use to travel long distances.
+  components:
+  - type: DragonRift
+    spawnPrototype: MobMagicFry
+    spawnCooldown: 15

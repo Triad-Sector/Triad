@@ -253,6 +253,7 @@
     - VendingMachineSyndieContraband
     # - VendingMachineSyndieDrobe # A bit less Syndicate loot
     - VendingMachineArcadia
+    - VendingMachineRMCDrobe
     rareChance: 0.01
 
 # Other

@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: interdyne hypospray
-  parent: [BaseItem, BaseC3SyndicateContraband] # Frontier: add BaseC3SyndicateContraband
+  parent: [BaseItem, BaseC2Contraband]
   description: Using reverse engineered designs from NT, Interdyne produced these in limited quantities for their doctors and heads of staff.
   id: InterdyneHypo
   components:
@@ -17,7 +17,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 45
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution

@@ -1,0 +1,30 @@
+- type: quickPhrase
+  id: BaseSiliconsSpeciesPhrase
+  parent: BaseSpeciesPhrase
+  group: Silicons
+  abstract: true
+
+- type: quickPhrase
+  id: BorgPhrase
+  parent: BaseSiliconsSpeciesPhrase
+  text: job-name-borg
+
+- type: quickPhrase
+  id: AIPhrase
+  parent: BaseSiliconsSpeciesPhrase
+  text: job-name-station-ai
+
+- type: quickPhrase
+  id: pAIphrase
+  parent: BaseSiliconsSpeciesPhrase
+  text: pai-system-role-name
+
+- type: quickPhrase
+  id: QuadBorgPhrase
+  parent: BaseSiliconsSpeciesPhrase
+  text: job-name-quadborg
+
+- type: quickPhrase
+  id: SpeciesRobotPhrase
+  parent: BaseSiliconsSpeciesPhrase
+  text: phrase-species-robot

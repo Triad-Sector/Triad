@@ -86,3 +86,156 @@
       steps:
       - tool: Prying
         doAfter: 5
+
+- type: constructionGraph
+  id: StairGraph
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: Stairs
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+        - to: StairStage
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+        - to: StairWhite
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Plastic
+              amount: 5
+              doAfter: 5
+        - to: StairStageWhite
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Plastic
+              amount: 5
+              doAfter: 5
+        - to: StairDark
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+        - to: StairStageDark
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 5
+        - to: StairWood
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
+        - to: StairStageWood
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 5
+    - node: Stairs
+      entity: Stairs
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairStage
+      entity: StairStage
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairWhite
+      entity: StairWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlastic1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairStageWhite
+      entity: StairStageWhite
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlastic1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairDark
+      entity: StairDark
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairStageDark
+      entity: StairStageDark
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairWood
+      entity: StairWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5
+    - node: StairStageWood
+      entity: StairStageWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 5

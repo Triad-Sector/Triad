@@ -23,7 +23,9 @@
   - type: PoweredLight
     bulb: Bulb
     on: false
-    hasLampOnSpawn: ServiceLightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ ServiceLightBulb ]
   - type: DamageOnInteract
     damage:
       types:

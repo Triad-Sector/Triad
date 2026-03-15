@@ -9,7 +9,6 @@
       time: 10800
   startingGear: MimeGear
   icon: "JobIconMime"
-  supervisors: job-supervisors-hire # Frontier
   access:
   - Theatre
   - Maintenance

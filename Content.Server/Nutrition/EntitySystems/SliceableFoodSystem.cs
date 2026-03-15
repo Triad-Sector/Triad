@@ -1,5 +1,6 @@
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
+using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
@@ -7,6 +8,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -15,6 +17,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Content.Shared.Destructible;
+using System;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -27,6 +32,7 @@ public sealed class SliceableFoodSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly StackSystem _stackSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -79,24 +85,37 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(uid, food.Solution, out var soln, out var solution))
             return false;
 
+        var stackCount = 1;
+        if (TryComp<StackComponent>(uid, out var stack))
+            stackCount = stack.Count;
+
         if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
             return false;
 
-        var sliceVolume = solution.Volume / FixedPoint2.New(component.TotalCount);
+        var sourceSolution = stackCount > 1 ? new Solution(solution) : solution;
+        var sliceVolume = sourceSolution.Volume / FixedPoint2.New(component.TotalCount);
         for (int i = 0; i < component.TotalCount; i++)
         {
             var sliceUid = Slice(uid, user, component, transform);
 
-            var lostSolution =
-                _solutionContainer.SplitSolution(soln.Value, sliceVolume);
+            var lostSolution = stackCount > 1
+                ? sourceSolution.SplitSolution(sliceVolume)
+                : _solutionContainer.SplitSolution(soln.Value, sliceVolume);
 
             // Fill new slice
             FillSlice(sliceUid, lostSolution);
+            UpdateSliceStackSignature(sliceUid);
         }
 
         _audio.PlayPvs(component.Sound, transform.Coordinates, AudioParams.Default.WithVolume(-2));
         var ev = new SliceFoodEvent();
         RaiseLocalEvent(uid, ref ev);
+
+        if (stackCount > 1 && stack != null)
+        {
+            _stackSystem.SetCount(uid, stack.Count - 1, stack);
+            return true;
+        }
 
         DeleteFood(uid, user, food);
         return true;
@@ -172,6 +191,43 @@ public sealed class SliceableFoodSystem : EntitySystem
 
             var lostSolutionPart = solution.SplitSolution(itsSolution.AvailableVolume);
             _solutionContainer.TryAddSolution(itsSoln.Value, lostSolutionPart);
+        }
+    }
+
+    private void UpdateSliceStackSignature(EntityUid sliceUid)
+    {
+        if (!TryComp<StackComponent>(sliceUid, out _))
+            return;
+
+        if (!TryComp<FoodComponent>(sliceUid, out var foodComp))
+            return;
+
+        if (!_solutionContainer.TryGetSolution(sliceUid, foodComp.Solution, out _, out var solution))
+            return;
+
+        var stackSig = EnsureComp<StackSignatureComponent>(sliceUid);
+        var builder = new StringBuilder();
+        var prototypeId = Prototype(sliceUid)?.ID;
+        if (prototypeId != null)
+            builder.Append(prototypeId).Append('|');
+        AppendSolutionSignature(builder, solution);
+
+        var signature = builder.ToString();
+        if (stackSig.Signature == signature)
+            return;
+
+        stackSig.Signature = signature;
+        Dirty(sliceUid, stackSig);
+    }
+
+    private static void AppendSolutionSignature(StringBuilder builder, Solution solution)
+    {
+        foreach (var reagent in solution.Contents.OrderBy(r => r.Reagent.Prototype, StringComparer.Ordinal))
+        {
+            builder.Append(reagent.Reagent.Prototype)
+                .Append('=')
+                .Append(reagent.Quantity.Value)
+                .Append(';');
         }
     }
 

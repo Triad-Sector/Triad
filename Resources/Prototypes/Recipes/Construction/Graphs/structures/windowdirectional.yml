@@ -46,6 +46,12 @@
               amount: 1
               doAfter: 3
 
+        - to: WindowTintedDirectional
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 2
+
     - node: windowDirectional
       entity: WindowDirectional
       edges:
@@ -136,6 +142,7 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+              
     - node: uraniumWindowDirectional
       entity: UraniumWindowDirectional
       edges:
@@ -173,3 +180,18 @@
               doAfter: 2
             - tool: Anchoring
               doAfter: 3
+
+    - node: WindowTintedDirectional
+      entity: WindowTintedDirectional
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 1
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Anchoring
+              doAfter: 2

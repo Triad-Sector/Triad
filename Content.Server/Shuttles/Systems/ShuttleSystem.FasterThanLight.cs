@@ -463,7 +463,7 @@ public sealed partial class ShuttleSystem
         comp.StateTime = StartEndTime.FromCurTime(_gameTiming, DefaultArrivalTime);
         comp.State = FTLState.Arriving;
 
-        if (entity.Comp1.VisualizerProto != null)
+        if (entity.Comp1.VisualizerProto != null && entity.Comp1.TargetCoordinates.IsValid(EntityManager))
         {
             comp.VisualizerEntity = SpawnAttachedTo(entity.Comp1.VisualizerProto, entity.Comp1.TargetCoordinates);
             DebugTools.Assert(Transform(comp.VisualizerEntity.Value).ParentUid == entity.Comp1.TargetCoordinates.EntityId);
@@ -472,6 +472,10 @@ public sealed partial class ShuttleSystem
             Dirty(comp.VisualizerEntity.Value, visuals);
             _transform.SetLocalRotation(comp.VisualizerEntity.Value, entity.Comp1.TargetAngle);
             _pvs.AddGlobalOverride(comp.VisualizerEntity.Value);
+        }
+        else if (entity.Comp1.VisualizerProto != null)
+        {
+            Log.Warning($"Skipping FTL visualizer spawn for {ToPrettyString(entity.Owner)} due to invalid target coordinates {entity.Comp1.TargetCoordinates}.");
         }
 
         _thruster.DisableLinearThrusters(shuttle);
@@ -586,10 +590,25 @@ public sealed partial class ShuttleSystem
     private void UpdateHyperspace()
     {
         var curTime = _gameTiming.CurTime;
-        var query = EntityQueryEnumerator<FTLComponent, ShuttleComponent>();
-
-        while (query.MoveNext(out var uid, out var comp, out var shuttle))
+        var toProcess = new List<EntityUid>();
+        try
         {
+            var query = EntityQueryEnumerator<FTLComponent, ShuttleComponent>();
+            while (query.MoveNext(out var uid, out _, out _))
+            {
+                toProcess.Add(uid);
+            }
+        }
+        catch (Exception e) when (e is InvalidOperationException || e.Message.Contains("Collection was modified"))
+        {
+            return;
+        }
+
+        foreach (var uid in toProcess)
+        {
+            if (!TryComp<FTLComponent>(uid, out var comp) || !TryComp<ShuttleComponent>(uid, out var shuttle))
+                continue;
+
             if (curTime < comp.StateTime.End)
                 continue;
 

@@ -67,6 +67,15 @@ namespace Content.Shared.UserInterface
         [DataField]
         public bool RequireActiveHand = true;
 
+            /// <summary>
+            /// If true, the UI will not be forcibly closed when the item is unequipped
+            /// or the active hand is changed. Useful for devices where the UI should
+            /// remain open (e.g. anomaly scanner, plant analyzer).
+            /// </summary>
+            [ViewVariables(VVAccess.ReadWrite)]
+            [DataField]
+            public bool KeepOpenWhenUnequipped = false;
+
         /// <summary>
         ///     The client channel currently using the object, or null if there's none/not single user.
         ///     NOTE: DO NOT DIRECTLY SET, USE ActivatableUISystem.SetCurrentSingleUser

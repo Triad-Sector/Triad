@@ -160,7 +160,7 @@ entities:
     - type: Transform
       pos: 3.498722,2.1950297
       parent: 1
-- proto: GeneratorRTG
+- proto: XenoGeneratorRTG
   entities:
   - uid: 2
     components:

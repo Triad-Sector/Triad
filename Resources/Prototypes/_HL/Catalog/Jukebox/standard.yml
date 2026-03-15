@@ -1,0 +1,5 @@
+- type: jukebox
+  id: CantWakeUp
+  name: DJW and Mesofort - I Can't Wake Up
+  path:
+    path: /Audio/_HL/Jukebox/djw_and_mesofort-icantwakeup.ogg

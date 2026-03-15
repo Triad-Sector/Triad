@@ -48,3 +48,11 @@
   id: NSFWDescriptions
   name: See NSFW Descriptions
   description: Turn this on to see any temporary descriptions that are flagged as NSFW.
+
+- type: consentToggle
+  id: MindControl
+  name: Interact with mind control
+  description: Allow yourself to be mind-controlled/hypnotised/brainwashed.
+
+- type: consentToggle
+  id: NoClone

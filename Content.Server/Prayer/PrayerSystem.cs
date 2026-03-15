@@ -77,14 +77,17 @@ public sealed class PrayerSystem : EntitySystem
     /// <param name="popupMessage">The popup to notify the player, also prepended to the messageString</param>
     public void SendSubtleMessage(ICommonSession target, ICommonSession source, string messageString, string popupMessage)
     {
-        if (target.AttachedEntity == null)
+        if (target.AttachedEntity is not { } attached || !attached.Valid || !EntityManager.EntityExists(attached))
             return;
+
+        messageString ??= string.Empty;
+        popupMessage ??= string.Empty;
 
         var message = popupMessage == "" ? "" : popupMessage + (messageString == "" ? "" : $" \"{messageString}\"");
 
-        _popupSystem.PopupEntity(popupMessage, target.AttachedEntity.Value, target, PopupType.Large);
+        _popupSystem.PopupEntity(popupMessage, attached, target, PopupType.Large);
         _chatManager.ChatMessageToOne(ChatChannel.Local, messageString, message, EntityUid.Invalid, false, target.Channel);
-        _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(target.AttachedEntity.Value):player} received subtle message from {source.Name}: {message}");
+        _adminLogger.Add(LogType.AdminMessage, LogImpact.Low, $"{ToPrettyString(attached):player} received subtle message from {source.Name}: {message}");
     }
 
     /// <summary>

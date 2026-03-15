@@ -197,6 +197,19 @@
     Dylovene: 5
   recipeType: MedicalAssembler
 
+- type: microwaveMealRecipe
+  id: RecipeAvaliAutoInjector
+  name: avali medipen
+  result: AvaliAutoInjector
+  time: 5
+  group: Medicinal
+  solids:
+    BlankMediPen: 1
+  reagents:
+    Amoxla: 15
+    TranexamicAcid: 5
+  recipeType: MedicalAssembler
+
 # Microwave meal recipes for making real people.
 # It's so wrong, yet so right.
 

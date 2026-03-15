@@ -48,6 +48,11 @@ public sealed partial class NuclearReactorComponent : Component
     public ReactorPartComponent?[,] ComponentGrid;
 
     /// <summary>
+    /// Dictionary mapping grid positions to spawned entity UIDs for reactor parts removed from the grid
+    /// </summary>
+    public Dictionary<Vector2i, EntityUid> GridEntities = new();
+
+    /// <summary>
     /// Dictionary of data that determines the reactor grid's visuals
     /// </summary>
     [AutoNetworkedField]
@@ -66,7 +71,7 @@ public sealed partial class NuclearReactorComponent : Component
     public float RadiationLevel = 0;
 
     /// <summary>
-    /// Gas mixtrue currently in the reactor
+    /// Gas mixture currently in the reactor
     /// </summary>
     public GasMixture? AirContents;
 
@@ -103,7 +108,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Flag indicating total meltdown has happened
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, ViewVariables, AutoNetworkedField]
     public bool Melted = false;
 
     /// <summary>
@@ -161,7 +166,7 @@ public sealed partial class NuclearReactorComponent : Component
     public float RadiationStability = 2;
 
     /// <summary>
-    /// The maximum radiation the reactor can emit during normal operation
+    /// The soft maximum radiation the reactor is expected to produce, beyond which radiation increases logarithmically. Also used for alarms and UI.
     /// </summary>
     [DataField]
     public float MaximumRadiation = 50;
@@ -205,13 +210,19 @@ public sealed partial class NuclearReactorComponent : Component
     /// The selected prefab
     /// </summary>
     [DataField]
-    public string Prefab = "normal";
+    public string Prefab = "ReactorPrefab7x7Normal";
 
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
     /// </summary>
     [DataField]
     public bool ApplyPrefab = false;
+
+    /// <summary>
+    /// Chance that a reactor slot is filled when applying the random prefab
+    /// </summary>
+    [DataField]
+    public float RandomPrefabFill = 0.3f;
 
     /// <summary>
     /// Material the reactor is made out of
@@ -280,6 +291,11 @@ public sealed partial class NuclearReactorComponent : Component
     [DataField]
     public EntProtoId ArrowPrototype = "ReactorFlowArrow";
 
+    /// <summary>
+    /// Name of the prototype of the pipes the reactor uses to connect to the pipe network
+    /// </summary>
+    [DataField]
+    public EntProtoId PipePrototype = "ReactorGasPipe";
     #endregion
 
     #region Device Network

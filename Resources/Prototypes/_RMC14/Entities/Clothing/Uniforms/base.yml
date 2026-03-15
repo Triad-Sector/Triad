@@ -1,0 +1,61 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: RMCUniformBase
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clothing
+    slots: [innerclothing]
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+
+- type: entity
+  abstract: true
+  parent: RMCUniformBase
+  id: RMCFoldableUniformBase
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: rmc-jacket-verb-unfold
+    foldVerbText: rmc-jacket-verb-fold
+  - type: FoldableClothing
+    foldedEquippedPrefix: jacket
+
+- type: entity
+  abstract: true
+  parent: RMCUniformBase
+  id: RMCAlternateFoldableUniformBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: rmc-jacket-verb
+      prefix: jacket
+      priority: 0
+      hideAccessories: true
+    - name: rmc-sleeves-verb
+      prefix: sleeves
+      priority: 1
+      blacklistedPrefix: jacket
+      blacklistPopup: rmc-sleeves-cannot
+
+- type: entity
+  abstract: true
+  parent: RMCUniformBase
+  id: RMCArmoredUniformBase
+
+- type: entity
+  abstract: true
+  parent: RMCArmoredUniformBase
+  id: RMCMarineUniformBase

@@ -503,7 +503,9 @@ public sealed class DnaScannerConsoleSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return null;
 
-        var rad = damageable.Damage["Radiation"];
+        if (!damageable.Damage.DamageDict.TryGetValue("Radiation", out var rad))
+            return 0f;
+
         return MathF.Round(rad.Float(), 2);
     }
 

@@ -74,7 +74,7 @@ public sealed partial class CCVars
     ///     Whether to automatically preloading grids by GridPreloaderSystem
     /// </summary>
     public static readonly CVarDef<bool> PreloadGrids =
-        CVarDef.Create("shuttle.preload_grids", true, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.preload_grids", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     How long the warmup time before FTL start should be.
@@ -117,7 +117,7 @@ public sealed partial class CCVars
     ///     Is the emergency shuttle allowed to be early launched.
     /// </summary>
     public static readonly CVarDef<bool> EmergencyEarlyLaunchAllowed =
-        CVarDef.Create("shuttle.emergency_early_launch_allowed", false, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.emergency_early_launch_allowed", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     How long the emergency shuttle remains docked with the station, in seconds.

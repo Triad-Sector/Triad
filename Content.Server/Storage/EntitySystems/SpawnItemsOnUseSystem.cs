@@ -6,6 +6,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using static Content.Shared.Storage.EntitySpawnCollection;
 
@@ -19,6 +20,7 @@ namespace Content.Server.Storage.EntitySystems
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly IPrototypeManager _proto = default!;
 
         public override void Initialize()
         {
@@ -75,6 +77,12 @@ namespace Content.Server.Storage.EntitySystems
 
             foreach (var proto in spawnEntities)
             {
+                if (!_proto.HasIndex<EntityPrototype>(proto))
+                {
+                    Log.Error($"SpawnItemsOnUse attempted invalid prototype '{proto}' from {ToPrettyString(uid)}.");
+                    continue;
+                }
+
                 entityToPlaceInHands = SpawnAtPosition(proto, coords); // Frontier: Spawn<SpawnAtPosition
                 _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
             }

@@ -1,6 +1,6 @@
 - type: entity
   parent: [ MobDragonDungeon ]
-  id: Alloren
+  id: MobDragonAlloren
   suffix: ""
   name: Alloren
   description: A demon from the abyss.
@@ -30,6 +30,11 @@
   - type: Tag
     tags:
     - Abyssal
+  - type: CumProducer
+    maxVol: 1000
+    reVol: 200
+    reHunger: 1
+  - type: Vore
 
 - type: entity
   name: abyss ghost

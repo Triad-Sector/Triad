@@ -70,6 +70,10 @@ public sealed partial class XenoComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int? OriginalDrawDepth;
 
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool AllowPlantWeeds = true;
+
     [DataField, AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan AcidDelay = TimeSpan.FromSeconds(5);

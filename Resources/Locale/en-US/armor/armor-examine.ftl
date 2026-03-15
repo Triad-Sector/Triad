@@ -16,5 +16,7 @@ armor-damage-type-cellular = Cellular
 armor-damage-type-cold = Cold
 armor-damage-type-poison = Poison
 armor-damage-type-shock = Shock
+armor-damage-type-ion = Ion
+armor-damage-type-stamina = Stamina
 armor-damage-type-structural = Structural
 armor-damage-type-holy = Holy

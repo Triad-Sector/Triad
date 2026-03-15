@@ -40,4 +40,5 @@
       - Store
       - Cash
       - Headset
+      - DnaSequenceInjector
   - type: HLPersistOnShipSave

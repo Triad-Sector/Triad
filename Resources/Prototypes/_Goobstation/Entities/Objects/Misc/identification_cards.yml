@@ -1,22 +1,12 @@
+# Crew
 - type: entity
   parent: IDCardStandard
-  id: ChronoIDCard
-  name: futuristic ID card
-  description: The card that originally accessed everything in this universe
+  id: RadioHostIDCard
+  name: radio host ID card
   components:
   - type: Sprite
-    sprite: Goobstation/Objects/Misc/id_cards.rsi
     layers:
-    - state: future
-    - state: idchrono
-  - type: Item
-    heldPrefix: blue
-  - type: IdCard
-    jobTitle: Future-Agent
-    jobIcon: JobIconFuture
-  - type: Access
-    groups:
-    - AllAccess
-    tags:
-    - CentralCommand
-    - SyndicateAgent
+    - state: default
+    - state: idradiohost
+  - type: PresetIdCard
+    job: RadioHost

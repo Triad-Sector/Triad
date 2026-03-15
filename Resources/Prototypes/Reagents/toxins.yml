@@ -504,6 +504,9 @@
           - !type:OrganType
             type: Vox
             shouldHave: false
+          - !type:OrganType # HardLight
+            type: Synth
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]

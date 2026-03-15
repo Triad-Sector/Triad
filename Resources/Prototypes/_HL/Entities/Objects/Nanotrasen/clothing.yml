@@ -90,6 +90,10 @@
     sprite: _HL/Nanotrasen/collar_nano.rsi
   - type: Clothing
     sprite: _HL/Nanotrasen/collar_nano.rsi
+    clothingVisuals:
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_nt_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingUniformBaseThongs

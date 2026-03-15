@@ -1,0 +1,33 @@
+- type: trait
+  id: Uncloneable
+  name: trait-uncloneable-name
+  description: trait-uncloneable-desc
+  # HardLight start
+  category: Physical
+  cost: -4
+  speciesBlacklist:
+  - IPC
+  - Synth
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+  - type: Uncloneable
+  # HardLight end
+
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  # HardLight start
+  category: Physical
+  cost: -4
+  speciesBlacklist:
+  - IPC
+  - Synth
+  blacklist:
+    components:
+    - BorgChassis
+  # HardLight end
+  components:
+  - type: Unborgable # Automatically gets moved to the brain

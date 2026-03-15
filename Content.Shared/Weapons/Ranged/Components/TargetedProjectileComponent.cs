@@ -1,4 +1,5 @@
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Ranged.Components;
@@ -8,5 +9,5 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class TargetedProjectileComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid Target;
+    public NetEntity Target;
 }

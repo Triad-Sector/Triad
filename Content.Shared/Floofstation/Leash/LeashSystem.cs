@@ -552,8 +552,12 @@ public sealed class LeashSystem : EntitySystem
     /// </summary>
     public void RefreshJoints(Entity<LeashComponent> leash)
     {
-        foreach (var data in leash.Comp.Leashed)
+        var snapshot = leash.Comp.Leashed.ToArray();
+        foreach (var data in snapshot)
         {
+            if (!leash.Comp.Leashed.Contains(data))
+                continue;
+
             if (!TryGetEntity(data.Pulled, out var pulled) || !TryComp<LeashedComponent>(pulled, out var leashed))
                 continue;
 

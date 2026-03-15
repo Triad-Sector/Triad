@@ -294,7 +294,7 @@
     board: ComputerIFFCircuitboard
 
 - type: entity
-  parent: ComputerIFF
+  parent: [BaseStructureIndestructible, ComputerIFF]
   id: ComputerIFFSyndicate
   name: IFF computer
   suffix: Syndicate

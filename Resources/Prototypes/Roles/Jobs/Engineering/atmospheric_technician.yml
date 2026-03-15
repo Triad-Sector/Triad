@@ -10,7 +10,7 @@
     time: 9000 #2.5 hrs
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-ce
   access:
   - Maintenance
   - Engineering

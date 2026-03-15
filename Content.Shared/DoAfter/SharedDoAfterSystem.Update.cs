@@ -23,10 +23,27 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         var time = GameTiming.CurTime;
         var xformQuery = GetEntityQuery<TransformComponent>();
         var handsQuery = GetEntityQuery<HandsComponent>();
+        var toProcess = new List<EntityUid>();
 
-        var enumerator = EntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent>();
-        while (enumerator.MoveNext(out var uid, out var active, out var comp))
+        try
         {
+            var enumerator = EntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent>();
+            while (enumerator.MoveNext(out var uid, out _, out _))
+            {
+                toProcess.Add(uid);
+            }
+        }
+        catch (Exception e) when (e is InvalidOperationException || e.Message.Contains("Collection was modified"))
+        {
+            return;
+        }
+
+        foreach (var uid in toProcess)
+        {
+            if (!TryComp<ActiveDoAfterComponent>(uid, out var active) ||
+                !TryComp<DoAfterComponent>(uid, out var comp))
+                continue;
+
             Update(uid, active, comp, time, xformQuery, handsQuery);
         }
     }

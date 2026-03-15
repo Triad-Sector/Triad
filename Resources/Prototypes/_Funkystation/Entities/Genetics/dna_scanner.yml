@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseComputerAiAccess
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputerAiAccess]
   id: ComputerDnaScanner
   name: geneticists console
   description: A console used with the medical scanner for DNA research.
@@ -42,6 +42,9 @@
   - type: AccessReader
     access: [["Genetics"]]
   - type: ActivatableUIRequiresAccess
+  - type: Tag
+    tags:
+    - AccessBreakerImmune
 
 - type: sourcePort
   id: DnaConsole

@@ -165,4 +165,10 @@
   id: NFPaperStampProtected
 
 - type: Tag
+  id: DemagImmune
+
+- type: Tag
   id: Flammable
+
+- type: Tag
+  id: NFHotdog

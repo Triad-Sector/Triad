@@ -5,14 +5,25 @@
   id: BaseMobResomi
   abstract: true
   components:
+    - type: JumpAbility
+      action: ActionResomiGravityJump
+      canCollide: true
+      jumpDistance: 3.5
+      jumpSound:
+        path: /Audio/Weapons/punchmiss.ogg
+        params:
+          pitch: 1.33
+          volume: -5
+          variation: 0.05
     - type: HumanoidAppearance
       species: Resomi
     - type: Hunger
-    - type: Puller
     - type: Thirst
     - type: Icon
       sprite: Floof/Mobs/Species/Resomi/parts.rsi
       state: full
+    - type: Puller
+      needsHands: false
     - type: Body
       prototype: Resomi
       requiredLegs: 2
@@ -61,6 +72,7 @@
         Male: UnisexResomi
         Unsexed: UnisexResomi
         Female: UnisexResomi
+    - type: NightVision
     - type: Hands
       handDisplacement:
         sizeMaps:

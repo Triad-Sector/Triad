@@ -9,6 +9,7 @@ plant-analyzer-window-mode-off = Off
 
 plant-analyzer-window-label-name-scanned-plant = Scanned plant: {$seedName}
 plant-analyzer-window-label-name-scanned-seed = Scanned seed: {$seedName}
+plant-analyzer-window-label-name-scanned-swab = Scanned swab: {$seedName}
 plant-analyzer-unknown-plant = Unknown
 plant-analyzer-plant-endurance-text = Plant endurance: {$seedEndurance}
 plant-analyzer-plant-chemistry-text = Сontained substances: {$seedChem}

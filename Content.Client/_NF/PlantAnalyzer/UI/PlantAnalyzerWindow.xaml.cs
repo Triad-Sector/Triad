@@ -40,11 +40,11 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
         var target = _entityManager.GetEntity(msg.TargetEntity);
         Title = Loc.GetString("plant-analyzer-interface-title");
 
-        if (target == null)
-        {
-            NoData.Visible = true;
-            return;
-        }
+        // The net-entity for the scanned target may not be known on the client
+        // the very first frame the UI opens. Populate the UI regardless of
+        // whether we can resolve the entity; fall back to showing data from
+        // the message itself. Only hide the data if the message contains no
+        // useful information.
         NoData.Visible = false;
 
         if (msg.AdvancedInfo is not null)
@@ -72,6 +72,8 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
 
         if (msg.IsTray)
             PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-plant", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
+        else if (msg.IsSwab)
+            PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-swab", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
         else
             PlantName.Text = Loc.GetString("plant-analyzer-window-label-name-scanned-seed", ("seedName", Loc.GetString(string.IsNullOrEmpty(msg.SeedName) ? "plant-analyzer-unknown-plant" : msg.SeedName)));
         // Basics
@@ -115,7 +117,7 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-seedless"));
             }
-            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous)) 
+            if (advInst.Mutations.HasFlag(MutationFlags.Ligneous))
             {
                 mutations.Append(IndentedNewline);
                 mutations.Append(Loc.GetString("plant-analyzer-mutation-ligneous"));

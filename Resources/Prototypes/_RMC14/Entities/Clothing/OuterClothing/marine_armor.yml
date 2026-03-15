@@ -1,0 +1,355 @@
+# m3
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: CMArmorM3Medium
+  name: M3 pattern marine armor
+  description: A standard UNMC M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/padded/jungle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.8
+        Piercing: 0.75
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: CMArmorM3MediumUrban
+  name: M3 pattern marine armor (Urban)
+  description: A standard UNMC M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/padded/urban.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.8
+        Piercing: 0.75
+        Caustic: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumPadless
+  name: M3 pattern padless marine armor
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/padless/jungle.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumPadlessUrban
+  name: M3 pattern padless marine armor (Urban)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/padless/urban.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumCarrier
+  name: M3 pattern carrier marine armor
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/carrier/jungle.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumCarrierUrban
+  name: M3 pattern carrier marine armor (Urban)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/carrier/urban.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumSkull
+  name: M3 pattern skull marine armor
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/skull/jungle.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3MediumSkullUrban
+  name: M3 pattern skull marine armor (Urban)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/standard/skull/urban.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: CMArmorM3Heavy
+  name: M3-EOD pattern heavy armor
+  description: A heavier version of the standard M3 pattern armor, the armor is primarily designed to withstand ballistic, explosive, and internal damage, with the drawback of increased bulk and thus reduced movement speed, alongside little additional protection from standard blunt force impacts and biological threats.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/eod/padded/jungle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.75
+        Piercing: 0.75
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_LOWHEAVY
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: Storage
+    grid:
+    - 0,0,3,1 # 2 slots
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: CMArmorM3HeavyUrban
+  name: M3-EOD pattern heavy armor (Urban)
+  description: A heavier version of the standard M3 pattern armor, the armor is primarily designed to withstand ballistic, explosive, and internal damage, with the drawback of increased bulk and thus reduced movement speed, alongside little additional protection from standard blunt force impacts and biological threats.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/eod/padded/urban.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.75
+        Piercing: 0.75
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_LOWHEAVY
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: Storage
+    grid:
+    - 0,0,3,1 # 2 slots
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3G4
+  name: M3-G4 grenadier armor
+  description: A custom set of M3 armor packed to the brim with padding, plating, and every form of ballistic protection under the sun. Used exclusively by Marine Grenadiers.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/g4/jungle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.75
+        Piercing: 0.65
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_LOWHEAVY
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3G4Urban
+  name: M3-G4 grenadier armor (Urban)
+  description: A custom set of M3 armor packed to the brim with padding, plating, and every form of ballistic protection under the sun. Used exclusively by Marine Grenadiers.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/g4/urban.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.85
+        Piercing: 0.7
+        Caustic: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_LOWHEAVY
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: CMArmorM3Light
+  name: M3-L pattern light armor
+  description: A lighter, cut down version of the standard M3 pattern armor. It sacrifices durability for more speed.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/light/padded/jungle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.75
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  parent: CMArmorM3Light
+  id: RMCArmorM3LightSmooth
+  name: M3-L pattern low profile armor
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/light/smooth/jungle.rsi
+
+- type: entity
+  parent: CMArmorM3Light
+  id: RMCArmorM3LightSmoothUrban
+  name: M3-L pattern low profile armor (Urban)
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/light/smooth/urban.rsi
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3Scout
+  name: M3-S scouting armor
+  description: A custom set of M3 armor designed for Marine Scouts.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/scout/jungle.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.85
+        Caustic: 0.8
+  - type: ClothingSpeedModifier # light armor speed
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorM3ScoutUrban
+  name: M3-S scouting armor (Urban)
+  description: A custom set of M3 armor designed for Marine Scouts.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/scout/urban.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.85
+        Caustic: 0.8
+  - type: ClothingSpeedModifier # light armor speed
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: CMArmorM3Light
+  id: CMArmorM3VLSynth
+  name: M3A1 synthetic utility vest
+  description: This variant of the ubiquitous M3 pattern vest has been extensively modified to become superlight, providing zero protection in exchange for maximum mobility and added storage. Compliant will all synthetic armor regulations.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/vl-synth/jungle.rsi
+  - type: Clothing
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Caustic: 0.9
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_SUPER_LIGHT
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: CMArmorM3Light
+  id: CMArmorM3VLSynthUrban
+  name: M3A1 synthetic utility vest (Urban)
+  description: This variant of the ubiquitous M3 pattern vest has been extensively modified to become superlight, providing zero protection in exchange for maximum mobility and added storage. Compliant will all synthetic armor regulations.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m3/vl-synth/urban.rsi
+  - type: Clothing
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Caustic: 0.9
+  - type: ClothingSpeedModifier # SLOWDOWN_ARMOR_SUPER_LIGHT
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: CMArmorM2MP
+  name: M2 pattern mp armor
+  description: A standard UNMC M2 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/m2/mp/classic.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.85
+        Piercing: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,1 # 2 slots
+
+- type: entity
+  parent: CMArmorM2MP
+  id: RMCArmorProvost
+  name: M3 pattern provost armor
+  description: A standard Provost M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Provost/medium.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.75
+        Piercing: 0.60
+        Caustic: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: Storage
+    grid:
+    - 0,0,5,1 # 3 slots
+
+- type: entity
+  parent: CMArmorM3Medium
+  id: RMCArmorProvostAgent
+  name: M3 pattern special agent armor
+  description: A modified luxury armor, originally meant for a Provost Marshall, modified to use the colors and insignia of the intelligence service.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/OuterClothing/Provost/special.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.65
+        Caustic: 1
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: Storage
+    grid:
+    - 0,0,3,1 # 2 slots

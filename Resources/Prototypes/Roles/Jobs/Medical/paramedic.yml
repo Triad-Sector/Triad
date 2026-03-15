@@ -9,7 +9,7 @@
     time: 10800
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-cmo
   access:
   - Medical
   - Maintenance

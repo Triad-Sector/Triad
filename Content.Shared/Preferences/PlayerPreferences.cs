@@ -38,13 +38,27 @@ namespace Content.Shared.Preferences
         /// <summary>
         ///     The currently selected character.
         /// </summary>
-        public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
+        public ICharacterProfile SelectedCharacter
+        {
+            get
+            {
+                if (_characters.TryGetValue(SelectedCharacterIndex, out var selected))
+                    return selected;
+
+                foreach (var character in _characters.Values)
+                {
+                    return character;
+                }
+
+                throw new InvalidOperationException("Player has no character profiles.");
+            }
+        }
 
         public Color AdminOOCColor { get; set; }
 
         public int IndexOfCharacter(ICharacterProfile profile)
         {
-            return _characters.FirstOrNull(p => p.Value == profile)?.Key ?? -1;
+            return _characters.FirstOrNull(p => ReferenceEquals(p.Value, profile) || p.Value.MemberwiseEquals(profile))?.Key ?? -1; // HardLight: Added ReferenceEquals & p.Value.MemberwiseEquals(profile)
         }
 
         public bool TryIndexOfCharacter(ICharacterProfile profile, out int index)

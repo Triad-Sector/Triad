@@ -144,7 +144,14 @@ public sealed class ThrowingSystem : EntitySystem
         bool doSpin = true,
         bool unanchor = false)
     {
-        if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN || direction == Vector2.Zero || friction < 0)
+        if (baseThrowSpeed <= 0
+            || !float.IsFinite(baseThrowSpeed)
+            || direction == Vector2Helpers.Infinity
+            || direction == Vector2Helpers.NaN
+            || !float.IsFinite(direction.X)
+            || !float.IsFinite(direction.Y)
+            || direction == Vector2.Zero
+            || friction < 0)
             return;
 
         if (unanchor && HasComp<AnchorableComponent>(uid))
@@ -174,6 +181,10 @@ public sealed class ThrowingSystem : EntitySystem
         var flyTime = direction.Length() / baseThrowSpeed;
         if (compensateFriction)
             flyTime *= FlyTimePercentage;
+
+        if (!float.IsFinite(flyTime) || flyTime < 0f)
+            return;
+
         comp.ThrownTime = _gameTiming.CurTime;
         comp.LandTime = comp.ThrownTime + TimeSpan.FromSeconds(flyTime);
         comp.PlayLandSound = playSound;

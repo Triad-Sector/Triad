@@ -854,8 +854,10 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionChildMetaData(EntityUid child, EntityUid master)
     {
+        if (!TryComp<TransformComponent>(child, out var xform))
+            return;
+
         var netEntity = EntityManager.GetNetEntity(child);
-        var xform = Transform(child);
 
         var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
@@ -875,8 +877,10 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
     private void UpdateCollectionMasterMetaData(EntityUid master, int childCount)
     {
+        if (!TryComp<TransformComponent>(master, out var xform))
+            return;
+
         var netEntity = EntityManager.GetNetEntity(master);
-        var xform = Transform(master);
 
         var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
         while (query.MoveNext(out var ent, out var entConsole, out var entXform))
@@ -889,13 +893,17 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
 
             if (childCount > 0)
             {
-                var name = MetaData(master).EntityPrototype?.Name ?? MetaData(master).EntityName;
+                var name = TryComp<MetaDataComponent>(master, out var meta)
+                    ? (meta.EntityPrototype?.Name ?? meta.EntityName)
+                    : ToPrettyString(master);
                 metaData.EntityName = Loc.GetString("power-monitoring-window-object-array", ("name", name), ("count", childCount + 1));
             }
 
             else
             {
-                metaData.EntityName = MetaData(master).EntityName;
+                metaData.EntityName = TryComp<MetaDataComponent>(master, out var meta)
+                    ? meta.EntityName
+                    : ToPrettyString(master);
             }
 
             metaData.CollectionMaster = null;

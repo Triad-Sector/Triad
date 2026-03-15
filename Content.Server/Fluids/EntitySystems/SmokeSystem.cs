@@ -75,6 +75,12 @@ public sealed class SmokeSystem : EntitySystem
             if (curTime < smoke.NextSecond)
                 continue;
 
+            if (!Exists(smoke.SmokeEntity) || !_smokeQuery.HasComponent(smoke.SmokeEntity))
+            {
+                RemComp(uid, smoke);
+                continue;
+            }
+
             smoke.NextSecond += TimeSpan.FromSeconds(1);
             SmokeReact(uid, smoke.SmokeEntity);
         }

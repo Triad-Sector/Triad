@@ -23,22 +23,23 @@
   - type: Gibbable
 
 - type: entity
-  id: OrganSynthBrain
+  id: SynthCCU
   parent: BaseItem
   name: synth ccu
   description: "A Synth brain. You should really put it back."
   components:
   - type: Sprite
     sprite: _HL/Mobs/Species/Synth/organs.rsi
-    state: brain
+    state: synth_ccu
+    scale: 0.65, 0.65
   - type: Organ
     slotId: brain
+  - type: Brain
+  - type: BorgBrain
   - type: Input
     context: "ghost"
-  - type: Brain
   - type: BlockMovement
   - type: Examiner
-  - type: BorgBrain
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -54,12 +55,12 @@
     - CannotSuicide
   - type: Item
     size: Small
-    heldPrefix: brain
+    heldPrefix: synth ccu
 
 - type: entity
-  id: OrganSynthEyes
+  id: SynthCameraGimbal
   parent: BaseItem
-  name: synth gimbal
+  name: camera gimbal
   description: "A small mechanical gimbal featuring several multi-spectrum cameras. Maybe don't put it in anything other than a Synth."
   components:
   - type: Organ
@@ -67,12 +68,11 @@
   - type: Eyes
   - type: Sprite
     sprite: _HL/Mobs/Species/Synth/organs.rsi
-    layers:
-    - state: eyeball-l
-    - state: eyeball-r
+    state: synth_camera_gimbal
+    scale: 0.6, 0.6
   - type: Item
     size: Small
-    heldPrefix: eyeballs
+    heldPrefix: camera gimbal
 
 - type: entity
   id: OrganSynthTongue
@@ -81,29 +81,33 @@
   description: "It's a fucking tongue. Why would you touch it?"
   components:
   - type: Sprite
-    state: tongue
+    state: synth_tongue
 
 - type: entity
-  id: OrganSynthAppendix
-  parent: BaseSynthOrgan
-  name: appendix
-  components:
-  - type: Sprite
-    layers:
-    - state: appendix
-    - state: appendix-inflamed
-      visible: false
-
-- type: entity
-  id: OrganSynthEars
+  id: SynthRedBrick
   parent: BaseItem
-  name: synth audio pack
-  description: "A sensor pack designed to be installed in a Synth. This one contains audio sensors."
+  name: red brick
   components:
+  - type: Organ
+    slotId: appendix
   - type: Sprite
     sprite: _HL/Mobs/Species/Synth/organs.rsi
-    state: ears
+    state: synth_red_brick
+    scale: 0.6, 0.6
+
+- type: entity
+  id: SynthAudioPack
+  parent: BaseItem
+  name: audio pack
+  description: "A sensor pack designed to be installed in a Synth. This one contains audio sensors."
+  components:
+  - type: Organ
+    slotId: ears
   - type: Ears
+  - type: Sprite
+    sprite: _HL/Mobs/Species/Synth/organs.rsi
+    state: synth_audio_pack
+    scale: 0.7, 0.7
 
 - type: entity
   id: OrganSynthLungs
@@ -113,14 +117,12 @@
   components:
   - type: Organ
     slotId: lungs
+  - type: Lung
   - type: Sprite
-    layers:
-    - state: lung-l
-    - state: lung-r
+    state: synth_lungs
   - type: Item
     size: Small
-    heldPrefix: lungs
-  - type: Lung
+    heldPrefix: synth lungs
   - type: Metabolizer
     solutionOnBody: false
     solution: "Lung"
@@ -144,11 +146,12 @@
   name: synth heart
   description: "A Synth heart. It doesn't do anything interesting yet."
   components:
-  - type: Heart
   - type: Organ
     slotId: heart
+  - type: Heart
   - type: Sprite
-    state: heart-on
+    state: synth_heart
+    scale: 0.8, 0.8
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
   - type: Metabolizer
     maxReagents: 2
@@ -159,7 +162,7 @@
     - id: Narcotic
   - type: Item
     size: Small
-    heldPrefix: heart
+    heldPrefix: synth heart
 
 - type: entity
   id: OrganSynthStomach
@@ -169,8 +172,9 @@
   components:
   - type: Organ
     slotId: stomach
+  - type: Stomach
   - type: Sprite
-    state: stomach
+    state: synth_stomach
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -179,7 +183,6 @@
           Quantity: 5
       stomach:
         maxVol: 75
-  - type: Stomach
   # The stomach metabolizes stuff like foods and drinks.
   - type: Metabolizer
     maxReagents: 5
@@ -189,7 +192,7 @@
     - id: Drink
   - type: Item
     size: Small
-    heldPrefix: stomach
+    heldPrefix: synth stomach
 
 - type: entity
   id: OrganSynthLiver
@@ -197,14 +200,15 @@
   name: synth liver
   description: "A Synth liver. It prevents poisoning from alcohol and can convert ethanol to nutriment."
   components:
-  - type: Liver
   - type: Organ
     slotId: liver
+  - type: Liver
   - type: Sprite
-    state: liver
+    state: synth_liver
+    scale: 0.9, 0.9
   - type: Item
     size: Small
-    heldPrefix: liver
+    heldPrefix: synth liver
   # The liver metabolizes certain chemicals only, like alcohol.
   - type: Metabolizer
     maxReagents: 1
@@ -214,20 +218,20 @@
       rateModifier: 0.3 # removes alcohol along with the stomach removing it as a drink
 
 - type: entity
-  id: OrganSynthKidneys
-  parent: BaseSynthOrgan
-  name: synth kidneys
-  description: "Synth kidneys. They don't do anything interesting yet."
+  id: SynthEnergyCoil
+  parent: BaseItem
+  name: energy coil
+  description: "A Synth energy coil. It doesn't seem to do anything interesting yet."
   components:
   - type: Organ
     slotId: kidneys
   - type: Sprite
-    layers:
-    - state: kidney-l
-    - state: kidney-r
+    sprite: _HL/Mobs/Species/Synth/organs.rsi
+    state: synth_energy_coil
+    scale: 1.1, 1.1
   - type: Item
     size: Small
-    heldPrefix: kidneys
+    heldPrefix: energy coil
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5

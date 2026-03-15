@@ -440,6 +440,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
+        if (!TryGetAttackCoordinates(attack, out var attackCoordinates))
+            return false;
+
         // Attack confirmed
         for (var i = 0; i < swings; i++)
         {
@@ -467,7 +470,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     throw new NotImplementedException();
             }
 
-            DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation);
+                    DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(attackCoordinates), weapon.Range, animation);
         }
 
         var attackEv = new MeleeAttackEvent(weaponUid);
@@ -479,6 +482,24 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
 
     protected abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session);
+
+    private bool TryGetAttackCoordinates(AttackEvent attack, out EntityCoordinates coordinates)
+    {
+        coordinates = default;
+
+        if (!TryGetEntity(attack.Coordinates.NetEntity, out var coordinateEntity)
+            || coordinateEntity == EntityUid.Invalid
+            || !EntityManager.EntityExists(coordinateEntity.Value)
+            || EntityManager.IsQueuedForDeletion(coordinateEntity.Value)
+            || TerminatingOrDeleted(coordinateEntity.Value)
+            || !HasComp<TransformComponent>(coordinateEntity.Value))
+        {
+            return false;
+        }
+
+        coordinates = new EntityCoordinates(coordinateEntity.Value, attack.Coordinates.Position);
+        return true;
+    }
 
     protected virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
@@ -585,7 +606,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp(user, out TransformComponent? userXform))
             return false;
 
-        var targetMap = TransformSystem.ToMapCoordinates(GetCoordinates(ev.Coordinates));
+        if (!TryGetAttackCoordinates(ev, out var clickCoords))
+            return false;
+
+        var targetMap = TransformSystem.ToMapCoordinates(clickCoords);
 
         if (targetMap.MapId != userXform.MapID)
             return false;
@@ -630,6 +654,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Validate client
         for (var i = entities.Count - 1; i >= 0; i--)
         {
+            var candidate = entities[i];
+
+            if (candidate == EntityUid.Invalid
+                || !EntityManager.EntityExists(candidate)
+                || EntityManager.IsQueuedForDeletion(candidate)
+                || TerminatingOrDeleted(candidate)
+                || !HasComp<TransformComponent>(candidate))
+            {
+                entities.RemoveAt(i);
+                continue;
+            }
+
             if (ArcRaySuccessful(entities[i],
                     userPos,
                     direction.ToWorldAngle(),
@@ -651,7 +687,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         foreach (var entity in entities)
         {
-            if (entity == user ||
+            if (entity == EntityUid.Invalid || entity == user ||
                 !damageQuery.HasComponent(entity))
                 continue;
 
@@ -696,7 +732,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 continue;
             }
 
-            var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
+            var attackedEvent = new AttackedEvent(meleeUid, user, clickCoords);
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
@@ -733,9 +769,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
-        if (appliedDamage.GetTotal() > FixedPoint2.Zero)
+        if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0 && targets[0] != EntityUid.Invalid && TryComp(targets[0], out TransformComponent? targetXform))
         {
-            DoDamageEffect(targets, user, Transform(targets[0]));
+            DoDamageEffect(targets, user, targetXform);
         }
 
         return true;

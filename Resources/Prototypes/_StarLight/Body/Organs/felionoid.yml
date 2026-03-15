@@ -1,0 +1,7 @@
+- type: entity
+  id: OrganFelionoidEyes
+  parent: OrganHumanEyes
+  name: eyes
+  suffix: Felionoid
+  description: "The eyes of a Felionoid."
+  # Removed OrganVisualization component (unknown); visual handled elsewhere if needed.

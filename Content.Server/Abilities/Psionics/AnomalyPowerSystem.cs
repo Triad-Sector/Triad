@@ -108,12 +108,23 @@ public sealed partial class AnomalyPowerSystem : EntitySystem
             && Loc.TryGetString(args.Settings.OverchargeFeedback, out var popup))
             _popup.PopupEntity(popup, uid, uid);
 
+        var dampening = component.CurrentDampening;
+        if (dampening <= 0f || !float.IsFinite(dampening))
+            dampening = 1f;
+
         if (args.Settings.OverchargeRecoil is not null
             && TryComp<DamageableComponent>(uid, out var damageable))
-            _damageable.TryChangeDamage(uid, args.Settings.OverchargeRecoil / component.CurrentDampening, true, true, damageable, uid);
+            _damageable.TryChangeDamage(uid, args.Settings.OverchargeRecoil / dampening, true, true, damageable, uid);
 
         if (args.Settings.OverchargeCooldown > 0)
+        {
+            var cooldownSeconds = args.Settings.OverchargeCooldown / dampening;
+            if (!float.IsFinite(cooldownSeconds) || cooldownSeconds <= 0f)
+                return;
+
+            var cooldown = TimeSpan.FromSeconds(cooldownSeconds);
             foreach (var action in component.Actions)
-                _actions.SetCooldown(action.Value, TimeSpan.FromSeconds(args.Settings.OverchargeCooldown / component.CurrentDampening));
+                _actions.SetCooldown(action.Value, cooldown);
+        }
     }
 }

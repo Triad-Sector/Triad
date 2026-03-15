@@ -8,12 +8,15 @@
 - type: latheRecipePack
   id: PartsStatic
   recipes:
+  - WeaponCaseShortDocuments
   - Igniter
   - ModularReceiver
   - MicroManipulatorStockPart
   - MatterBinStockPart
   - CapacitorStockPart
   - ConveyorBeltAssembly
+  - InjectorCollar
+  - InjectorCollarCryo
 
 - type: latheRecipePack
   id: LightsStatic
@@ -50,7 +53,7 @@
   - ClothingMaskWeldingGas
   - SignallerAdvanced
   - BluespaceAirTank
-  - SmallBluespaceAirTank  
+  - SmallBluespaceAirTank
 
 - type: latheRecipePack
   id: SalvageSecurityBoards

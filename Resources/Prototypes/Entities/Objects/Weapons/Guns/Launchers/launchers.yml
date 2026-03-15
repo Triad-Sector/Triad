@@ -49,6 +49,7 @@
     whitelist:
       tags:
         - Grenade
+        - NFTrackingDart
     capacity: 3
     proto: 40mmGrenadeFragmentation
     soundInsert:

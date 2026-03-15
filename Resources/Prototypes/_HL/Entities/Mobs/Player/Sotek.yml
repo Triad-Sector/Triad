@@ -1,6 +1,6 @@
 - type: entity
   parent: [ MobDragonDungeon ]
-  id: Sotek
+  id: MobDragonSotek
   suffix: ""
   name: Sotek
   description: God of reptiles
@@ -11,7 +11,7 @@
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
-        alive: Sotek 
+        alive: Sotek
   - type: Sprite
     sprite: _HL/Mobs/Characters/Sotek.rsi
     noRot: true
@@ -30,7 +30,12 @@
   - type: ActionGun
     action: ActionDragonsBreath
     gunProto: SoteksBreathGun
-    
+  - type: CumProducer
+    maxVol: 15000
+    reVol: 3750
+    reHunger: 1
+  - type: Vore
+
 - type: entity
 #  categories: [ HideSpawnMenu ]
   id: SoteksBreathGun

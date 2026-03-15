@@ -43,6 +43,7 @@
       baseWalkSpeed: 4
       baseSprintSpeed: 3
     - type: ZombieImmune
+    - type: Uncloneable
     - type: DoAfter
     - type: RotationVisuals
       defaultRotation: 90

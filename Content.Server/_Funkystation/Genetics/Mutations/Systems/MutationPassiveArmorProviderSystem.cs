@@ -17,7 +17,11 @@ public sealed class MutationPassiveArmorProviderSystem : EntitySystem
 
     private void OnDamageModify(EntityUid uid, MutationPassiveArmorProviderComponent comp, ref DamageModifyEvent args)
     {
-        DamageModifierSet modifiers = _proto.TryIndex(comp.ModifierSetId, out var proto) ? proto : new();
+        if (comp.ModifierSetId == default)
+            return;
+
+        if (!_proto.TryIndex(comp.ModifierSetId, out var modifiers))
+            return;
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifiers);
     }

@@ -29,5 +29,9 @@
   <ItemGroup>
     <Folder Include="_HL\Medical\" />
   </ItemGroup>
+  <!-- Explicitly include .CM14 server sources; dot-prefixed folders may be excluded by default globs -->
+  <ItemGroup>
+    <Compile Include=".CM14\**\*.cs" />
+  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

@@ -12,6 +12,10 @@
       "directions": 4
     },
     {
+      "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
       "name": "jacket-equipped-OUTERCLOTHING",
       "directions": 4
     },
@@ -19,7 +23,7 @@
       "name": "icon"
     },
     {
-      "name": "jacket-icon"
+      "name": "icon-open"
     }
   ]
 }

@@ -44,6 +44,8 @@
   description: trait-unrevivable-desc
   category: Physical
   cost: -4
+  speciesBlacklist: # HardLight
+  - IPC
   components:
     - type: Unrevivable
       cloneable: true

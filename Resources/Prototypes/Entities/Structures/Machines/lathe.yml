@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2020 Decappi
 # SPDX-FileCopyrightText: 2020 Hugo Laloge
 # SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto
+# SPDX-FileCopyrightText: 2020 V?ctor Aguilera Puerto
 # SPDX-FileCopyrightText: 2020 lajolico
 # SPDX-FileCopyrightText: 2020 py01
 # SPDX-FileCopyrightText: 2020 windarkata
@@ -17,7 +17,7 @@
 # SPDX-FileCopyrightText: 2021 Swept
 # SPDX-FileCopyrightText: 2021 iczero
 # SPDX-FileCopyrightText: 2022 0x6273
-# SPDX-FileCopyrightText: 2022 Andreas K�mper
+# SPDX-FileCopyrightText: 2022 Andreas K?mper
 # SPDX-FileCopyrightText: 2022 Anthemic
 # SPDX-FileCopyrightText: 2022 August Eymann
 # SPDX-FileCopyrightText: 2022 BubblegumBlue
@@ -395,6 +395,7 @@
     - ChemistryStatic
     - SurgeryStatic
     dynamicPacks:
+    - ServiceBoardsGoob
     - AdvancedTools
     - ScienceEquipment
     - ScienceExplosives
@@ -569,6 +570,8 @@
     - RipleyUpgrade
     # Crescent - Cyberware
     - CombatCybernetics
+    # Starlight - Implants
+    - SLCybernetics
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - WeaponMechCombatArsenal
@@ -716,6 +719,8 @@
     - LightShuttleWeapons
     # Crescent - Cyberware
     - CombatCybernetics
+    # Starlight - Implants
+    - SLCybernetics
   - type: MaterialStorage
     canEjectStoredMaterials: true
     whitelist:
@@ -863,6 +868,7 @@
     - NFUniformSpecial # Frontier
     - NFUniformCloaks # Frontier
     - NFWallets # Frontier
+    - PillowsStandard # HL
     dynamicPacks: # Frontier
     - NFPouches # Frontier
   - type: EmagLatheRecipes
@@ -944,6 +950,7 @@
     emagStaticPacks:
     - HostileCubesStatic
     - NFBioGenIngredientsDangerous
+    - BioGenEmagStatic
   - type: ItemMapper
     mapLayers:
       beaker:

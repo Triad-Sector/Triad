@@ -79,7 +79,10 @@ public sealed class HealingSystem : EntitySystem
             _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
             if (isBleeding != bloodstream.BleedAmount > 0)
             {
-                _popupSystem.PopupEntity(Loc.GetString("medical-item-stop-bleeding"), entity, args.User);
+                _popupSystem.PopupEntity(
+                    Loc.GetString("medical-item-stop-bleeding", ("target", Identity.Entity(entity.Owner, EntityManager))),
+                    entity,
+                    args.User);
             }
         }
 
@@ -144,7 +147,7 @@ public sealed class HealingSystem : EntitySystem
         var healingDict = healing.Damage.DamageDict;
         foreach (var type in healingDict)
         {
-            if (damageableDict[type.Key].Value > 0)
+            if (damageableDict.TryGetValue(type.Key, out var damage) && damage.Value > 0)
             {
                 return true;
             }

@@ -10,7 +10,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -48,7 +48,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -81,7 +81,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 16
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment #place holder
           Quantity: 10
@@ -118,7 +118,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -149,7 +149,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment #place holder
           Quantity: 6
@@ -186,7 +186,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 1.5
@@ -217,7 +217,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 250
         reagents:
         - ReagentId: Nutriment #place holder
           Quantity: 6
@@ -255,7 +255,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
           Quantity: 1.5
@@ -289,7 +289,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 250
         reagents:
         - ReagentId: Honey
           Quantity: 5
@@ -342,7 +342,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 250
         reagents:
         - ReagentId: Everyspice
           Quantity: 5
@@ -372,7 +372,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 250
         reagents:
         - ReagentId: Blackpepper
           Quantity: 5
@@ -437,7 +437,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 250
         reagents:
         - ReagentId: Primatine
           Quantity: 10

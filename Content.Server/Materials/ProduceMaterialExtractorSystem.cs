@@ -2,10 +2,12 @@ using System.Linq;
 using Content.Server.Botany.Components;
 using Content.Server.Materials.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
+using Content.Shared.Stacks;
 using Robust.Server.Audio;
 
 namespace Content.Server.Materials;
@@ -15,6 +17,7 @@ public sealed class ProduceMaterialExtractorSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly StackSystem _stackSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -60,12 +63,19 @@ public sealed class ProduceMaterialExtractorSystem : EntitySystem
 
         // Can produce even have fractional amounts? Does it matter if they do?
         // Questions man was never meant to answer.
+        var stackCount = 1;
+        if (TryComp<StackComponent>(used, out var stack))
+            stackCount = stack.Count;
+
         var matAmount = solution.Value.Comp.Solution.Contents
             .Where(r => ent.Comp.ExtractionReagents.Contains(r.Reagent.Prototype))
-            .Sum(r => r.Quantity.Float());
+            .Sum(r => r.Quantity.Float()) * stackCount;
         _materialStorage.TryChangeMaterialAmount(ent, ent.Comp.ExtractedMaterial, (int) matAmount);
 
-        QueueDel(used);
+        if (stackCount > 1 && stack != null)
+            _stackSystem.SetCount(used, stack.Count - stackCount, stack);
+        else
+            QueueDel(used);
 
         return true;
     }

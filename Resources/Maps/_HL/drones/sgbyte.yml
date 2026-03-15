@@ -360,7 +360,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5061016,2.348514
       parent: 1
-- proto: GeneratorRTG
+- proto: XenoGeneratorRTG
   entities:
   - uid: 50
     components:

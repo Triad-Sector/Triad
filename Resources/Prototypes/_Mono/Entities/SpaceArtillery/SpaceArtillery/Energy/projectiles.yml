@@ -52,6 +52,53 @@
     maxIntensity: 25
     maxTileBreak: 0
 
+# Cerberus
+
+- type: entity
+  id: ShipCerberusPlasma
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 20
+        Structural: 350
+        Heat: 80
+  - type: Sprite
+    sprite: _Mono/Objects/SpaceArtillery/plasmashot.rsi
+    layers:
+    - state: plasmashot
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectPlasmaPulser
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#C92BCC"
+    scale: 2.5
+    requireNoGrid: true
+    shape: triangle
+  - type: TimedDespawn
+    lifetime: 12.2
+  - type: PointLight
+    color: "#FF0040"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 18
+    intensitySlope: 10
+    maxIntensity: 15
+
+- type: entity
+  name: cerberus spread
+  parent: ShipMediumPlasmaProjectile
+  id: CerberusSpread
+  components:
+  - type: ProjectileSpread
+    proto: ShipCerberusPlasma
+    count: 3
+    spread: 8
+
 # Autopulser
 
 - type: entity
@@ -92,6 +139,44 @@
     intensitySlope: 2
     maxIntensity: 40
     maxTileBreak: 0
+
+# Scylla
+
+- type: entity
+  id: ShipPlasmaProjectileScylla
+  name: plasma projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 10
+        Structural: 80
+        Heat: 40
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumstun
+    scale: 1.2, 1.2
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#00e5ff"
+    scale: 1.45
+    requireNoGrid: true
+    shape: arrow
+  - type: TimedDespawn
+    lifetime: 4.2
+  - type: PointLight
+    radarColor: "#00e5ff"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 15
+    intensitySlope: 3
+    maxIntensity: 5
+    maxTileBreak: 0
+
 
 # Type 241
 
@@ -327,6 +412,43 @@
     lightningProto: LightningEMP
     lightningEffects: false
 
+# Tartarus
+
+- type: entity
+  id: ShipAntiMatterProjectile
+  name: antimatter projectile
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 200
+        Structural: 500
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_projectiles.rsi
+    layers:
+    - state: antimatter-particle
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectTempHot
+  - type: ShipWeaponProjectile
+  - type: RadarBlip
+    radarColor: "#ab0707"
+    scale: 3
+    requireNoGrid: true
+    shape: circle
+  - type: TimedDespawn
+    lifetime: 4.5
+  - type: PointLight
+    color: "#ab0707"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 120
+    intensitySlope: 5
+    maxIntensity: 45
+    maxTileBreak: 4
+
 
 # region Laser Hitscans
 
@@ -385,6 +507,23 @@
     spawnedEntity: ApolloExplosion
   - type: HitscanBasicRaycast
     maxDistance: 1200
+
+# Prometheus
+
+- type: entity
+  parent: ApolloLaser
+  id: PrometheusLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+     types:
+       Heat: 120
+       Structural: 500
+  - type: HitscanSpawnEntity
+    spawnedEntity: PrometheusExplosion
+  - type: HitscanBasicRaycast
+    maxDistance: 1000
 
 # Reaper
 
@@ -513,3 +652,15 @@
     intensitySlope: 2
     maxIntensity: 5
     maxTileBreak: 0
+
+- type: entity
+  id: PrometheusExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 10
+    maxIntensity: 25

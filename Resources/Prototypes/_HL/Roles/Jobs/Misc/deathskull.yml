@@ -1,0 +1,21 @@
+# Death's Skull Heavy
+- type: startingGear
+  id: DeathSkullHeavyGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorBlack
+    head: ClothingHeadHelmetBulletProof
+    mask: ClothingMaskBalaclavaBlack
+    neck: ClothingNeckIFFNeutral
+    eyes: ClothingEyesGlassesThermal
+    outerClothing: ClothingOuterArmorHeavy
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltAssault
+    back: ClothingBackpackTactical
+    shoes: ClothingShoesBootsCombatFilled
+    id: AgentIDCard
+    ears: ClothingHeadsetAltMercenary
+  storage:
+    back:
+    - DrinkMilkCarton
+  inhand:
+  - NFWeaponRifleAssaultSm

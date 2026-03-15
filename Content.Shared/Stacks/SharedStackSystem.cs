@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -123,10 +124,27 @@ namespace Content.Shared.Stacks
             if (string.IsNullOrEmpty(recipientStack.StackTypeId) || !recipientStack.StackTypeId.Equals(donorStack.StackTypeId))
                 return false;
 
+            if (!StackSignaturesCompatible(donor, recipient))
+                return false;
+
             transferred = Math.Min(donorStack.Count, GetAvailableSpace(recipientStack));
             SetCount(donor, donorStack.Count - transferred, donorStack);
             SetCount(recipient, recipientStack.Count + transferred, recipientStack);
             return transferred > 0;
+        }
+
+        protected bool StackSignaturesCompatible(EntityUid donor, EntityUid recipient)
+        {
+            var donorHasSignature = TryComp(donor, out StackSignatureComponent? donorSignature);
+            var recipientHasSignature = TryComp(recipient, out StackSignatureComponent? recipientSignature);
+
+            if (!donorHasSignature && !recipientHasSignature)
+                return true;
+
+            if (!donorHasSignature || !recipientHasSignature)
+                return false;
+
+            return string.Equals(donorSignature!.Signature, recipientSignature!.Signature, StringComparison.Ordinal);
         }
 
         /// <summary>
@@ -336,6 +354,9 @@ namespace Content.Shared.Stacks
             if (!Resolve(insertEnt, ref insertStack) || !Resolve(targetEnt, ref targetStack))
                 return false;
 
+            if (!StackSignaturesCompatible(insertEnt, targetEnt))
+                return false;
+
             var count = insertStack.Count;
             return TryAdd(insertEnt, targetEnt, count, insertStack, targetStack);
         }
@@ -349,6 +370,9 @@ namespace Content.Shared.Stacks
                 return false;
 
             if (insertStack.StackTypeId != targetStack.StackTypeId)
+                return false;
+
+            if (!StackSignaturesCompatible(insertEnt, targetEnt))
                 return false;
 
             var available = GetAvailableSpace(targetStack);

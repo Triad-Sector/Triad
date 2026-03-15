@@ -7,6 +7,7 @@ using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
+using System.Collections.Generic;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -56,8 +57,8 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.StartRadioAnnouncement != null)
         {
             var message = Loc.GetString(stationEvent.StartRadioAnnouncement);
-            var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-            RadioSystem.SendRadioMessage(uid, message, stationEvent.StartRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+            if (MapSystem.TryGetMap(GameTicker.DefaultMap, out var mapUid) && mapUid is { } map)
+                RadioSystem.SendRadioMessage(uid, message, stationEvent.StartRadioAnnouncementChannel, map, escapeMarkup: false);
         }
 
         Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true);
@@ -86,7 +87,15 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
     /// <inheritdoc/>
     protected override void Ended(EntityUid uid, T component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
-        base.Ended(uid, component, gameRule, args);
+        try
+        {
+            base.Ended(uid, component, gameRule, args);
+        }
+        catch (KeyNotFoundException e)
+        {
+            Sawmill.Warning($"StationEvent Ended base cleanup missed key for {ToPrettyString(uid)}: {e.Message}");
+            return;
+        }
 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
@@ -103,8 +112,8 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.EndRadioAnnouncement != null)
         {
             var message = Loc.GetString(stationEvent.EndRadioAnnouncement);
-            var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-            RadioSystem.SendRadioMessage(uid, message, stationEvent.EndRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+            if (MapSystem.TryGetMap(GameTicker.DefaultMap, out var mapUid) && mapUid is { } map)
+                RadioSystem.SendRadioMessage(uid, message, stationEvent.EndRadioAnnouncementChannel, map, escapeMarkup: false);
         }
         // End Frontier
 
@@ -143,8 +152,8 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
                 if (stationEvent.WarningRadioAnnouncement != null)
                 {
                     var message = Loc.GetString(stationEvent.WarningRadioAnnouncement);
-                    var mapUid = MapSystem.GetMap(GameTicker.DefaultMap); // Hack: need a reference to a valid entity on the default map - the map itself works.
-                    RadioSystem.SendRadioMessage(uid, message, stationEvent.WarningRadioAnnouncementChannel, mapUid, escapeMarkup: false);
+                    if (MapSystem.TryGetMap(GameTicker.DefaultMap, out var mapUid) && mapUid is { } map)
+                        RadioSystem.SendRadioMessage(uid, message, stationEvent.WarningRadioAnnouncementChannel, map, escapeMarkup: false);
                 }
                 Audio.PlayGlobal(stationEvent.WarningAudio, allPlayersInGame, true);
                 stationEvent.WarningAnnounced = true;

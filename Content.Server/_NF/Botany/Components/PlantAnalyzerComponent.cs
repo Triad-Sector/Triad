@@ -30,4 +30,7 @@ public sealed partial class PlantAnalyzerComponent : Component
 
     [DataField]
     public SoundSpecifier? ScanningEndSound;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? LastScannedTarget;
 }

@@ -1,11 +1,18 @@
 marking-SynthVisor = Stock Faceplate
-marking-SynthVisor-visor_synth = Visor
-marking-SynthVisor-frame_synth = Frame
-marking-SynthVisor-snout_synth = Snout
-marking-SynthVisor-jaw_synth = Jaw
+marking-SynthVisor-synth_frame = Frame
+marking-SynthVisor-synth_jaw = Jaw
+marking-SynthVisor-synth_nose = Nose
+marking-SynthVisor-synth_visor = Visor
 
 marking-SynthTail = Stock Tail
-marking-SynthTail-tail_synth = Tail
+marking-SynthTail-synth_tail = Tail
+marking-SynthTailXenoCurl = Synth Tail (Xeno Curl)
+marking-SynthTailXenoCurl-synth_tail_xeno_curl = Tail
+marking-SynthTailXenoSpike = Synth Tail (Xeno Spike)
+marking-SynthTailXenoSpike-synth_tail_xeno_spike = Tail
+
+marking-SynthTailXenoLight = Synth Tail (Xeno L)
+marking-SynthTailXenoLight-synth_tail_xeno_spike = Light
 
 marking-SynthSolarFans = Solar Fans
 marking-SynthSolarFans-synth_solar_fans = Panels
@@ -38,7 +45,7 @@ marking-SynthAntennaSoftCurlLight = Antenna (Soft Curl L)
 marking-SynthAntennaSoftCurlLight-synth_antenna_soft_curl_light = Light
 
 marking-SynthWings = Synth Wings
-marking-SynthWings-wings_synth = Wings
+marking-SynthWings-synth_wings = Wings
 
 marking-SynthWingsLight = Synth Wing Lights
-marking-SynthWingsLight-wings_synth_light = Light
+marking-SynthWingsLight-synth_wings_light = Light

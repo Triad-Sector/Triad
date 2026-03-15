@@ -214,7 +214,8 @@ namespace Content.Server.Kitchen.EntitySystems
             var totalReagentsToRemove = new Dictionary<string, FixedPoint2>(recipe.IngredientsReagents);
 
             // this is spaghetti ngl
-            foreach (var item in component.Storage.ContainedEntities)
+            // iterate over a snapshot to avoid modifying the collection while iterating
+            foreach (var item in component.Storage.ContainedEntities.ToArray())
             {
                 // use the same reagents as when we selected the recipe
                 if (!_solutionContainer.TryGetDrainableSolution(item, out var solutionEntity, out var solution))
@@ -246,14 +247,30 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 for (var i = 0; i < recipeSolid.Value; i++)
                 {
-                    foreach (var item in component.Storage.ContainedEntities)
+                    // iterate over a snapshot to avoid modifying the collection while iterating
+                    foreach (var item in component.Storage.ContainedEntities.ToArray())
                     {
                         string? itemID = null;
+                        StackComponent? stackComp = null;
 
-                        // If an entity has a stack component, use the stacktype instead of prototype id
-                        if (TryComp<StackComponent>(item, out var stackComp))
+                        // If an entity has a stack component, prefer the entity prototype when the
+                        // stack spawns itself; otherwise use the stack prototype's spawn.
+                        if (TryComp<StackComponent>(item, out var sc))
                         {
-                            itemID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                            stackComp = sc;
+                            if (HasComp<StackSpawnSelfComponent>(item))
+                            {
+                                var metaData = MetaData(item);
+                                if (metaData.EntityPrototype == null)
+                                {
+                                    continue;
+                                }
+                                itemID = metaData.EntityPrototype.ID;
+                            }
+                            else
+                            {
+                                itemID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                            }
                         }
                         else
                         {
@@ -272,11 +289,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
                         if (stackComp is not null)
                         {
-                            if (stackComp.Count == 1)
+                            _stack.Use(item, 1, stackComp);
+                            if (_stack.GetCount(item) <= 0)
                             {
                                 _container.Remove(item, component.Storage);
                             }
-                            _stack.Use(item, 1, stackComp);
                             break;
                         }
                         else
@@ -436,7 +453,27 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             args.Handled = true;
-            _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+
+            // Handle stacks: split them before inserting so each item is separate for recipes
+            if (TryComp<StackComponent>(args.Used, out var stack) && stack.Count > 1)
+            {
+                var splitEnt = _stack.Split(args.Used, 1, Transform(args.Used).Coordinates, stack);
+                if (splitEnt == null)
+                    return;
+
+                if (!_container.Insert(splitEnt.Value, ent.Comp.Storage))
+                {
+                    // If insertion failed, try to merge back to user's hands
+                    _stack.TryMergeToHands(splitEnt.Value, args.User);
+                    return;
+                }
+            }
+            else
+            {
+                // Non-stack item or single item stack - use normal insertion
+                _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+            }
+
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 
@@ -600,10 +637,24 @@ namespace Content.Server.Kitchen.EntitySystems
                 string? solidID = null;
                 int amountToAdd = 1;
 
-                // If a microwave recipe uses a stacked item, use the default stack prototype id instead of prototype id
+                // If a microwave recipe uses a stacked item, prefer the entity prototype when the
+                // stack is marked to spawn itself (StackSpawnSelf). Otherwise fall back to the
+                // stack prototype's configured spawn entity.
                 if (TryComp<StackComponent>(item, out var stackComp))
                 {
-                    solidID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                    if (HasComp<StackSpawnSelfComponent>(item))
+                    {
+                        var metaData = MetaData(item); //this simply begs for cooking refactor
+                        if (metaData.EntityPrototype is not null)
+                            solidID = metaData.EntityPrototype.ID;
+                        else
+                            solidID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                    }
+                    else
+                    {
+                        solidID = _prototype.Index<StackPrototype>(stackComp.StackTypeId).Spawn;
+                    }
+
                     amountToAdd = stackComp.Count;
                 }
                 else
@@ -654,10 +705,10 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void StopCooking(Entity<MicrowaveComponent> ent)
         {
-            RemCompDeferred<ActiveMicrowaveComponent>(ent);
+            RemComp<ActiveMicrowaveComponent>(ent);
             foreach (var solid in ent.Comp.Storage.ContainedEntities)
             {
-                RemCompDeferred<ActivelyMicrowavedComponent>(solid);
+                RemComp<ActivelyMicrowavedComponent>(solid);
             }
         }
 
@@ -746,11 +797,15 @@ namespace Content.Server.Kitchen.EntitySystems
                     }
                 }
 
+                // Stop cooking first to clean up ActiveMicrowaveComponent and ActivelyMicrowavedComponent
+                StopCooking((uid, microwave));
+
+                // Now empty the container - all items should eject properly
                 _container.EmptyContainer(microwave.Storage);
+
                 microwave.CurrentCookTimeEnd = TimeSpan.Zero;
                 UpdateUserInterfaceState(uid, microwave);
                 _audio.PlayPvs(microwave.FoodDoneSound, uid);
-                StopCooking((uid, microwave));
             }
         }
 

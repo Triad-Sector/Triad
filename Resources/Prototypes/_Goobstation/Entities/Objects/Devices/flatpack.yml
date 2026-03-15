@@ -1,13 +1,28 @@
 - type: entity
   parent: BaseFlatpack
-  id: TimelineDisruptorFlatpack
-  name: timeline disruptor flatpack
-  description: A flatpack used for constructing a solar assembly.
+  id: RadioRigFlatpack
+  name: radio rig flatpack
+  description: A flatpack used for constructing a radio rig.
   components:
   - type: Flatpack
-    entity: TimelineDisruptor
-  - type: Sprite
-    layers:
-    - state: fax-machine
-  - type: StaticPrice
-    price: 1500
+    entity: StationRadioRig
+
+- type: entity
+  parent: BaseFlatpack
+  id: RadioServerFlatpack
+  name: radio server flatpack
+  description: A flatpack used for constructing a radio server.
+  components:
+  - type: Flatpack
+    entity: StationRadioServer
+
+# Hardlight Start - Adds station radio player flatpack for spawns
+- type: entity
+  parent: BaseFlatpack
+  id: RadioReceiverFlatpack
+  name: radio receiver flatpack
+  description: A flatpack used for constructing a radio receiver.
+  components:
+  - type: Flatpack
+    entity: StationRadioReceiver
+# Hardlight End

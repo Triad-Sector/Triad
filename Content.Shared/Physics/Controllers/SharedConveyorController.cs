@@ -12,6 +12,9 @@ using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared;
 
 namespace Content.Shared.Physics.Controllers;
 
@@ -24,6 +27,7 @@ public abstract class SharedConveyorController : VirtualController
     [Dependency] private   readonly FixtureSystem _fixtures = default!;
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] private   readonly SharedMoverController _mover = default!;
+    [Dependency] private   readonly IConfigurationManager _cfg = default!;
 
     protected const string ConveyorFixture = "conveyor";
 
@@ -210,6 +214,10 @@ public abstract class SharedConveyorController : VirtualController
         out Vector2 direction)
     {
         direction = Vector2.Zero;
+
+        if (!HasPlayerInRange(entity.Owner))
+            return true;
+
         var fixtures = entity.Comp2;
         var physics = entity.Comp3;
         var xform = entity.Comp4;
@@ -315,6 +323,19 @@ public abstract class SharedConveyorController : VirtualController
         }
 
         return true;
+    }
+
+    private bool HasPlayerInRange(EntityUid uid)
+    {
+        var range = _cfg.GetCVar(CVars.NetMaxUpdateRange);
+        var coords = Transform(uid).Coordinates;
+
+        foreach (var _ in Lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+        {
+            return true;
+        }
+
+        return false;
     }
     private static Vector2 Convey(Vector2 direction, float speed, Vector2 itemRelative)
     {

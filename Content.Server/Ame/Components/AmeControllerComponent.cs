@@ -24,9 +24,17 @@ public sealed partial class AmeControllerComponent : SharedAmeControllerComponen
     /// <summary>
     /// Whether or not the AME controller is currently injecting animatter into the reactor.
     /// </summary>
-    [DataField("injecting")]
+// HardLight: This is runtime state and gets restored from WasInjecting after map load.
+//    [DataField("injecting")]
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Injecting = false;
+
+    /// <summary>
+    /// HardLight: Persisted state of whether the AME was injecting when saved.
+    /// Used to restore injection state after map load when node groups are established.
+    /// </summary>
+    [DataField("wasInjecting")]
+    public bool WasInjecting = false;
 
     /// <summary>
     /// How much antimatter the AME controller is set to inject into the reactor per update.

@@ -9,8 +9,9 @@
     energy: 1.0
     radius: 6
     softness: 1.1
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulb ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -19,8 +20,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LedLightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LedLightBulb ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -29,8 +31,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: ServiceLightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ ServiceLightBulb ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -39,8 +42,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: SodiumLightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ SodiumLightBulb ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -49,8 +53,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: ExteriorLightBulb
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ ExteriorLightBulb ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -59,8 +64,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalCyan
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalCyan ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -69,8 +75,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalBlue
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalBlue ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -79,8 +86,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalPink
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalPink ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -89,8 +97,9 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalOrange
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalOrange ]
 
 - type: entity
   parent: PoweredStrobeLightEmpty
@@ -99,9 +108,10 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalRed
-      
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalRed ]
+
 - type: entity
   parent: PoweredStrobeLightEmpty
   id: PoweredStrobeGreen
@@ -109,5 +119,6 @@
   components:
   - type: PointLight
     enabled: true
-  - type: PoweredLight
-    hasLampOnSpawn: LightBulbCrystalGreen
+  - type: ContainerFill # HardLight
+    containers:
+      light_bulb: [ LightBulbCrystalGreen ]

@@ -4,10 +4,21 @@
   abstract: true
   components:
   - type: Clothing
-    slots: [neck , accessory, accessoryalt]
+    # HardLight start
+    slots: [ neck, accessory, accessoryalt ]
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+      neck-quadborg:
+      - state: equipped-NECK-quadborg
+    # HardLight end
   - type: LeashAnchor
     offset: 0, 0.22
     kind: Clothing
+  - type: Tag # HardLight
+    tags:
+    - BorgWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -19,6 +30,10 @@
     sprite: Floof/Clothing/Neck/collar_blue.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_blue.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_blue_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -30,6 +45,10 @@
     sprite: Floof/Clothing/Neck/collar_black.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_black.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_black_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -41,6 +60,10 @@
     sprite: Floof/Clothing/Neck/collar_pink.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_pink.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_pink_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -52,6 +75,10 @@
     sprite: Floof/Clothing/Neck/collar_epi.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_epi.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_epi_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -63,6 +90,10 @@
     sprite: Floof/Clothing/Neck/collar_engi.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_engi.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_engi_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -74,8 +105,12 @@
     sprite: Floof/Clothing/Neck/collar_logi.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_logi.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_logi_quad.rsi
+        state: equipped-NECK-quadborg
 
-#HL Start
+# HardLight start
 - type: entity
   parent: ClothingNeckCollarBase
   id: ClothingNeckCollarMed
@@ -86,7 +121,11 @@
     sprite: Floof/Clothing/Neck/collar_med.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_med.rsi
-#HL End
+    clothingVisuals:
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_med_quad.rsi
+        state: equipped-NECK-quadborg
+# HardLight end
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -98,6 +137,10 @@
     sprite: Floof/Clothing/Neck/collar_sec.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_sec.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_sec_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -109,6 +152,10 @@
     sprite: Floof/Clothing/Neck/collar_cmd.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_cmd.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_cmd_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -120,6 +167,10 @@
     sprite: Floof/Clothing/Neck/collar_cc.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_cc.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_cc_quad.rsi
+        state: equipped-NECK-quadborg
 
 - type: entity
   parent: ClothingNeckCollarBase
@@ -131,3 +182,7 @@
     sprite: Floof/Clothing/Neck/collar_syndi.rsi
   - type: Clothing
     sprite: Floof/Clothing/Neck/collar_syndi.rsi
+    clothingVisuals: # HardLight
+      neck-quadborg:
+      - sprite: _HL/Clothing/Neck/QuadCollars/collar_syndi_quad.rsi
+        state: equipped-NECK-quadborg

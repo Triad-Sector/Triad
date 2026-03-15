@@ -137,7 +137,7 @@
   - type: Sprite
     sprite: _HL/Clothing/Bondage/anklecuffs.rsi
   - type: Clothing
-    sprite: _HL/Clothing/Bondage/canklecuffs.rsi
+    sprite: _HL/Clothing/Bondage/anklecuffs.rsi
     equipDelay: 3
     unequipDelay: 3
   - type: SelfUnremovableClothing
@@ -146,7 +146,7 @@
   parent: ClothingHandsBase
   id: BondageMitts
   name: bondage mitts
-  description: Nice and snug around your hands. You won't be picking up anything with these on. At least, when an update makes these actually block your hand slots. For now, just pretend. 
+  description: Nice and snug around your hands. You won't be picking up anything with these on. At least, when an update makes these actually block your hand slots. For now, just pretend.
   components:
   - type: Sprite
     sprite: _HL/Clothing/Bondage/bondagemitts.rsi
@@ -177,9 +177,9 @@
   description: For the aesthetically-minded bondage afficionado, to match their pet's arm sleeves.
   components:
   - type: Sprite
-    sprite: _HL/Clothing/Bondage/anklecuffs.rsi
+    sprite: _HL/Clothing/Bondage/legsleeves.rsi
   - type: Clothing
-    sprite: _HL/Clothing/Bondage/anklecuffs.rsi
+    sprite: _HL/Clothing/Bondage/legsleeves.rsi
     equipDelay: 3
     unequipDelay: 3
   - type: SelfUnremovableClothing

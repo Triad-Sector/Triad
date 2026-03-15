@@ -3,5 +3,6 @@
   name: Urist McSpaceRaptor
   parent: BaseMobAvali
   id: MobAvali
-
+  components:
+  - type: PotentialPsionic #Nyano - Summary: makes potentially psionic.
 #chirp!

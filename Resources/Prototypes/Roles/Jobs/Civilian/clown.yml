@@ -9,7 +9,6 @@
       time: 10800
   startingGear: ClownGear
   icon: "JobIconClown"
-  supervisors: job-supervisors-hire # Frontier
   access:
   - Theatre
   - Maintenance

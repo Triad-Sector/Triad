@@ -1,0 +1,60 @@
+- type: constructionGraph
+  id: ForgedRifleGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: shotgun
+      steps:
+      - tag: ModularBarrel
+        icon:
+          sprite: _Starlight/Objects/Misc/modular_barrel.rsi
+          state: icon
+        name: crafting-menu-name-MB
+      - tag: ModularReceiver
+        icon:
+          sprite: Objects/Misc/modular_receiver.rsi
+          state: icon
+        name: construction-graph-tag-modular-receiver
+      - tag: RifleStock
+        icon:
+          sprite: Objects/Misc/rifle_stock.rsi
+          state: icon
+        name: construction-graph-tag-rifle-stock
+      - material: Steel
+        amount: 30
+        doAfter: 20
+      - material: Plasteel
+        amount: 10
+        doAfter: 25
+  - node: shotgun
+    entity: UnfinishedRifleForged
+
+- type: constructionGraph
+  id: Improvised556/762x39MagazineGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 2
+    - node: shell
+      entity: Magazine556/762x39Improvised
+
+- type: constructionGraph
+  id: Improvised635x44mm/762x54rMagazineGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 2
+    - node: shell
+      entity: Magazine635x44mm/762x54rImprovised
+

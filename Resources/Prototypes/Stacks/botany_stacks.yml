@@ -1,0 +1,13 @@
+- type: stack
+  id: BotanyProduce
+  name: stack-botany-produce
+  icon: { sprite: /Textures/Objects/Specific/Hydroponics/wheat.rsi, state: produce }
+  spawn: WheatBushel
+  maxCount: 30
+
+- type: stack
+  id: BotanySeed
+  name: stack-botany-seed
+  icon: { sprite: /Textures/Objects/Specific/Hydroponics/seeds.rsi, state: seed }
+  spawn: WheatSeeds
+  maxCount: 30

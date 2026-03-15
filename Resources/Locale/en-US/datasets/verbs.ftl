@@ -636,3 +636,4 @@ verbs-dataset-635 = wet plorp
 verbs-dataset-636 = pull out
 verbs-dataset-637 = cum inside
 verbs-dataset-638 = cum inside
+verbs-dataset-639 = bite

@@ -91,6 +91,7 @@
     - Screwing
     useSound:
       collection: Screwdriver
+  - type: ToolTileCompatible
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:

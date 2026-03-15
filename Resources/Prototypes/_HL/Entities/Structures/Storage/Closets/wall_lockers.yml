@@ -38,6 +38,7 @@
       - Store
       - Cash
       - Headset
+      - DnaSequenceInjector
   - type: Construction
     graph: LockerWallBluespace
     node: done

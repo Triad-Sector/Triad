@@ -253,7 +253,7 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
             targetMapId = sourceXform.MapID;
             // Calculate initial preferred position near the gateway
             var random = new Random(_random.Next());
-            var spawnDistance = random.Next(20, 40);
+            var spawnDistance = random.Next(120, 150);
             spawnAngle = random.NextAngle();
             preferredPosition = sourceXform.WorldPosition + spawnAngle.ToVec() * spawnDistance;
 
@@ -266,7 +266,7 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
         }
 
         // Find a clear spawn location (assume typical dock is roughly 30 tiles radius)
-        const float estimatedDockRadius = 30f;
+        const float estimatedDockRadius = 120f;
         if (!TryFindClearSpawnLocation(targetMapId, preferredPosition, estimatedDockRadius, out var spawnPosition))
         {
             Log.Error($"Could not find clear space to spawn dock - area around gateway is too crowded!");

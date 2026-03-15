@@ -9,7 +9,7 @@
       time: 10800
   startingGear: BoxerGear
   icon: "JobIconBoxer"
-  supervisors: job-supervisors-hire # Frontier
+  supervisors: job-supervisors-hop
   access:
   - Maintenance
   - Theatre # DeltaV - Add Theatre access

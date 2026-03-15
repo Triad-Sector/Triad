@@ -1,0 +1,53 @@
+- type: entity
+  parent: [ ClothingHeadBase, BaseColcommContraband ]
+  id: ClothingHeadHatColcomcap
+  name: directorate cap
+  description: An extravagant, fancy Colonial Directorate cap.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Head/colcap.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Head/colcap.rsi
+  - type: Item
+    sprite: _HL/Clothing/Head/colcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: FoodPoppy
+  id: PoppyChameleon
+  suffix: Chameleonable Version
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: FoodLily
+  id: LilyChameleon
+  suffix: Chameleonable Version
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: FoodAmbrosiaVulgaris
+  id: AmbrosiaVulgarisChameleon
+  suffix: Chameleonable Version
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: FoodAmbrosiaDeus
+  id: AmbrosiaDeusChameleon
+  suffix: Chameleonable Version
+  components:
+  - type: Tag
+    tags:
+    - WhitelistChameleon

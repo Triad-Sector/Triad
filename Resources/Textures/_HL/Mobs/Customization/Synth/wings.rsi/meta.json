@@ -1,19 +1,19 @@
 {
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "By GitHub NotLivyathan Discord livyathan",
-    "size": {
-        "x": 32,
-        "y": 32
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By GitHub NotLivyathan Discord livyathan (298907041198637067)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "synth_wings",
+      "directions": 4
     },
-    "states": [
-        {
-            "name": "wings_synth",
-            "directions": 4
-        },
-        {
-            "name": "wings_synth_light",
-            "directions": 4
-        }
-    ]
+    {
+      "name": "synth_wings_light",
+      "directions": 4
+    }
+  ]
 }

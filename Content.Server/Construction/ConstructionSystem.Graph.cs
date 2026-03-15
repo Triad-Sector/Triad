@@ -400,9 +400,13 @@ namespace Content.Server.Construction
             RaiseLocalEvent(uid, entChangeEv);
             RaiseLocalEvent(newUid, entChangeEv, broadcast: true);
 
-            foreach (var logic in GetCurrentNode(newUid, newConstruction)!.TransformLogic)
+            var currentNode = GetCurrentNode(newUid, newConstruction);
+            if (currentNode != null)
             {
-                logic.Transform(uid, newUid, userUid, new(EntityManager));
+                foreach (var logic in currentNode.TransformLogic)
+                {
+                    logic.Transform(uid, newUid, userUid, new(EntityManager));
+                }
             }
 
             EntityManager.InitializeAndStartEntity(newUid);

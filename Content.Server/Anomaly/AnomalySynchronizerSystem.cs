@@ -47,27 +47,39 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<AnomalySynchronizerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var sync, out var xform))
+        var query = EntityQueryEnumerator<AnomalySynchronizerComponent>();
+        while (query.MoveNext(out var uid, out var sync))
         {
-            if (sync.ConnectedAnomaly is null)
+            if (!TryComp<TransformComponent>(uid, out var xform))
+                continue;
+
+            if (sync.ConnectedAnomaly is not { } anomalyUid)
                 continue;
 
             if (_timing.CurTime < sync.NextCheckTime)
                 continue;
             sync.NextCheckTime += sync.CheckFrequency;
 
-            if (Transform(sync.ConnectedAnomaly.Value).MapUid != Transform(uid).MapUid)
+            if (!EntityManager.EntityExists(anomalyUid)
+                || EntityManager.IsQueuedForDeletion(anomalyUid)
+                || TerminatingOrDeleted(anomalyUid)
+                || !TryComp<TransformComponent>(anomalyUid, out var anomalyXform))
             {
-                DisconnectFromAnomaly((uid, sync), sync.ConnectedAnomaly.Value);
+                DisconnectFromAnomaly((uid, sync), anomalyUid);
                 continue;
             }
 
-            if (!xform.Coordinates.TryDistance(EntityManager, Transform(sync.ConnectedAnomaly.Value).Coordinates, out var distance))
+            if (anomalyXform.MapUid != xform.MapUid)
+            {
+                DisconnectFromAnomaly((uid, sync), anomalyUid);
+                continue;
+            }
+
+            if (!xform.Coordinates.TryDistance(EntityManager, anomalyXform.Coordinates, out var distance))
                 continue;
 
             if (distance > sync.AttachRange)
-                DisconnectFromAnomaly((uid, sync), sync.ConnectedAnomaly.Value);
+                DisconnectFromAnomaly((uid, sync), anomalyUid);
         }
     }
 
@@ -141,6 +153,15 @@ public sealed partial class AnomalySynchronizerSystem : EntitySystem
     {
         if (ent.Comp.ConnectedAnomaly == anomaly)
             return;
+
+        if (!EntityManager.EntityExists(anomaly)
+            || EntityManager.IsQueuedForDeletion(anomaly)
+            || TerminatingOrDeleted(anomaly)
+            || !HasComp<TransformComponent>(ent)
+            || !HasComp<TransformComponent>(anomaly))
+        {
+            return;
+        }
 
         ent.Comp.ConnectedAnomaly = anomaly;
         //move the anomaly to the center of the synchronizer, for aesthetics.

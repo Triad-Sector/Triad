@@ -46,6 +46,7 @@
     AirlockGlassFlatpack: 4294967295 # Infinite
     AirlockShuttleFlatpack: 4294967295 # Infinite
     AirlockGlassShuttleFlatpack: 4294967295 # Infinite
+    AmeControllerUnanchoredFlatpack: 4294967295 # Infinite
     # Science
     MachineArtifactAnalyzerFlatpack: 4294967295 # Infinite
     TeslaGroundingRodFlatpack: 4294967295 # Infinite

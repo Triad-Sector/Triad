@@ -1,6 +1,7 @@
 - type: jobIcon
   parent: JobIcon
-  id: JobIconFuture
+  id: JobIconRadioHost
   icon:
-    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
-    state: Future
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: radiohost
+  jobName: job-name-radiohost

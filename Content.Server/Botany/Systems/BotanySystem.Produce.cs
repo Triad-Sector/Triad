@@ -37,6 +37,8 @@ public sealed partial class BotanySystem
             solutionContainer.MaxVolume += amount;
             solutionContainer.AddReagent(chem, amount);
         }
+
+        UpdateProduceStackSignature(uid, produce, solutionContainer);
     }
 
     public void OnProduceExamined(EntityUid uid, ProduceComponent comp, ExaminedEvent args)

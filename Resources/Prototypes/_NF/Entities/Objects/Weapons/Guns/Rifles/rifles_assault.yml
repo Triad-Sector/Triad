@@ -1,10 +1,10 @@
 #region WizDen
 - type: entity # TODO: switch to .25 rifle (caseless)
   id: NFWeaponRifleAssaultSm
-  parent: [ NFBaseWeaponRifleAssaultChamber30, NFBaseWeaponFrameRifleAssaultCybersun ]
+  parent: [ BaseWeaponRifle, BaseC3ExpeditionContraband, WeaponRifleAnnie ] # Reparented to use 762x39 instead of .30 rifle, basic C3 instead of syndie. Hardlight
   name: Soland-Moss # Renamed: real brand name
   description: |-
-    An iconic weapon of war. An illegal firearm often used by Syndicate agents.
+    A heavy assault rifle designed to provide suppressive fire to enemy positions. All serial numbers have been expertly removed, rendering this rifle extremely illegal. Uses 762x39 magazines.
   components:
   - type: Clothing
     sprite: _NF/Objects/Weapons/Guns/Rifles/solandmoss.rsi

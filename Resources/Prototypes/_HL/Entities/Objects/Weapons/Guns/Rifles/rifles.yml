@@ -1,0 +1,59 @@
+- type: entity
+  name: forged rifle (762x39/556, 635/762x54R)
+  parent: [ BaseWeaponRifle, BaseC1Contraband ]
+  id: WeaponRifleForged
+  description: Looks like it was made in a shed by three sleep deprived gun afficionados that once saw an old earth gun at some point in their life.
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Rifles/forgedrifle.rsi
+    layers:
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _HL/Objects/Weapons/Guns/Rifles/forgedrifle.rsi
+  - type: Gun
+    fireRate: 4.5
+    burstFireRate: 8
+    shotsPerBurst: 3
+    burstCooldown: 0.4
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_NF/Weapons/Guns/Gunshots/rifle.ogg
+      params:
+        volume: -5
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556/762x39Improvised
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - ForgedRifleMagazine
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge762x39mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge762x39mmFMJ
+            - Cartridge762x54mmRFMJ
+            - Cartridge635x40mmCaseless
+            - Cartridge556x45mm
+            - Cartridge556x45mmImprovised
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

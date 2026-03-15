@@ -68,3 +68,11 @@
   components:
   - type: GridSpawner
     path: /Maps/_HL/drones/sgbyte.yml
+    
+- type: entity
+  id: XenoborgTransistorHub
+  parent: XenoborgDroneBase
+  name: xenoborg transistor hub
+  components:
+  - type: GridSpawner
+    path: /Maps/_HL/drones/transistorhub.yml

@@ -24,14 +24,6 @@
         groups:
           Burn: 3
 
-#- type: trait
-#  id: Unclonable
-#  name: trait-unclonable-name
-#  description: trait-unclonable-desc
-#  category: Disabilities
-#  components:
-#    - type: Unclonable
-
 # Upstream
 - type: trait
   id: WheelchairBound
