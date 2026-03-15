@@ -46,6 +46,8 @@
   - GenpopEnter
   - GenpopLeave
   - StationCaptain #Hardlight
+  - Genetics # HL
+  - Journalism # HL
 
 - type: accessGroup
   id: General
