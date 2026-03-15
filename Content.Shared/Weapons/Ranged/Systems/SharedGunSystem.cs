@@ -545,7 +545,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var physics = _physQuery.CompOrNull(uid) ?? EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
 
-        var targetVelocity = gunVelocity + direction.Normalized() * speed;
+        var targetVelocity = -gunVelocity + direction.Normalized() * speed;
         Physics.SetLinearVelocity(uid, targetVelocity, body: physics);
         // Mono
         if (offset != 0f)
