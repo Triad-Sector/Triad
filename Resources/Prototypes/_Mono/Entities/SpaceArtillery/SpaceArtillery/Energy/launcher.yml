@@ -331,7 +331,7 @@
   - type: FireControlRotate
   - type: Gun
     fireRate: 4.0
-    projectileSpeed: 40
+    projectileSpeed: 55
     minAngle: 0
     maxAngle: 5
     soundGunshot:
