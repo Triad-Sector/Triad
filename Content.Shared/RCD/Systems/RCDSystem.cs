@@ -73,6 +73,8 @@ public sealed class RCDSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, RCDComponent component, MapInitEvent args)
     {
+        SanitizeLinkedShuttle(uid, component);
+
         // On init, set the RCD to its first available recipe
         if (component.AvailablePrototypes.Count > 0)
         {
@@ -142,6 +144,8 @@ public sealed class RCDSystem : EntitySystem
         // Is this id card interacting with a shipyard RCD? If not, ignore it.
         if (!TryComp<RCDComponent>(rcdEntityUid, out var rcdComponent) || !rcdComponent.IsShipyardRCD)
             return;
+
+        SanitizeLinkedShuttle(rcdEntityUid, rcdComponent);
 
         // RCD found, we're handling this event.
         args.Handled = true;
@@ -317,6 +321,8 @@ public sealed class RCDSystem : EntitySystem
         // Frontier - LinkedShuttleUid requirements to use Shipyard RCD.
         if (comp.IsShipyardRCD)
         {
+            SanitizeLinkedShuttle(uid, comp);
+
             if (comp.LinkedShuttleUid == null)
             {
                 _popup.PopupClient(Loc.GetString("rcd-component-no-id-swiped"), uid, args.User);
@@ -336,6 +342,20 @@ public sealed class RCDSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private void SanitizeLinkedShuttle(EntityUid uid, RCDComponent component)
+    {
+        if (component.LinkedShuttleUid is not { } linked)
+            return;
+
+        if (EntityManager.EntityExists(linked))
+            return;
+
+        component.LinkedShuttleUid = null;
+
+        if (_net.IsServer)
+            Dirty(uid, component);
     }
     // End Frontier: grid-bound RCD
 
