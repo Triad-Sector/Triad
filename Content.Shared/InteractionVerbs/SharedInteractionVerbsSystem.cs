@@ -380,11 +380,11 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
             var locPrefix = $"interaction-{proto.ID}-{prefix.ToString().ToLower()}";
 
             var userIdentity = user.Valid && EntityManager.EntityExists(user)
-                ? Identity.Entity(user, EntityManager).ToString()
-                : ToPrettyString(user).ToString();
+                ? Identity.Entity(user, EntityManager)
+                : EntityUid.Invalid;
             var targetIdentity = target.Valid && EntityManager.EntityExists(target)
-                ? Identity.Entity(target, EntityManager).ToString()
-                : ToPrettyString(target).ToString();
+                ? Identity.Entity(target, EntityManager)
+                : EntityUid.Invalid;
 
             (string, object)[] localeArgs =
             [
