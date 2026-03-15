@@ -10,8 +10,15 @@
     WeaponShotgunKammerer: 6
     #Hardlight end
   # Magazines
+    NFMagazinePistol35Empty: 6
+    NFMagazineLowCapacityRifle30Empty: 6
+    NFMagazineClipRifle20Empty: 6
   # Ammo boxes
-    AmmoBox12_gaugeBeanbag: 6
+    NFAmmunitionBoxPistol35: 6
+    AmmoBox556x45mmBigFMJ: 6  # Hardlight change
+    NFAmmunitionBoxRifle30: 6
+    AmmoBox12_gaugeBuckshot: 6 # Hardlight change
+    NFAmmunitionBoxShellShotgunBeanbag: 6
   emaggedInventory:
 
 - type: vendingMachineInventory
@@ -28,13 +35,11 @@
     Magazine9x19mmPistolFMJ: 4294967295
     MagazineNovaliteC1: 4294967295
     Magazine762x39mmLowCapacityFMJ: 4294967295
-    Magazine45_ACPPistolFMJ: 4294967295
   # Hardlight end
   # Ammo boxes
     AmmoBox9x19mmBigFMJ: 4294967295
     AmmoBox556x45mmBigFMJ: 4294967295
     AmmoBox762x39mmBigFMJ: 4294967295
-    AmmoBox45_ACPBigFMJ: 4294967295
     AmmoBox12_gaugeBuckshot: 4294967295
     AmmoBox45_ACPBigFMJ: 4294967295 #Triad change
     AmmoBox45_magnumFMJ: 4294967295 #Triad change
