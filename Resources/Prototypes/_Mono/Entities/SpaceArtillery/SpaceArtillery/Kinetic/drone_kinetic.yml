@@ -18,7 +18,7 @@
     range: 500
   - type: Gun
     fireRate: 0.4
-    recoil: 10 # 2/5x
+    recoil: 0 # 2/5x
     projectileSpeed: 350
     minAngle: 0
     maxAngle: 0
@@ -83,7 +83,7 @@
     range: 500
   - type: Gun
     fireRate: 0.1
-    recoil: 25 # 1x
+    recoil: 0 # 1x
     projectileSpeed: 600
     minAngle: 0
     maxAngle: 0
