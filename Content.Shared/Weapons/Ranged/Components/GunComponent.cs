@@ -289,7 +289,7 @@ public sealed partial class GunComponent : Component
     /// Recoil to incur per ammo shot, kg*m/s.
     /// </summary>
     [DataField]
-    public float Recoil = 25f;
+    public float Recoil = 0f;
 }
 
 [Flags]
