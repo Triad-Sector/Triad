@@ -278,7 +278,7 @@
     range: 500
   - type: Gun
     fireRate: 0.5
-    recoil: 10
+    recoil: 0
     # shootThermalSignature: 32000000 # Deprecated field removed
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
