@@ -1,6 +1,8 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Atmos;
+using Robust.Shared.Player;
+using Robust.Shared;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
@@ -535,6 +537,9 @@ namespace Content.Server.Atmos.EntitySystems
             var ev = new AtmosDeviceUpdateEvent(RealAtmosTime(), (ent, ent.Comp1, ent.Comp2), map);
             while (atmosphere.CurrentRunAtmosDevices.TryDequeue(out var device))
             {
+                if (!HasPlayerInRange(device.Owner))
+                    continue;
+
                 RaiseLocalEvent(device, ref ev);
                 device.Comp.LastProcess = time;
 
@@ -550,6 +555,19 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             return true;
+        }
+
+        private bool HasPlayerInRange(EntityUid uid)
+        {
+            var range = _cfg.GetCVar(CVars.NetMaxUpdateRange);
+            var coords = Transform(uid).Coordinates;
+
+            foreach (var _ in _lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void UpdateProcessing(float frameTime)

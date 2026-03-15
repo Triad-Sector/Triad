@@ -15,6 +15,8 @@ stack-reinforced-plasma-glass = reinforced plasma glass
 stack-reinforced-uranium-glass = reinforced uranium glass
 stack-gunpowder = gunpowder
 stack-cardboard = cardboard
+stack-botany-produce = produce
+stack-botany-seed = seeds
 
 stack-bones = {$amount ->
     [1] bone

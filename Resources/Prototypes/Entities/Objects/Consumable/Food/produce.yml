@@ -15,6 +15,11 @@
   - type: SolutionContainerManager
   - type: Sprite
     state: produce
+  - type: Stack
+    stackType: BotanyProduce
+    count: 1
+  - type: StackSignature
+  - type: StackSpawnSelf
   # let cows eat raw produce like wheat and oats
   - type: Food
     requiredStomachs: 2
@@ -34,6 +39,11 @@
   - type: SolutionContainerManager
   - type: Sprite
     state: produce
+  - type: Stack
+    stackType: BotanyProduce
+    count: 1
+  - type: StackSignature
+  - type: StackSpawnSelf
   - type: Produce
   - type: PotencyVisuals
   - type: Appearance

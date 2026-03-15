@@ -24,6 +24,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Content.Shared.Power;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -45,6 +48,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -345,6 +349,9 @@ namespace Content.Server.Psionics.Glimmer
 
                     while (reactives.MoveNext(out var reactiveUid, out var reactiveComp))
                     {
+                        if (!HasPlayerInRange(reactiveUid))
+                            continue;
+
                         UpdateEntityState(reactiveUid, reactiveComp, currentGlimmerTier, glimmerTierDelta);
                         RaiseLocalEvent(reactiveUid, ev);
                     }
@@ -358,6 +365,9 @@ namespace Content.Server.Psionics.Glimmer
                     GhostsVisible = true;
                     while (reactives.MoveNext(out var reactiveUid, out var reactiveComp))
                     {
+                        if (!HasPlayerInRange(reactiveUid))
+                            continue;
+
                         BeamRandomNearProber(reactiveUid, 1, 12);
                     }
                 }
@@ -369,6 +379,19 @@ namespace Content.Server.Psionics.Glimmer
                 }
                 Accumulator = 0;
             }
+        }
+
+        private bool HasPlayerInRange(EntityUid uid)
+        {
+            var range = _cfg.GetCVar(CVars.NetMaxUpdateRange);
+            var coords = Transform(uid).Coordinates;
+
+            foreach (var _ in _entityLookupSystem.GetEntitiesInRange<ActorComponent>(coords, range))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 

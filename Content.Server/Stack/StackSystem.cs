@@ -99,6 +99,9 @@ namespace Content.Server.Stack
                     if (string.IsNullOrEmpty(stack.StackTypeId) || !stack.StackTypeId.Equals(nearbyStack.StackTypeId))
                         continue;
 
+                    if (!StackSignaturesCompatible(uid, nearbyUid))
+                        continue;
+
                     // Calculate how much to transfer
                     var transferred = Math.Min(nearbyStack.Count, GetAvailableSpace(stack));
                     if (transferred <= 0)
@@ -151,6 +154,10 @@ namespace Content.Server.Stack
             var prototype = _prototypeManager.TryIndex<StackPrototype>(stack.StackTypeId, out var stackType)
                 ? stackType.Spawn.ToString()
                 : Prototype(uid)?.ID;
+
+            var selfPrototype = Prototype(uid)?.ID;
+            if (HasComp<StackSpawnSelfComponent>(uid) && selfPrototype != null)
+                prototype = selfPrototype;
 
             // Set the output parameter in the event instance to the newly split stack.
             var entity = Spawn(prototype, spawnPosition);

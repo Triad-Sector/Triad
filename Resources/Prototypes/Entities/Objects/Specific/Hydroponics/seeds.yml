@@ -21,6 +21,11 @@
             False: { visible: false }
     - type: Item
       size: Tiny
+    - type: Stack
+      stackType: BotanySeed
+      count: 1
+    - type: StackSignature
+    - type: StackSpawnSelf
     - type: StaticPrice
       price: 20
     - type: ItemSlots

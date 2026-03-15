@@ -28,6 +28,9 @@ using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using Content.Shared._NF.BindToStation; // Frontier
 using Content.Server.Station.Systems; // Frontier
+using Robust.Shared.Configuration;
+using Robust.Shared.Player;
+using Robust.Shared;
 
 namespace Content.Server.Botany.Systems;
 
@@ -48,6 +51,8 @@ public sealed class PlantHolderSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly StationSystem _station = default!; // Frontier
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public const float HydroponicsSpeedMultiplier = 1f;
     public const float HydroponicsConsumptionMultiplier = 2f;
@@ -73,10 +78,30 @@ public sealed class PlantHolderSystem : EntitySystem
         {
             if (plantHolder.NextUpdate > _gameTiming.CurTime)
                 continue;
+
+            if (!HasPlayerInRange(uid))
+            {
+                plantHolder.NextUpdate = _gameTiming.CurTime + plantHolder.UpdateDelay;
+                continue;
+            }
+
             plantHolder.NextUpdate = _gameTiming.CurTime + plantHolder.UpdateDelay;
 
             Update(uid, plantHolder);
         }
+    }
+
+    private bool HasPlayerInRange(EntityUid uid)
+    {
+        var range = _cfg.GetCVar(CVars.NetMaxUpdateRange);
+        var coords = Transform(uid).Coordinates;
+
+        foreach (var _ in _lookup.GetEntitiesInRange<ActorComponent>(coords, range))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private int GetCurrentGrowthStage(Entity<PlantHolderComponent> entity)

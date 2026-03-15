@@ -39,6 +39,9 @@ public sealed partial class BotanySystem : EntitySystem
 
         SubscribeLocalEvent<SeedComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ProduceComponent, ExaminedEvent>(OnProduceExamined);
+        SubscribeLocalEvent<SeedComponent, ComponentStartup>(OnSeedStartup);
+        SubscribeLocalEvent<ProduceComponent, ComponentStartup>(OnProduceStartup);
+        SubscribeLocalEvent<ProduceComponent, SolutionContainerChangedEvent>(OnProduceSolutionChanged);
     }
 
     public bool TryGetSeed(SeedComponent comp, [NotNullWhen(true)] out SeedData? seed)
@@ -108,6 +111,7 @@ public sealed partial class BotanySystem : EntitySystem
         var seedComp = EnsureComp<SeedComponent>(seed);
         seedComp.Seed = proto;
         seedComp.HealthOverride = healthOverride;
+        UpdateSeedStackSignature(seed, seedComp);
 
         var name = Loc.GetString(proto.Name);
         var noun = Loc.GetString(proto.Noun);
