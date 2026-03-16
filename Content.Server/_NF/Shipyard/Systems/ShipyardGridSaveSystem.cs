@@ -58,9 +58,10 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
     // List of currency prototypes that should be stripped from ship saves.
     private static readonly HashSet<string> NonPersistentShipSaveCurrencies = new(StringComparer.Ordinal)
     {
-        "FrontierUplinkCoin",
-        "Telecrystal",
-        "Doubloon",
+        // "FrontierUplinkCoin",
+        // "Telecrystal",
+        // "Doubloon",
+        // triad change rare enough for these who cares
     };
 
     // Implants that should not persist when found inside implanters during ship save.
