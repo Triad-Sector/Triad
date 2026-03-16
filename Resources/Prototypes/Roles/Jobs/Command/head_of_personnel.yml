@@ -51,6 +51,8 @@
     - Atmospherics
     - Medical
     - Frontier
+    - Journalism # HL
+    - Genetics # HL
     accessGroups:
     - GeneralAccess # Frontier: default access
     - AllAccess
