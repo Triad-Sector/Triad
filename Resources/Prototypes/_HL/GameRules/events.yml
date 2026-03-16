@@ -84,12 +84,12 @@
     #Triad end
 
     - id: ArgocyteVents
-    #- id: XenoVents
+    #- id: XenoVents Triad
     - id: reagentslimeVents
     - id: SpaceVents
     - id: CarpVents
     - id: TickVents
-    - id: AiVents
+    #- id: AiVents Triad
     - id: LizardVents
     - id: WawaVents
 
@@ -109,7 +109,7 @@
     - id: SleeperAgents
     - id: SleeperRevolutionaries
     - id: ZombieOutbreak
-    - id: LoneOpsSpawn
+    #- id: LoneOpsSpawn
     #- id: WizardSpawn
 
   # Triad change
@@ -302,7 +302,7 @@
       pickPlayer: false
       mindRoles:
       - MindRoleDragon
-      
+
 - type: entity
   parent: BaseGameRule
   id: MagicDragonSpawn
@@ -335,7 +335,7 @@
       pickPlayer: false
       mindRoles:
       - MindRoleDragon
-      
+
 - type: entity
   parent: BaseGameRule
   id: HoloDragonSpawn
