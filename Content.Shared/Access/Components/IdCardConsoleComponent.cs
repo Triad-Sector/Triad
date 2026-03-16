@@ -84,8 +84,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Arcadia",
         "Cartel",
         "CartelLieutenant",
-        "Journalism", //Goob
-        "Genetics" // HL
+        "Journalism" //Goob
     };
 
     [Serializable, NetSerializable]

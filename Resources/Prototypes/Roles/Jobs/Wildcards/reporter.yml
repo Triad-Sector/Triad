@@ -10,7 +10,6 @@
   access: # Frontier
   - Service # Frontier
   - Maintenance # Frontier
-  - Journalism # HL
   accessGroups: # Frontier
   - GeneralAccess # Frontier
 
