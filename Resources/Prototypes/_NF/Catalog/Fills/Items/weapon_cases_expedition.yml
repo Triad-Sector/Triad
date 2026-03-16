@@ -412,7 +412,7 @@
     contents:
     - id: NFWeaponRifleAssaultNovaliteC1Expedition
       amount: 1
-    - id: NFMagazineClipRifle20
+    - id: MagazineNovaliteC1
       amount: 2
 
 - type: entity
@@ -505,7 +505,7 @@
       amount: 1
     - id: Magazine635x40mmCaseless
       amount: 2
-    - id: NFAmmunitionBoxBigRifle25
+    - id: AmmoBox635x40mmCaselessBig
       amount: 1
 
 #region Energy
