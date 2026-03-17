@@ -65,7 +65,7 @@ public abstract class SharedPortalSystem : EntitySystem
                 var ent = link.LinkedEntities.First();
                 
                 // Validate the entity exists and has a transform before attempting teleport
-                if (!Exists(ent) || !TryComp<TransformComponent>(ent, out var entXform))
+                if (!Exists(ent) || !TryComp(ent, out TransformComponent? entXform))
                     return;
                     
                 TeleportEntity(uid, args.User, entXform.Coordinates, ent, false);
@@ -96,8 +96,11 @@ public abstract class SharedPortalSystem : EntitySystem
 
         var subject = args.OtherEntity;
 
+        if (!TryComp(subject, out TransformComponent? subjectXform))
+            return;
+
         // best not.
-        if (Transform(subject).Anchored)
+        if (subjectXform.Anchored)
             return;
 
         // break pulls before portal enter so we dont break shit
@@ -136,6 +139,9 @@ public abstract class SharedPortalSystem : EntitySystem
             // pick a target and teleport there
             var target = _random.Pick(link.LinkedEntities);
 
+            if (!TryComp(target, out TransformComponent? targetXform))
+                return;
+
             if (HasComp<PortalComponent>(target))
             {
                 // if target is a portal, signal that they shouldn't be immediately portaled back
@@ -144,7 +150,7 @@ public abstract class SharedPortalSystem : EntitySystem
                 Dirty(subject, timeout);
             }
 
-            TeleportEntity(uid, subject, Transform(target).Coordinates, target);
+            TeleportEntity(uid, subject, targetXform.Coordinates, target);
             return;
         }
 
