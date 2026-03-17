@@ -30,6 +30,8 @@
         - BorgModuleTool
         - BorgModuleDiagnosis
         - BorgModuleTreatment
+  - type: SurgerySpeedModifier #shitmed
+    speedModifier: 1.75
   - type: ItemSlots
     slots:
       cell_slot:
@@ -37,7 +39,7 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [NFNamesBorg]
-    
+
 - type: entity
   id: PlayerBorgQuadsalv
   parent: BorgChassisQuadsalv
@@ -77,7 +79,7 @@
         startingItem: PowerCellMedium
   - type: RandomMetadata
     nameSegments: [NFNamesBorg]
-    
+
 - type: entity
   id: PlayerBorgQuad
   parent: BorgChassisQuadSec

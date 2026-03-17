@@ -30,6 +30,7 @@ ledger-entry-type-CargoTax = Cargo Taxes
 ledger-entry-type-MailDelivered = Mail Payments
 ledger-entry-type-BlackMarketAtmTax = Anon. Benefactors
 ledger-entry-type-BlackMarketShipyardTax = Anon. Scrap Resale
+ledger-entry-type-PowerTransmission = Energy Exports
 ledger-entry-type-BluespaceReward = Guard Duty Rewards
 ledger-entry-type-MedicalBountyTax = Medical Bounties
 ledger-entry-type-AntiSmugglingBonus = Anti-Smuggling
