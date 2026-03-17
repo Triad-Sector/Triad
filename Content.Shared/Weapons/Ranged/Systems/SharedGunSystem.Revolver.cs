@@ -447,7 +447,9 @@ public partial class SharedGunSystem
             else
             {
                 component.AmmoSlots[i] = null;
-                Containers.Remove(slot.Value, component.AmmoContainer);
+                if (TryComp(slot.Value, out TransformComponent? _))
+                    Containers.Remove(slot.Value, component.AmmoContainer);
+
                 component.Chambers[i] = null;
 
                 if (!_netManager.IsClient)

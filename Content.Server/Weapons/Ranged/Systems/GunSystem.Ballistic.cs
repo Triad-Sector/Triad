@@ -20,7 +20,9 @@ public sealed partial class GunSystem
             if (!Exists(existing))
                 continue;
 
-            Containers.Remove(existing, component.Container);
+            if (TryComp(existing, out TransformComponent? _))
+                Containers.Remove(existing, component.Container);
+
             EnsureShootable(existing);
             break;
         }
