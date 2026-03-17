@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CrateEngineeringTEGPurchase #HL
+  icon:
+    sprite: Structures/Storage/Crates/engineering.rsi
+    state: icon
+  product: CrateEngineeringTEG
+  cost: 30000
+  category: cargoproduct-category-name-engineering
+  group: market

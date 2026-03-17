@@ -280,6 +280,14 @@
     prefab: random
 
 - type: entity
+  id: NuclearReactorSmallEmpty #HL - Why didn't they already have one of these?
+  parent: NuclearReactorSmall
+  suffix: Empty
+  components:
+  - type: NuclearReactor
+    prefab: empty
+
+- type: entity
   id: NuclearReactorSmallMelted
   parent: NuclearReactorMelted
   suffix: Melted

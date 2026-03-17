@@ -498,6 +498,7 @@
     - MechBoardsPlus
     - MonoAdvancedShuttleComponents # Hardlight
     - CivShuttleWeapons # HL
+    - ReactorCircuitboards # HL
   - type: EmagLatheRecipes
     emagDynamicPacks: # Frontier: empty list
     - SecurityBoards # Frontier
