@@ -45,7 +45,17 @@ public sealed partial class GibActionSystem : EntitySystem
         }
 
         // If they aren't given the action, remove it.
-        _actionsSystem.RemoveAction(uid, comp.ActionEntity);
+        if (comp.ActionEntity == null)
+            return;
+
+        if (_actionsSystem.TryGetActionData(comp.ActionEntity, out var action, logError: false) && action.AttachedEntity == uid)
+        {
+            _actionsSystem.RemoveAction(uid, comp.ActionEntity);
+            return;
+        }
+
+        comp.ActionEntity = null;
+        Dirty(uid, comp);
     }
     
     private void OnGibAction(EntityUid uid, GibActionComponent comp, GibActionEvent args)
