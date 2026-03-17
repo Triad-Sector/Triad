@@ -31,6 +31,7 @@ public enum LedgerEntryType : byte
     BlackMarketAtmTax,
     BlackMarketShipyardTax,
     BluespaceReward,
+    PowerTransmission,
     AntiSmugglingBonus,
     MedicalBountyTax,
     StationDepositFines,
