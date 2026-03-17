@@ -613,6 +613,8 @@
     - Medical
     - Science
     - Common
+  - type: SurgerySpeedModifier #shitmed
+    speedModifier: 1.75
   # HardLight end
   - type: BorgChassis
     maxModules: 7
