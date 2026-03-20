@@ -49,9 +49,15 @@
 - type: markingPoints
   id: MobSkrellMarkingLimits
   points:
+    Special: # For headdresses specifically
+      points: 1 # So you can't stack them all at once
+      required: true
     Hair:
       points: 0
       required: false
+    Tail:
+      points: 1
+      required: true
     FacialHair:
       points: 0
       required: false
@@ -73,9 +79,6 @@
       required: false
     Legs:
       points: 4
-      required: false
-    Tail:
-      points: 1
       required: false
     UndergarmentTop:
       points: 1
