@@ -33,6 +33,7 @@ entities:
     - type: Transform
     - type: BecomesStation
       id: Hypnos
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

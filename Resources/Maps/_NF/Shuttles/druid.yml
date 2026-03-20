@@ -717,6 +717,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Druid
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 108

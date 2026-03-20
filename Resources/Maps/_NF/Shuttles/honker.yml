@@ -30,6 +30,7 @@ entities:
       pos: -0.6250305,0.875
     - type: BecomesStation
       id: Honker
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

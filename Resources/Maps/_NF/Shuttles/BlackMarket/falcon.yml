@@ -51,6 +51,7 @@ entities:
       pos: -2.7605057,11.507959
     - type: BecomesStation
       id: Falcon
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

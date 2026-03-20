@@ -1031,6 +1031,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Gasbender
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

@@ -442,6 +442,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Duchess
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 231

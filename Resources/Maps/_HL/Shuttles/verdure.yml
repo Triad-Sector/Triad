@@ -541,6 +541,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Verdure
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

@@ -36,6 +36,7 @@ entities:
       pos: -0.4917612,-0.4486041
     - type: BecomesStation
       id: Paladin
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

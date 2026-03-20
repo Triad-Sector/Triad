@@ -1036,6 +1036,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Phoenix
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

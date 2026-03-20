@@ -521,6 +521,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Courier
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 96

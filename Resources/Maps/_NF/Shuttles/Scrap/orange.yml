@@ -546,6 +546,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Orange
+    - type: InitRepairSnapshot
 - proto: AirlockCargoGlass
   entities:
   - uid: 2

@@ -266,6 +266,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Tide
+    - type: InitRepairSnapshot
 - proto: AirlockAssemblyMaintenance
   entities:
   - uid: 84

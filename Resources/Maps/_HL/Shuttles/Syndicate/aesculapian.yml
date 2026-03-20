@@ -665,6 +665,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Aesculapian
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

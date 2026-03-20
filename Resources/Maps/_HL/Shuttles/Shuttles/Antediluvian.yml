@@ -1099,6 +1099,7 @@ entities:
       parent: 1
     - type: BecomesStation
       id: Antidiluvian
+    - type: InitRepairSnapshot
 - proto: ComputerWallmountStationRecords
   entities:
   - uid: 150

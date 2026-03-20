@@ -1129,6 +1129,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
+    - type: InitRepairSnapshot
       id: Deterrence
     - type: IFF
       color: '#FFFFFFFF'

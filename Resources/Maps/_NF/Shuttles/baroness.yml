@@ -463,6 +463,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Baroness
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 160

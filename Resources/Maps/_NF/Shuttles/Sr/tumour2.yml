@@ -83,6 +83,7 @@ entities:
       fixtures: {}
     - type: BecomesStation
       id: Tumour
+    - type: InitRepairSnapshot
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding

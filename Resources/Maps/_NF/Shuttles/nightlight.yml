@@ -706,6 +706,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Nightlight
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

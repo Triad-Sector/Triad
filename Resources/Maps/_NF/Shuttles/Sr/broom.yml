@@ -185,6 +185,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Broom
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 56

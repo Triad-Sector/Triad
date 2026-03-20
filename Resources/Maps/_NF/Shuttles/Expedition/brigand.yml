@@ -737,6 +737,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Brigand
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

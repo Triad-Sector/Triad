@@ -246,6 +246,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Syringe
+    - type: InitRepairSnapshot
     - type: IFF
       color: '#FFFFFFFF'
     - type: NavMap

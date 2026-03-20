@@ -37,6 +37,7 @@ entities:
       pos: -0.53125,-0.55733174
     - type: BecomesStation
       id: Bookworm
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

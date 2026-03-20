@@ -641,6 +641,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Eagle
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

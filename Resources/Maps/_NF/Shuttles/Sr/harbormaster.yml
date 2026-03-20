@@ -391,6 +391,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Harbormaster
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 135

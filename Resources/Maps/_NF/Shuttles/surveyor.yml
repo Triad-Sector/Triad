@@ -477,6 +477,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Surveyor
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

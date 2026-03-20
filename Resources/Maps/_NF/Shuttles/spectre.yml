@@ -1212,6 +1212,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Spectre
+    - type: InitRepairSnapshot
     - type: NavMap
 - proto: AirAlarm
   entities:

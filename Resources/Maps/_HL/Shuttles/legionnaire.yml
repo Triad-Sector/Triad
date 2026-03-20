@@ -69,6 +69,7 @@ entities:
       fixtures: {}
     - type: BecomesStation
       id: Legionnaire
+    - type: InitRepairSnapshot
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding

@@ -563,6 +563,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Kilderkin
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

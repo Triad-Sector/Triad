@@ -28,6 +28,7 @@ entities:
       pos: 0.84375,0.34375
     - type: BecomesStation
       id: Cleric
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

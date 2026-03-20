@@ -2207,6 +2207,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: NSV Shield of Perseus
+    - type: InitRepairSnapshot
     - type: IFF
       color: '#1B67A5FF'
     - type: TradeStation

@@ -480,6 +480,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Prowler
+    - type: InitRepairSnapshot
 - proto: AirlockExternalGlassNfsdLocked
   entities:
   - uid: 2

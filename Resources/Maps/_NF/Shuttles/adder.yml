@@ -32,6 +32,7 @@ entities:
       pos: -0.546875,-0.5
     - type: BecomesStation
       id: Adder
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

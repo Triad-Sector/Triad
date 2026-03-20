@@ -474,6 +474,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Stalker
+    - type: InitRepairSnapshot
     - type: IFF
       color: '#FFFFFFFF'
 - proto: AirAlarm

@@ -724,6 +724,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Sprinter
+    - type: InitRepairSnapshot
 - proto: AirCanister
   entities:
   - uid: 446

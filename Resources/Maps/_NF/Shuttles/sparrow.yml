@@ -311,6 +311,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Sparrow
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
 - proto: AirAlarm
   entities:

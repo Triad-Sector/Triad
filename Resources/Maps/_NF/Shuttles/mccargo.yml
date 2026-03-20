@@ -33,6 +33,7 @@ entities:
       pos: -0.5,-0.6875
     - type: BecomesStation
       id: McCargo
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

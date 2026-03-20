@@ -155,6 +155,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Canister
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 62

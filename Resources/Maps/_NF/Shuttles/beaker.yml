@@ -335,6 +335,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Beaker
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 172

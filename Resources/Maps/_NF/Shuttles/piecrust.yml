@@ -391,6 +391,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Piecrust
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
     - type: NavMap
 - proto: AirAlarm

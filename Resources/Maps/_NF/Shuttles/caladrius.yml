@@ -2309,6 +2309,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Caladrius
+    - type: InitRepairSnapshot
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1123

@@ -505,6 +505,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Barge
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
 - proto: AirAlarm
   entities:

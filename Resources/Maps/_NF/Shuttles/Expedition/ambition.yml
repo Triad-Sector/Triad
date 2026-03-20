@@ -1115,6 +1115,7 @@ entities:
             396: 5.432822,31.961815
     - type: BecomesStation
       id: Ambition
+    - type: InitRepairSnapshot
     - type: GridAtmosphere
       version: 2
       data:

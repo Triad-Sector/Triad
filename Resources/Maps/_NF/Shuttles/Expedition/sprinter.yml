@@ -886,6 +886,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Sprinter
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

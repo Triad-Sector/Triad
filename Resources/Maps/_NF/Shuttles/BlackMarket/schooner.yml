@@ -799,6 +799,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Schooner
+    - type: InitRepairSnapshot
 - proto: AccordionInstrument
   entities:
   - uid: 382

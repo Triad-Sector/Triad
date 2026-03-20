@@ -677,6 +677,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Mayhem
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 3

@@ -478,6 +478,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Liquidator
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

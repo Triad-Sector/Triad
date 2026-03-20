@@ -657,6 +657,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Bodkin
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 83

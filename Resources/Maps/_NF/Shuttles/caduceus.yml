@@ -908,6 +908,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Caduceus
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 1169

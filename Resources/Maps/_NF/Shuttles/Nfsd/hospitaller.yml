@@ -198,6 +198,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Hospitaller
+    - type: InitRepairSnapshot
 - proto: AirlockExternalGlassShuttleSecUnlocked
   entities:
   - uid: 4

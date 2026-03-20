@@ -296,6 +296,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: PTS
+    - type: InitRepairSnapshot
 - proto: AirlockCommandGlass
   entities:
   - uid: 2

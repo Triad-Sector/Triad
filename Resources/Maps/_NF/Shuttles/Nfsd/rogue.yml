@@ -29,6 +29,7 @@ entities:
       pos: 2.2425354,-3.692793
     - type: BecomesStation
       id: Rogue
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

@@ -1007,6 +1007,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Crescent
+    - type: InitRepairSnapshot
 - proto: ActionToggleLight
   entities:
   - uid: 1130

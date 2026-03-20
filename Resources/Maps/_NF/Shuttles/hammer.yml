@@ -70,6 +70,7 @@ entities:
     - type: SpreaderGrid
     - type: BecomesStation
       id: Hammer
+    - type: InitRepairSnapshot
     - type: Shuttle
     - type: GridPathfinding
     - type: Gravity

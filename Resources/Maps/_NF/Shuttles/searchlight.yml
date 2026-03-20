@@ -461,6 +461,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Searchlight
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

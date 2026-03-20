@@ -794,6 +794,7 @@ entities:
         chunkSize: 4
     - type: BecomesStation
       id: Vitalis
+    - type: InitRepairSnapshot
     - type: OccluderTree
     - type: GasTileOverlay
     - type: RadiationGridResistance
