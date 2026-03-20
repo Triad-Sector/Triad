@@ -8,6 +8,8 @@
 #  - type: Anchorable
 #    flags:
 #    - Anchorable
+  - type: Transform
+    noRot: false
   - type: Rotatable
   - type: Sprite
     noRot: true

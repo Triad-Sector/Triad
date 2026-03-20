@@ -101,6 +101,7 @@
       stopSearchVerbPopup: positronic-brain-stopped-searching
       job: Borg
     - type: Organ
+      slotId: brain
     - type: Brain
     - type: BlockMovement
     - type: Examiner

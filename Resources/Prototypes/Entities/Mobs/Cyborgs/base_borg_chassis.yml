@@ -70,12 +70,12 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
+      #enum.SurgeryUIKey.Key: # Disabled: borgs are silicon, not surgery targets
+      #  type: SurgeryBui
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
-  - type: Targeting # Shitmed Change
-  - type: SurgeryTarget
+  #- type: Targeting # Shitmed Change - Disabled: borgs are silicon, not surgery targets
+  #- type: SurgeryTarget
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
