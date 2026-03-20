@@ -196,5 +196,5 @@
   chemicals:
     Primatine:
       Min: 4
-      Max: 16
+      Max: 14
       PotencyDivisor: 10
