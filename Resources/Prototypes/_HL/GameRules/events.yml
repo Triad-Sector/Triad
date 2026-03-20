@@ -92,6 +92,16 @@
     #- id: AiVents Triad
     - id: LizardVents
     - id: WawaVents
+    - id: GiftsEngineering
+    - id: GiftsFireProtection
+    - id: GiftsJanitor
+    - id: GiftsMedical
+    - id: GiftsPizzaPartyLarge
+    - id: GiftsPizzaPartySmall
+    - id: GiftsSecurityGuns
+    - id: GiftsSecurityRiot
+    - id: GiftsSpacingSupplies
+    - id: GiftsVendingRestock
 
 - type: entityTable
   id: BasicAntagEventsTable
