@@ -553,6 +553,22 @@
   - ScienceForcedOuterClothing
 # HL end
 
+# HL start - Delta-V Mantis loadout
+- type: roleLoadout
+  id: JobForensicMantis
+  groups:
+  - GroupTankHarness
+  - MantisHead
+  - MantisJumpsuit
+  - ScientistBackpack
+  - MantisOuterClothing
+  - MantisShoes
+  - MantisGloves
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+# HL end
+
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity

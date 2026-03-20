@@ -464,6 +464,40 @@
   fallbacks:
   - ClothingShoesColorWhite
 
+- type: loadoutGroup
+  id: MantisHead
+  name: loadout-group-mantis-head
+  minLimit: 0
+  loadouts:
+  - MantisFezHat
+
+- type: loadoutGroup
+  id: MantisJumpsuit
+  name: loadout-group-mantis-jumpsuit
+  loadouts:
+  - MantisJumpsuit
+  - MantisJumpskirt
+
+- type: loadoutGroup
+  id: MantisOuterClothing
+  name: loadout-group-mantis-outerclothing
+  minLimit: 0
+  loadouts:
+  - MantisCoat
+
+- type: loadoutGroup
+  id: MantisShoes
+  name: loadout-group-mantis-shoes
+  loadouts:
+  - MantisBoots
+
+- type: loadoutGroup
+  id: MantisGloves
+  name: loadout-group-mantis-gloves
+  minLimit: 0
+  loadouts:
+  - WhiteGloves
+
 ## Security
 
 - type: loadoutGroup
