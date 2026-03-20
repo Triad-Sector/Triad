@@ -113,3 +113,38 @@
   - type: Clothing
     sprite: _HL/Clothing/Neck/mantles/syndnavymantle.rsi
 
+# Directorate Mantle
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleDirectorate
+  name: directorate's mantle
+  description: Worn by the acting and previous directors of the Colonial Command.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Neck/mantles/ccdirectoratemantle.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Neck/mantles/ccdirectoratemantle.rsi
+
+# ColComm Manica
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleColComm
+  name: Colcomm's manica
+  description: A segmented arm covering for any colonial command personel. Almost exactly like the chief engineers, As you've earned the right to wear this!
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Neck/mantles/colcommmantle.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Neck/mantles/colcommmantle.rsi
+
+# S.I.N Mantle
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantleSIN
+  name: S.I.N Mantle
+  description: A handcrafted mantle for those of high standing within S.I.N.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Neck/mantles/sinmantle.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Neck/mantles/sinmantle.rsi

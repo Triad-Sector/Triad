@@ -1,0 +1,11 @@
+# S.I.N Cloak
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSIN
+  name: S.I.N Cloak
+  description: A cloak intended for those within the organization of S.I.N.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Neck/Cloaks/sincloak.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Neck/Cloaks/sincloak.rsi
