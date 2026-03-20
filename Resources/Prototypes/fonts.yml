@@ -1,7 +1,7 @@
 - type: font
   id: Default
   path: /Fonts/NotoSans/NotoSans-Regular.ttf
-
+  
 - type: font
   id: DefaultItalic
   path: /Fonts/NotoSans/NotoSans-Italic.ttf
@@ -45,3 +45,23 @@
 - type: font
   id: Emoji
   path: /Fonts/NotoEmoji.ttf
+
+- type: font
+  id: OnlyYou
+  path: /Fonts/Only_You.otf
+
+- type: font # Floofstation + Goobstation LRP
+  id: Chinese
+  path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
+
+- type: font # Floof - Tajaran Update b7660b9
+  id: Sriracha
+  path: /Fonts/Sriracha/Sriracha.ttf
+
+- type: font # Floof - Tajaran Update b7660b9
+  id: GrenzeGotisch
+  path: /Fonts/Grenze_Gotisch/GrenzeGotisch.ttf
+
+- type: font # Floof - Tajaran Update b7660b9
+  id: RubikDirt
+  path: /Fonts/Rubik_Dirt/RubikDirt.ttf

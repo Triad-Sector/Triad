@@ -39,7 +39,6 @@ chat-emote-name-wetplorp = Wet Plorp
 chat-emote-name-pullout = Pull Out
 chat-emote-name-cumin = Cum Inside
 chat-emote-name-cumout = Cum Inside
-
 # Message
 chat-emote-msg-scream = screams!
 chat-emote-msg-laugh = laughs.

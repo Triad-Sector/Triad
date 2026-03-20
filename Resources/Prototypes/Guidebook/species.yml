@@ -39,6 +39,7 @@
     - Kitsune # DeltaV
     - Skrell
     - Thaven # Impstation
+    - Tajaran  # Floof - Tajaran Update b7660b9
 
 - type: guideEntry
   id: Arachnid
@@ -107,6 +108,11 @@
   id: Harpy
   name: species-name-harpy
   text: "/ServerInfo/Guidebook/Mobs/_DV/Harpy.xml" # DeltaV
+
+- type: guideEntry # Floof - Tajaran Update b7660b9
+  id: Tajaran
+  name: species-name-tajaran
+  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
 
 - type: guideEntry
   id: Rodentia
