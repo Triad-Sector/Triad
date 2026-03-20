@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by Discord gravastardragon (662064921151930389)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "synth_belly_scutes",
+      "directions": 4
+    },
+    {
+      "name": "synth_chest_core",
+      "directions": 4
+    },
+    {
+      "name": "synth_chest_fracture",
+      "directions": 4
+    },
+    {
+      "name": "synth_chest_streak",
+      "directions": 4
+    },
+    {
+      "name": "synth_cross",
+      "directions": 4
+    },
+    {
+      "name": "synth_star",
+      "directions": 4
+    }
+  ]
+}

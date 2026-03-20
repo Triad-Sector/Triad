@@ -29,6 +29,15 @@
   - sprite: _HL/Mobs/Customization/Synth/tails.rsi
     state: synth_tail_xeno_spike
 
+- type: marking
+  id: SynthTailCore
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/tails.rsi
+    state: synth_tail_core
+
 # tail lights
 
 - type: marking
@@ -57,7 +66,34 @@
   - sprite: _HL/Mobs/Customization/Synth/snouts.rsi
     state: synth_visor
 
+- type: marking
+  id: SynthVisorBand
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/snouts.rsi
+    state: synth_visor_band
+
 # eyes
+
+- type: marking
+  id: SynthHeterochromiaLeft
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/eyes.rsi
+    state: synth_heterochromia_left
+
+- type: marking
+  id: SynthHeterochromiaRight
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/eyes.rsi
+    state: synth_heterochromia_right
 
 # head
 
@@ -69,6 +105,33 @@
   sprites:
   - sprite: _HL/Mobs/Customization/Synth/head.rsi
     state: synth_solar_fans
+
+- type: marking
+  id: SynthHeadCore
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: synth_head_core
+
+- type: marking
+  id: SynthHeadFracture
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: synth_head_fracture
+
+- type: marking
+  id: SynthHeadStreak
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/head.rsi
+    state: synth_head_streak
 
 # head lights
 
@@ -177,7 +240,137 @@
 
 # chest
 
+- type: marking
+  id: SynthBellyScutes
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_belly_scutes
+
+- type: marking
+  id: SynthChestCore
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_chest_core
+
+- type: marking
+  id: SynthChestFracture
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_chest_fracture
+
+- type: marking
+  id: SynthChestStreak
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_chest_streak
+
+- type: marking
+  id: SynthCross
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_cross
+
+- type: marking
+  id: SynthStar
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/chest.rsi
+    state: synth_star
+
 # chest lights
+
+# arms
+
+- type: marking
+  id: SynthArmLeftCore
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: synth_arm_left_core
+
+- type: marking
+  id: SynthArmLeftStreak
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: synth_arm_left_streak
+
+- type: marking
+  id: SynthArmRightCore
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: synth_arm_right_core
+
+- type: marking
+  id: SynthArmRightStreak
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/arms.rsi
+    state: synth_arm_right_streak
+
+# legs
+
+- type: marking
+  id: SynthLegLeftCore
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: synth_leg_left_core
+
+- type: marking
+  id: SynthLegLeftStreak
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: synth_leg_left_streak
+
+- type: marking
+  id: SynthLegRightCore
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: synth_leg_right_core
+
+- type: marking
+  id: SynthLegRightStreak
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [ Synth ]
+  sprites:
+  - sprite: _HL/Mobs/Customization/Synth/Orchids/legs.rsi
+    state: synth_leg_right_streak
 
 # wings
 
