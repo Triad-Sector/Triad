@@ -8,3 +8,13 @@
     Steel: 250
     Plastic: 250
     Plasma: 1000
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateMagazineRecipe
+  id: Magazine635x40mmCaseless
+  result: Magazine635x40mmCaseless
+
+- type: latheRecipe
+  parent: BaseAmmoFMJPistolCaliberPistolMagazineRecipe
+  id: Magazine635x40mmCaselessPistol
+  result: Magazine635x40mmCaselessPistol

@@ -36,6 +36,7 @@ Content under these subdirectories originate from their respective forks and may
 | `_StarLight` | StarLight | https://github.com/ss14Starlight/space-station-14 | MIT |
 | `_HL` | Hardlight Sector | https://github.com/HardLightSector/HardLight | AGPL 3.0 |
 | `_RMC14` | RMC-14 | https://github.com/RMC-14/RMC-14 | MIT |
+| `_FarHorizons` | Far-Horizons | https://github.com/Far-Horizons-SS14/Far-Horizons-SS14.git | MIT |
 
 
 

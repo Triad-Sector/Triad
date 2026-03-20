@@ -30,6 +30,16 @@
   id: Magazine556x45mmUranium
   result: Magazine556x45mmUranium
 
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateMagazineRecipe
+  id: MagazineNovaliteC1
+  result: MagazineNovaliteC1
+
+- type: latheRecipe
+  parent: BaseAmmoEmptyIntermediateMagazineRecipe
+  id: MagazineNovaliteC1Empty
+  result: MagazineNovaliteC1Empty
+
 #Speedloaders
 
 - type: latheRecipe

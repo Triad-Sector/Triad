@@ -50,25 +50,41 @@
 
 #mercenary
 - type: storeCategory
-  id: UplinkMercenaryBundles
-  name: store-category-mercenarybundles
-
-- type: storeCategory
   id: UplinkMercenaryHardsuits
   name: store-category-mercenaryhardsuits
 
 - type: storeCategory
-  id: UplinkMercenaryWeapons
-  name: store-category-mercenaryweapons
-
-- type: storeCategory
-  id: UplinkMercenaryAmmo
-  name: store-category-mercenaryammo
+  id: UplinkMercenaryArmor
+  name: store-category-mercenaryarmor
 
 - type: storeCategory
   id: UplinkMercenaryUtility
   name: store-category-mercenaryutility
 
 - type: storeCategory
-  id: UplinkMercenaryExplosives
-  name: store-category-mercenaryexplosives
+  id: UplinkMercenaryMedical
+  name: store-category-mercenarymedical
+
+- type: storeCategory
+  id: UplinkMercenarySnipers
+  name: store-category-mercenarysnipers
+
+- type: storeCategory
+  id: UplinkMercenaryRifles
+  name: store-category-mercenaryrifles
+
+- type: storeCategory
+  id: UplinkMercenaryShotguns
+  name: store-category-mercenaryshotguns
+
+- type: storeCategory
+  id: UplinkMercenarySMGs
+  name: store-category-mercenarysmgs
+
+- type: storeCategory
+  id: UplinkMercenaryHandguns
+  name: store-category-mercenaryhandguns
+
+- type: storeCategory
+  id: UplinkMercenaryAmmo
+  name: store-category-mercenaryammo

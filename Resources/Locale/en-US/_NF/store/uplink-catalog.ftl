@@ -300,11 +300,15 @@ uplink-pirate-pinpointer-target-scanner-desc = A jury-rigged scanner that can fi
 # region Mercvend
 
 store-category-mercenaryhardsuits = EVA Suits
-store-category-mercenaryweapons = Weapons
+store-category-mercenaryarmor = Armor
 store-category-mercenaryutility = Utility
+store-category-mercenarymedical = Medical
+store-category-mercenarysnipers = Snipers
+store-category-mercenaryrifles = Rifles
+store-category-mercenaryshotguns = Shotguns
+store-category-mercenarysmgs = Sub-Machineguns
+store-category-mercenaryhandguns = Handguns
 store-category-mercenaryammo = Ammunition
-store-category-mercenaryexplosives = Explosives
-store-category-mercenarybundles = Bundles
 
 uplink-mercenary-scafhardsuit-name = SCAF Hardsuit
 uplink-mercenary-scafhardsuit-desc = A suit of vacuum-proof armor highly resistant to projectile weaponry.
@@ -315,14 +319,95 @@ uplink-mercenary-hardsuit-desc = A suit of space-proof armored vac suit that pro
 uplink-mercenary-hardsuit1-name = Private Security Hardsuit
 uplink-mercenary-hardsuit1-desc = A suit of space-proof armored vac suit that protects against general damage.
 
-uplink-mercenary-rifle1-name = Surplus Lecter
-uplink-mercenary-rifle1-desc = A tried and true surplus automatic rifle. The benchmark.
+uplink-mercenary-mininghardsuit-name = mining hardsuit
+uplink-mercenary-mininghardsuit-desc = A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
 
-uplink-mercenary-shotgun1-name = Surplus Kammerer
-uplink-mercenary-shotgun1-desc = Old reliable, rack and shoot. Marked for Surplus.
+uplink-mercenary-luxmininghardsuit-name = luxury mining hardsuit
+uplink-mercenary-luxmininghardsuit-desc = A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
 
-uplink-mercenary-smg1-name = Surplus Drozd
-uplink-mercenary-smg1-desc = Based on an old design, this SMG is still more than capable of putting rounds down-range.
+uplink-mercenary-riotshield-name = riot shield
+uplink-mercenary-riotshield-desc = A large tower shield. Good for controlling crowds.
+
+uplink-mercenary-armorcoat-name = bounty hunter's flak trenchcoat
+uplink-mercenary-armorcoat-desc = A greatcoat enhanced with a bulletproof alloy for some extra protection and style for those with a charismatic presence.
+
+uplink-mercenary-armorriot-name = riot suit
+uplink-mercenary-armorriot-desc = A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
+
+uplink-mercenary-webmercblack-name = mercenary web vest
+uplink-mercenary-webmercblack-desc = A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
+
+uplink-mercenary-webmercolive-name = mercenary web vest
+uplink-mercenary-webmercolive-desc = A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
+
+uplink-mercenary-armorbasic-name = armor vest
+uplink-mercenary-armorbasic-desc = A standard Type I armored vest that provides decent protection against most types of damage.
+
+uplink-mercenary-armorhelmetmercblack-name = combat helmet
+uplink-mercenary-armorhelmetmercblack-desc = The combat helmet is commonly used by mercenaries, is strong, light and smells like gunpowder and the urban sprawl.
+
+uplink-mercenary-armorhelmetswat-name = SWAT helmet
+uplink-mercenary-armorhelmetswat-desc = An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.
+
+uplink-mercenary-armorbulletproof-name = bulletproof vest
+uplink-mercenary-armorbulletproof-desc = A Type III heavy bulletproof vest that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent.
+
+uplink-mercenary-armorhelmetbulletproof-name = bulletproof helmet
+uplink-mercenary-armorhelmetbulletproof-desc = Protects the face against bullets, can flip up and down.
+
+uplink-mercenary-armorstabproof-name = stabproof vest
+uplink-mercenary-armorstabproof-desc = Contrary to it's name, it's just a Type II armored vest that provides good protection against stabs and punches, but not much else.
+
+uplink-mercenary-armorhelmetstabproof-name = stabproof helmet
+uplink-mercenary-armorhelmetstabproof-desc = The most "comfortable" security helmet, as rated by officers. Will take a blow to the head nicely, but a bullet'll go right through it.
+
+uplink-mercenary-armorhelmetriot-name = light riot helmet
+uplink-mercenary-armorhelmetriot-desc = It's a helmet specifically designed to protect against close range attacks.
+
+uplink-mercenary-tactical-name = tactical pack
+uplink-mercenary-tactical-desc = A tactical pack for your tactical needs.
+
+uplink-mercenary-explorer-name = explorer pack
+uplink-mercenary-explorer-desc = Large pack for all your gear and supplies.
+
+uplink-mercenary-rucksack-name = rucksack
+uplink-mercenary-rucksack-desc = Sacks to haul your burdens.
+
+uplink-mercenary-webbing-name = chest rig
+uplink-mercenary-webbing-desc = A set of tactical webbing worn by boarding parties.
+
+uplink-mercenary-mercwebbing-name = mercenary webbing
+uplink-mercenary-mercwebbing-desc = Ideal for storing everything from ammo to weapons and combat essentials.
+
+uplink-mercenary-stunbaton-name = stun baton
+uplink-mercenary-stunbaton-desc = A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+
+uplink-mercenary-bola-name = bola
+uplink-mercenary-bola-desc = Linked together with some spare cuffs and metal.
+
+uplink-mercenary-boxhandcuff-name = handcuff box
+uplink-mercenary-boxhandcuff-desc = A box full of handcuffs.
+
+uplink-mercenary-seclite-name = seclite
+uplink-mercenary-seclite-desc = A robust flashlight used by security.
+
+uplink-mercenary-pinpointuni-name = universal pinpointer
+uplink-mercenary-pinpointuni-desc = A handheld tracking device that locks onto any physical entity while off. Keep upright to retain accuracy.
+
+uplink-mercenary-bountyhud-name = bounty hunter hud
+uplink-mercenary-bountyhud-desc = A heads-up display that scans the humanoids in view and provides accurate data about their ID status, criminal records and health status.
+
+uplink-mercenary-diagnostichud-name = diagnostic hud
+uplink-mercenary-diagnostichud-desc = A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium.
+
+uplink-mercenary-medicalhud-name = medical hud
+uplink-mercenary-medicalhud-desc = A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+
+uplink-mercenary-engigoggles-name = engineering goggles
+uplink-mercenary-engigoggles-desc = Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+
+uplink-mercenary-chemgoggles-name = chemical analysis goggles
+uplink-mercenary-chemgoggles-desc = Goggles that can scan the chemical composition of a solution.
 
 uplink-mercenary-gauze-name = Gauze Roll
 uplink-mercenary-gauze-desc = A full roll of Gauze, for the merc on the go.
@@ -359,6 +444,120 @@ uplink-security-syringe-case-desc = A pocket case filled with medipens for most 
 
 uplink-mercenary-combat-burn-kit-name = Burn Kit
 uplink-mercenary-combat-burn-kit-desc = 4 Ready-made Burn injectors, man burns suck bad.
+
+uplink-mercenary-surpluslecter-name = Surplus Lecter (5.56x45mm)
+uplink-mercenary-surpluslecter-desc = A tried and true surplus automatic rifle. The benchmark.
+
+uplink-mercenary-repeaterrifle-name = N2524 Pattern Repeater (.45 magnum)
+uplink-mercenary-repeaterrifle-desc = A civilian grade lever action firearm, favored by space cowboys across the Frontier for its reliability and stopping power. Uses .45 magnum ammo.
+
+uplink-mercenary-gestiorifle-name = Gestio (762x39mm)
+uplink-mercenary-gestiorifle-desc = An old burst-fire rifle made by Silver Industries that never left trials. Accepts low capacity 762x39mm magazines.
+
+uplink-mercenary-vulcancfcm-name = FCM-C Vulcan (762x51mm)
+uplink-mercenary-vulcancfcm-desc = The "Vulcan" Civilian Medium combat rifle (Fusil de Combat Moyen Civil) in 762x51mm, this civilian version only has semi-automatic mode and reduced firerate.
+
+uplink-mercenary-lasercannonpmc-name = PMC Laser Cannon
+uplink-mercenary-lasercannonpmc-desc = A laser cannon that has been properly registered for private security and mercenary use.
+
+uplink-mercenary-lasercannon-name = laser cannon
+uplink-mercenary-lasercannon-desc = A heavy duty, high powered laser sniper rifle. On the handle is a label that says 'for authorized use only.'
+
+uplink-mercenary-energyriflebutbetter-name = laser carbine
+uplink-mercenary-energyriflebutbetter-desc = A simple civilian grade laser carbine, the workhorse of many private security organizations.
+
+uplink-mercenary-tempaturegun-name = temperature gun
+uplink-mercenary-tempaturegun-desc = An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
+
+uplink-mercenary-mr8crifle-name = MR-8C BR (8x65mm SKR)
+uplink-mercenary-mr8crifle-desc = The BR variant of the MR-8 series, firing with incredible accuracy. Chambered in 8x65mm SKR.
+
+uplink-mercenary-vulcanrifle-name = Vulcan (762x51mm)
+uplink-mercenary-vulcanrifle-desc = One of the heaviest small arms to grace Security's armory, this rifle is a modern take on a classic, informally dubbed the "Right Arm of the Free World". Uses 762x51mm ammo.
+
+uplink-mercenary-ceremonialrifle-name = ceremonial rifle (762x51mm)
+uplink-mercenary-ceremonialrifle-desc = A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses 762x51mm ammo.
+
+uplink-mercenary-mosinrifle-name = Kardashev-Mosin (762x54mmR)
+uplink-mercenary-mosinrifle-desc = A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet.
+
+uplink-mercenary-akrifle-name = AKM (762x39mm)
+uplink-mercenary-akrifle-desc = An iconic weapon of war. Uses 762x39mm ammo. An illegal firearm often used by Syndicate agents.
+
+uplink-mercenary-assultakrifle-name = Soland-Moss (762x39mm)
+uplink-mercenary-assultakrifle-desc = A heavy assault rifle designed to provide suppressive fire to enemy positions. All serial numbers have been expertly removed, rendering this rifle extremely illegal. Uses 762x39 magazines.
+
+uplink-mercenary-surpluskrammerer-name = Surplus Kammerer
+uplink-mercenary-surpluskrammerer-desc = Old reliable, rack and shoot. Marked for Surplus.
+
+uplink-mercenary-enforcershotty-name = Enforcer (12 gauge)
+uplink-mercenary-enforcershotty-desc = A premium semi-automatic shotgun, and the pride of all security forces. Uses 12 gauge shotgun shells.
+
+uplink-mercenary-vortex12shotty-name = Vortex-12 (12 gauge)
+uplink-mercenary-vortex12shotty-desc = Designed by SESWC. A semi-automatic magazine-fed shotgun for close-quarters combat
+
+uplink-mercenary-bigjohnnyshotty-name = Big Johnny (4 gauge)
+uplink-mercenary-bigjohnnyshotty-desc = An old yet faithful design, and a favorite among irregular forces on many worlds.
+
+uplink-mercenary-surplusdrozd-name = Surplus Drozd
+uplink-mercenary-surplusdrozd-desc = Based on an old design, this SMG is still more than capable of putting rounds down-range.
+
+uplink-mercenary-c20rpmc-name = PMC C-20r (9x19mm)
+uplink-mercenary-c20rpmc-desc = A C-20r that has been properly registered for private security and mercenary use.
+
+uplink-mercenary-disablersmgpmc-name = PMC Disabler SMG
+uplink-mercenary-disablersmgpmc-desc = A disabler SMG that has been properly registered for private security and mercenary use.
+
+uplink-mercenary-novalitec1-name = Novalite C1 (556x45mm)
+uplink-mercenary-novalitec1-desc = A modification to the Lecter from SW LLC, a civilian grade semi-automatic rifle with an internal magazine. Uses 556x45mm ammo.
+
+uplink-mercenary-wt550-name = WT550 (46x30mm)
+uplink-mercenary-wt550-desc = An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses 46x30mm ammo. On the receiver is a label that says 'for authorized use only.'
+
+uplink-mercenary-wt440-name = WT-440 (46x30mm)
+uplink-mercenary-wt440-desc = A rarely seen modification of the WT550, this high capacity pistol is a cut-down version of the famous SMG, lacking an arm brace or alternate firemodes. Easier to conceal, and with all serial numbers expertly removed. Takes 4.6x30mm WT magazines.
+
+uplink-mercenary-typewriter-name = Typewriter (.45 ACP)
+uplink-mercenary-typewriter-desc = A modern take on the classic design used by mobsters throughout space and time. Uses .45 ACP ammo.
+
+uplink-mercenary-ritland45-name = Ritland .45 (.45 ACP)
+uplink-mercenary-ritland45-desc = An illegal revolver favoured by Syndicate agents.
+
+uplink-mercenary-ward45-name = Ward .45 (.45 ACP)
+uplink-mercenary-ward45-desc = The iconic sidearm of the dreaded death squads. On the handle is a label that says 'for authorized use only.'
+
+uplink-mercenary-viperpmc-name = PMC Viper (9x19mm)
+uplink-mercenary-viperpmc-desc = A Viper that has been properly registered for private security and mercenary use.
+
+uplink-mercenary-mk58-name = mk 58 (.45 ACP)
+uplink-mercenary-mk58-desc = The Mark 58 Offensive Handgun, produced by NanoTrasen's Small Arms Division. Uses .45 ACP ammo.
+
+uplink-mercenary-deckard-name = Deckard (.45 magnum)
+uplink-mercenary-deckard-desc = A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
+
+uplink-mercenary-laserpistol-name = laser pistol
+uplink-mercenary-laserpistol-desc = An older model of civilian-grade laser pistol with two settings: disable and kill.
+
+uplink-mercenary-svalinn-name = svalinn laser pistol
+uplink-mercenary-svalinn-desc = A cheap and widely used laser pistol.
+
+uplink-mercenary-advancedlaserpistol-name = advanced laser pistol
+uplink-mercenary-advancedlaserpistol-desc = An experimental civilian grade high-energy laser pistol with a self-charging nuclear battery and two settings: disable and kill.
+
+uplink-mercenary-pollock-name = Pollock (9x19mm)
+uplink-mercenary-pollock-desc = A compact and mass-produced combat pistol. Uses 9x19mm ammo.
+
+uplink-mercenary-mk32-name = Mk32 "Universal" (9x19mm)
+uplink-mercenary-mk32-desc = A cheap, civilian grade, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses 9x19mm ammo.
+
+uplink-mercenary-n1984-name = N1984 (.45 magnum)
+uplink-mercenary-n1984-desc = An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
+
+uplink-mercenary-fitz-name = Fitz Special (.45 magnum)
+uplink-mercenary-fitz-desc = A compact and concealable self defence snub revolver. Uses .45 magnum ammo.
+
+uplink-mercenary-faith-name = Faith (.45 magnum)
+uplink-mercenary-faith-desc = Delivers blessings in bullet form. Uses .45 magnum ammo.
 
 uplink-mercenary-35auto-mags-name = .35 Auto SMG mags
 uplink-mercenary-35auto-mags-desc = A quartet of SMG stick magazines loaded up with lethals, go get 'em tiger

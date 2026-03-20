@@ -36,8 +36,8 @@
 
 - type: entity #C-20r
   parent:
-
-  - WeaponSubMachineGunC20r
+    - BaseC2ContrabandMercenary
+    - WeaponSubMachineGunC20r
   name: PMC C-20r
   id: WeaponSubMachineGunC20rPMC
   description: A C-20r that has been properly registered for private security and mercenary use.

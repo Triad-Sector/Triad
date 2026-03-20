@@ -20,3 +20,26 @@
   - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 20
+
+- type: entity
+ # categories: [ HideSpawnMenu ] # Frontier
+  parent: [ BaseCartridge, BaseC2Contraband ] # Frontier: BaseMajorContraband<BaseC2Contraband
+  id: Cartridge25x59HE
+  name: HE Shell (25x59mm)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - Cartridge25x59HE
+  - type: CartridgeAmmo
+    proto: shell(25x59mm)
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Ammunition/Projectiles/25x59mm.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 25

@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazine635x40mmCaseless
   name: "magazine (635x40mm Caseless)"
-  parent: [ BaseCartridge, BaseC3SyndicateContrabandNoValue, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband, added RecyclableItemSteelTiny
+  parent: [ BaseCartridge, BaseC1Contraband, RecyclableItemSteelTiny ] # Hardlight: Made C1. It's Mags. WTF is someone going to do with them by themsevles?
   abstract: true
   components:
   - type: Tag

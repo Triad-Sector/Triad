@@ -14,3 +14,25 @@
     - Structural
   - type: StaminaDamageOnCollide
     damage: 100
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: shell(25x59mm)
+  name: shell (25x59mm)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+        Blunt: 30
+        Structural: 1000
+  - type: StaminaDamageOnCollide
+    damage: 100
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10 # Bit less than 1 Tile.
+    intensitySlope: 2
+    maxIntensity: 2
+    maxTileBreak: 0

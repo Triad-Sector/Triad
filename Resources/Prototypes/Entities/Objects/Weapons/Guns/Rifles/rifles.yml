@@ -53,7 +53,7 @@
 
 - type: entity
   name: AKM (762x39mm)
-  parent: [BaseWeaponRifle, BaseC3SyndicateContraband] # Frontier: BaseSecurityContraband<BaseC3SyndicateContraband
+  parent: [BaseWeaponRifle, BaseC2ContrabandMercenary] # Hardlight: Made C2. Easily balanced PMC item to be used by Freelancers.
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses 762x39mm ammo. An illegal firearm often used by Syndicate agents.
   components:

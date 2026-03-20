@@ -35,6 +35,7 @@
     #SpeedLoader7.282x39mmFMJ: 28 # 7.282x39mm Gestio/AKM
     #SpeedLoader7.282x54mmRFMJ: 28 # 7.282x54mmR SVS
     SpeedLoader45_magnumFMJ: 28 # .45 magnum revolvers
+    MagazineNovaliteC1: 6
     Magazine762x39mmLowCapacityFMJ: 28
     ClothingBeltQuiverFullBodkin: 6
     ClothingBeltQuiverFullBroadhead: 6

@@ -54,7 +54,7 @@
 
 - type: entity
   id: NFWeaponRevolverRitland45
-  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex, BaseC3SyndicateContrabandUnredeemable ]
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex, BaseC2ContrabandMercenary ] #Updated to be C2. It's on par with the other revolvers they already have access too as C2.
   name: ritland-45
   description: |-
     An illegal revolver favoured by Syndicate agents.
@@ -63,6 +63,28 @@
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+
+- type: entity #Hardlight: For the Mercvend
+  id: Ritland45Mercenary
+  parent: NFWeaponRevolverRitland45
+  name: Ritland .45 (.45 ACP)
+
+- type: entity #Hardlight: For the Mercvend
+  id: Ward45Mercenary
+  parent: NFWeaponRevolverWard45
+  name: Ward .45 (.45 ACP)
+
+- type: entity #Hardlight Addition Begin
+  id: NFWeaponRevolverRitland45Anom
+  parent: [ NFBaseWeaponRevolverChamber45, NFBaseWeaponFrameRevolverGorlex, BaseC3SyndicateContrabandNoValue ]
+  name: ritland-45-Anom
+  description: |-
+    An anomalous revolver grown from an anomalous plant known as "Gatfruit". As effective as the real deal, illegal and yet not redeemable for FUCs.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi #Hardlight Addition End
 
 - type: entity
   id: NFWeaponRevolverPirate

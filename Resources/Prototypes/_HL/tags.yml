@@ -357,6 +357,9 @@
 - type: Tag
   id: GaslockFrameMachineCircuitBoard
 
+- type: Tag
+  id: Cartridge25x59HE
+
 # Forged Rifle Mag
 - type: Tag
   id: ForgedRifleMagazine

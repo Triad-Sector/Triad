@@ -1,7 +1,7 @@
 #region WizDen
 - type: entity # TODO: switch to .25 rifle (caseless)
   id: NFWeaponRifleAssaultSm
-  parent: [ BaseWeaponRifle, BaseC3ExpeditionContraband, WeaponRifleAnnie ] # Reparented to use 762x39 instead of .30 rifle, basic C3 instead of syndie. Hardlight
+  parent: [ BaseWeaponRifle, BaseC2ContrabandMercenary, WeaponRifleAnnie ] # Hardlight: Made C2. Same as the AKM so also fits in the boat for a nice freelancer rifle.
   name: Soland-Moss # Renamed: real brand name
   description: |-
     A heavy assault rifle designed to provide suppressive fire to enemy positions. All serial numbers have been expertly removed, rendering this rifle extremely illegal. Uses 762x39 magazines.

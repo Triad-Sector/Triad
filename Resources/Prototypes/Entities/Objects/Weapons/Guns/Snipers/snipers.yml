@@ -40,7 +40,7 @@
 
 - type: entity
   name: Kardashev-Mosin (762x54mmR)
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband, added BaseGunMelee
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseGunMelee, BaseC2ContrabandMercenary] # Hardlight: Made C2. Rather minor syndie item for PMC's :3
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare. Uses 762x54mmR ammo. Equipped with bayonet. # Frontier: bayonet
   components:

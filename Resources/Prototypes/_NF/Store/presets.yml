@@ -64,11 +64,15 @@
     name: store-preset-name-merc-uplink
     categories:
     - UplinkMercenaryHardsuits
-    - UplinkMercenaryWeapons
-    - UplinkMercenaryAmmo
+    - UplinkMercenaryArmor
     - UplinkMercenaryUtility
-    - UplinkMercenaryExplosives
-    - UplinkMercenaryBundles
+    - UplinkMercenaryMedical
+    - UplinkMercenarySnipers
+    - UplinkMercenaryRifles
+    - UplinkMercenaryShotguns
+    - UplinkMercenarySMGs
+    - UplinkMercenaryHandguns
+    - UplinkMercenaryAmmo
     currencyWhitelist:
     - MercCoin
     balance:

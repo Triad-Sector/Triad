@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseC2Contraband] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: [BaseItem, BaseC1Contraband] # Hardlight: Fixed to be a C1 contraband item. As Intended origionally.
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
