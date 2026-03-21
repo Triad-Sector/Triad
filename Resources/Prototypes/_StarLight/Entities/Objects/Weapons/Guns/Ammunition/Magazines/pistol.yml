@@ -57,6 +57,7 @@
     whitelist:
       tags:
         - Cartridge9x19mm # HardLight: generic tag accepts all 9x19mm variants (FMJ, incendiary, uranium, rubber, improvised, etc.)
+        - Cartridge57x28mmFMJ # Hardlight, higher damage, no variants, purely for variety
     capacity: 20
   - type: Item
     inhandVisuals:

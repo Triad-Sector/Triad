@@ -3,6 +3,9 @@
   name: improvised rifle magazine (556/762x39)
   parent: [ BaseC1Contraband, RecyclableItemSteelTiny, BaseMagazineLightRifle ]
   components:
+  - type: Construction
+    graph: Improvised556/762x39MagazineGraph
+    node: shell
   - type: Tag
     tags:
       - ForgedRifleMagazine
@@ -32,6 +35,9 @@
   name: improvised rifle magazine (635x44mm/762x54r)
   parent: [ BaseC1Contraband, RecyclableItemSteelTiny, BaseMagazineLightRifle ]
   components:
+  - type: Construction
+    graph: Improvised635x44mm/762x54rMagazineGraph
+    node: shell
   - type: Tag
     tags:
       - ForgedRifleMagazine
