@@ -1271,6 +1271,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Gourd
+    - type: InitRepairSnapshot
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2

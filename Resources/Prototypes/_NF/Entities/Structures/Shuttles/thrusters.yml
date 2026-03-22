@@ -5,9 +5,9 @@
   name: small thruster
   components:
   - type: Thruster
-    baseThrust: 33
-    thrust: 33
-    thrustPerPartLevel: [42.9, 56.1, 69.3, 82.5]
+    baseThrust: 67
+    thrust: 67
+    thrustPerPartLevel: [87.1, 113.9, 140.7, 167.5]
     damage:
       types:
         Heat: 40

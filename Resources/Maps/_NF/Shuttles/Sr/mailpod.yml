@@ -18,6 +18,7 @@ entities:
       pos: -0.48958334,-0.5208333
     - type: BecomesStation
       id: MailPod
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

@@ -160,5 +160,15 @@
                     </controls:BoxContainer>
                     <!-- End Frontier - Service Flags -->
 
+                    <!-- Frontier - Maximum Shuttle Speed -->
+                    <controls:BoxContainer Orientation="Vertical" HorizontalExpand="True" Name="MaximumShuttleSpeedBox" Margin="4 4 4 4">
+                        <controls:Label Text="{controls:Loc 'shuttle-console-maximum-speed'}"/>
+                        <controls:SliderIntInput Name="MaximumShuttleSpeedValue"
+                                                 Access="Public"
+                                                 MinValue="0"
+                                                 MaxValue="140"
+                                                 Value="140"
+                                                 HorizontalExpand="True"/>
                     </controls:BoxContainer>
                 </controls:BoxContainer>
+</controls:BoxContainer>

@@ -708,6 +708,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Bazaar
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 529

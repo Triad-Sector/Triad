@@ -111,4 +111,19 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public float RandomBlindChance = 0f; // Frontier
+
+    // Goobstation Start
+    [DataField]
+    public float ArmorPenetration;
+    // Goobstation End
+
+    /// <summary>
+    ///     Mono - If true, when going at sufficient velocity to cause raycasts, will significantly decrease velocity to just below raycast threshold to increase stability.
+    /// </summary>
+    [DataField]
+    public bool RaycastResetVelocity = true;
+
+    // Mono
+    [DataField]
+    public float LinearDampening = 0f;
 }

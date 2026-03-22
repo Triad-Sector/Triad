@@ -28,6 +28,7 @@ entities:
       pos: -0.15940452,-1.515625
     - type: BecomesStation
       id: Fighter
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

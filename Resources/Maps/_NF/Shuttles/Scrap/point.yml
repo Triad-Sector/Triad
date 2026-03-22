@@ -23,6 +23,7 @@ entities:
       pos: -0.39584857,-0.47913614
     - type: BecomesStation
       id: Point
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

@@ -167,6 +167,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Peacekeeper
+    - type: InitRepairSnapshot
 - proto: ActionToggleInternals
   entities:
   - uid: 4

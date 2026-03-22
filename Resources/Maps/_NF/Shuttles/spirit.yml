@@ -302,6 +302,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Spirit
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

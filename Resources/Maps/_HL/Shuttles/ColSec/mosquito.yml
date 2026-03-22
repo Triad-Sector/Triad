@@ -228,6 +228,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
+    - type: InitRepairSnapshot
       id: Mosquito
     - type: IFF
       color: '#FFFFFFFF'

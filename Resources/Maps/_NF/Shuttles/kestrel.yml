@@ -39,6 +39,7 @@ entities:
       pos: -1.078125,-0.46875
     - type: BecomesStation
       id: Kestrel
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

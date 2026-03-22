@@ -450,6 +450,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Bottle
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

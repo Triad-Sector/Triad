@@ -33,6 +33,7 @@ entities:
     - type: Transform
     - type: BecomesStation
       id: McBus
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         -1,-1:

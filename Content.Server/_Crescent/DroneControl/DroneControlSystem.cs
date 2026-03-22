@@ -1,98 +1,149 @@
-using Content.Server.DeviceNetwork;
-using Content.Server.DeviceNetwork.Components;
+using Content.Server._Mono.Radar;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.NPC.HTN;
+using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Crescent.DroneControl;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
-using Content.Shared.Shuttles.BUIStates;
-using Content.Shared.Shuttles.Components;
+using Content.Shared.DeviceNetwork.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Shared.Map;
-using System.Numerics;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._Crescent.DroneControl;
 
 public sealed class DroneControlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
     [Dependency] private readonly DeviceListSystem _deviceList = default!;
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _shuttleConsole = default!;
+
+    private EntityQuery<DroneControlComponent> _controlQuery;
+
+    private HashSet<Entity<DockingComponent>> _docks = new();
+    private HashSet<Entity<DroneControlComponent>> _controllers = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<DroneControlConsoleComponent, GetRadarSourcesEvent>(OnGetSources);
+        SubscribeLocalEvent<DroneControlConsoleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
+        SubscribeLocalEvent<DroneControlConsoleComponent, DeviceListUpdateEvent>(OnListUpdate);
+
+        SubscribeLocalEvent<DroneControlConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<DroneControlConsoleComponent, DroneConsoleMoveMessage>(OnMoveMsg);
         SubscribeLocalEvent<DroneControlConsoleComponent, DroneConsoleTargetMessage>(OnTargetMsg);
 
         SubscribeLocalEvent<DroneControlComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
+
+        _controlQuery = GetEntityQuery<DroneControlComponent>();
     }
 
-    public override void Update(float frameTime)
+    private void OnGetSources(Entity<DroneControlConsoleComponent> ent, ref GetRadarSourcesEvent args)
     {
-        base.Update(frameTime);
+        args.Sources = new();
+        args.Sources.Add(ent);
 
-        var query = EntityQueryEnumerator<DroneControlConsoleComponent, DeviceListComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var devList))
+        foreach (var (name, device) in _deviceList.GetDeviceList(ent))
         {
-             if (_ui.IsUiOpen(uid, DroneConsoleUiKey.Key))
-             {
-                 UpdateState(uid, comp, devList);
-             }
-        }
-    }
-
-    private void UpdateState(EntityUid uid, DroneControlConsoleComponent comp, DeviceListComponent devList)
-    {
-        var nav = _shuttleConsole.GetNavState(uid, _shuttleConsole.GetAllDocks());
-        // Note: IFF state not available - would need to be implemented
-        var iffState = new IFFConsoleBoundUserInterfaceState
-        {
-            AllowedFlags = IFFFlags.None,
-            Flags = IFFFlags.None
-        };
-
-        var drones = new List<NetEntity>();
-
-        foreach (var (name, device) in _deviceList.GetDeviceList(uid, devList))
-        {
-            if (TerminatingOrDeleted(device) || !HasComp<DroneControlComponent>(device))
+            var xform = Transform(device);
+            if (xform.GridUid == null)
+                continue;
+            if (!_controlQuery.HasComp(device))
                 continue;
 
-            drones.Add(GetNetEntity(device));
+            args.Sources.Add(device);
+        }
+    }
+
+    private void OnGetAltVerbs(Entity<DroneControlConsoleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("drone-control-autolink"),
+            Priority = 10,
+            Act = () => TryAutolink(ent)
+        });
+    }
+
+    private void OnListUpdate(Entity<DroneControlConsoleComponent> ent, ref DeviceListUpdateEvent args)
+    {
+        UpdateState(ent);
+    }
+
+    private void OnUIOpened(Entity<DroneControlConsoleComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (args.UiKey is DroneConsoleUiKey)
+            UpdateState(ent);
+    }
+
+    private void OnMoveMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleMoveMessage args)
+    {
+        DoTargetedDroneOrder(ent, args.SelectedDrones, DroneOrderType.Move, GetCoordinates(args.TargetCoordinates), args.Actor);
+    }
+
+    private void OnTargetMsg(Entity<DroneControlConsoleComponent> ent, ref DroneConsoleTargetMessage args)
+    {
+        DoTargetedDroneOrder(ent, args.SelectedDrones, DroneOrderType.Target, GetCoordinates(args.TargetCoordinates), args.Actor);
+    }
+
+    private void OnPacketReceived(Entity<DroneControlComponent> ent, ref DeviceNetworkPacketEvent args)
+    {
+        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out string? cmd)
+            || !TryComp<HTNComponent>(ent, out var htn)
+            || !args.Data.TryGetValue(DroneConsoleConstants.TargetCoords, out EntityCoordinates coords)
+        )
+            return;
+
+        var blackboard = htn.Blackboard;
+
+        if (!blackboard.TryGetValue<string>(ent.Comp.OrderKey, out var nowCmd, EntityManager) || !nowCmd.Equals(cmd))
+            _htn.ShutdownPlan(htn);
+
+        blackboard.SetValue(ent.Comp.OrderKey, cmd);
+        blackboard.SetValue(ent.Comp.TargetKey, coords);
+    }
+
+    private void DoTargetedDroneOrder(Entity<DroneControlConsoleComponent> console, HashSet<NetEntity> selected, DroneOrderType order, EntityCoordinates coordinates, EntityUid actor)
+    {
+        if (!coordinates.TryDistance(EntityManager, Transform(console).Coordinates, out var distance))
+            return;
+
+        if (distance > (console.Comp.MaxOrderRadius ?? float.MaxValue))
+        {
+            _popup.PopupEntity(Loc.GetString("drone-control-out-of-range"), console, PopupType.Medium);
+            return;
         }
 
-        _ui.SetUiState(uid, DroneConsoleUiKey.Key, new DroneConsoleBoundUserInterfaceState(nav, iffState, drones));
-    }
-
-    private void OnMoveMsg(EntityUid uid, DroneControlConsoleComponent component, DroneConsoleMoveMessage args)
-    {
-        var mapId = Transform(uid).MapID;
+        var command = "";
+        switch (order)
+        {
+            case DroneOrderType.Move:
+                command = DroneConsoleConstants.CommandMove;
+                break;
+            case DroneOrderType.Target:
+                command = DroneConsoleConstants.CommandTarget;
+                break;
+        }
 
         var payload = new NetworkPayload
         {
-            [DeviceNetworkConstants.Command] = DroneConsoleConstants.CommandMove,
-            [DroneConsoleConstants.KeyCoords] = new MapCoordinates(args.TargetCoordinates, mapId)
+            [DeviceNetworkConstants.Command] = command,
+            [DroneConsoleConstants.TargetCoords] = coordinates
         };
 
-        SendToSelected(uid, args.SelectedDrones, payload);
-    }
-
-    private void OnTargetMsg(EntityUid uid, DroneControlConsoleComponent component, DroneConsoleTargetMessage args)
-    {
-        var targetUid = GetEntity(args.TargetGrid);
-
-        var payload = new NetworkPayload
-        {
-            [DeviceNetworkConstants.Command] = DroneConsoleConstants.CommandTarget,
-            [DroneConsoleConstants.KeyEntity] = targetUid
-        };
-
-        SendToSelected(uid, args.SelectedDrones, payload);
+        SendToSelected(console, selected, payload);
     }
 
     private void SendToSelected(EntityUid source, HashSet<NetEntity> selected, NetworkPayload payload)
@@ -109,31 +160,80 @@ public sealed class DroneControlSystem : EntitySystem
         }
     }
 
-    private void OnPacketReceived(EntityUid uid, DroneControlComponent component, DeviceNetworkPacketEvent args)
+    private void UpdateState(EntityUid console)
     {
-        Log.Info($"{ToPrettyString(uid)} got packet {args.Data}");
-        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out var cmd)
-            || !TryComp<HTNComponent>(uid, out var htn)
-        )
+        var nav = _shuttleConsole.GetNavState(console, _shuttleConsole.GetAllDocks());
+
+        var drones = new List<(NetEntity, NetEntity)>();
+        var toRemove = new List<EntityUid>();
+
+        foreach (var (name, device) in _deviceList.GetDeviceList(console))
+        {
+            var xform = Transform(device);
+            if (xform.GridUid == null)
+                continue;
+
+            if (!_controlQuery.HasComp(device))
+            {
+                toRemove.Add(device);
+                continue;
+            }
+
+            drones.Add((GetNetEntity(device), GetNetEntity(xform.GridUid.Value)));
+        }
+
+        // we have non-drone devices, clean up
+        if (toRemove.Count != 0)
+        {
+            var newList = new List<EntityUid>();
+            foreach (var (name, device) in _deviceList.GetDeviceList(console))
+            {
+                if (!toRemove.Contains(device))
+                    newList.Add(device);
+            }
+            _deviceList.UpdateDeviceList(console, newList);
+        }
+
+        _ui.SetUiState(console, DroneConsoleUiKey.Key, new DroneConsoleBoundUserInterfaceState(nav, drones));
+    }
+
+    public void TryAutolink(EntityUid fromEnt)
+    {
+        var newDrones = new List<EntityUid>();
+
+        var xform = Transform(fromEnt);
+        var shipUid = xform.GridUid;
+        if (!TryComp<MapGridComponent>(shipUid, out var grid))
             return;
 
-        var blackboard = htn.Blackboard;
+        _docks.Clear();
+        _lookup.GetLocalEntitiesIntersecting(shipUid.Value, grid.LocalAABB, _docks);
 
-        if (cmd == DroneConsoleConstants.CommandMove)
+        foreach (var dock in _docks)
         {
-            if (args.Data.TryGetValue(DroneConsoleConstants.KeyCoords, out MapCoordinates coords))
+            if (dock.Comp.DockedWith == null)
+                continue;
+
+            var withXform = Transform(dock.Comp.DockedWith.Value);
+
+            if (!TryComp<MapGridComponent>(withXform.GridUid, out var withGrid))
+                continue;
+
+            _controllers.Clear();
+            _lookup.GetLocalEntitiesIntersecting(withXform.GridUid.Value, withGrid.LocalAABB, _controllers);
+            foreach (var controller in _controllers)
             {
-                blackboard.Remove<EntityCoordinates>("ShootTarget");
-                blackboard.SetValue("MoveToTarget", _transform.ToCoordinates(coords));
+                if (!_controlQuery.TryComp(controller, out var controlComp) || controlComp.Autolinked)
+                    continue;
+
+                controlComp.Autolinked = true;
+                newDrones.Add(controller);
             }
         }
-        else if (cmd == DroneConsoleConstants.CommandTarget)
-        {
-            if (args.Data.TryGetValue(DroneConsoleConstants.KeyEntity, out EntityUid target))
-            {
-                blackboard.Remove<EntityCoordinates>("MoveToTarget");
-                blackboard.SetValue("ShootTarget", new EntityCoordinates(target, Vector2.Zero));
-            }
-        }
+
+        if (newDrones.Count != 0)
+            _deviceList.UpdateDeviceList(fromEnt, newDrones, true);
+
+        _popup.PopupEntity(Loc.GetString("drone-control-autolinked", ("count", newDrones.Count)), fromEnt, PopupType.Large);
     }
 }

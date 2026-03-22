@@ -847,6 +847,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Ceres
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 1745

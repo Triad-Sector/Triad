@@ -350,6 +350,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Comet
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 544

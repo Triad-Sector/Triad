@@ -349,6 +349,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Watchdog
+    - type: InitRepairSnapshot
 - proto: AirlockExternalGlassShuttleSecUnlocked
   entities:
   - uid: 3

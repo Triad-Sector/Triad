@@ -3,6 +3,7 @@ using Content.Goobstation.Shared.StationRadio.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
@@ -23,17 +24,28 @@ public sealed class StationRadioReceiverSystem : EntitySystem
 
     private void OnPowerChanged(EntityUid uid, StationRadioReceiverComponent comp, PowerChangedEvent args)
     {
-        if(comp.SoundEntity != null && args.Powered)
-            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
-        else if(comp.SoundEntity != null)
-            _audio.SetGain(comp.SoundEntity, 0);
+        TrySetGain(uid, comp, args.Powered && comp.Active ? 1f : 0f);
     }
 
     private void OnRadioToggle(EntityUid uid, StationRadioReceiverComponent comp, ActivateInWorldEvent args)
     {
         comp.Active = !comp.Active;
-        if (comp.SoundEntity != null && _power.IsPowered(uid))
-            _audio.SetGain(comp.SoundEntity, comp.Active ? 1f : 0f);
+        TrySetGain(uid, comp, _power.IsPowered(uid) && comp.Active ? 1f : 0f);
+    }
+
+    private void TrySetGain(EntityUid uid, StationRadioReceiverComponent comp, float gain)
+    {
+        if (comp.SoundEntity is not { } sound)
+            return;
+
+        if (!sound.Valid || TerminatingOrDeleted(sound) || !HasComp<AudioComponent>(sound))
+        {
+            comp.SoundEntity = null;
+            Dirty(uid, comp);
+            return;
+        }
+
+        _audio.SetGain(sound, gain);
     }
 
     private void OnMediaPlayed(EntityUid uid, StationRadioReceiverComponent comp, StationRadioMediaPlayedEvent args)

@@ -1456,6 +1456,7 @@ entities:
     - type: NavMap
     - type: BecomesStation
       id: flashpoint
+    - type: InitRepairSnapshot
     - type: ShipGridLock
       locked: False
   - uid: 2

@@ -70,7 +70,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         var query = EntityQueryEnumerator<GameRuleComponent>();
         while (query.MoveNext(out var uid, out var gameRule))
         {
-            if (!_gameTicker.IsGameRuleAdded(uid, gameRule))
+            if (!_gameTicker.IsGameRuleActive(uid, gameRule))
                 continue;
 
             var info = new ObjectivesTextGetInfoEvent(new List<(EntityUid, string)>(), string.Empty);

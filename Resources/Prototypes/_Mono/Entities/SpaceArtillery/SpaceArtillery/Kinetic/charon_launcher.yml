@@ -67,11 +67,15 @@
   - type: RadarBlip
     radarColor: "#D90000"
     scale: 4
+    shape: square
     visibleFromOtherGrids: true
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
     shipClass: Superheavy
+  - type: ShipRepairable
+    repairTime: 45
+    repairCost: 300
 
 # Ship one w/ limited ammo
 

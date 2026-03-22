@@ -348,6 +348,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Stellaris
+    - type: InitRepairSnapshot
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2

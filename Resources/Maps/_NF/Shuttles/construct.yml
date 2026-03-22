@@ -117,6 +117,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Construct
+    - type: InitRepairSnapshot
 - proto: AirlockExternalGlass
   entities:
   - uid: 45

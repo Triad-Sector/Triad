@@ -229,6 +229,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Hunter
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

@@ -163,7 +163,47 @@
   description: signal-port-description-operating-table
 
 - type: sourcePort
-  id: FillItems # Used by Fillbot
+  id: FillItems
   name: signal-port-name-fillitems
   description: signal-port-description-fillitems
   defaultLinks: [ FillbotAnyItem ]
+
+- type: sourcePort
+  id: device-button-1
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-2
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-3
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-4
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-5
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-6
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-7
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse
+
+- type: sourcePort
+  id: device-button-8
+  name: signal-port-name-pulse
+  description: signal-port-description-pulse

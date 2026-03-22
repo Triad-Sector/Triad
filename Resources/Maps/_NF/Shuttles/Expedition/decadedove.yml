@@ -575,6 +575,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: DecadeDove
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

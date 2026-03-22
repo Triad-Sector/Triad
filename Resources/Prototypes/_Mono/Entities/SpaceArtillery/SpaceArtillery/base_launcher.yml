@@ -66,12 +66,14 @@
     visibleFromOtherGrids: true
     radarColor: "#9999FF"
     scale: 1
+    shape: square
   - type: ShipGunType
     shipType: Kinetic
   - type: ShipGunClass
     shipClass: Medium
   - type: LightningTarget
     priority: 1
+  - type: ThermalSignature # at least most have a thermal signature when firing
 
 - type: entity
   id: BallisticArtilleryUnanchorable
@@ -150,6 +152,7 @@
     visibleFromOtherGrids: true
     radarColor: "#9999FF"
     scale: 1
+    shape: square
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -245,6 +248,7 @@
     visibleFromOtherGrids: true
     radarColor: "#9999FF"
     scale: 1
+    shape: square
   - type: Gun
     fireRate: 3
     soundGunshot:

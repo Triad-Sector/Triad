@@ -300,6 +300,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Chauffeur
+    - type: InitRepairSnapshot
 - proto: AirlockCommandGlass
   entities:
   - uid: 150

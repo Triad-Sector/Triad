@@ -23,6 +23,7 @@ entities:
       pos: -0.4375,-1.703125
     - type: BecomesStation
       id: Bocakillo
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

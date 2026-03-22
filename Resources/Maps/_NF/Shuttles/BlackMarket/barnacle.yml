@@ -485,6 +485,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Barnacle
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
     - type: NavMap
 - proto: AirAlarm

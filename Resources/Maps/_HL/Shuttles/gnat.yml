@@ -116,6 +116,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Gnat
+    - type: InitRepairSnapshot
 - proto: AirlockShuttle
   entities:
   - uid: 2

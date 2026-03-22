@@ -415,6 +415,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Heimdall
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

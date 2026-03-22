@@ -1132,6 +1132,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Anchor
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

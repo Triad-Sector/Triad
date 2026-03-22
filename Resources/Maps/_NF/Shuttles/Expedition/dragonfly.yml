@@ -412,6 +412,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Dragonfly
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

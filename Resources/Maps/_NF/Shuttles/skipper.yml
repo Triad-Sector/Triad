@@ -437,6 +437,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Skipper
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
 - proto: AirAlarm
   entities:

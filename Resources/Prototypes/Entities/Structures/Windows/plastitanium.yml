@@ -35,6 +35,10 @@
   # - type: StaticPrice # Frontier
   #   price: 100 # Frontier
   - type: BlockWeather
+    # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -61,6 +65,10 @@
         - FullTileMask
         layer:
         - GlassLayer
+      # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
 
 - type: entity
   id: PlastitaniumWindowIndestructible
@@ -121,6 +129,10 @@
   - type: Construction # Frontier - Harder to break into
     graph: Plastitanium # Frontier - Harder to break into
     node: plastitaniumWindow # Frontier - Harder to break into
+      # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -162,6 +174,10 @@
     airBlockedDirection:
     - South
     - East
+ # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
 
 - type: entity
   id: PlastitaniumWindowDiagonalIndestructible
@@ -218,3 +234,7 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+    # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50

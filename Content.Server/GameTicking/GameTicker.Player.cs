@@ -96,7 +96,7 @@ namespace Content.Server.GameTicking
                         break;
                     }
 
-                    if (mind.CurrentEntity == null || Deleted(mind.CurrentEntity))
+                    if (mind.CurrentEntity == null || !Exists(mind.CurrentEntity.Value) || Deleted(mind.CurrentEntity))
                     {
                         DebugTools.Assert(mind.CurrentEntity == null, "a mind's current entity was deleted without updating the mind");
 

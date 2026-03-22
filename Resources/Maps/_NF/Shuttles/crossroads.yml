@@ -945,6 +945,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Crossroads
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

@@ -1083,6 +1083,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Stasis
+    - type: InitRepairSnapshot
     - type: NavMap
 - proto: AirAlarm
   entities:

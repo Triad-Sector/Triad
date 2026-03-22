@@ -7,7 +7,7 @@ using Robust.Shared.Serialization; // Frontier
 
 namespace Content.Shared.Charges.Systems;
 
-public abstract class SharedChargesSystem : EntitySystem
+public abstract partial class SharedChargesSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming _timing = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!; // Frontier
@@ -19,6 +19,8 @@ public abstract class SharedChargesSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        InitializeAmmo();
 
         SubscribeLocalEvent<LimitedChargesComponent, ExaminedEvent>(OnExamine);
 
@@ -137,6 +139,26 @@ public abstract class SharedChargesSystem : EntitySystem
     public bool TryUseCharge(Entity<LimitedChargesComponent?> entity)
     {
         return TryUseCharges(entity, 1);
+    }
+
+    public bool HasInsufficientCharges(Entity<LimitedChargesComponent?> entity, int amount)
+    {
+        return !HasCharges(entity, amount);
+    }
+
+    public bool HasInsufficientCharges<T>(Entity<T> entity, int amount) where T : IComponent?
+    {
+        return HasInsufficientCharges(new Entity<LimitedChargesComponent?>(entity.Owner, CompOrNull<LimitedChargesComponent>(entity.Owner)), amount);
+    }
+
+    public void UseCharges(Entity<LimitedChargesComponent?> entity, int amount)
+    {
+        TryUseCharges(entity, amount);
+    }
+
+    public void UseCharges<T>(Entity<T> entity, int amount) where T : IComponent?
+    {
+        UseCharges(new Entity<LimitedChargesComponent?>(entity.Owner, CompOrNull<LimitedChargesComponent>(entity.Owner)), amount);
     }
 
     public bool TryUseCharges(Entity<LimitedChargesComponent?> entity, int amount)

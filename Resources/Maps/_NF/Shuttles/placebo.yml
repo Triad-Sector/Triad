@@ -183,6 +183,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Placebo
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

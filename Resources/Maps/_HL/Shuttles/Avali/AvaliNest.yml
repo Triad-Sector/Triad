@@ -207,6 +207,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Nest
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 2

@@ -41,6 +41,7 @@ entities:
       pos: -1.6066288,-0.53125
     - type: BecomesStation
       id: Akupara
+    - type: InitRepairSnapshot
     - type: MapGrid
       chunks:
         0,0:

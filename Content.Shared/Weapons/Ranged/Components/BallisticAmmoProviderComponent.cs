@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), Access(typeof(SharedGunSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedGunSystem))]
 public sealed partial class BallisticAmmoProviderComponent : Component
 {
     [DataField]
@@ -24,7 +24,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
 
     public int Count => UnspawnedCount + Container.ContainedEntities.Count;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField]
     public int UnspawnedCount;
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
@@ -34,7 +34,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
 
     // TODO: Make this use stacks when the typeserializer is done.
     // Realistically just point to the container.
-    [DataField, AutoNetworkedField]
+    [DataField]
     public List<EntityUid> Entities = new();
 
     /// <summary>
@@ -43,7 +43,7 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// <remarks>
     /// Set to false for entities like turrets to avoid users being able to cycle them.
     /// </remarks>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField]
     public bool Cycleable = true;
 
     /// <summary>

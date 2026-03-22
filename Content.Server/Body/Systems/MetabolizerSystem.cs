@@ -70,6 +70,9 @@ namespace Content.Server.Body.Systems
             Entity<MetabolizerComponent> ent,
             ref ApplyMetabolicMultiplierEvent args)
         {
+            if (!float.IsFinite(args.Multiplier) || args.Multiplier == 0f)
+                return;
+
             // TODO REFACTOR THIS
             // This will slowly drift over time due to floating point errors.
             // Instead, raise an event with the base rates and allow modifiers to get applied to it.
@@ -194,17 +197,26 @@ namespace Content.Server.Body.Systems
                     if (!proto.Metabolisms.TryGetValue(group.Id, out var entry))
                         continue;
 
-                    var rate = entry.MetabolismRate * group.MetabolismRateModifier;
+                    var rate = entry.MetabolismRate * (float) group.MetabolismRateModifier;
+                    if (rate <= FixedPoint2.Zero)
+                        continue;
 
-                    // Remove $rate, as long as there's enough reagent there to actually remove that much
-                    mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
+                    var rateFloat = (float) rate;
+                    if (!float.IsFinite(rateFloat) || rateFloat <= 0f)
+                        continue;
+
+                    mostToRemove = FixedPoint2.Min(rate, quantity);
+                    if (mostToRemove <= FixedPoint2.Zero)
+                        continue;
 
                     // Frontier: skip applying effects in metabolism
                     if (group.SkipEffects)
                         continue;
                     // End Frontier
 
-                    float scale = (float) mostToRemove / (float) rate;
+                    float scale = (float) mostToRemove / rateFloat;
+                    if (!float.IsFinite(scale) || scale <= 0f)
+                        continue;
 
                     // HardLight start: Check if the entity is a Synth and scale effects accordingly when dead
                     var actualEntity = ent.Comp2?.Body ?? solutionEntityUid.Value;
@@ -223,6 +235,9 @@ namespace Content.Server.Body.Systems
 
                     if (isSynth && isDead && !proto.WorksOnTheDead)
                         scale *= 0.75f;
+
+                    if (!float.IsFinite(scale) || scale <= 0f)
+                        continue;
                     // HardLight end
 
                     var args = new EntityEffectReagentArgs(actualEntity, EntityManager, ent, solution, mostToRemove, proto, null, scale);

@@ -72,6 +72,7 @@ entities:
     - type: SpreaderGrid
     - type: BecomesStation
       id: Lyrae
+    - type: InitRepairSnapshot
     - type: Shuttle
     - type: GridPathfinding
     - type: Gravity

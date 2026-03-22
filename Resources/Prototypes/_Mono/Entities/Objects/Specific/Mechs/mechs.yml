@@ -85,7 +85,7 @@
         Blunt: 25
         Structural: 0
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -174,7 +174,7 @@
         Blunt: 25
         Structural: 0
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -256,8 +256,11 @@
         Structural: 0
   # Terrible radar, mostly good for navigating planets
   - type: RadarConsole
-    maxRange: 56
+    maxRange: 256
     followEntity: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 0.5 # from 1
+    visualMultiplier: 3 # from 4
   - type: Appearance
   - type: GenericVisualizer
   - type: MovementAlwaysTouching
@@ -337,7 +340,7 @@
         Blunt: 50
         Structural: 0
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer
@@ -418,8 +421,11 @@
         Blunt: 50
         Structural: 0
   - type: RadarConsole
-    maxRange: 768 #It's a radar/EWAC platform.
+    maxRange: 1024 #It's a radar/EWAC platform.
     followEntity: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 1.5 # from 1
+    visualMultiplier: 8 # from 4
   - type: Appearance
   - type: GenericVisualizer
   - type: CanMoveInAir
@@ -500,7 +506,7 @@
         Blunt: 50
         Structural: 0
   - type: RadarConsole
-    maxRange: 256
+    maxRange: 512
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer

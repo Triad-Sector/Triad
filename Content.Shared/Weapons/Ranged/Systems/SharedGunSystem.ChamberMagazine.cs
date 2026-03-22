@@ -18,6 +18,7 @@ public abstract partial class SharedGunSystem
     {
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ComponentStartup>(OnChamberStartup);
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, TakeAmmoEvent>(OnChamberMagazineTakeAmmo);
+        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, CheckShootPrototypeEvent>(OnChamberMagazineCheckProto); // Mono
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetAmmoCountEvent>(OnChamberAmmoCount);
 
         /*
@@ -111,7 +112,8 @@ public abstract partial class SharedGunSystem
             else
             {
                 // Similar to below just due to prediction.
-                TransformSystem.DetachEntity(chamberEnt.Value, Transform(chamberEnt.Value));
+                if (TryComp(chamberEnt.Value, out TransformComponent? chamberXform))
+                    TransformSystem.DetachEntity(chamberEnt.Value, chamberXform);
             }
         }
 
@@ -184,7 +186,8 @@ public abstract partial class SharedGunSystem
                     // The problem is client will dump the cartridge on the ground and the new server state
                     // won't correspond due to randomness so looks weird
                     // but we also need to always take it from the chamber or else ammocount won't be correct.
-                    TransformSystem.DetachEntity(chambered.Value, Transform(chambered.Value));
+                    if (TryComp(chambered.Value, out TransformComponent? chamberedXform))
+                        TransformSystem.DetachEntity(chambered.Value, chamberedXform);
                 }
 
                 UpdateAmmoCount(uid);
@@ -426,5 +429,21 @@ public abstract partial class SharedGunSystem
             chamberEnt = slot.ContainedEntity;
             args.Ammo.Add((chamberEnt.Value, EnsureShootable(chamberEnt.Value)));
         }
+    }
+
+    // Mono
+    private void OnChamberMagazineCheckProto(Entity<ChamberMagazineAmmoProviderComponent> ent, ref CheckShootPrototypeEvent args)
+    {
+        if (Containers.TryGetContainer(ent, ChamberSlot, out var container)
+            && container is ContainerSlot slot
+            && slot.ContainedEntity != null)
+        {
+            args.ShootPrototype = MetaData(slot.ContainedEntity.Value).EntityPrototype;
+            return;
+        }
+
+        var mag = GetMagazineEntity(ent);
+        if (mag != null)
+            RaiseLocalEvent(mag.Value, ref args);
     }
 }

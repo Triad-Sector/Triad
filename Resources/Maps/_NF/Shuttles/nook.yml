@@ -439,6 +439,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Nook
+    - type: InitRepairSnapshot
     - type: IFF
       color: '#FFFFFFFF'
       flags: IsPlayerShuttle

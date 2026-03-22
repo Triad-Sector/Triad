@@ -708,6 +708,7 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: Apothecary
+    - type: InitRepairSnapshot
     - type: NavMap
 - proto: AirAlarm
   entities:

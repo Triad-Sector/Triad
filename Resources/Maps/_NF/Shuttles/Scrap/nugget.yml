@@ -519,6 +519,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Nugget
+    - type: InitRepairSnapshot
 - proto: Airlock
   entities:
   - uid: 2

@@ -252,6 +252,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Express
+    - type: InitRepairSnapshot
 - proto: AirAlarm
   entities:
   - uid: 79

@@ -373,6 +373,7 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Prospector
+    - type: InitRepairSnapshot
     - type: SpreaderGrid
 - proto: AirAlarm
   entities:

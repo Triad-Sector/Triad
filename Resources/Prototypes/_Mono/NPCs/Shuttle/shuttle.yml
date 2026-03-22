@@ -24,6 +24,32 @@
     - !type:HTNCompoundTask
       task: ShuttleBackOffCompound
 
+# same, but with leading
+- type: htnCompound
+  id: RammerShuttleSmartDodgingCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleRamSmartDodgingCompound
+    - !type:HTNCompoundTask
+      task: ShuttleBackOffCompound
+
+# ram, but no collision evasion
+- type: htnCompound
+  id: RammerShuttleStraightCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleRamStraightCompound
+    - !type:HTNCompoundTask
+      task: ShuttleBackOffCompound
+
 # approaches closest shuttle with parent ship
 - type: htnCompound
   id: ApproacherShuttleCompound
@@ -38,14 +64,6 @@
 - type: htnCompound
   id: AttackerShuttleCompound
   branches:
-  # First priority: rotate to face nearby hostile entities within 100m (based on faction)
-  - tasks:
-    - !type:HTNPrimitiveTask
-      operator: !type:UtilityOperator
-        proto: NearbyHostilesForRotation
-    - !type:HTNCompoundTask
-      task: ShuttleFaceHostileCompound
-  # Second priority: attack hostile shuttles
   - tasks:
     - !type:HTNPrimitiveTask
       operator: !type:UtilityOperator
@@ -53,41 +71,43 @@
     - !type:HTNCompoundTask
       task: ShuttleAttackCompound
 
-# Utility query to find nearby hostile entities (based on faction)
-# Range filtering is done by ShipMoveToOperator's range parameter
-- type: utilityQuery
-  id: NearbyHostilesForRotation
-  query:
-  - !type:NearbyHostilesQuery
-  considerations:
-  - !type:TargetIsAliveCon
-    curve: !type:BoolCurve
-  - !type:TargetDistanceCon
-    curve: !type:PresetCurve
-      preset: TargetDistance
-
-# Face hostile compound - rotates grid to face target
 - type: htnCompound
-  id: ShuttleFaceHostileCompound
+  id: AttackerShuttleSmartCompound
   branches:
-  - preconditions:
-    - !type:KeyExistsPrecondition
-      key: TargetCoordinates
-    tasks:
+  - tasks:
     - !type:HTNPrimitiveTask
-      operator: !type:ShipMoveToOperator
-        shutdownState: PlanFinished
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackSmartCompound
+
+- type: htnCompound
+  id: AttackerShuttleBroadsideCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNCompoundTask
+      task: ShuttleAttackBroadsideCompound
+
+- type: htnCompound
+  id: ShooterShuttleCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyShuttleTargets
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
         removeKeyOnFinish: false
-        alwaysFaceTarget: true
-        inRangeMaxSpeed: 0
-        range: 200
-        rangeTolerance: 150
-        requireAnchored: false
+        leadingAccuracy: 0.4 # stupid
         targetKey: TargetCoordinates
       services:
       - !type:UtilityService
         id: TargetsService
-        proto: NearbyHostilesForRotation
+        proto: NearbyShuttleTargets
         key: Target
         coordinatesKey: TargetCoordinates
 
@@ -148,6 +168,49 @@
         coordinatesKey: TargetCoordinates
 
 - type: htnCompound
+  id: ShuttleRamSmartDodgingCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null # there's no braking where we're going
+        targetKey: TargetCoordinates
+        avoidProjectiles: true
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleRamStraightCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: Target
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        inRangeMaxSpeed: null # there's no braking where we're going
+        targetKey: TargetCoordinates
+        avoidCollisions: false
+        leadingEnabled: false
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
   id: ShuttleBackOffCompound
   branches:
   - preconditions:
@@ -178,8 +241,8 @@
         shutdownState: TaskFinished
         removeKeyOnFinish: false
         inRangeMaxSpeed: 0.1
-        range: 200
-        rangeTolerance: 5
+        range: 250
+        rangeTolerance: 50
         alwaysFaceTarget: true
         targetKey: TargetCoordinates
       services:
@@ -201,15 +264,79 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 1
-        range: 150
-        rangeTolerance: 5
+        inRangeMaxSpeed: null # orbit at top velocity
+        range: 850
+        rangeTolerance: 150
         targetKey: TargetCoordinates
+        mode: Orbit
     - !type:HTNPrimitiveTask
       operator: !type:ShipFireGunsOperator
         shutdownState: TaskFinished
         removeKeyOnFinish: false
-        leadingAccuracy: 0.4
+        leadingAccuracy: 0.4 # stupid
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+# hardest possible attacker AI
+- type: htnCompound
+  id: ShuttleAttackSmartCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: null # orbit at top velocity
+        range: 850
+        rangeTolerance: 150
+        avoidProjectiles: true
+        targetKey: TargetCoordinates
+        mode: Orbit
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 1
+        targetKey: TargetCoordinates
+      services:
+      - !type:UtilityService
+        id: TargetsService
+        proto: NearbyShuttleTargets
+        key: Target
+        coordinatesKey: TargetCoordinates
+
+- type: htnCompound
+  id: ShuttleAttackBroadsideCompound
+  branches:
+  - preconditions:
+    - !type:KeyExistsPrecondition
+      key: TargetCoordinates
+    tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipMoveToOperator
+        shutdownState: PlanFinished
+        removeKeyOnFinish: false
+        alwaysFaceTarget: true
+        inRangeMaxSpeed: null # orbit at top velocity
+        range: 450
+        rangeTolerance: 50
+        targetKey: TargetCoordinates
+        mode: OrbitCW
+        targetRotation: 90
+    - !type:HTNPrimitiveTask
+      operator: !type:ShipFireGunsOperator
+        shutdownState: TaskFinished
+        removeKeyOnFinish: false
+        leadingAccuracy: 0.4 # stupid
         targetKey: TargetCoordinates
       services:
       - !type:UtilityService

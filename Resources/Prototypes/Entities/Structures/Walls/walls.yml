@@ -135,6 +135,11 @@
   - type: Airtight
   - type: StaticPrice
     price: 25 # Frontier 75<25
+# mono
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
+# end mono   
   - type: RadiationBlocker
     resistance: 2
   - type: BlockWeather
@@ -208,6 +213,10 @@
     fx: EffectRCDDeconstruct8 # Frontier
   - type: StaticPrice # Frontier 75
     price: 75 # Frontier 75
+  # mono. HL - Brass is more expensive than steel for similar health stats, so same repair time but +1 cost. 
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 4
 
 - type: entity
   parent: BaseWall
@@ -244,6 +253,10 @@
   - type: IconSmooth
     key: walls
     base: clown
+  # mono. HL - Bananium is more expensive than steel for similar health stats, so same repair time but +3 cost for price and rad protection.
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 6
 
 - type: entity
   parent: BaseWall
@@ -307,6 +320,10 @@
   - type: IconSmooth
     key: walls
     base: cult
+  # Mono. HL - Cult walls slightly stronger than normal solids, but cost and time same because I don't think you can make these anyway.
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 4
 
 - type: entity
   parent: BaseWall
@@ -371,6 +388,10 @@
   - type: IconSmooth
     key: walls
     base: diamond
+ # mono. HL - Diamonds expensive, so high cost and higher repair time.
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
 
 - type: entity
   parent: BaseWall
@@ -416,6 +437,10 @@
   - type: IconSmooth
     key: walls
     base: gold
+ # mono. HL - Gold is brittle, so repairs quick, but is expensive because gold.
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 8
 
 - type: entity
   parent: BaseWall
@@ -492,6 +517,10 @@
     base: plasma
   - type: RadiationBlocker
     resistance: 5
+   # Mono. HL - Plasma rarer than steel so +1 cost but same speed
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 4
 
 - type: entity
   parent: BaseWall
@@ -537,6 +566,9 @@
   - type: IconSmooth
     key: walls
     base: plastic
+  - type: ShipRepairable
+    repairTime: 2
+    repairCost: 3
 
 - type: entity
   parent: BaseWall
@@ -556,6 +588,7 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -668,6 +701,11 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
+    # Not originally possible in mono but possible in HL now since... this is a shuttle wall
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 6
+
   
 - type: entity
   parent: WallDiagonal
@@ -714,6 +752,10 @@
         acts: ["Destruction"]
   - type: RCDDeconstructable # Frontier
     deconstructable: false # Frontier
+    # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
 
 - type: entity
   id: WallPlastitaniumDiagonalIndestructible
@@ -764,6 +806,11 @@
         - FullTileMask
         layer:
         - WallLayer
+    # Mono
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 50
+
 
 - type: entity
   parent: BaseWall
@@ -827,6 +874,11 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
+    # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
+
 
 - type: entity
   parent: WallReinforced
@@ -870,7 +922,10 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: WallDiagonal
@@ -918,6 +973,10 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Mono
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 # Riveting
 - type: entity
@@ -957,6 +1016,10 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
+ # Mono
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 8
 
 - type: entity
   parent: BaseWall
@@ -1035,6 +1098,9 @@
   - type: IconSmooth
     key: walls
     base: silver
+  # Mono. HL - Silver parity with gold because why not
+    repairTime: 2
+    repairCost: 8
 
 #shuttle walls
 - type: entity
@@ -1122,7 +1188,10 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
-
+  # Mono. 
+  - type: ShipRepairable
+    repairTime: 5
+    repairCost: 6
 - type: entity
   parent: BaseWall
   id: WallShuttle
@@ -1371,6 +1440,9 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: ShipRepairable
+    repairTime: 3
+    repairCost: 6
 
 - type: entity
   parent: WallPlastitanium
@@ -1442,6 +1514,11 @@
     cost: 6 #Frontier
     delay: 8 #Frontier
     fx: EffectRCDDeconstruct8 #Frontier
+  # Mono. HL - Uranium walls are strong and have rad resistence, so slower and more expensive 
+  - type: ShipRepairable
+    repairTime: 6
+    repairCost: 10
+
 
 - type: entity
   parent: BaseWall
@@ -1487,6 +1564,10 @@
     fx: EffectRCDDeconstruct8 #Frontier
   - type: StaticPrice # Frontier
     price: 30 # Frontier
+ # Mono. HL - Wood walls are weak as hell, so much faster and cheaper to repair.
+  - type: ShipRepairable
+    repairTime: 1
+    repairCost: 3
 
 - type: entity
   parent: BaseWall
@@ -1591,6 +1672,11 @@
     - mining
     - miningB
   - type: Appearance
+   # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 5
+
 
 - type: entity
   parent: WallDiagonal
@@ -1615,7 +1701,10 @@
     state: state0
   - type: RCDDeconstructable # Frontier
     deconstructable: false # Frontier
-
+   # Mono
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 5
 
 # Vault Walls
 
