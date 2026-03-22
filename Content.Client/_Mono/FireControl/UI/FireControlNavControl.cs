@@ -333,11 +333,12 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
             if (shape == RadarBlipShape.Ring)
             {
-                DrawShieldRing(handle, viewPosition, scale, color.WithAlpha(0.8f));
+                DrawShieldRing(handle, blipPos, blipScale, blipColor.WithAlpha(0.8f));
             }
             else
             {
-                DrawBlipShape(handle, viewPosition, scale * 3f, color.WithAlpha(0.8f), shape);
+                // For other shapes, use the regular drawing method
+                DrawBlipShape(handle, blipPos, blipdScale * 3f, blipColor.WithAlpha(0.8f), blipShape);
             }
 
             if (_isMouseInside && _controllables != null)
@@ -365,7 +366,7 @@ public sealed class FireControlNavControl : BaseShuttleControl
 
                     if (!results.Any())
                     {
-                        handle.DrawLine(viewPosition, cursorViewPos, color.WithAlpha(0.3f));
+                        handle.DrawLine(blipPos, cursorViewPos, blipColor.WithAlpha(0.3f));
                     }
                 }
             }
@@ -560,13 +561,13 @@ public sealed class FireControlNavControl : BaseShuttleControl
     {
         const float SafeZoneRadius = 5000f;
         var safeZoneColor = Color.LimeGreen.WithAlpha(0.8f);
-        
+
         // Calculate the center position
         var centerPos = ScalePosition(Vector2.Zero);
-        
+
         // Scale the radius according to the minimap scale
         var scaledRadius = SafeZoneRadius * MinimapScale;
-        
+
         // Draw the ring
         handle.DrawCircle(centerPos, scaledRadius, safeZoneColor, filled: false);
     }
