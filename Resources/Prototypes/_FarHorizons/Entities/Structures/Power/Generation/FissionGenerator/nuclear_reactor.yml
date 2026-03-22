@@ -4,8 +4,6 @@
   parent: BaseStructure
   abstract: true
   categories: [ HideSpawnMenu ]
-  abstract: true
-  categories: [ HideSpawnMenu ]
   name: nuclear reactor
   description: A nuclear reactor vessel, with slots for fuel rods and other components. Hey wait, didn't one of these explode once?
   components:
