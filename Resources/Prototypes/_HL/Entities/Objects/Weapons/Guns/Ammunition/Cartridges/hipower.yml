@@ -33,3 +33,327 @@
   - type: Construction
     graph: Cartridge9x19mmFlechetteGraph
     node: shell
+
+- type: entity
+  id: Cartridge45_ACPHiPower
+  name: cartridge (45 ACP high-power)
+  parent: BaseCartridge45_ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_ACPHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge45_ACPHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge45_ACPFlechette
+  name: cartridge (45 ACP flechette)
+  parent: BaseCartridge45_ACP
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_ACPFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge45_ACPFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge46x30mmHiPower
+  name: cartridge (46x30mm high-power)
+  parent: BaseCartridge46x30mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30mmHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge46x30mmHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge46x30mmFlechette
+  name: cartridge (46x30mm flechette)
+  parent: BaseCartridge46x30mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet46x30mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge46x30mmFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge45_magnumHiPower
+  name: cartridge (45 magnum high-power)
+  parent: BaseCartridge45_magnum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_magnumHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge45_magnumHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge45_magnumFlechette
+  name: cartridge (45 magnum flechette)
+  parent: BaseCartridge45_magnum
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet45_magnumFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge45_magnumFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge556x45mmHiPower
+  name: cartridge (556x45mm high-power)
+  parent: BaseCartridge556x45mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet556x45mmHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge556x45mmHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge556x45mmFlechette
+  name: cartridge (556x45mm flechette)
+  parent: BaseCartridge556x45mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet556x45mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge556x45mmFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge57x28mmHiPower
+  name: cartridge (57x28mm high-power)
+  parent: BaseCartridge57x28mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet57x28mmHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge57x28mmHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge57x28mmFlechette
+  name: cartridge (57x28mm flechette)
+  parent: BaseCartridge57x28mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet57x28mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge57x28mmFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x39mmHiPower
+  name: cartridge (762x39mm high-power)
+  parent: BaseCartridge762x39mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x39mmHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge762x39mmHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x39mmFlechette
+  name: cartridge (762x39mm flechette)
+  parent: BaseCartridge762x39mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x39mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge762x39mmFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x51mmHiPower
+  name: cartridge (762x51mm high-power)
+  parent: BaseCartridge762x51mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x51mmHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge762x51mmHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x51mmFlechette
+  name: cartridge (762x51mm flechette)
+  parent: BaseCartridge762x51mm
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x51mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge762x51mmFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x54mmRHiPower
+  name: cartridge (762x54mmR high-power)
+  parent: BaseCartridge762x54mmR
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x54mmRHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge762x54mmRHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge762x54mmRFlechette
+  name: cartridge (762x54mmR flechette)
+  parent: BaseCartridge762x54mmR
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet762x54mmRFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge762x54mmRFlechetteGraph
+    node: shell
+
+- type: entity
+  id: Cartridge8x65mmSKRHiPower
+  name: cartridge (8x65mm SKR high-power)
+  parent: BaseCartridge8x65mmSKR
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet8x65mmSKRHiPower
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#B22222"
+  - type: Construction
+    graph: Cartridge8x65mmSKRHiPowerGraph
+    node: shell
+
+- type: entity
+  id: Cartridge8x65mmSKRFlechette
+  name: cartridge (8x65mm SKR flechette)
+  parent: BaseCartridge8x65mmSKR
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet8x65mmSKRFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        color: "#808080"
+  - type: Construction
+    graph: Cartridge8x65mmSKRFlechetteGraph
+    node: shell

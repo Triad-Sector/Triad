@@ -638,7 +638,178 @@
       Brass: 10
   - type: Item
     size: Tiny
-
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing45_ACP
+  name: brass casing (45 ACP)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 45 ACP.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing45_ACP
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 10
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing46x30mm
+  name: brass casing (46x30mm)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 46x30mm.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing46x30mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 10
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing45_magnum
+  name: brass casing (45 magnum)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 45 magnum.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing45_magnum
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 30
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing556x45mm
+  name: brass casing (556x45mm)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 556x45mm.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing556x45mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 10
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing57x28mm
+  name: brass casing (57x28mm)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 57x28mm.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing57x28mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 10
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing762x39mm
+  name: brass casing (762x39mm)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 762x39mm.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing762x39mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 20
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing762x51mm
+  name: brass casing (762x51mm)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 762x51mm.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing762x51mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 20
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing762x54mmR
+  name: brass casing (762x54mmR)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 762x54mmR.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing762x54mmR
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 30
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing8x65mmSKR
+  name: brass casing (8x65mm SKR)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 8x65mmSKR.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing9x19mm
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 30
+  - type: Item
+    size: Tiny
+    
 - type: entity
   parent: MaterialBase
   id: MaterialBulletFlechette

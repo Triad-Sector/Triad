@@ -1,3 +1,12 @@
 stack-hi-power-gunpowder = triple-base gunpowder
 stack-bullet-tip = bullet tip(s)
 stack-bullet-casings-9x19mm = brass casing(s) (9x19mm)
+stack-bullet-casings-45_ACP = brass casing(s) (45 ACP)
+stack-bullet-casings-46x30mm = brass casing(s) (46x30mm)
+stack-bullet-casings-45_magnum = brass casing(s) (45 magnum)
+stack-bullet-casings-556x45mm = brass casing(s) (556x45mm)
+stack-bullet-casings-57x28mm = brass casing(s) (57x28mm)
+stack-bullet-casings-762x39mm = brass casing(s) (762x39mm)
+stack-bullet-casings-762x51mm = brass casing(s) (762x51mm)
+stack-bullet-casings-762x54mmR = brass casing(s) (762x54mmR)
+stack-bullet-casings-8x65mmSKR = brass casing(s) (8x65mm SKR)

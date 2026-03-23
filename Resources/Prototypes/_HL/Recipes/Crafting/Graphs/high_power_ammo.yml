@@ -37,3 +37,364 @@
               doAfter: 5
     - node: shell
       entity: Cartridge9x19mmFlechette
+
+- type: constructionGraph
+  id: Cartridge45_ACPHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing45_ACP
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge45_ACPHiPower
+
+- type: constructionGraph
+  id: Cartridge45_ACPFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing45_ACP
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge45_ACPFlechette
+
+- type: constructionGraph
+  id: Cartridge46x30mmHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing46x30mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge46x30mmHiPower
+
+- type: constructionGraph
+  id: Cartridge46x30mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing46x30mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge46x30mmFlechette
+
+- type: constructionGraph
+  id: Cartridge45_magnumHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing45_magnum
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge45_magnumHiPower
+
+- type: constructionGraph
+  id: Cartridge45_magnumFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing45_magnum
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge45_magnumFlechette
+
+- type: constructionGraph
+  id: Cartridge556x45mmHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing556x45mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge556x45mmHiPower
+
+- type: constructionGraph
+  id: Cartridge556x45mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing556x45mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge556x45mmFlechette
+
+- type: constructionGraph
+  id: Cartridge57x28mmHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing57x28mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge57x28mmHiPower
+
+- type: constructionGraph
+  id: Cartridge57x28mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing57x28mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 1
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 5
+    - node: shell
+      entity: Cartridge57x28mmFlechette
+
+- type: constructionGraph
+  id: Cartridge762x39mmHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x39mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 2
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 10
+    - node: shell
+      entity: Cartridge762x39mmHiPower
+
+- type: constructionGraph
+  id: Cartridge762x39mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x39mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 2
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 10
+    - node: shell
+      entity: Cartridge762x39mmFlechette
+
+- type: constructionGraph
+  id: Cartridge762x51mmHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x51mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 2
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 10
+    - node: shell
+      entity: Cartridge762x51mmHiPower
+
+- type: constructionGraph
+  id: Cartridge762x51mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x51mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 2
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 10
+    - node: shell
+      entity: Cartridge762x51mmFlechette
+
+- type: constructionGraph
+  id: Cartridge762x54mmRHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x54mmR
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge762x54mmRHiPower
+
+- type: constructionGraph
+  id: Cartridge762x54mmRFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing762x54mmR
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge762x54mmRFlechette
+
+- type: constructionGraph
+  id: Cartridge8x65mmSKRHiPowerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing8x65mmSKR
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletTip
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge8x65mmSKRHiPower
+
+- type: constructionGraph
+  id: Cartridge8x65mmSKRFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing8x65mmSKR
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 3
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 15
+    - node: shell
+      entity: Cartridge8x65mmSKRFlechette
+

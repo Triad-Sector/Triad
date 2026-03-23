@@ -15,3 +15,166 @@
   category: construction-category-weapons
   description: cartridge-9x19mm-flechette
   objectType: Item
+  
+- type: construction
+  id: Cartridge45_ACPHiPower
+  graph: Cartridge45_ACPHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-45_ACP-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge45_ACPFlechette
+  graph: Cartridge45_ACPFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-45_ACP-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge46x30mmHiPower
+  graph: Cartridge46x30mmHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-46x30mm-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge46x30mmFlechette
+  graph: Cartridge46x30mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-46x30mm-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge45_magnumHiPower
+  graph: Cartridge45_magnumHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-45_magnum-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge45_magnumFlechette
+  graph: Cartridge45_magnumFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-45_magnum-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge556x45mmHiPower
+  graph: Cartridge556x45mmHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-556x45mm-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge556x45mmFlechette
+  graph: Cartridge556x45mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-556x45mm-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge57x28mmHiPower
+  graph: Cartridge57x28mmHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-57x28mm-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge57x28mmFlechette
+  graph: Cartridge57x28mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-57x28mm-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x39mmHiPower
+  graph: Cartridge762x39mmHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x39mm-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x39mmFlechette
+  graph: Cartridge762x39mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x39mm-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x51mmHiPower
+  graph: Cartridge762x51mmHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x51mm-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x51mmFlechette
+  graph: Cartridge762x51mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x51mm-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x54mmRHiPower
+  graph: Cartridge762x54mmRHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x54mmR-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge762x54mmRFlechette
+  graph: Cartridge762x54mmRFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-762x54mmR-flechette
+  objectType: Item
+
+- type: construction
+  id: Cartridge8x65mmSKRHiPower
+  graph: Cartridge8x65mmSKRHiPowerGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-8x65mmSKR-hi-power
+  objectType: Item
+
+- type: construction
+  id: Cartridge8x65mmSKRFlechette
+  graph: Cartridge8x65mmSKRFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: cartridge-8x65mmSKR-flechette
+  objectType: Item
+

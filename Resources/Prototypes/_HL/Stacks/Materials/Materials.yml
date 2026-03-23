@@ -111,6 +111,69 @@
   maxCount: 60
 
 - type: stack
+  id: BulletCasing45_ACP
+  name: stack-bullet-casing-45_ACP
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing45_ACP
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing46x30mm
+  name: stack-bullet-casing-46x30mm
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing46x30mm
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing45_magnum
+  name: stack-bullet-casing-45_magnum
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing45_magnum
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing556x45mm
+  name: stack-bullet-casing-556x45mm
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing556x45mm
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing57x28mm
+  name: stack-bullet-casing-57x28mm
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing57x28mm
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing762x39mm
+  name: stack-bullet-casing-762x39mm
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing762x39mm
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing762x51mm
+  name: stack-bullet-casing-762x51mm
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing762x51mm
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing762x54mmR
+  name: stack-bullet-casing-762x54mmR
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing762x54mmR
+  maxCount: 60
+
+- type: stack
+  id: BulletCasing8x65mmSKR
+  name: stack-bullet-casing-8x65mmSKR
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
+  spawn: MaterialBulletCasing8x65mmSKR
+  maxCount: 60
+
+- type: stack
   id: BulletTip
   name: stack-bullet-tip
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: tip }
