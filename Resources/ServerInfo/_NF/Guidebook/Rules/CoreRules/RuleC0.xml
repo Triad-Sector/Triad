@@ -1,9 +1,9 @@
 ﻿<Document>
-[head=3][color=#ff0000]WARNING: You must be 18 or older to play. Users under 18 will be banned immediately.[/head][/color]
+﻿[head=3][color=#ff0000]WARNING: You must be 18 or older to play. Users under 18 will be banned immediately.[/head][/color]
 
 [color=#99ff99]Triad is an english speaking 18+ medium roleplay server[/color]
 
-[color=#a4885c][head=3]0. Implementation and interpretation of the rules is up to the sole discretion of the Admins.[/head][/color]
+[color=#a4885c][head=3]0 Implementation and interpretation of the rules is up to the sole discretion of the Admins.[/head][/color]
 
 	• Admins will instead be held accountable through use of the Admin code of conduct.
 
@@ -27,6 +27,7 @@
   - [textlink="Section 11. Antagonist Rules" link="RuleC11"]
   - [textlink="Section 12. Escalation Guidelines" link="RuleC12"]
   - [textlink="Section 13: Ship saving" link="RuleC13"]
+
 
   [color=#ffff00][head=3]Severity guidelines:[/head][/color]
 
@@ -75,7 +76,7 @@
 
 [color=#a4885c]2.3[/color]It is strictly forbidden to livestream rounds to others or share recorded gameplay outside of Hardlight without consent of all parties involved.*2
 
-[color=#a4885c]2.4[/color] Ghosting with with the sole intent of spying on others personal activities is not permitted. *2
+[color=#a4885c]2.4[/color] Ghosting with the sole intent of spying on others personal activities is not permitted. *2
 
 
 [color=#ffff00][head=3]Section 3: Metagaming Rules[/head][/color]
@@ -198,23 +199,21 @@ Leeway is given to theatrical roles such as the clown, boxer, and mime; these ro
 [color=#a4885c]12.4[/color] Don't intentionally round remove other players unless related to an objective. *1
 
 
-[color=#ffff00][head=3]Section 13: Ship saving[/head][/color]
+[color=#ffff00][head=3]Section 13: Ship saving[/head][/color] [color=#a4885c]13.1[/color] Ships are to be no larger than 80x50 tiles. [color=#a4885c] *1
 
-[color=#a4885c]13.1[/color] Ships are to be no larger than 80x50 tiles. *1
+13.2[/color] Do not abuse the ship save mechanic to avoid in-character consequences. [color=#a4885c] *2
 
-[color=#a4885c]13.2[/color] Do not abuse the ship save mechanic to avoid in-character consequences. *1
+13.3[/color] Do not exploit the stash to duplicate items. This especially goes for contraband. [color=#a4885c] *3
 
-[color=#a4885c]13.3[/color] Do not exploit the stash to duplicate items. This especially goes for contraband. *3
+13.4[/color] Do not use inventories to circumvent stash restrictions. [color=#a4885c] *2
 
-[color=#a4885c]13.4[/color] Do not use inventories to circumvent stash restrictions. *1
+13.5[/color] Ship saving backups are only to be used in the event of ship destruction or loss due to a server crash or other unforseen issue. Loading backups otherwise is only to be done with admin permission. [color=#a4885c] *1
 
-[color=#a4885c]13.5[/color] Ship saving backups are only to be used in the event of ship destruction or loss due to a server crash or other unforseen issue. Loading backups otherwise is only to be done with admin permission. *2
+13.6[/color] Do not under any circumstances modify a ship save file without admin permission (like with the engine update). [color=#a4885c] *2
 
-[color=#a4885c]13.6[/color] Do not under any circumstances modify a ship save file without admin permission (like with the engine update). *3
+13.7[/color] Do not go afk for extended periods on your ship (like logging off to sleep). The ship saving is provided to allow people to save progress without the need to do this. UNATTENDED SHIPS WILL BE REMOVED. *1
 
-[color=#a4885c]13.7[/color] Do not go afk for extended periods on your ship (like logging off to sleep). The ship saving is provided to allow people to save progress without the need to do this. UNATTENDED SHIPS WILL BE REMOVED. *1
-
-[color=#a4885c]13.8[/color] DO NOT ADD MORE THAN ONE BLUESPACE STASH PER SHIP. *1
+[color=#a4885c]13.8[/color] DO NOT ADD MORE THAN ONE BLUESPACE STASH PER SHIP. *3
 
 
  </Document>
