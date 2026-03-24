@@ -291,7 +291,7 @@
       amount: 1
     - id: Magazine762x54mmRFMJ
       amount: 2
-    - id: AmmoBox762x51mmBigFMJ
+    - id: AmmoBox762x54mmRBigFMJ
       amount: 2
 
 - type: entity
@@ -669,7 +669,7 @@
   parent: WeaponCaseLong
   id: WeaponCaseLongLauncherChinaLake
   suffix: Dungeon, China Lake
-  categories: [ HideSpawnMenu ] # Triad change, we dont want this in the spawn menu for now
+#  categories: [ HideSpawnMenu ] # Triad change, we dont want this in the spawn menu for now
   components:
   - type: StorageFill
     contents:

@@ -6,36 +6,36 @@
   components:
   - type: StorageFill
     contents:
-    # - id: NFBlueprintAmmoBox12_gaugeUranium # While funny I think we should move this to events
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox556x45mmUranium
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox762x39mmUranium
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox45_magnumUranium
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox9x19mmUranium
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox12_gaugeIncendiary
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox556x45mmIncendiary
-      # prob: 0.2
-      # orGroup: Blueprints
-    # - id: NFBlueprintAmmoBox45_magnumIncendiary
-      # prob: 0.2
-      # orGroup: Blueprints
-    - id: NFBlueprintWeaponLaserCannon
-      orGroup: Blueprints
-    - id: NFBlueprintWeaponXrayCannon
-      orGroup: Blueprints
-    - id: NFBlueprintWeaponTemperatureGun
-      orGroup: Blueprints
-    - id: FloofBlueprintWeaponLaserPrototypePulseRifle # Floof - Adding the Prototype Pulse Rifle Blueprint to the loot pool
-      prob: 0.2
-      orGroup: Blueprints
+     - id: NFBlueprintAmmoBox12_gaugeUranium # While funny I think we should move this to events
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox556x45mmUranium
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox762x39mmUranium
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox45_magnumUranium
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox9x19mmUranium
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox12_gaugeIncendiary
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox556x45mmIncendiary
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintAmmoBox45_magnumIncendiary
+       prob: 0.2
+       orGroup: Blueprints
+     - id: NFBlueprintWeaponLaserCannon
+       orGroup: Blueprints
+     - id: NFBlueprintWeaponXrayCannon
+       orGroup: Blueprints
+     - id: NFBlueprintWeaponTemperatureGun
+       orGroup: Blueprints
+     - id: FloofBlueprintWeaponLaserPrototypePulseRifle # Floof - Adding the Prototype Pulse Rifle Blueprint to the loot pool
+       prob: 0.2
+       orGroup: Blueprints
