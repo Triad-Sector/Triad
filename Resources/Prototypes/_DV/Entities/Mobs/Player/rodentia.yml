@@ -3,3 +3,5 @@
   name: Urist McRat
   parent: BaseMobRodentia
   id: MobRodentia
+  components:
+  - type: PotentialPsionic #HL -Irkalla Edit- Makes Rodents Psyker-Capable

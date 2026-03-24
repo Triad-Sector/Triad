@@ -3,3 +3,5 @@
   name: Urist McAnt
   parent: BaseMobChitinid  
   id: MobChitinid
+  components:
+  - type: PotentialPsionic #HL -Irkalla Edit- Makes Bugs Psyker-Capable
