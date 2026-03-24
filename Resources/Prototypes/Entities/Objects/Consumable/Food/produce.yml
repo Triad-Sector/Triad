@@ -210,6 +210,11 @@
     damage:
       types:
         Blunt: 10
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 5
   - type: Produce
     seedId: towercap
   - type: Log
