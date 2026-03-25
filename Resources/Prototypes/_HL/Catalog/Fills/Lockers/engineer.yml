@@ -63,6 +63,7 @@
     children:
     - id: RCD
     - id: RCDAmmo
+    - id: BoxFolderEngiForms
 
 - type: entity
   id: HLLockerEngineerFilledHardsuit
@@ -101,3 +102,4 @@
     - id: RCD
     - id: RCDAmmo
     - id: MetalFoamGrenade
+    - id: BoxFolderEngiForms

@@ -172,6 +172,7 @@
     - id: ShipyardRCDAmmo
     - id: trayScanner
     - id: CEIDCard
+    - id: BoxFolderEngiForms
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
