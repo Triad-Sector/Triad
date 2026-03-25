@@ -330,8 +330,8 @@
     range: 500
   - type: FireControlRotate
   - type: Gun
-    fireRate: 4.0
-    projectileSpeed: 40
+    fireRate: 8.0
+    projectileSpeed: 60
     minAngle: 0
     maxAngle: 5
     soundGunshot:
