@@ -846,8 +846,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        550: Critical
-        600: Dead
+        400: Critical
+        450: Dead
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.5
     - type: BasicEntityAmmoProvider
@@ -895,8 +895,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        1000: Critical
-        1100: Dead
+        650: Critical
+        700: Dead
     - type: MovementSpeedModifier
       baseWalkSpeed : 3
       baseSprintSpeed : 5
@@ -1053,8 +1053,8 @@
         1100: Critical
         1400: Dead
     - type: MovementSpeedModifier
-      baseWalkSpeed : 2
-      baseSprintSpeed : 4
+      baseWalkSpeed : 1
+      baseSprintSpeed : 2
     - type: MeleeWeapon
       damage:
         types:
@@ -1343,8 +1343,8 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        700: Critical
-        800: Dead
+        350: Critical
+        400: Dead
     - type: Xeno
       actionIds:
       - ActionXenoRest
