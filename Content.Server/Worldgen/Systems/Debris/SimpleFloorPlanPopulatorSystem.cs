@@ -30,7 +30,8 @@ public sealed class SimpleFloorPlanPopulatorSystem : BaseWorldSystem
         var enumerator = _map.GetAllTilesEnumerator(uid, grid);
         while (enumerator.MoveNext(out var tile))
         {
-            tiles.Add(tile);
+            if (tile is {} tileRef)
+                tiles.Add(tileRef);
         }
 
         foreach (var tile in tiles)
