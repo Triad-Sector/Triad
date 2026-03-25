@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseNFFlatpack
+  id: PlastitaniumWindowFlatpack
+  name: plastitanium window flatpack
+  description: A flatpack used for constructing a plastitanium window.
+  components:
+  - type: Flatpack
+    entity: PlastitaniumWindow
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: WallPlastitaniumFlatpack
+  name: plastitanium wall flatpack
+  description: A flatpack used for constructing a plastitanium wall.
+  components:
+  - type: Flatpack
+    entity: WallPlastitanium
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: WaterfloorFlatpack
+  name: pool of water flatpack
+  description: A flatpack used for constructing a small pool of water.
+  components:
+  - type: Flatpack
+    entity: FloorWaterEntity
+  - type: StaticPrice
+    price: 100
+
+
+# Diagonal
+
+- type: entity
+  parent: [ BaseNFFlatpack, AirlockFlatpack ]
+  id: PlastDigonalWallFlatpack
+  name: plastitanium diagonal wall
+  description: A flatpack used for constructing a diagonal plastitanium wall diagonal.
+  components:
+  - type: Flatpack
+    entity: WallPlastitaniumDiagonal
+  - type: StaticPrice
+    price: 100
+  - type: Sprite
+    layers:
+    - state: command_airlock_directional
+
+- type: entity
+  parent: [ BaseNFFlatpack, AirlockFlatpack ]
+  id: PlastDigonalWindowFlatpack
+  name: plastitanium diagonal window
+  description: A flatpack used for constructing a diagonal plastitanium window.
+  components:
+  - type: Flatpack
+    entity: PlastitaniumWindowDiagonal
+  - type: StaticPrice
+    price: 100
+  - type: Sprite
+    layers:
+    - state: command_airlock_directional

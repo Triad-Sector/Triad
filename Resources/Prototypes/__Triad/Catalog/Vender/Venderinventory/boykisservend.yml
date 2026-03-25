@@ -1,0 +1,8 @@
+- type: vendingMachineInventory
+  id: EtheralvendInventory
+  startingInventory:
+   WallPlastitaniumFlatpack: 4294967295
+   PlastitaniumWindowFlatpack: 4294967295
+   WaterfloorFlatpack: 4294967295
+   PlastDigonalWallFlatpack: 4294967295
+   PlastDigonalWindowFlatpack: 4294967295
