@@ -11,6 +11,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.MartialArts.Events;
 
 namespace Content.Server.Weapons.Melee;
 
@@ -88,10 +89,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         // Filter out any deleted entities that may have been destroyed by the damage
         var validTargets = targets.Where(t => !Deleted(t)).ToList();
-        
+
         if (validTargets.Count == 0)
             return;
-        
+
         // Use coordinates from the targetXform if valid, otherwise fall back to user coordinates
         var coordinates = targetXform.Coordinates;
         if (!coordinates.IsValid(EntityManager))
@@ -101,7 +102,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             else
                 return; // No valid coordinates available
         }
-        
+
         var filter = Filter.Pvs(coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
         _color.RaiseEffect(Color.Red, validTargets, filter);
     }

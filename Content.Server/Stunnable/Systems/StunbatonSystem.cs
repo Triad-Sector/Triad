@@ -1,6 +1,8 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
+using Content.Server.Stunnable.Components;
+using Content.Shared._Goobstation.MartialArts;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -31,11 +33,16 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, entity.Comp.EnergyPerUse, battery))
+            // Goobstation start
+            var energy = entity.Comp.EnergyPerUse;
+
+            if (!_itemToggle.IsActivated(entity.Owner)
+                || !TryComp<BatteryComponent>(entity.Owner, out var battery)
+                || !_battery.TryUseCharge(entity.Owner, energy, battery))
             {
                 args.Cancelled = true;
             }
+            // Goobstation end
         }
 
         private void OnExamined(Entity<StunbatonComponent> entity, ref ExaminedEvent args)

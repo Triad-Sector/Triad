@@ -71,7 +71,7 @@ public sealed class TeleportSystem : EntitySystem
         // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
         // This can for example happen when the user is cuffed and being pulled.
         if (TryComp<PullableComponent>(uid, out var pull) && _pullingSystem.IsPulled(uid, pull))
-            _pullingSystem.TryStopPull(uid, pull);
+            _pullingSystem.TryStopPull(uid, pull, ignoreGrab: true); // HardLight: pullable<pull
 
         var xform = Transform(uid);
         var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
