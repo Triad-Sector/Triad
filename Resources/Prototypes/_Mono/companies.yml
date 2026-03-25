@@ -25,7 +25,6 @@
   form: Antagonist
   name: USSP
   color: "#B01340"
-  disabled: true
 
 - type: company
   id: TSFHighComm
@@ -53,23 +52,22 @@
   color: "#BF00B9"
 
 - type: company
-  id: AetherionDynamics
+  id: FivePointsArmory
   form: Protagonist
-  name: Aetherion Dynamics
-  color: "#7E72B2"
+  name: Five Points Armory
+  color: "#1f6296"
 
 - type: company
-  id: SouthernPeakMercenaries
+  id: NanoTrasen
   form: Protagonist
-  name: The Southern Peaks
-  color: "#020624"
+  name: NanoTrasen
+  color: "#12466e"
 
 - type: company
-  id: ZealotsOfBalaam
+  id: DonkCo
   form: Protagonist
-  name: Zealots Of Balaam
+  name: Donk Co
   color: "#BC7F58"
-
 
 - type: company
   id: InterdynePharmaceuticals
@@ -77,24 +75,17 @@
   name: Interdyne Pharmaceuticals
   color: "#EA7FC7"
 
-# ====Rogue / Antag. Companies====
 - type: company
-  id: TheViperGroup
-  form: Antagonist
-  name: The Viper Group
-  color: "#D82918"
-  logins:
-  - Schizm1253
-  - Archylle
-  - bubz_bs
-  - capslfern
-  - DrOktober
-  - Ghost581
-  - hellcat76
-  - HungryCuban
-  - Kiterny
-  - plazmasniper_2005
-  - Redrover1760
-  - SwadianSupremacy
-  - Traildog
+  id: HighEffectSolutions
+  form: Protagonist
+  name: High Effect Solutions
+  color: "#f1c92e"
+
+- type: company
+  id: Cybersun R&D
+  form: Protagonist
+  name: Cybersun R&D
+  color: "#d82918"
+
+# ====Rogue / Antag. Companies====
 
