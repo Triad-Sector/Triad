@@ -14,11 +14,15 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Stunnable;
 using Robust.Shared.Player;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Starlight.NullSpace;
 
 public sealed class EtherealSystem : SharedEtherealSystem
 {
+    private static readonly SoundPathSpecifier NullSpaceCutoffSound = new("/Audio/_HL/Effects/ma cutoff.ogg");
+
     [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly EyeSystem _eye = default!;
@@ -26,6 +30,7 @@ public sealed class EtherealSystem : SharedEtherealSystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -145,6 +150,7 @@ public sealed class EtherealSystem : SharedEtherealSystem
             if (!HasComp<NullSpaceComponent>(ent))
                 continue;
 
+            _audio.PlayPvs(NullSpaceCutoffSound, ent);
             RemComp<NullSpaceComponent>(ent);
             _stun.TryParalyze(ent, stunTime, true);
         }
