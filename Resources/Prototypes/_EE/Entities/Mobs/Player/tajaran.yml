@@ -3,3 +3,5 @@
   name: Urist McTajaran
   parent: MobTajaranBase
   id: MobTajaran
+  components:
+  - type: PotentialPsionic #HL -Irkalla Edit- Makes Bugs Psyker-Capable
