@@ -153,10 +153,17 @@
     examineWhileLocked: false
     keysExtractionMethod: Cutting
     keysUnlocked: false
+    preserveExistingChannels: true
+    intrinsicChannels:
+    - Binary
   - type: OfferItem # HL
-  - type: ActiveRadio
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
+    intrinsicChannels:
+    - Binary
+  - type: ActiveRadio
+    intrinsicChannels:
+    - Binary
   - type: DeadStartupButton
     sound:
       path: /Audio/_EE/Effects/Silicon/startup.ogg
