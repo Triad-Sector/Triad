@@ -21,10 +21,10 @@ public sealed class BluespacePulseOnTriggerSystem : EntitySystem
         {
             Radius = ent.Comp.Radius,
             StunSeconds = ent.Comp.StunSeconds,
-            Performer = ent.Owner
+            Performer = args.User ?? ent.Owner
         };
 
-        RaiseLocalEvent(ent.Owner, pulse);
+        RaiseLocalEvent(pulse);
         args.Handled = true;
     }
 }
