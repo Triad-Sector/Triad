@@ -46,6 +46,7 @@
             MedicalDoctor: [ 4, 5 ]
             Geneticist: [ 1, 1 ]
             Pilot: [ -1, -1 ]
+            MedicalQuadBorg: [ 3, 3 ]
             Mercenary: [ -1, -1 ]
           tags:
           - HeadOfPersonnel
