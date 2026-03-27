@@ -69,7 +69,6 @@ public sealed partial class CryoSleepSystem : EntitySystem
         SubscribeLocalEvent<CryoSleepComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CryoSleepComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
         SubscribeLocalEvent<CryoSleepComponent, DestructionEventArgs>((e, c, _) => EjectBody(e, c));
-        SubscribeLocalEvent<CryoSleepComponent, CryoStoreDoAfterEvent>(OnAutoCryoSleep);
         SubscribeLocalEvent<CryoSleepComponent, DragDropTargetEvent>(OnEntityDragDropped);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
@@ -190,32 +189,6 @@ public sealed partial class CryoSleepSystem : EntitySystem
 
         EjectBody(uid, component, args.Entity);
     }
-
-    private void OnAutoCryoSleep(EntityUid uid, CryoSleepComponent component, CryoStoreDoAfterEvent args)
-    {
-        // HardLight start
-        var doAfterId = args.DoAfter.Id;
-        if (component.CryosleepDoAfter != doAfterId)
-            return;
-
-        component.CryosleepDoAfter = null;
-        // HardLight end
-
-        if (args.Cancelled || args.Handled)
-            return;
-
-        var pod = args.Used;
-        var body = args.Target;
-        if (body is not { Valid: true } || pod is not { Valid: true })
-            return;
-
-        if (pod.Value != uid || component.BodyContainer.ContainedEntity != body.Value) // HardLight
-            return;
-
-        CryoStoreBody(body.Value, pod.Value);
-        args.Handled = true;
-    }
-
     private void OnEntityDragDropped(Entity<CryoSleepComponent> ent, ref DragDropTargetEvent args)
     {
         args.Handled |= InsertBody(args.Dragged, ent, false);
