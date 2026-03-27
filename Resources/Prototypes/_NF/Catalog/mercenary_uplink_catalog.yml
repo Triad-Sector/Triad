@@ -999,6 +999,22 @@
         tags:
           - MercenaryUplink
 
+- type: listing
+  id: UplinkMercenaryPMCEnergyShotgun
+  name:  uplink-mercenary-energyshotgun-name
+  description: uplink-mercenary-energyshotgun-desc
+  productEntity: EnergyShotgunPMC
+  icon: { sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi, state: icon }
+  cost:
+    MercCoin: 35
+  categories:
+    - UplinkMercenaryShotguns
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - MercenaryUplink
+
 # SMGs
 - type: listing
   id: UplinkMercenarySurpDrozd

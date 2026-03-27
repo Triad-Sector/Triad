@@ -499,6 +499,9 @@ uplink-mercenary-vortex12shotty-desc = Designed by SESWC. A semi-automatic magaz
 uplink-mercenary-bigjohnnyshotty-name = Big Johnny (4 gauge)
 uplink-mercenary-bigjohnnyshotty-desc = An old yet faithful design, and a favorite among irregular forces on many worlds.
 
+uplink-mercenary-energyshotgun-name = PMC Energy Shotgun
+uplink-mercenary-energyshotgun-desc = A PMC version of the "One-Of-A-Kind" energy shotgun. Registered for mercenary use in a more mass-producable fashion.
+
 uplink-mercenary-surplusdrozd-name = Surplus Drozd
 uplink-mercenary-surplusdrozd-desc = Based on an old design, this SMG is still more than capable of putting rounds down-range.
 
