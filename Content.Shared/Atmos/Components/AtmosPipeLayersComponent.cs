@@ -4,6 +4,7 @@ using Content.Shared.Tools;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using System;
 
 namespace Content.Shared.Atmos.Components;
 
@@ -111,6 +112,44 @@ public enum AtmosPipeLayerVisuals
     Sprite,
     SpriteLayers,
     DrawDepth,
+}
+
+[Serializable, NetSerializable]
+public sealed class AtmosPipeLayerSpriteLayerData : ICloneable
+{
+    public readonly AtmosPipeLayerSpriteLayerEntry[] Layers;
+
+    public AtmosPipeLayerSpriteLayerData()
+    {
+        Layers = Array.Empty<AtmosPipeLayerSpriteLayerEntry>();
+    }
+
+    public AtmosPipeLayerSpriteLayerData(AtmosPipeLayerSpriteLayerEntry[] layers)
+    {
+        Layers = layers;
+    }
+
+    public object Clone()
+    {
+        return this;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class AtmosPipeLayerSpriteLayerEntry
+{
+    public string LayerKey = string.Empty;
+    public string RsiPath = string.Empty;
+
+    public AtmosPipeLayerSpriteLayerEntry()
+    {
+    }
+
+    public AtmosPipeLayerSpriteLayerEntry(string layerKey, string rsiPath)
+    {
+        LayerKey = layerKey;
+        RsiPath = rsiPath;
+    }
 }
 
 [Serializable, NetSerializable]
