@@ -11,6 +11,69 @@
   completetime: 5
   materials:
     Brass: 10
+    
+- type: latheRecipe
+  id: BulletCasing45_ACP
+  result: MaterialBulletCasing45_ACP
+  completetime: 5
+  materials:
+    Brass: 10
+
+- type: latheRecipe
+  id: BulletCasing46x30mm
+  result: MaterialBulletCasing46x30mm
+  completetime: 5
+  materials:
+    Brass: 10
+
+- type: latheRecipe
+  id: BulletCasing45_magnum
+  result: MaterialBulletCasing45_magnum
+  completetime: 5
+  materials:
+    Brass: 30
+
+- type: latheRecipe
+  id: BulletCasing556x45mm
+  result: MaterialBulletCasing556x45mm
+  completetime: 5
+  materials:
+    Brass: 10
+
+- type: latheRecipe
+  id: BulletCasing57x28mm
+  result: MaterialBulletCasing57x28mm
+  completetime: 5
+  materials:
+    Brass: 10
+
+- type: latheRecipe
+  id: BulletCasing762x39mm
+  result: MaterialBulletCasing762x39mm
+  completetime: 5
+  materials:
+    Brass: 20
+
+- type: latheRecipe
+  id: BulletCasing762x51mm
+  result: MaterialBulletCasing762x51mm
+  completetime: 5
+  materials:
+    Brass: 20
+
+- type: latheRecipe
+  id: BulletCasing762x54mmR
+  result: MaterialBulletCasing762x54mmR
+  completetime: 5
+  materials:
+    Brass: 30
+
+- type: latheRecipe
+  id: BulletCasing8x65mmSKR
+  result: MaterialBulletCasing8x65mmSKR
+  completetime: 5
+  materials:
+    Brass: 30
 
 - type: latheRecipe
   id: BulletFlechette

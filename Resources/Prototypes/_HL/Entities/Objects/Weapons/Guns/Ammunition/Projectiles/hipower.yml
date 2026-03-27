@@ -20,3 +20,211 @@
       types:
         Piercing: 8
     ignoreResistances: true
+    
+- type: entity
+  id: Bullet45_ACPHiPower
+  name: bullet (45 ACP high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 27
+
+- type: entity
+  id: Bullet45_ACPFlechette
+  name: bullet (45 ACP flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet46x30mmHiPower
+  name: bullet (46x30mm high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21
+
+- type: entity
+  id: Bullet46x30mmFlechette
+  name: bullet (46x30mm flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 7
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet45_magnumHiPower
+  name: bullet (45 magnum high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 52
+
+- type: entity
+  id: Bullet45_magnumFlechette
+  name: bullet (45 magnum flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet556x45mmHiPower
+  name: bullet (556x45mm high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 28
+
+- type: entity
+  id: Bullet556x45mmFlechette
+  name: bullet (556x45mm flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet57x28mmHiPower
+  name: bullet (57x28mm high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+
+- type: entity
+  id: Bullet57x28mmFlechette
+  name: bullet (57x28mm flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet762x39mmHiPower
+  name: bullet (762x39mm high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 31
+
+- type: entity
+  id: Bullet762x39mmFlechette
+  name: bullet (762x39mm flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet762x51mmHiPower
+  name: bullet (762x51mm high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 43
+
+- type: entity
+  id: Bullet762x51mmFlechette
+  name: bullet (762x51mm flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet762x54mmRHiPower
+  name: bullet (762x54mmR high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 52
+
+- type: entity
+  id: Bullet762x54mmRFlechette
+  name: bullet (762x54mmR flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+    ignoreResistances: true
+
+- type: entity
+  id: Bullet8x65mmSKRHiPower
+  name: bullet (8x65mm SKR high-power)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 52
+
+- type: entity
+  id: Bullet8x65mmSKRFlechette
+  name: bullet (8x65mm SKR flechette)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+    ignoreResistances: true
+

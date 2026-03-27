@@ -519,6 +519,15 @@
 #Parts
   - BulletTip
   - BulletCasing9x19mm
+  - BulletCasing45_ACP
+  - BulletCasing46x30mm
+  - BulletCasing45_magnum
+  - BulletCasing556x45mm
+  - BulletCasing57x28mm
+  - BulletCasing762x39mm
+  - BulletCasing762x51mm
+  - BulletCasing762x54mmR
+  - BulletCasing8x65mmSKR
   - BulletFlechette
 # big boxes
   - AmmoBox46x30mmBig
