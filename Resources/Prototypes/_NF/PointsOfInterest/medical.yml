@@ -45,8 +45,8 @@
             Paramedic: [ 2, 4 ]
             MedicalDoctor: [ 4, 5 ]
             Geneticist: [ 1, 1 ]
-            Pilot: [ -1, -1 ]
             MedicalQuadBorg: [ 3, 3 ]
+            Pilot: [ -1, -1 ]
             Mercenary: [ -1, -1 ]
           tags:
           - HeadOfPersonnel
