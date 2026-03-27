@@ -19,10 +19,12 @@
 
 # GasPipeStraight
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeStraight]
+  parent: GasPipeStraight
   id: GasPipeStraightAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     drawdepth: ThinPipeAlt1
     sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
@@ -30,10 +32,12 @@
     node: straightAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeStraight]
+  parent: GasPipeStraight
   id: GasPipeStraightAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     drawdepth: ThinPipeAlt2
     sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
@@ -42,10 +46,12 @@
 
 # GasPipeHalf
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeHalf]
+  parent: GasPipeHalf
   id: GasPipeHalfAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     drawdepth: ThinPipeAlt1
     sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
@@ -53,10 +59,12 @@
     node: halfAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeHalf]
+  parent: GasPipeHalf
   id: GasPipeHalfAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     drawdepth: ThinPipeAlt2
     sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
@@ -65,10 +73,12 @@
 
 # GasPipeBend
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeBend]
+  parent: GasPipeBend
   id: GasPipeBendAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     drawdepth: ThinPipeAlt1
     sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
@@ -76,10 +86,12 @@
     node: bendAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeBend]
+  parent: GasPipeBend
   id: GasPipeBendAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     drawdepth: ThinPipeAlt2
     sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
@@ -88,10 +100,12 @@
 
 # GasPipeTJunction
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeTJunction]
+  parent: GasPipeTJunction
   id: GasPipeTJunctionAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     drawdepth: ThinPipeAlt1
     sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
@@ -99,10 +113,12 @@
     node: tjunctionAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeTJunction]
+  parent: GasPipeTJunction
   id: GasPipeTJunctionAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     drawdepth: ThinPipeAlt2
     sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
@@ -111,10 +127,12 @@
 
 # GasPipeFourway
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeFourway]
+  parent: GasPipeFourway
   id: GasPipeFourwayAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     drawdepth: ThinPipeAlt1
     sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
@@ -122,10 +140,12 @@
     node: fourwayAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeFourway]
+  parent: GasPipeFourway
   id: GasPipeFourwayAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     drawdepth: ThinPipeAlt2
     sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
@@ -135,10 +155,12 @@
 # GasPressurePump
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPressurePump]
+  parent: GasPressurePump
   id: GasPressurePumpAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -151,10 +173,12 @@
     node: pressurepumpAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPressurePump]
+  parent: GasPressurePump
   id: GasPressurePumpAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -167,10 +191,12 @@
     node: pressurepumpAlt2
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPressurePumpHighFlow]
+  parent: GasPressurePumpHighFlow
   id: GasPressurePumpHighFlowAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -183,10 +209,12 @@
     node: pressurepumpHighFlowAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPressurePumpHighFlow]
+  parent: GasPressurePumpHighFlow
   id: GasPressurePumpHighFlowAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -201,10 +229,12 @@
 # GasVolumePump
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasVolumePump]
+  parent: GasVolumePump
   id: GasVolumePumpAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -217,10 +247,12 @@
     node: volumepumpAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasVolumePump]
+  parent: GasVolumePump
   id: GasVolumePumpAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -233,10 +265,12 @@
     node: volumepumpAlt2
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasVolumePumpHighFlow]
+  parent: GasVolumePumpHighFlow
   id: GasVolumePumpHighFlowAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -249,10 +283,12 @@
     node: volumepumpHighFlowAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasVolumePumpHighFlow]
+  parent: GasVolumePumpHighFlow
   id: GasVolumePumpHighFlowAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -267,10 +303,12 @@
 # GasPassiveGate
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPassiveGate]
+  parent: GasPassiveGate
   id: GasPassiveGateAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -283,10 +321,12 @@
     node: passivegateAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPassiveGate]
+  parent: GasPassiveGate
   id: GasPassiveGateAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -301,10 +341,12 @@
 # GasValve
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasValve]
+  parent: GasValve
   id: GasValveAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -317,10 +359,12 @@
     node: valveAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasValve]
+  parent: GasValve
   id: GasValveAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -335,10 +379,12 @@
 # SignalControlledValve
 
 - type: entity
-  parent: [GasPipeLayerAlt1, SignalControlledValve]
+  parent: SignalControlledValve
   id: SignalControlledValveAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -351,10 +397,12 @@
     node: signalvalveAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, SignalControlledValve]
+  parent: SignalControlledValve
   id: SignalControlledValveAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:
@@ -369,10 +417,12 @@
 # GasPipeSensor
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensor]
+  parent: GasPipeSensor
   id: GasPipeSensorAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -388,10 +438,12 @@
     node: sensorAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensor]
+  parent: GasPipeSensor
   id: GasPipeSensorAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -409,10 +461,12 @@
 # GasPipeSensorDistribution
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensorDistribution]
+  parent: GasPipeSensorDistribution
   id: GasPipeSensorDistributionAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -426,10 +480,12 @@
       shader: unshaded
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensorDistribution]
+  parent: GasPipeSensorDistribution
   id: GasPipeSensorDistributionAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -445,10 +501,12 @@
 # GasPipeSensorWaste
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensorWaste]
+  parent: GasPipeSensorWaste
   id: GasPipeSensorWasteAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -462,10 +520,12 @@
       shader: unshaded
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensorWaste]
+  parent: GasPipeSensorWaste
   id: GasPipeSensorWasteAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -481,10 +541,12 @@
 # GasPipeSensorMixedAir
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensorMixedAir]
+  parent: GasPipeSensorMixedAir
   id: GasPipeSensorMixedAirAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -498,10 +560,12 @@
       shader: unshaded
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensorMixedAir]
+  parent: GasPipeSensorMixedAir
   id: GasPipeSensorMixedAirAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -517,10 +581,12 @@
 # GasPipeSensorTEGHot
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensorTEGHot]
+  parent: GasPipeSensorTEGHot
   id: GasPipeSensorTEGHotAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -534,10 +600,12 @@
       shader: unshaded
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensorTEGHot]
+  parent: GasPipeSensorTEGHot
   id: GasPipeSensorTEGHotAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -553,10 +621,12 @@
 # GasPipeTEGCold
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPipeSensorTEGCold]
+  parent: GasPipeSensorTEGCold
   id: GasPipeSensorTEGColdAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
     layers:
@@ -570,10 +640,12 @@
       shader: unshaded
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPipeSensorTEGCold]
+  parent: GasPipeSensorTEGCold
   id: GasPipeSensorTEGColdAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
     layers:
@@ -589,10 +661,12 @@
 # GasPressureRegulator
 
 - type: entity
-  parent: [GasPipeLayerAlt1, GasPressureRegulator]
+  parent: GasPressureRegulator
   id: GasPressureRegulatorAlt1
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 1
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt1.rsi
     layers:
@@ -605,10 +679,12 @@
     node: pressureregulatorAlt1
 
 - type: entity
-  parent: [GasPipeLayerAlt2, GasPressureRegulator]
+  parent: GasPressureRegulator
   id: GasPressureRegulatorAlt2
   categories: [ HideSpawnMenu ]
   components:
+  - type: AtmosPipeLayers
+    pipeLayer: 2
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump_alt2.rsi
     layers:

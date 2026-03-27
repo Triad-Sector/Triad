@@ -304,14 +304,20 @@ namespace Content.Server.PDA
         private void UpdateStationName(EntityUid uid, PdaComponent pda)
         {
             var station = _station.GetOwningStation(uid);
-            pda.StationName = station is null ? null : Name(station.Value);
+            if (station is null || !station.Value.IsValid() || !TryComp<MetaDataComponent>(station.Value, out var meta))
+            {
+                pda.StationName = null;
+                return;
+            }
+
+            pda.StationName = meta.EntityName;
         }
 
         private void UpdateAlertLevel(EntityUid uid, PdaComponent pda)
         {
             //var station = _station.GetOwningStation(uid); // Frontier
             var station = _sectorService.GetServiceEntity(); // Frontier
-            if (!TryComp(station, out AlertLevelComponent? alertComp) ||
+            if (!station.IsValid() || !TryComp(station, out AlertLevelComponent? alertComp) ||
                 alertComp.AlertLevels == null)
                 return;
             pda.StationAlertLevel = alertComp.CurrentLevel;

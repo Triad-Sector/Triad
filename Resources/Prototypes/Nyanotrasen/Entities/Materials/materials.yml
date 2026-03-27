@@ -18,6 +18,19 @@
     tags:
       - BluespaceCrystal
       - RawMaterial
+  - type: TriggerOnUse
+  - type: TriggerOnActivate
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: SpawnOnTrigger
+    proto: EffectFlashBluespace
+    mapCoords: true
+  - type: BluespacePulseOnTrigger
+    radius: 10
+    stunSeconds: 4
+  - type: UseDelay
+    delay: 5
   - type: Stack
     stackType: Bluespace
     baseLayer: base
