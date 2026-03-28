@@ -45,9 +45,34 @@ public abstract partial class SharedFultonSystem : EntitySystem
         SubscribeLocalEvent<FultonedComponent, ExaminedEvent>(OnFultonedExamine);
         SubscribeLocalEvent<FultonedComponent, EntGotInsertedIntoContainerMessage>(OnFultonContainerInserted);
 
+        SubscribeLocalEvent<FultonComponent, MapInitEvent>(OnFultonMapInit);
         SubscribeLocalEvent<FultonComponent, AfterInteractEvent>(OnFultonInteract);
+        SubscribeLocalEvent<FultonBeaconComponent, ComponentShutdown>(OnBeaconShutdown);
 
         SubscribeLocalEvent<FultonComponent, StackSplitEvent>(OnFultonSplit);
+    }
+
+    private void OnFultonMapInit(Entity<FultonComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.Beacon == null || Exists(ent.Comp.Beacon.Value))
+            return;
+
+        ent.Comp.Beacon = null;
+        Dirty(ent);
+    }
+
+    private void OnBeaconShutdown(EntityUid uid, FultonBeaconComponent component, ComponentShutdown args)
+    {
+        var query = EntityQueryEnumerator<FultonComponent>();
+
+        while (query.MoveNext(out var fultonUid, out var fulton))
+        {
+            if (fulton.Beacon != uid)
+                continue;
+
+            fulton.Beacon = null;
+            Dirty(fultonUid, fulton);
+        }
     }
 
     private void OnFultonContainerInserted(EntityUid uid, FultonedComponent component, EntGotInsertedIntoContainerMessage args)
@@ -116,12 +141,14 @@ public abstract partial class SharedFultonSystem : EntitySystem
             if (!_foldable.IsFolded(args.Target.Value))
             {
                 component.Beacon = args.Target.Value;
+                Dirty(uid, component);
                 Audio.PlayPredicted(beacon.LinkSound, uid, args.User);
                 _popup.PopupClient(Loc.GetString("fulton-linked"), uid, args.User);
             }
             else
             {
-                component.Beacon = EntityUid.Invalid;
+                component.Beacon = null;
+                Dirty(uid, component);
                 _popup.PopupClient(Loc.GetString("fulton-folded"), uid, args.User);
             }
 
@@ -130,6 +157,8 @@ public abstract partial class SharedFultonSystem : EntitySystem
 
         if (Deleted(component.Beacon))
         {
+            component.Beacon = null;
+            Dirty(uid, component);
             _popup.PopupClient(Loc.GetString("fulton-not-found"), uid, args.User);
             return;
         }
