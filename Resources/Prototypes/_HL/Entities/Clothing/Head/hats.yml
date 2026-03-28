@@ -51,3 +51,14 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatBeret
+  id: ClothingHeadHatBeretInterdyne
+  name: interdyne beret
+  description: A beret in interdyne style.
+  components:
+    - type: Sprite
+      sprite: _HL/Clothing/Head/interdyneberet.rsi
+    - type: Clothing
+      sprite: _HL/Clothing/Head/interdyneberet.rsi

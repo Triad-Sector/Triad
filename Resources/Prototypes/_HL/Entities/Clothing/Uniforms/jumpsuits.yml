@@ -29,7 +29,7 @@
     sprite: _HL/Clothing/Uniforms/cybersunsuit.rsi
 
 - type: entity
-  parent: ClothingUniformJumpsuitSyndieFormal
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInterdyne
   name: interdyne jumpsuit
   description: A high-quality jumpsuit designed for Interdyne personnel.
@@ -40,7 +40,7 @@
       sprite: _HL/Clothing/Uniforms/interdynejumpsuit.rsi
 
 - type: entity
-  parent: ClothingUniformJumpsuitSyndieFormal
+  parent: ClothingUniformBase
   id: ClothingUniformJumpskirtInterdyne
   name: interdyne jumpskirt
   description: A high-quality jumpskirt designed for Interdyne personnel.
@@ -51,7 +51,7 @@
     sprite: _HL/Clothing/Uniforms/interdynejumpskirt.rsi
 
 - type: entity
-  parent: ClothingUniformJumpsuitSyndieFormal
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInterdyneDirector
   name: interdyne director jumpsuit
   description: A high-quality jumpsuit designed for Interdyne heads.
@@ -62,7 +62,7 @@
     sprite: _HL/Clothing/Uniforms/interdynedirectorjumpsuit.rsi
 
 - type: entity
-  parent: ClothingUniformJumpsuitSyndieFormal
+  parent: ClothingUniformBase
   id: ClothingUniformJumpskirtInterdyneDirector
   name: interdyne director jumpskirt
   description: A high-quality jumpskirt designed for Interdyne heads.

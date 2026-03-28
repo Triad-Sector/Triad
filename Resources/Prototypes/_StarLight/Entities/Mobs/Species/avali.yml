@@ -36,7 +36,7 @@
       prototype: Avali
       requiredLegs: 2
     - type: Inventory
-      speciesId: Avali
+      speciesId: avali
       displacements:
         jumpsuit:
           sizeMaps:
@@ -179,7 +179,7 @@
     - type: HumanoidAppearance
       species: Avali
     - type: Inventory
-      speciesId: Avali
+      speciesId: avali
       displacements:
         jumpsuit:
           sizeMaps:

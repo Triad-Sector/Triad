@@ -31,3 +31,5 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9

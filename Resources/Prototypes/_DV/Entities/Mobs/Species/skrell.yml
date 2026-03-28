@@ -34,7 +34,7 @@
       baseDecayRate: 0.2
     - type: Carriable
     - type: Inventory
-      speciesId: Skrell
+      speciesId: skrell
     - type: Icon
       sprite: _RMC14/Mobs/Skrells/parts.rsi
       state: head_m
