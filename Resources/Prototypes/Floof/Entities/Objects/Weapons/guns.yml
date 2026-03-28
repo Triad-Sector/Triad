@@ -158,7 +158,7 @@
     - proto: HLBulletLaserSpreadNarrow
       fireCost: 200
     - proto: HLBulletDisablerSmgSpread
-      fireCost: 120
+      fireCost: 100
   - type: Item
     size: Large
     shape:

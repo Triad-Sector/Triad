@@ -143,3 +143,20 @@
 #  components:
 #  - type: PirateBountyItem
 #    id: CFCMLongarm
+
+- type: entity # PMC Energy Shotgun
+  parent:
+  - WeaponEnergyShotgun
+  - BaseC2ContrabandUnredeemable
+  name: PMC Energy Shotgun
+  id: EnergyShotgunPMC
+  description: A PMC version of the "One-Of-A-Kind" energy shotgun. Registered for mercenary use in a more mass-producable fashion.
+  components:
+  - type: PirateBountyItem
+    id: PMCGun
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 65

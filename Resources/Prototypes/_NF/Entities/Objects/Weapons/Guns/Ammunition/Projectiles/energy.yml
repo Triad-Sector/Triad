@@ -129,7 +129,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 1
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
