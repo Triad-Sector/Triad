@@ -452,6 +452,7 @@
     - Deconstruct
     #Hardlight
     - AtmosDeviceFanDirectional
+    - PuckLight
   - type: LimitedCharges
     maxCharges: 30
   - type: Sprite

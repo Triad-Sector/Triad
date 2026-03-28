@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from SS13 Shiptest. Recolored to match dark steel tiles.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "catwalk_preview"
+        }
+    ]
+}
