@@ -1,0 +1,88 @@
+- type: entity
+  parent: BaseItem
+  id: brainicon
+  name: brain
+  description: a synthetic brain
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: brain
+    
+- type: entity
+  parent: BaseItem
+  id: protoicon
+  name: proto
+  description: a proto
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: proto
+    
+- type: entity
+  parent: BaseItem
+  id: brandicon
+  name: brandquad
+  description: a branded quad
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: brandquad
+    
+- type: entity
+  parent: BaseItem
+  id: quadicon
+  name: a quad
+  description: a quad
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: quad
+
+- type: entity
+  parent: BaseItem
+  id: synthicon
+  name: synth
+  description: a synthetic 
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: synth
+    
+- type: entity
+  parent: BaseItem
+  id: ipcicon
+  name: ipc
+  description: an ipc
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: ipc    
+    
+- type: entity
+  parent: BaseItem
+  id: quadborgicon
+  name: quadborg
+  description: a quadborg
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects #it needs to draw over stuff.
+    sprite: _HL/Logo/symbols.rsi
+    state: quadborg    
+    
+    
+    
+    
+    

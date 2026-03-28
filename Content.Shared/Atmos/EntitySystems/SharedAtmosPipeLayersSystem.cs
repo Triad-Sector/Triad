@@ -200,15 +200,15 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
 
             if (ent.Comp.SpriteLayersRsiPaths.Count > 0)
             {
-                var data = new Dictionary<string, string>();
+                var data = new List<AtmosPipeLayerSpriteLayerEntry>();
 
                 foreach (var (layerKey, rsiPaths) in ent.Comp.SpriteLayersRsiPaths)
                 {
                     if (rsiPaths.TryGetValue(ent.Comp.CurrentPipeLayer, out path))
-                        data.TryAdd(layerKey, path);
+                        data.Add(new AtmosPipeLayerSpriteLayerEntry(layerKey, path));
                 }
 
-                _appearance.SetData(ent, AtmosPipeLayerVisuals.SpriteLayers, data, appearance);
+                _appearance.SetData(ent, AtmosPipeLayerVisuals.SpriteLayers, new AtmosPipeLayerSpriteLayerData(data.ToArray()), appearance);
             }
         }
 

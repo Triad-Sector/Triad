@@ -37,10 +37,13 @@ public sealed partial class AtmosPipeLayersSystem : SharedAtmosPipeLayersSystem
             _sprite.SetBaseRsi((ent, sprite), resource.RSI);
         }
 
-        if (_appearance.TryGetData<Dictionary<string, string>>(ent, AtmosPipeLayerVisuals.SpriteLayers, out var pipeState))
+        if (_appearance.TryGetData<AtmosPipeLayerSpriteLayerData>(ent, AtmosPipeLayerVisuals.SpriteLayers, out var pipeState))
         {
-            foreach (var (layerKey, rsiPath) in pipeState)
+            foreach (var layer in pipeState.Layers)
             {
+                var layerKey = layer.LayerKey;
+                var rsiPath = layer.RsiPath;
+
                 if (TryParseKey(layerKey, out var @enum))
                     _sprite.LayerSetRsi((ent, sprite), @enum, new ResPath(rsiPath));
                 else
