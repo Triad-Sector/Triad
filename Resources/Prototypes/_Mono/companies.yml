@@ -21,12 +21,6 @@
   disabled: true
 
 - type: company
-  id: USSP
-  form: Antagonist
-  name: USSP
-  color: "#B01340"
-
-- type: company
   id: TSFHighComm
   form: Protagonist
   name: Winter Solstice
@@ -87,5 +81,16 @@
   name: Cybersun R&D
   color: "#d82918"
 
+- type: company
+  id: USSP
+  form: Protagonist
+  name: USSP
+  color: "#B01340"
+
+- type: company
+  id: StratosPharmaceuticals
+  form: Protagonist
+  name: Stratos Pharmaceuticals
+  color: "#32CD32"
 # ====Rogue / Antag. Companies====
 
