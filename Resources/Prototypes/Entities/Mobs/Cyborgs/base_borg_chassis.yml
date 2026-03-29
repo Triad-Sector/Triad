@@ -75,6 +75,7 @@
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: Targeting # Shitmed
+  - type: SurgeryTarget # HardLight: Necessary for Cyborgs to perform surgery.
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
