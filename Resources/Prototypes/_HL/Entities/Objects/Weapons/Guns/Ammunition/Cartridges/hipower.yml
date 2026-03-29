@@ -357,3 +357,99 @@
   - type: Construction
     graph: Cartridge8x65mmSKRFlechetteGraph
     node: shell
+
+- type: entity
+  id: ShellShotgun23x75mmHiPowerBuckshot
+  name: shotgun shell (4 gauge high-power buckshot)
+  parent: BaseShellShotgun23x75mm
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet23x75mmHiPowerSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun23x75mmHiPowerBuckshotGraph
+    node: shell
+    
+- type: entity
+  id: ShellShotgun23x75mmHiPowerSlug
+  name: shotgun shell (4 gauge high-power slug)
+  parent: BaseShellShotgun23x75mm
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet23x75mmHiPowerSlug
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun23x75mmHiPowerSlugGraph
+    node: shell
+
+- type: entity
+  id: ShellShotgun23x75mmFlechette
+  name: shotgun shell (4 gauge flechette)
+  parent: BaseShellShotgun23x75mm
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet23x75mmFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun23x75mmFlechetteGraph
+    node: shell
+    
+- type: entity
+  id: ShellShotgun12_gaugeHiPowerSlug
+  name: shotgun shell (12 gauge high-power slug)
+  parent: BaseShellShotgun12_gauge
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet12_gaugeHiPowerSlug
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun12_gaugeHiPowerSlugGraph
+    node: shell
+    
+- type: entity
+  id: ShellShotgun12_gaugeHiPowerBuckshot
+  name: shotgun shell (12 gauge high-power buckshot)
+  parent: BaseShellShotgun12_gauge
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet12_gaugeHiPowerSpread
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun12_gaugeHiPowerBuckshotGraph
+    node: shell
+
+- type: entity
+  id: ShellShotgun12_gaugeFlechette
+  name: shotgun shell (12 gauge flechette)
+  parent: BaseShellShotgun12_gauge
+  components:
+  - type: CartridgeAmmo
+    proto: Pellet12_gaugeFlechette
+    deleteOnSpawn: true
+  - type: Sprite
+    layers:
+      - state: blank
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Construction
+    graph: ShellShotgun12_gaugeFlechetteGraph
+    node: shell

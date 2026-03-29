@@ -172,6 +172,20 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base-spent }
   spawn: MaterialBulletCasing8x65mmSKR
   maxCount: 60
+  
+- type: stack
+  id: BulletCasing23x75mm
+  name: stack-bullet-casing-23x75mm
+  icon: { sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/4_gauge_shell.rsi, state: blank-spent }
+  spawn: MaterialBulletCasing23x75mm
+  maxCount: 60
+  
+- type: stack
+  id: BulletCasing12_gauge
+  name: stack-bullet-casing-12_gauge
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi, state: blank-spent }
+  spawn: MaterialBulletCasing12_gauge
+  maxCount: 60
 
 - type: stack
   id: BulletTip

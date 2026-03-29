@@ -799,7 +799,7 @@
   components:
   - type: Material
   - type: Stack
-    stackType: BulletCasing9x19mm
+    stackType: BulletCasing8x65mmSKR
     count: 1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
@@ -807,6 +807,44 @@
   - type: PhysicalComposition
     materialComposition:
       Brass: 30
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing23x75mm
+  name: brass casing (4 gauge)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 4 gauge.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing23x75mm
+    count: 1
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Casings/4_gauge_shell.rsi
+    state: blank-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 100
+  - type: Item
+    size: Tiny
+    
+- type: entity
+  parent: MaterialBase
+  id: MaterialBulletCasing12_gauge
+  name: brass casing (12 gauge)
+  description: A high-quality brass bullet casing, for those who like to hand-pack their bullets.  This one is 12 gauge.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: BulletCasing12_gauge
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: blank-spent
+  - type: PhysicalComposition
+    materialComposition:
+      Brass: 50
   - type: Item
     size: Tiny
     

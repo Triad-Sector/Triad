@@ -76,6 +76,20 @@
     Brass: 30
 
 - type: latheRecipe
+  id: BulletCasing23x75mm
+  result: MaterialBulletCasing23x75mm
+  completetime: 5
+  materials:
+    Brass: 100
+    
+- type: latheRecipe
+  id: BulletCasing12_gauge
+  result: MaterialBulletCasing12_gauge
+  completetime: 5
+  materials:
+    Brass: 50
+
+- type: latheRecipe
   id: BulletFlechette
   result: MaterialBulletFlechette
   completetime: 5
