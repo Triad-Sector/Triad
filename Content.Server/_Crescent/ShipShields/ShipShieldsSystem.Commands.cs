@@ -20,6 +20,14 @@ public partial class ShipShieldsSystem
     [AdminCommand(AdminFlags.Debug)]
     public void ShieldEntityCmd(IConsoleShell shell, string argstr, string[] args)
     {
+        // HardLight start
+        if (args.Length < 1)
+        {
+            shell.WriteError("Usage: shieldentity <uid>");
+            return;
+        }
+        // HardLight end
+
         if (!EntityUid.TryParse(args[0], out var uid))
         {
             shell.WriteError("Couldn't parse entity.");
@@ -34,6 +42,14 @@ public partial class ShipShieldsSystem
     [AdminCommand(AdminFlags.Debug)]
     public void UnshieldEntityCmd(IConsoleShell shell, string argstr, string[] args)
     {
+        // HardLight start
+        if (args.Length < 1)
+        {
+            shell.WriteError("Usage: unshieldentity <uid>");
+            return;
+        }
+        // HardLight end
+
         if (!EntityUid.TryParse(args[0], out var uid))
         {
             shell.WriteError("Couldn't parse entity.");

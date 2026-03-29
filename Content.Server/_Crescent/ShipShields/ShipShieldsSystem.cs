@@ -79,15 +79,19 @@ public sealed partial class ShipShieldsSystem : EntitySystem
             var parent = Transform(uid).GridUid;
 
             if (parent == null)
-                return;
+                continue; // HardLight: return<continue
 
             var filter = _station.GetInOwningStation(uid);
 
             if (emitter.Damage > emitter.DamageLimit)
                 emitter.OverloadAccumulator = emitter.DamageOverloadTimePunishment;
 
+            // HardLight: Keep emitter shield reference in sync if shield was deleted externally.
+            if (emitter.Shield != null && !Exists(emitter.Shield.Value))
+                emitter.Shield = null;
+
             // Check if we need to create a shield (not recharging, no valid shield, not overloaded)
-            if (!emitter.Recharging && !Exists(emitter.Shield) && emitter.OverloadAccumulator < 1)
+            if (!emitter.Recharging && !HasEmitterShield(uid, parent.Value, emitter) && emitter.OverloadAccumulator < 1) // HardLight: Exists(emitter.Shield)<HasEmitterShield(uid, parent.Value, emitter)
             {
                 var shield = ShieldEntity(parent.Value, source: uid);
                 if (shield != EntityUid.Invalid)
@@ -98,13 +102,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
                 }
             }
             // Check if we need to remove shield (recharging or overloaded, and shield exists)
-            else if ((emitter.Recharging || emitter.OverloadAccumulator > 0) && Exists(emitter.Shield))
+            // HardLight start
+            else if (emitter.Recharging || emitter.OverloadAccumulator > 0)
             {
-                UnshieldEntity(parent.Value);
-                emitter.Shield = null;
-                emitter.Shielded = null;
-                _audio.PlayGlobal(emitter.PowerDownSound, filter, true, emitter.PowerUpSound.Params);
+                if (RemoveEmitterShield(uid, emitter, parent.Value))
+                    _audio.PlayGlobal(emitter.PowerDownSound, filter, true, emitter.PowerDownSound.Params);
             }
+            // HardLight end
 
         }
     }
@@ -127,7 +131,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         {
             QueueDel(component.Shield);
         }
-        
+
         // Remove the component so the emitter can recreate it fresh
         RemCompDeferred<ShipShieldedComponent>(uid);
     }
@@ -191,14 +195,16 @@ public sealed partial class ShipShieldsSystem : EntitySystem
 
     private void OnEmitterShutdown(EntityUid uid, ShipShieldEmitterComponent emitter, ComponentShutdown args) // Mono
     {
-        // Only try to unshield if the shielded entity still exists and isn't being deleted
-        // (prevents double-deletion when the grid is being recursively deleted)
-        if (emitter.Shielded != null && Exists(emitter.Shielded.Value) && !Terminating(emitter.Shielded.Value))
+        // HardLight start
+        var parent = Transform(uid).GridUid;
+        if (parent == null || !Exists(parent.Value) || Terminating(parent.Value))
         {
-            UnshieldEntity(emitter.Shielded.Value);
-            emitter.Shield = null;
-            emitter.Shielded = null;
+            RemoveEmitterShield(uid, emitter);
+            return;
         }
+
+        RemoveEmitterShield(uid, emitter, parent.Value);
+        // HardLight end
     }
 
     /// <summary>
@@ -279,6 +285,79 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         RemComp<ShipShieldedComponent>(uid);
         return true;
     }
+
+    // HardLight start
+    private bool HasEmitterShield(EntityUid emitterUid, EntityUid gridUid, ShipShieldEmitterComponent emitter)
+    {
+        if (emitter.Shield != null && Exists(emitter.Shield.Value))
+            return true;
+
+        if (TryComp<ShipShieldedComponent>(gridUid, out var shielded)
+            && shielded.Source == emitterUid
+            && Exists(shielded.Shield))
+        {
+            emitter.Shield = shielded.Shield;
+            emitter.Shielded = gridUid;
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool RemoveEmitterShield(EntityUid emitterUid, ShipShieldEmitterComponent emitter, EntityUid? gridUid = null)
+    {
+        var removed = false;
+
+        if (emitter.Shield != null && Exists(emitter.Shield.Value))
+        {
+            QueueDel(emitter.Shield.Value);
+            removed = true;
+        }
+
+        if (gridUid != null && TryComp<ShipShieldedComponent>(gridUid.Value, out var shielded) && shielded.Source == emitterUid)
+        {
+            if (Exists(shielded.Shield))
+            {
+                QueueDel(shielded.Shield);
+                removed = true;
+            }
+
+            RemComp<ShipShieldedComponent>(gridUid.Value);
+        }
+        else
+        {
+            // Fallback: cleanup any stale shielded markers that still point to this emitter.
+            var shieldedQuery = EntityQueryEnumerator<ShipShieldedComponent>();
+            while (shieldedQuery.MoveNext(out var shieldedUid, out var shieldedComp))
+            {
+                if (shieldedComp.Source != emitterUid)
+                    continue;
+
+                if (Exists(shieldedComp.Shield))
+                {
+                    QueueDel(shieldedComp.Shield);
+                    removed = true;
+                }
+
+                RemComp<ShipShieldedComponent>(shieldedUid);
+            }
+        }
+
+        var shieldQuery = EntityQueryEnumerator<ShipShieldComponent>();
+        while (shieldQuery.MoveNext(out var shieldUid, out var shieldComp))
+        {
+            if (shieldComp.Source != emitterUid)
+                continue;
+
+            QueueDel(shieldUid);
+            removed = true;
+        }
+
+        emitter.Shield = null;
+        emitter.Shielded = null;
+        return removed;
+    }
+    // HardLight end
 
     private ChainShape GenerateOvalFixture(EntityUid uid, string name, PhysicsComponent physics, MapGridComponent mapGrid, float padding = Padding)
     {
