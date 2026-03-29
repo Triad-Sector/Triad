@@ -80,7 +80,7 @@
             sprite: Floof/Mobs/Species/Resomi/displacement.rsi
             state: inHand
     - type: Inventory
-      speciesId: Resomi
+      speciesId: resomi
       displacements:
         jumpsuit:
           sizeMaps:
@@ -279,7 +279,7 @@
           sprite: Floof/Mobs/Species/Resomi/displacement.rsi
           state: inHand
   - type: Inventory
-    speciesId: Resomi
+    speciesId: resomi
     displacements:
       jumpsuit:
         sizeMaps:

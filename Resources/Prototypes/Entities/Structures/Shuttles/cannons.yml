@@ -400,6 +400,8 @@
   - type: ExtensionCableReceiver # Frontier
   - type: ApcPowerReceiver # Frontier
     powerLoad: 1500 # Frontier
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
     # Mono Start
   - type: FireControllable
   - type: ShipGunClass

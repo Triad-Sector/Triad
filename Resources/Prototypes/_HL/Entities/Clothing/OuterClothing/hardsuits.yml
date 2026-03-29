@@ -407,3 +407,72 @@
   - type: HarpyHideWings # Frontier, needed for Harpies
   - type: StaticPrice # Frontier
     vendPrice: 7500
+
+# Inderdyne Director Hardsuit
+
+- type: entity
+  parent: [ClothingOuterHardsuitSyndieElite, BaseC3SyndicateContraband, ContrabandClothing]
+  id: ClothingOuterHardsuitInderdyneDirector
+  name: interdyne director hardsuit
+  description: A custom-made hardsuit with biological protection for the directors of interdyne.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/OuterClothing/Hardsuits/interdyne-director.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/OuterClothing/Hardsuits/interdyne-director.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitInterdyneDirector
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.5
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+# Interdyne Director Hardsuit Helmet
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitSyndieElite, BaseC3SyndicateContraband, ContrabandClothing]
+  id: ClothingHeadHelmetHardsuitInterdyneDirector
+  name: interdyne director hardsuit helmet
+  description: A hardsuit helmet with biological protection for the directors of interdyne.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Head/Hardsuits/interdyne-director.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Head/Hardsuits/interdyne-director.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.8
+
+# Inderdyne Crew Hardsuit
+
+- type: entity
+  parent: [ClothingOuterHardsuitSyndieMedic, BaseC3SyndicateContraband, ContrabandClothing]
+  id: ClothingOuterHardsuitInderdyneCrew
+  name: interdyne hardsuit
+  description: A custom-made hardsuit with biological protection for the members of interdyne.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/OuterClothing/Hardsuits/interdyne-crew.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/OuterClothing/Hardsuits/interdyne-crew.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitInterdyneCrew
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.7
+  - type: HideLayerClothing
+    slots:
+    - Tail
+
+
+# Interdyne Crew Hardsuit Helmet
+- type: entity
+  parent: [ClothingHeadHelmetHardsuitSyndieMedic, BaseC3SyndicateContraband, ContrabandClothing]
+  id: ClothingHeadHelmetHardsuitInterdyneCrew
+  name: interdyne hardsuit helmet
+  description: A hardsuit helmet with biological protection for the members of interdyne.
+  components:
+  - type: Sprite
+    sprite: _HL/Clothing/Head/Hardsuits/interdyne-crew.rsi
+  - type: Clothing
+    sprite: _HL/Clothing/Head/Hardsuits/interdyne-crew.rsi
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.9

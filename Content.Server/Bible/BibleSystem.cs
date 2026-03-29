@@ -277,7 +277,7 @@ namespace Content.Server.Bible
                 _transform.SetParent(familiar, uid);
             }
             component.AlreadySummoned = true;
-            _actionsSystem.RemoveAction(user, component.SummonActionEntity);
+            _actionsSystem.RemoveAction(component.SummonActionEntity);
         }
     }
 }

@@ -191,6 +191,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         _shuttle.TryFTLDock(grid, shuttleComponent, targetGrid);
+        QueueShipyardMapCleanupIfEmpty(); // HardLight
         shuttleEntityUid = grid;
         return true;
     }
@@ -261,6 +262,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
 
         _shuttle.TryFTLDock(grid, shuttleComponent, targetGrid);
+        QueueShipyardMapCleanupIfEmpty(); // HardLight
         shuttleEntityUid = grid;
         return true;
     }
@@ -319,7 +321,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         }
         catch (Exception ex)
         {
-            //_sawmill.Error($"Failed to purchase shuttle from YAML data: {ex.Message}");
+            _sawmill.Warning($"Failed to purchase shuttle from YAML data: {ex.Message}"); // HardLight: Error<Warning
             return false;
         }
         finally
@@ -450,8 +452,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (!HasComp<ShuttleComponent>(shuttleUid)
             || !_transformQuery.TryComp(shuttleUid, out var xform)
             || !_transformQuery.TryComp(consoleUid, out var consoleXform)
-            || consoleXform.GridUid == null
-            || ShipyardMap == null)
+            || consoleXform.GridUid == null) // HardLight
         {
             result.Error = ShipyardSaleError.InvalidShip;
             return result;
@@ -559,10 +560,13 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (ShipyardMap == null || !_map.MapExists(ShipyardMap.Value))
         {
             ShipyardMap = null;
+            _shuttleIndex = 0f; // HardLight
             return;
         }
 
         _map.DeleteMap(ShipyardMap.Value);
+        ShipyardMap = null; // HardLight
+        _shuttleIndex = 0f; // HardLight
     }
 
     public void SetupShipyardIfNeeded()
@@ -570,10 +574,41 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (ShipyardMap != null && _map.MapExists(ShipyardMap.Value))
             return;
 
-        _map.CreateMap(out var shipyardMap);
+        var shipyardMapUid = _map.CreateMap(out var shipyardMap); // HardLight
         ShipyardMap = shipyardMap;
+        _metaData.SetEntityName(shipyardMapUid, "Shipyard"); // HardLight
 
         _map.SetPaused(ShipyardMap.Value, false);
+    }
+
+    /// <summary>
+    /// HardLight: Cleans up the shipyard staging map once no grids remain on it.
+    /// This avoids orphaned blank MapEntity entries after loading ships.
+    /// </summary>
+    private void QueueShipyardMapCleanupIfEmpty(int attempt = 0)
+    {
+        if (ShipyardMap == null || !_map.MapExists(ShipyardMap.Value))
+        {
+            ShipyardMap = null;
+            _shuttleIndex = 0f;
+            return;
+        }
+
+        var shipyardMap = ShipyardMap.Value;
+        var gridQuery = EntityManager.AllEntityQueryEnumerator<MapGridComponent, TransformComponent>();
+        while (gridQuery.MoveNext(out _, out _, out var xform))
+        {
+            if (xform.MapID == shipyardMap)
+            {
+                if (attempt >= 24)
+                    return;
+
+                Timer.Spawn(TimeSpan.FromSeconds(5), () => QueueShipyardMapCleanupIfEmpty(attempt + 1));
+                return;
+            }
+        }
+
+        CleanupShipyard();
     }
 
     // <summary>

@@ -39,8 +39,12 @@ public partial class ShipShieldsSystem
     {
         var parent = Transform(owner.Owner).GridUid;
         if (parent is null)
+        {
+            RemoveEmitterShield(owner.Owner, owner.Comp); // HardLight
             return;
-        UnshieldEntity(parent.Value, null);
+        }
+
+        RemoveEmitterShield(owner.Owner, owner.Comp, parent.Value); // HardLight
     }
 
     private void OnShieldDeflected(EntityUid uid, ShipShieldEmitterComponent component, ShieldDeflectedEvent args)

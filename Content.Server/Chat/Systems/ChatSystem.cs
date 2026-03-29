@@ -275,10 +275,10 @@ public sealed partial class ChatSystem : SharedChatSystem
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
             case InGameICChatType.Subtle:
-                SendEntitySubtle(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker, color: color);
+                SendEntitySubtle(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: true, color: color);
                 break;
             case InGameICChatType.SubtleOOC:
-                SendEntitySubtle(source, $"OOC: {message}", range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker, color: color); // HardLight: Capitalized OOC for consistency with other OOC chats.
+                SendEntitySubtle(source, $"OOC: {message}", range, nameOverride, hideLog: hideLog, ignoreActionBlocker: true, color: color); // HardLight: Capitalized OOC for consistency with other OOC chats.
                 break;
             //Nyano - Summary: case adds the telepathic chat sending ability.
             case InGameICChatType.Telepathic:
