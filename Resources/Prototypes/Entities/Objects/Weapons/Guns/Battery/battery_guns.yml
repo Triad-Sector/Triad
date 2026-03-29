@@ -902,9 +902,9 @@
   id: XenoborgLaserGun
 
 - type: entity
-  name: xenoborg heavy laser gun
+  name: xenoborg Shredder
   parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
   id: XenoborgHeavyLaserGun
   components:
   - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: ShredderRound

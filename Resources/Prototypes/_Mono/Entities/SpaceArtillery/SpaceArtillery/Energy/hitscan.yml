@@ -104,6 +104,23 @@
     state: gauss_impact
 
 - type: hitscan
+  id: ShredderRound
+  damage:
+    types:
+      Piercing: 25
+      Heat: 5
+      Structural: 20
+  muzzleFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: gauss_muzzle
+  travelFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: gauss_trail
+  impactFlash:
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
+    state: gauss_impact
+
+- type: hitscan
   id: ExplosiveLaser
   damage:
     types:

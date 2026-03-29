@@ -846,6 +846,20 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
             // Everything else
             "ReactorGasPipe", // Nuclear reactors duplicate invisible inlet/outlet pipes on save.
             "ShipShield", // Ship shield emitters duplicate ship shield visuals on save.
+            "BaseMercenaryUplinkRadio",
+            "BaseUplinkRadio",
+            "BaseUplinkRadio20TC",
+            "BaseUplinkRadio25TC",
+            "BaseUplinkRadio40TC",
+            "BaseUplinkRadio60TC",
+            "UplinkImplanter",
+            "BaseSecurityUplinkRadio",
+            "BaseSecurityUplinkRadioSheriff",
+            "BaseSecurityUplinkRadioOfficer",
+            "BaseSecurityUplinkRadioDeputy",
+            "BasePirateUplink",
+            "BasePirateUplinkRadioPirateCaptain",
+            "BasePirateUplinkPirateCrew",
         };
 
         // Component-level exclusions for non-ship entities.
