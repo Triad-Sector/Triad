@@ -475,7 +475,6 @@ entities:
     - type: BecomesStation
       id: Dock
     - type: NavMap
-    - type: ForceAnchor
 - proto: AirAlarm
   entities:
   - uid: 592

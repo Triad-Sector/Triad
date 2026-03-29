@@ -178,3 +178,57 @@
   description: cartridge-8x65mmSKR-flechette
   objectType: Item
 
+- type: construction
+  id: ShellShotgun23x75mmHiPowerBuckshot
+  graph: ShellShotgun23x75mmHiPowerBuckshotGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-23x75mm-hi-power-buckshot
+  objectType: Item
+  
+- type: construction
+  id: ShellShotgun23x75mmHiPowerSlug
+  graph: ShellShotgun23x75mmHiPowerSlugGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-23x75mm-hi-power-slug
+  objectType: Item
+
+- type: construction
+  id: ShellShotgun23x75mmFlechette
+  graph: ShellShotgun23x75mmFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-23x75mm-flechette
+  objectType: Item
+
+- type: construction
+  id: ShellShotgun12_gaugeHiPowerBuckshot
+  graph: ShellShotgun12_gaugeHiPowerBuckshotGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-12_gauge-hi-power-buckshot
+  objectType: Item
+
+- type: construction
+  id: ShellShotgun12_gaugeHiPowerSlug
+  graph: ShellShotgun12_gaugeHiPowerSlugGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-12_gauge-hi-power-slug
+  objectType: Item
+
+- type: construction
+  id: ShellShotgun12_gaugeFlechette
+  graph: ShellShotgun12_gaugeFlechetteGraph
+  startNode: start
+  targetNode: shell
+  category: construction-category-weapons
+  description: shellshotgun-12_gauge-flechette
+  objectType: Item
+

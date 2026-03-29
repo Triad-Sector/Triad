@@ -228,3 +228,113 @@
         Piercing: 17
     ignoreResistances: true
 
+- type: entity
+  id: Pellet12_gaugeFlechette
+  name: pellet (12 gauge flechette)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+    ignoreResistances: true
+    
+- type: entity
+  id: Pellet12_gaugeHiPowerSlug
+  name: pellet (12 gauge high-power slug)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 42
+        
+- type: entity
+  id: Pellet12_gaugeHiPowerBuckshot
+  name: pellet (12 gauge high-power buckshot)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Structural: 22 #Hardlight change
+
+
+- type: entity
+  id: Pellet12_gaugeHiPowerSpread
+  categories: [ HideSpawnMenu ]
+  parent: Pellet12_gaugeHiPowerBuckshot
+  components:
+  - type: ProjectileSpread
+    proto: Pellet12_gaugeHiPowerBuckshot # Frontier
+    count: 6
+    spread: 15
+
+- type: entity
+  id: Pellet23x75mmFlechette
+  name: pellet (4 gauge flechette)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+        Structural: 100
+    ignoreResistances: true
+    
+- type: entity
+  id: Pellet23x75mmHiPowerSlug
+  name: pellet (4 gauge high-power slug)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 120
+        Structural: 300
+        
+- type: entity
+  id: Pellet23x75mmHiPowerBuckshot
+  name: pellet (4 gauge high-power buckshot)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+
+- type: entity
+  id: Pellet23x75mmHiPowerSpread
+  categories: [ HideSpawnMenu ]
+  parent: Pellet23x75mmHiPowerBuckshot
+  components:
+  - type: ProjectileSpread
+    proto: Pellet23x75mmHiPowerBuckshot # Frontier
+    count: 6
+    spread: 15

@@ -397,4 +397,124 @@
               doAfter: 15
     - node: shell
       entity: Cartridge8x65mmSKRFlechette
+      
+- type: constructionGraph
+  id: ShellShotgun23x75mmHiPowerBuckshotGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing23x75mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 10
+              doAfter: 0.5
+            - material: BulletTip # it shoots 6 projectiles, after all...
+              amount: 6
+              doAfter: 50
+    - node: shell
+      entity: ShellShotgun23x75mmHiPowerBuckshot
+      
+- type: constructionGraph
+  id: ShellShotgun23x75mmHiPowerSlugGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing23x75mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 10
+              doAfter: 0.5
+            - material: BulletTip 
+              amount: 1
+              doAfter: 50
+    - node: shell
+      entity: ShellShotgun23x75mmHiPowerSlug
+
+- type: constructionGraph
+  id: ShellShotgun23x75mmFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing23x75mm
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 10
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 50
+    - node: shell
+      entity: ShellShotgun23x75mmFlechette
+      
+- type: constructionGraph
+  id: ShellShotgun12_gaugeHiPowerBuckshotGraph 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing12_gauge
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 5
+              doAfter: 0.5
+            - material: BulletTip # it shoots 6 projectiles, after all...
+              amount: 6
+              doAfter: 25
+    - node: shell
+      entity: ShellShotgun12_gaugeHiPowerBuckshot
+      
+- type: constructionGraph
+  id: ShellShotgun12_gaugeHiPowerSlugGraph 
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing12_gauge
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 5
+              doAfter: 0.5
+            - material: BulletTip 
+              amount: 1
+              doAfter: 25
+    - node: shell
+      entity: ShellShotgun12_gaugeHiPowerSlug
+
+- type: constructionGraph
+  id: ShellShotgun12_gaugeFlechetteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: shell
+          steps:
+            - material: BulletCasing12_gauge
+              amount: 1
+              doAfter: 0.5
+            - material: HiPowerGunpowder
+              amount: 5
+              doAfter: 0.5
+            - material: BulletFlechette
+              amount: 1
+              doAfter: 25
+    - node: shell
+      entity: ShellShotgun12_gaugeFlechette
 
