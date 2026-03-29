@@ -136,4 +136,3 @@
   impactFlash:
     sprite: _Mono/Objects/Weapons/Guns/Projectiles/ship_lasers.rsi
     state: impact_superheavy_prefrac
-  maxLength: 250

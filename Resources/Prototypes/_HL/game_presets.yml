@@ -262,16 +262,17 @@
     - BasicRoundstartVariation
 #    - NFRoundstartVariation
 
-- type: gamePreset
-  id: NFPirate
-  alias:
-    - nfpirate
-    - pirate
-  name: nf-pirate-title
-  description: nf-pirate-description
-  showInVote: true
-  rules:
-    #- Secret
-    - NFAdventure
-    - BasicRoundstartVariation
-#    - NFRoundstartVariation
+#- type: gamePreset
+#  id: NFPirate
+#  alias:
+#    - nfpirate
+#    - pirate
+#  name: nf-pirate-title
+#  description: nf-pirate-description
+#  showInVote: true
+#  rules:
+#    #- Secret
+#    - NFAdventure
+#    - BasicRoundstartVariation
+##    - NFRoundstartVariation
+#
