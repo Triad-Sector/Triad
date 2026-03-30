@@ -130,13 +130,13 @@
         refresh: false
         type: Add
         probability: 0.1
-      - !type:HealthChange # poisons you if you take way too much
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
-        damage:
-          types:
-            Poison: 1
+      # - !type:HealthChange # poisons you if you take way too much ## Hardlight: no it doesn't
+      #   conditions:
+      #   - !type:ReagentThreshold
+      #     min: 30
+      #   damage:
+      #     types:
+      #       Poison: 1
       - !type:PopupMessage
         type: Local
         visualType: Small
