@@ -124,15 +124,16 @@
   products:
     CalicoSunrise: 3
 
-- type: reaction
-  id: Cream
-  reactants:
-    Sugar:
-      amount: 5
-    Milk:
-      amount: 10
-  products:
-    Cream: 15
+# Hardlight: Removes cream recipe that overrides the making of CreamOfCoconut, cream can be biomassprintered or made with shaker and milk
+#- type: reaction  
+#  id: Cream
+#  reactants:
+#    Sugar:
+#      amount: 5
+#    Milk:
+#      amount: 10
+#  products:
+#    Cream: 15
 
 - type: reaction
   id: CremeDeCacao
