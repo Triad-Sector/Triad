@@ -568,6 +568,8 @@
     color: white
     energy: 0.5
   - type: GatheringProjectile
+  - type: MiningGatheringSoft
+  - type: MiningGatheringHard
 
 - type: entity
   id: BulletCharge
