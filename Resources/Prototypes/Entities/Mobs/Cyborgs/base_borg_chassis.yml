@@ -101,7 +101,6 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -260,8 +259,14 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-  - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling (e.g. critical/dead)
-  - type: InteractionPopup   # Hardlight change should be able to pet the borgs now
+  - type: BypassLock
+    openWiresPanel: true
+  - type: BypassLockRequiresMobState
+    requiredMobState:
+    - Critical
+    - Dead
+  - type: PreventDropOnDowned # Frontier: borgs don't drop items when falling
+  - type: InteractionPopup   # Hardlight: should be able to pet the borgs now
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
     interactSuccessSound:
@@ -393,6 +398,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
 
 - type: entity
   id: BaseBorgChassisDerelict
@@ -557,3 +564,5 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.

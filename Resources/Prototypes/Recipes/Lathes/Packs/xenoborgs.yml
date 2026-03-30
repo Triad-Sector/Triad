@@ -13,17 +13,22 @@
   id: XenoborgUpgradeModules
   recipes:
   - XenoborgModuleBasicRecipe
-  - XenoborgModuleToolRecipe
-  - XenoborgModuleAccessBreakerRecipe
-  - XenoborgModuleFireExtinguisherRecipe
-  - XenoborgModuleJammerRecipe
   - XenoborgModuleLaserRecipe
-  - XenoborgModuleHeavyLaserRecipe
   - XenoborgModuleSpaceMovementRecipe
+  # engi xenoborg
+  - XenoborgModuleAccessBreakerRecipe
+  - XenoborgModuleDoorControlRecipe
+  - XenoborgModuleFireExtinguisherRecipe
+  - BorgModuleXenoRCDRecipe
+  - XenoborgModuleToolRecipe
+  # heavy xenoborg
+  - XenoborgModuleHeavyLaserRecipe
+  # scout xenoborg
   - XenoborgModuleSwordRecipe
   - XenoborgModuleEnergySwordRecipe
   - XenoborgModuleHypoRecipe
-  - BorgModuleXenoRCDRecipe
+  # stealth xenoborg
   - XenoborgModuleChameleonProjectorRecipe
   - XenoborgModuleCloakDeviceRecipe
+  - XenoborgModuleJammerRecipe
   - XenoborgModuleSuperCloakDeviceRecipe

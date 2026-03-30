@@ -62,34 +62,9 @@
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleHeavyLaserRecipe
-  result: XenoborgModuleHeavyLaser
-  
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleBasicRecipe
   result: XenoborgModuleBasic
-  
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleToolRecipe
-  result: XenoborgModuleTool
 
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleAccessBreakerRecipe
-  result: XenoborgModuleAccessBreaker
-  
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleFireExtinguisherRecipe
-  result: XenoborgModuleFireExtinguisher
-  
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleJammerRecipe
-  result: XenoborgModuleJammer
-  
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleLaserRecipe
@@ -100,6 +75,45 @@
   id: XenoborgModuleSpaceMovementRecipe
   result: XenoborgModuleSpaceMovement
 
+## engi xenoborg modules
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleAccessBreakerRecipe
+  result: XenoborgModuleAccessBreaker
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleDoorControlRecipe
+  result: XenoborgModuleDoorControl
+  materials:
+    Steel: 1500
+    Glass: 1500
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleFireExtinguisherRecipe
+  result: XenoborgModuleFireExtinguisher
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: BorgModuleXenoRCDRecipe
+  result: BorgModuleXenoRCD
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleToolRecipe
+  result: XenoborgModuleTool
+
+## heavy xenoborg modules
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleHeavyLaserRecipe
+  result: XenoborgModuleHeavyLaser
+
+## scout xenoborg modules
+
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleSwordRecipe
@@ -107,8 +121,15 @@
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
+  id: XenoborgModuleEnergySwordRecipe
+  result: XenoborgModuleEnergySword
+
+- type: latheRecipe
+  parent: BaseXenoborgModulesRecipe
   id: XenoborgModuleHypoRecipe
   result: XenoborgModuleHypo
+
+## stealth xenoborg modules
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
@@ -122,13 +143,8 @@
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe
-  id: BorgModuleXenoRCDRecipe
-  result: BorgModuleXenoRCD
-  
-- type: latheRecipe
-  parent: BaseXenoborgModulesRecipe
-  id: XenoborgModuleEnergySwordRecipe
-  result: XenoborgModuleEnergySword
+  id: XenoborgModuleJammerRecipe
+  result: XenoborgModuleJammer
 
 - type: latheRecipe
   parent: BaseXenoborgModulesRecipe

@@ -11,11 +11,56 @@
     storedRotation: -90
   - type: Access
   - type: DoorRemote
+    options:
+    - mode: OpenClose
+      tooltip: &TextOpenClose door-remote-open-close-text
+      icon: &IconOpenClose
+        sprite: /Textures/Structures/Doors/Airlocks/Standard/basic.rsi
+        state: assembly
+    - mode: ToggleBolts
+      tooltip: &TextToggleBolt door-remote-toggle-bolt-text
+      icon: &IconToggleBolt
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: bolt_door
+    - mode: ToggleEmergencyAccess
+      tooltip: &TextEmergencyAccess door-remote-emergency-access-text
+      icon: &IconEmergencyAccess
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: emergency_on
   - type: StealTarget
     stealGroup: DoorRemote
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.DoorRemoteUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DoorRemoteUiKey.Key:
+        type: DoorRemoteBoundUserInterface
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: DoorRemoteDefault
+  id: DoorRemoteCanElectrifyDoors # HardLight: Eletrify<Electrify
+  abstract: true
+  components:
+  - type: DoorRemote
+    options:
+    - mode: ToggleOvercharge
+      tooltip: door-remote-toggle-electrify-text # HardLight: -eletrify<-electrify
+      icon:
+        sprite: /Textures/Interface/Actions/actions_ai.rsi
+        state: door_overcharge_on
+    - mode: OpenClose
+      tooltip: *TextOpenClose
+      icon: *IconOpenClose
+    - mode: ToggleBolts
+      tooltip: *TextToggleBolt
+      icon: *IconToggleBolt
+    - mode: ToggleEmergencyAccess
+      tooltip: *TextEmergencyAccess
+      icon: *IconEmergencyAccess
+
+- type: entity
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteCommand
   name: command door remote
   components:
@@ -29,9 +74,27 @@
   - type: Access
     groups:
     - Command
+  - type: DoorRemote
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseCommandContraband ]
+  id: DoorRemoteCustom
+  name: custom door remote
+  description: A gadget which can open and bolt doors remotely. This advanced variant does not have built-in access, instead inheriting the ID access of the user.
+  components:
+  - type: Sprite
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#0077FF"
+    - state: door_remotescreencolour
+      color: "#0033EE"
+  - type: Access
+  - type: DoorRemote
+    includeUserAccess: true
+
+- type: entity
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteSecurity
   name: security door remote
   components:
@@ -47,7 +110,7 @@
     - Security
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteArmory
   name: armory door remote
   components:
@@ -63,7 +126,7 @@
     - Armory
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteService
   name: service door remote
   components:
@@ -79,7 +142,7 @@
     - Service
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteResearch
   name: research door remote
   components:
@@ -95,7 +158,7 @@
     - Research
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteCargo
   name: cargo door remote
   components:
@@ -111,7 +174,7 @@
     - Cargo
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteMedical
   name: medical door remote
   components:
@@ -127,7 +190,7 @@
     - Medical
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteDefault, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteEngineering
   name: engineering door remote
   components:
@@ -143,9 +206,10 @@
     - Engineering
 
 - type: entity
-  parent: [DoorRemoteDefault, BaseC2ContrabandUnredeemable] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
+  parent: [ DoorRemoteCanElectrifyDoors, BaseC2ContrabandUnredeemable ] # Frontier: BaseCommandContraband<BaseC2ContrabandUnredeemable
   id: DoorRemoteAll
   name: super door remote
+  description: A gadget which can open and bolt doors remotely. This one works even on wooden doors!
   suffix: Admeme
   components:
   - type: Sprite
@@ -155,6 +219,10 @@
       color: "#2eba22"
     - state: door_remotescreencolour
       color: "#22871a"
+  - type: DoorRemote
+    includeUserAccess: true
+    requireInRangeUnoccluded: false
+    requireTagWhitelist: false
   - type: Access
     groups:
     - AllAccess
@@ -166,7 +234,7 @@
     - Xenoborg
 
 - type: entity
-  parent: [ DoorRemoteDefault, BaseXenoborgContraband ]
+  parent: [ DoorRemoteCanElectrifyDoors, BaseXenoborgContraband ] # HardLight: Eletrify<Electrify
   id: DoorRemoteXenoborg
   name: xenoborg door remote
   components:

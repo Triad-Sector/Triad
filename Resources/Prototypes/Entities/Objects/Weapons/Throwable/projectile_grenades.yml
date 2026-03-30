@@ -30,7 +30,7 @@
     - HandGrenade
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC2ContrabandUnredeemable] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [ FragileGrenadeBase, ProjectileGrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
   id: GrenadeStinger
   name: stinger grenade
   description: Nothing to see here, please disperse.
@@ -39,7 +39,7 @@
     sprite: Objects/Weapons/Grenades/stingergrenade.rsi
     layers:
     - state: icon
-      map: ["enum.TriggerVisualLayers.Base"]
+      map: [ "enum.TriggerVisualLayers.Base" ]
   - type: ProjectileGrenade
     fillPrototype: NFPelletClusterRubber # Frontier: use NF variant
     capacity: 30
@@ -57,7 +57,7 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [ FragileGrenadeBase, ProjectileGrenadeBase, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: GrenadeIncendiary
   name: incendiary grenade
   description: Guaranteed to light up the mood.
@@ -66,7 +66,7 @@
     sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
     layers:
     - state: icon
-      map: ["enum.TriggerVisualLayers.Base"]
+      map: [ "enum.TriggerVisualLayers.Base" ]
   - type: ProjectileGrenade
     fillPrototype: NFPelletClusterIncendiary # Frontier: use NF variant
     capacity: 30
@@ -83,7 +83,7 @@
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [ FragileGrenadeBase, ProjectileGrenadeBase, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Releases a deadly spray of shrapnel that causes severe bleeding.
@@ -92,7 +92,7 @@
     sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
     layers:
     - state: icon
-      map: ["enum.TriggerVisualLayers.Base"]
+      map: [ "enum.TriggerVisualLayers.Base" ]
   - type: ProjectileGrenade
     fillPrototype: NFPelletClusterLethal # Frontier: use NF variant
     capacity: 30

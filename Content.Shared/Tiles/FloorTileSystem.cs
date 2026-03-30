@@ -17,6 +17,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -127,16 +128,17 @@ public sealed class FloorTileSystem : EntitySystem
             {
                 var gridUid = location.EntityId;
 
-                if (!CanPlaceTile(gridUid, mapGrid, currentTileDefinition, out var reason))
+                var tile = _map.GetTileRef(gridUid, mapGrid, location);
+
+                if (!CanPlaceTile(gridUid, mapGrid, tile.GridIndices, out var reason))
                 {
                     _popup.PopupClient(reason, args.User, args.User);
                     return;
                 }
 
-                var tile = _map.GetTileRef(gridUid, mapGrid, location);
                 var baseTurf = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
 
-                if (HasBaseTurf(currentTileDefinition, baseTurf.ID))
+                if (CanPlaceOn(currentTileDefinition, baseTurf.ID))
                 {
                     if (!_stackSystem.Use(uid, 1, stack))
                         continue;
@@ -146,7 +148,7 @@ public sealed class FloorTileSystem : EntitySystem
                     return;
                 }
             }
-            else if (HasBaseTurf(currentTileDefinition, ContentTileDefinition.SpaceID))
+            else if (HasBaseTurf(currentTileDefinition, new ProtoId<ContentTileDefinition>(ContentTileDefinition.SpaceID)))
             {
                 if (!_stackSystem.Use(uid, 1, stack))
                     continue;
@@ -165,9 +167,22 @@ public sealed class FloorTileSystem : EntitySystem
         }
     }
 
-    public bool HasBaseTurf(ContentTileDefinition tileDef, string baseTurf)
+    public bool HasBaseTurf(ContentTileDefinition tileDef, ProtoId<ContentTileDefinition> baseTurf)
     {
         return tileDef.BaseTurf == baseTurf;
+    }
+
+    private bool CanPlaceOn(ContentTileDefinition tileDef, ProtoId<ContentTileDefinition> currentTurfId)
+    {
+        //Check exact BaseTurf match
+        if (tileDef.BaseTurf == currentTurfId)
+            return true;
+
+        // Check whitelist match
+        if (tileDef.BaseWhitelist.Count > 0 && tileDef.BaseWhitelist.Contains(currentTurfId))
+            return true;
+
+        return false;
     }
 
     private void PlaceAt(EntityUid user, EntityUid gridUid, MapGridComponent mapGrid, EntityCoordinates location,
@@ -175,19 +190,22 @@ public sealed class FloorTileSystem : EntitySystem
     {
         _adminLogger.Add(LogType.Tile, LogImpact.Low, $"{ToPrettyString(user):actor} placed tile {_tileDefinitionManager[tileId].Name} at {ToPrettyString(gridUid)} {location}");
 
-        var random = new System.Random((int) _timing.CurTick.Value);
-        var variant = _tile.PickVariant((ContentTileDefinition) _tileDefinitionManager[tileId], random);
-        _map.SetTile(gridUid, mapGrid,location.Offset(new Vector2(offset, offset)), new Tile(tileId, 0, variant));
+        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileId];
+        var random = new System.Random((int)_timing.CurTick.Value);
+        var variant = _tile.PickVariant(tileDef, random);
+
+        var tileRef = _map.GetTileRef(gridUid, mapGrid, location.Offset(new Vector2(offset, offset)));
+        _tile.ReplaceTile(tileRef, tileDef, gridUid, mapGrid, variant: variant);
 
         _audio.PlayPredicted(placeSound, location, user);
     }
 
-    public bool CanPlaceTile(EntityUid gridUid, MapGridComponent component, ContentTileDefinition? currentTileDefinition, [NotNullWhen(false)] out string? reason) // Frontier: add currentTileDefinition
+    public bool CanPlaceTile(EntityUid gridUid, MapGridComponent component, Vector2i gridIndices, [NotNullWhen(false)] out string? reason)
     {
-        var ev = new FloorTileAttemptEvent();
+        var ev = new FloorTileAttemptEvent(gridIndices);
         RaiseLocalEvent(gridUid, ref ev);
 
-        if ((TryComp<ProtectedGridComponent>(gridUid, out var prot) && prot.PreventFloorPlacement || ev.Cancelled) && currentTileDefinition?.ID == "Lattice") // Frontier: HasComp<TryComp, add PreventFloorPlaceement check
+        if (ev.Cancelled)
         {
             reason = Loc.GetString("invalid-floor-placement");
             return false;

@@ -46,8 +46,8 @@
     node: shuttleWindow
   - type: Tag
     tags:
-      - WeldbotFixableStructure
-      - Window
+    - Window
+    - WeldbotFixableStructure
   - type: Appearance
   - type: DamageVisuals
     thresholds: [5, 10, 20]
@@ -77,8 +77,8 @@
   - type: Tag
     tags:
     - Diagonal
-    - WeldbotFixableStructure
     - Window
+    - WeldbotFixableStructure
   - type: IconSmooth
     mode: Diagonal
     key: walls # Frontier: windows<walls

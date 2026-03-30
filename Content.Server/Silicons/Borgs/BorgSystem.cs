@@ -106,6 +106,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
 
+        // HardLight: Ignore unrelated tools
+        if (brain == null && module == null)
+            return;
+
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
             {
