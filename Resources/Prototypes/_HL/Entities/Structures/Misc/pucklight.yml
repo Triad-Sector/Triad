@@ -8,16 +8,15 @@
   - type: SubFloorHide
     visibleLayers:
       - enum.SubfloorLayers.FirstLayer
-      - enum.SubfloorLayers.SecondLayer
   - type: Sprite
     sprite: _HL/Structures/pucklight.rsi
     snapCardinals: true
     drawdepth: FloorObjects
     noRot: true
     layers:
-    - map: ["enum.PoweredLightLayers.Base", "enum.SubfloorLayers.SecondLayer"]
+    - map: [ "enum.PoweredLightLayers.Base", "enum.SubfloorLayers.FirstLayer" ]
       state: base
-    - map: ["enum.PoweredLightLayers.Glow", "enum.SubfloorLayers.FirstLayer"]
+    - map: [ "enum.PoweredLightLayers.Glow" ]
       state: glow
       shdaer: unshaded
     state: base

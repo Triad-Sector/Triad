@@ -236,7 +236,8 @@ namespace Content.Shared.SubFloor
     {
         FirstLayer,
         // HL - Add another layer, because... reasons (Pucklight commit)
-        SecondLayer
+        // Caaaarl you duplicated the subfloor layer
+        //SecondLayer
     }
 }
 // Re-enable warnings if they were disabled elsewhere
