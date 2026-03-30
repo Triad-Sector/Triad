@@ -3,3 +3,5 @@
   name: Urist McIce
   parent: BaseMobSheleg
   id: MobSheleg
+  components:
+  - type: PotentialPsionic #HL edit: Lets frost giants be psykers
