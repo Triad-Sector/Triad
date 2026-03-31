@@ -558,8 +558,23 @@ public sealed class GhostRoleSystem : EntitySystem
     /// </summary>
     public int GetGhostRoleCount()
     {
-        var metaQuery = GetEntityQuery<MetaDataComponent>();
-        return _ghostRoles.Count(pair => metaQuery.GetComponent(pair.Value.Owner).EntityPaused == false);
+        var staleRoles = new ValueList<uint>();
+        var count = 0;
+
+        foreach (var (id, (uid, _)) in _ghostRoles)
+        {
+            if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityLifeStage >= EntityLifeStage.Terminating)
+            {
+                staleRoles.Add(id);
+                continue;
+            }
+
+            if (!meta.EntityPaused)
+                count++;
+        }
+
+        PruneStaleGhostRoles(staleRoles);
+        return count;
     }
 
     /// <summary>
@@ -571,11 +586,17 @@ public sealed class GhostRoleSystem : EntitySystem
     public GhostRoleInfo[] GetGhostRolesInfo(ICommonSession? player)
     {
         var roles = new List<GhostRoleInfo>();
-        var metaQuery = GetEntityQuery<MetaDataComponent>();
+        var staleRoles = new ValueList<uint>();
 
         foreach (var (id, (uid, role)) in _ghostRoles)
         {
-            if (metaQuery.GetComponent(uid).EntityPaused)
+            if (!TryComp<MetaDataComponent>(uid, out var meta) || meta.EntityLifeStage >= EntityLifeStage.Terminating)
+            {
+                staleRoles.Add(id);
+                continue;
+            }
+
+            if (meta.EntityPaused)
                 continue;
 
 
@@ -615,7 +636,22 @@ public sealed class GhostRoleSystem : EntitySystem
             });
         }
 
+        PruneStaleGhostRoles(staleRoles);
         return roles.ToArray();
+    }
+
+    private void PruneStaleGhostRoles(ValueList<uint> staleRoles)
+    {
+        if (staleRoles.Count == 0)
+            return;
+
+        foreach (var id in staleRoles.Span)
+        {
+            if (_ghostRoles.Remove(id))
+                _ghostRoleRaffles.Remove(id);
+        }
+
+        UpdateAllEui();
     }
 
     private void OnPlayerAttached(PlayerAttachedEvent message)
