@@ -1,6 +1,6 @@
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachine]
-  id: VendingMachineTest
+  id: VendingMachineAdmin
   name: Etheralvend
   description: Things you get from forces beyond what you can get.
   components:
