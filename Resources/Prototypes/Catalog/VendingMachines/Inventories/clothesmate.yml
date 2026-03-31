@@ -132,8 +132,8 @@
     ClothingUniformJumpskirtVictorianrRed: 4
     ClothingUniformJumpskirtSuitNurse: 4
     ClothingUniformJumpskirtPencilTan: 4
-    ClothingUniformJumpskirtPencilCentcomOfficial: 4
-    ClothingUniformJumpskirtPencilSpecialOperationsOfficer: 4
+    #ClothingUniformJumpskirtPencilCentcomOfficial: 4
+    #ClothingUniformJumpskirtPencilSpecialOperationsOfficer: 4
     ClothingUniformJumpskirtCargoSalvage: 4
     ClothingUniformJumpskirtCargoSalvageFormal: 4
     ClothingUniformJumpskirtSalvageLead: 4
@@ -141,8 +141,8 @@
     ClothingUniformJumpskirtCargoFormal: 4
     ClothingUniformJumpskirtScientistFormal: 4
     ClothingUniformJumpskirtCoroner: 4
-    ClothingUniformJumpskirtCentcomOfficial: 4
-    ClothingUniformJumpskirtCentcomOfficer: 4
+    #ClothingUniformJumpskirtCentcomOfficial: 4
+    #ClothingUniformJumpskirtCentcomOfficer: 4
     ClothingUniformJumpskirtElegantMaid: 4
     ClothingUniformColorJumpskirtRainbow: 4
     ClothingUniformJumpskirtSchool: 4
@@ -165,7 +165,7 @@
     ClothingUniformJumpsuitCoronerAlt: 4
     ClothingUniformJumpsuitSuperstarCop: 4
     ClothingUniformJumpsuitAerostatic: 4
-    ClothingUniformJumpsuitCentcomOfficerBlack: 4
+    #ClothingUniformJumpsuitCentcomOfficerBlack: 4
     ClothingUniformJumpsuitCapTurtleneck: 4
     ClothingUniformJumpsuitCaptainNoble: 4
     ClothingUniformJumpsuitHoPTurtleneck: 4
