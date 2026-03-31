@@ -213,30 +213,30 @@
   - ContractorHandItems
   - NFSpeciesSpecific
 
-- type: roleLoadout
-  id: JobDirectorOfCare
-  groups:
-  - DocHead
-  - DocNeck
-  - DocJumpsuit
-  - DocGloves
-  - DocBackpack
-  - DocOuterClothing
-  - DocForcedOuterClothing
-  - DocShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - DocEars
-  - ContractorBoxSurvival
-  - DocPDA
-  - ContractorWallet
-  - ContractorCartridge
-  - ContractorImplanter
-  - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
-  - NFSpeciesSpecific
+#- type: roleLoadout
+#  id: JobDirectorOfCare
+#  groups:
+#  - DocHead
+#  - DocNeck
+#  - DocJumpsuit
+#  - DocGloves
+#  - DocBackpack
+#  - DocOuterClothing
+#  - DocForcedOuterClothing
+#  - DocShoes
+#  - ContractorFace
+#  - ContractorGlasses
+#  - ContractorBelt
+#  - DocEars
+#  - ContractorBoxSurvival
+#  - DocPDA
+#  - ContractorWallet
+#  - ContractorCartridge
+#  - ContractorImplanter
+#  - ContractorEncryptionKey
+#  - ContractorBackpackItems
+#  - ContractorHandItems
+#  - NFSpeciesSpecific
 
 # Nfsd
 

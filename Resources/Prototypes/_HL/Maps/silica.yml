@@ -1,84 +1,85 @@
-- type: gameMap
-  id: HardlightSilica
-  mapName: 'Silica Station'
-  mapPath: /Maps/_HL/silica.yml
-  minPlayers: 0
-  maxPlayers: 100
-  stations:
-    StarlightSilica:
-      stationProto: StandardNanotrasenStation
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'CWS Silica Station'
-#          nameGenerator:
-#            !type:NanotrasenNameGenerator
-#            prefixCreator: 'CW'
-
-        - type: StationJobs
-          availableJobs:
-            # 103 jobs, Infinite Contractor slots
-            #service (17)
-            StationCaptain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 2, 2 ]
-            Botanist: [ 2, 2 ]
-            Chef: [ 2, 2 ]
-            Janitor: [ 2, 2 ]
-            Chaplain: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
-            Reporter: [ 1, 2 ]
-            ServiceWorker: [ 2, 3 ]
-            #engineering (9)
-            ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 2, 2 ]
-            StationEngineer: [ 3, 4 ]
-            TechnicalAssistant: [ 2, 2 ]
-            #medical (13)
-            ChiefMedicalOfficer: [ 1, 1 ]
-            Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 4 ]
-            MedicalIntern: [ 2, 2 ]
-            Paramedic: [ 2, 2 ]
-            Geneticist: [ 1, 1 ]
-            Psychologist: [ 1, 1 ]
-            #science (8)
-            ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 4 ]
-            ResearchAssistant: [ 2, 2 ]
-            ForensicMantis: [ 1, 1 ]
-            #security (14)
-            HeadOfSecurity: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-            SecurityOfficer: [ 4, 8 ]
-            Detective: [ 1, 1 ]
-            SecurityCadet: [ 2, 2 ]
-            Lawyer: [ 1, 1 ]
-            #supply (10)
-            Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 2, 3 ]
-            CargoTechnician: [ 3, 4 ]
-            MailCarrier: [ 1, 2 ]
-            #civilian (4)
-#            Assistant: [ -1, -1 ]
-            Clown: [ 1, 1 ]
-            Mime: [ 1, 1 ]
-            Musician: [ 1, 2 ]
-            #silicon (15)
-            StationAi: [ 1, 1 ]
-            Borg: [ 2, 4 ]
-            MedicalQuadBorg: [ 2, 2 ]
-            ServiceQuadBorg: [ 2, 2 ]
-            SalvageQuadBorg: [ 2, 2 ]
-            SecurityQuadBorg: [ 2, 2 ]
-            EngineeringQuadBorg: [ 2, 2 ]
-            # frontier (13)
-            #Contractor: [ -1, -1 ]
-            #Pilot: [ 5, 5 ]
-            Passenger: [ -1, -1 ] #infinite, not counted
-            Mercenary: [ 0, 40 ]
-            Prisoner: [ 1, 2 ]
-            StationTrafficController: [ 1, 1 ]
-        - type: StationDeadDrop
-          maxDeadDrops: 2 # medium station
-        - type: StationDeadDropReporting
-          messageSet: Nfsd
+#- type: gameMap
+#  id: HardlightSilica
+#  mapName: 'Silica Station'
+#  mapPath: /Maps/_HL/silica.yml
+#  minPlayers: 0
+#  maxPlayers: 100
+#  stations:
+#    StarlightSilica:
+#      stationProto: StandardNanotrasenStation
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: 'CWS Silica Station'
+##          nameGenerator:
+##            !type:NanotrasenNameGenerator
+##            prefixCreator: 'CW'
+#
+#        - type: StationJobs
+#          availableJobs:
+#            # 103 jobs, Infinite Contractor slots
+#            #service (17)
+#            StationCaptain: [ 1, 1 ]
+#            HeadOfPersonnel: [ 1, 1 ]
+#            Bartender: [ 2, 2 ]
+#            Botanist: [ 2, 2 ]
+#            Chef: [ 2, 2 ]
+#            Janitor: [ 2, 2 ]
+#            Chaplain: [ 1, 1 ]
+#            Librarian: [ 1, 1 ]
+#            Reporter: [ 1, 2 ]
+#            ServiceWorker: [ 2, 3 ]
+#            #engineering (9)
+#            ChiefEngineer: [ 1, 1 ]
+#            AtmosphericTechnician: [ 2, 2 ]
+#            StationEngineer: [ 3, 4 ]
+#            TechnicalAssistant: [ 2, 2 ]
+#            #medical (13)
+#            ChiefMedicalOfficer: [ 1, 1 ]
+#            Chemist: [ 2, 2 ]
+#            MedicalDoctor: [ 4, 4 ]
+#            MedicalIntern: [ 2, 2 ]
+#            Paramedic: [ 2, 2 ]
+#            Geneticist: [ 1, 1 ]
+#            Psychologist: [ 1, 1 ]
+#            #science (8)
+#            ResearchDirector: [ 1, 1 ]
+#            Scientist: [ 3, 4 ]
+#            ResearchAssistant: [ 2, 2 ]
+#            ForensicMantis: [ 1, 1 ]
+#            #security (14)
+#            HeadOfSecurity: [ 1, 1 ]
+#            Warden: [ 1, 1 ]
+#            SecurityOfficer: [ 4, 8 ]
+#            Detective: [ 1, 1 ]
+#            SecurityCadet: [ 2, 2 ]
+#            Lawyer: [ 1, 1 ]
+#            #supply (10)
+#            Quartermaster: [ 1, 1 ]
+#            SalvageSpecialist: [ 2, 3 ]
+#            CargoTechnician: [ 3, 4 ]
+#            MailCarrier: [ 1, 2 ]
+#            #civilian (4)
+##            Assistant: [ -1, -1 ]
+#            Clown: [ 1, 1 ]
+#            Mime: [ 1, 1 ]
+#            Musician: [ 1, 2 ]
+#            #silicon (15)
+#            StationAi: [ 1, 1 ]
+#            Borg: [ 2, 4 ]
+#            MedicalQuadBorg: [ 2, 2 ]
+#            ServiceQuadBorg: [ 2, 2 ]
+#            SalvageQuadBorg: [ 2, 2 ]
+#            SecurityQuadBorg: [ 2, 2 ]
+#            EngineeringQuadBorg: [ 2, 2 ]
+#            # frontier (13)
+#            #Contractor: [ -1, -1 ]
+#            #Pilot: [ 5, 5 ]
+#            Passenger: [ -1, -1 ] #infinite, not counted
+#            Mercenary: [ 0, 40 ]
+#            Prisoner: [ 1, 2 ]
+#            StationTrafficController: [ 1, 1 ]
+#        - type: StationDeadDrop
+#          maxDeadDrops: 2 # medium station
+#        - type: StationDeadDropReporting
+#          messageSet: Nfsd
+#
