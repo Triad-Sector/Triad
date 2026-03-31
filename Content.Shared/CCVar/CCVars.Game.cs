@@ -399,7 +399,16 @@ public sealed partial class CCVars
         CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    /// How long a job must work to receive their payment. Hardlight CVar.
+    /// The maximum amount of tiles you can stack on top of each other. 0 is unlimited.
+    /// </summary>
+    /// <remarks>
+    /// Having it too high can result in "doomstacking" tiles - this messes with efficiency of explosions, deconstruction of tiles, and might result in memory problems.
+    /// </remarks>
+    public static readonly CVarDef<int> TileStackLimit =
+        CVarDef.Create("game.tile_stack_limit", 5, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// HardLight: How long a job must work to receive their payment.
     /// </summary>
     public static readonly CVarDef<TimeSpan> GameStationPayoutDelay =
         CVarDef.Create("game.station_payout_delay", TimeSpan.FromMinutes(20), CVar.SERVERONLY);

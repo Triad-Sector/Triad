@@ -23,13 +23,13 @@
           consent: Aphrodisiacs
         - !type:ReagentThreshold
           max: 10.0
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10.0
-        damage:
-          types:
-            Poison: 0.05
+      # - !type:HealthChange # Hardligh: Remove poison
+      #   conditions:
+      #   - !type:ReagentThreshold
+      #     min: 10.0
+      #   damage:
+      #     types:
+      #       Poison: 0.05
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution

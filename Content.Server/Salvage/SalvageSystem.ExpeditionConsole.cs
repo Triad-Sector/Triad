@@ -128,6 +128,15 @@ public sealed partial class SalvageSystem
             return;
         }
 
+        // HardLight: Block expedition start while this shuttle is still in FTL startup/travel/cooldown.
+        if (TryComp<FTLComponent>(ourGrid.Value, out _))
+        {
+            PlayDenySound((uid, component));
+            _popupSystem.PopupEntity(Loc.GetString("shuttle-console-in-ftl"), uid, PopupType.MediumCaution);
+            UpdateConsole((uid, component));
+            return;
+        }
+
         // Store reference to console in mission params for FTL completion tracking
         component.ActiveConsole = uid;
 

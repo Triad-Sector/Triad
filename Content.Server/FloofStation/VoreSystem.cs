@@ -268,6 +268,13 @@ public sealed class VoreSystem : EntitySystem
             || predvore.Stomach != args.Container)
             return;
 
+        // HardLight: If digestion has already completed, enforce deletion instead of release behavior.
+        if (component.Digesting && _mobState.IsDead(uid))
+        {
+            QueueDel(uid);
+            return;
+        }
+
         _transform.AttachToGridOrMap(uid);
 
         RemComp<VoredComponent>(uid);

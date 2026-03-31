@@ -4,15 +4,16 @@ using Content.Server._NF.PublicTransit.Components;
 using Content.Server._NF.RoundNotifications.Events; // Frontier
 using Content.Server.Announcements;
 using Content.Server.Discord;
-using Content.Shared._NF.Shipyard.Components;
-using Content.Server.Shuttles.Components;
-using Content.Server.Shuttles.Events;
-using Content.Shared.Shuttles.Components;
-using Content.Server.Shuttles.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
+using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Events;
+using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems; // Add this if missing
+using Content.Shared._NF.Shipyard.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -20,6 +21,7 @@ using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Shuttles.Components;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Shared.Asynchronous;
@@ -33,8 +35,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Server.Station.Systems; // Add this if missing
-using Content.Server.Station.Components;
 
 namespace Content.Server.GameTicking
 {
@@ -540,6 +540,11 @@ namespace Content.Server.GameTicking
                         var targetCoordinates = new EntityCoordinates(dockGridUid, dockPosition);
                         var targetAngle = dockXform.LocalRotation;
 
+                        // HardLight: End-round cleanup should always evacuate owned/transit shuttles,
+                        // even if they are currently in FTL cooldown.
+                        if (HasComp<FTLComponent>(shuttleUid))
+                            RemComp<FTLComponent>(shuttleUid);
+
                         _shuttleSystem.FTLToCoordinates(shuttleUid, shuttle, targetCoordinates, targetAngle);
                     }
                 }
@@ -561,6 +566,11 @@ namespace Content.Server.GameTicking
                         var dockPosition = dockXform.LocalPosition;
                         var targetCoordinates = new EntityCoordinates(dockGridUid, dockPosition);
                         var targetAngle = dockXform.LocalRotation;
+
+                        // HardLight: End-round cleanup should always evacuate owned/transit shuttles,
+                        // even if they are currently in FTL cooldown.
+                        if (HasComp<FTLComponent>(shuttleUid))
+                            RemComp<FTLComponent>(shuttleUid);
 
                         _shuttleSystem.FTLToCoordinates(shuttleUid, shuttle, targetCoordinates, targetAngle);
                     }

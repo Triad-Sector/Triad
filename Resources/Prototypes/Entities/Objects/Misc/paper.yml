@@ -8,9 +8,15 @@
     - Document
     - Paper
   - type: Appearance
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishableSetCollisionWake
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true
+    canExtinguish: true
     damage:
       types:
         Heat: 1
@@ -78,6 +84,7 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
+  - type: StationAiWhitelist
 
 - type: entity
   name: paper scrap
@@ -289,7 +296,7 @@
   - type: Sprite
     layers:
     # Changing it here is fine - if the PaperStatus key is actually added,
-    #  something happened, so that ought to override this either way.
+    # something happened, so that ought to override this either way.
     - state: paper_words
 
 - type: entity
@@ -380,7 +387,7 @@
     tags:
     - Trash
     - Document
-  #- type: Appearance, hide stamp marks until we have some kind of displacement
+  # - type: Appearance, hide stamp marks until we have some kind of displacement
   - type: Flammable
     fireSpread: true
     canResistFire: false
@@ -403,3 +410,4 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: StationAiWhitelist

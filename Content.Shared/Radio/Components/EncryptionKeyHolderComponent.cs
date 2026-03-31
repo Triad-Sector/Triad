@@ -25,7 +25,7 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keysExtractionMethod", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
-    public string KeysExtractionMethod = "Screwing";
+    public string KeysExtractionMethod = "Cutting"; // HardLight: Screwing<Cutting
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("keySlots")]

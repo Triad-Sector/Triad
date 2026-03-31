@@ -57,9 +57,6 @@
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.Sparks"]
-  - type: Tag
-    tags:
-      - WeldbotFixableStructure
   - type: AnimationPlayer
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
@@ -174,6 +171,11 @@
   - type: StaticPrice
     price: 100 # Frontier: 150<100 - TODO: material value rework
   - type: PryUnpowered
+  - type: Tag
+    tags:
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - WeldbotFixableStructure
   - type: InteractionVerbs # EE interaction system
     allowedVerbs:
     - KnockOn
@@ -247,7 +249,9 @@
     tags:
       - SecureWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - WeldbotFixableStructure
 
 #Plasma Windoors
 - type: entity
@@ -384,7 +388,9 @@
     tags:
       - SecurePlasmaWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - WeldbotFixableStructure
 
 #Uranium Windoors
 - type: entity
@@ -521,3 +527,6 @@
     tags:
       - SecureUraniumWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+      - DoorRemoteWhitelist
+      # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
+      - WeldbotFixableStructure

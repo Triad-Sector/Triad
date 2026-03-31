@@ -720,7 +720,7 @@
     - ShipRepairDeviceRecharging # Mono
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
-    
+
 - type: entity
   id: BorgModuleXenoRCD
   parent: [ BorgModuleRCD ]
@@ -1348,7 +1348,7 @@
     - state: icon-xenoborg-basic
   - type: ItemBorgModule
     moduleId: XenoborgMothership
-    items: 
+    items:
     - DoorRemoteXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-module-module }
@@ -1428,6 +1428,31 @@
     - SelfRechargingFireExtinguisher
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleDoorControl
+  name: door control xenoborg module
+  description: Module that allows Xenoborgs to control airlocks.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-access-breaker
+  - type: ItemBorgModule
+    # HardLight start
+    # hands:
+    # - item: DoorRemoteXenoborg
+    # - item: AccessBreaker
+    # - item: AccessConfiguratorXenoborg
+    moduleId: XenoborgDoorControl
+    items:
+    - DoorRemoteXenoborg
+    - AccessBreaker
+    - AccessConfiguratorXenoborg
+    # HardLight end
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]

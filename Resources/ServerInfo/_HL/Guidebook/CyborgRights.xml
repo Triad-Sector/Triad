@@ -1,0 +1,56 @@
+<Document>
+##AI and me: an infodoc about the standard rules and 
+##regulations/expectations of employees and visitors in 
+##regards to artificial life.
+#
+## Generally Positronic patterns fit one of 2 categories
+Free Thinking Sophont (FTS)
+<Box>
+  <GuideEntityEmbed Entity="quadguideicon" Caption="FTS"/>
+</Box>
+Colonial Property (Branded)
+<Box>
+  <GuideEntityEmbed Entity="brandquadguideicon" Caption="Branded"/>
+</Box>
+*Occasionally the brand belongs to another company or LLC, not just CC so don't always assume!*
+
+## Examples of FTS patterns:
+<Box>
+  <GuideEntityEmbed Entity="synthguideicon" Caption="Synths"/>
+  <GuideEntityEmbed Entity="ipcguideicon" Caption="IPC"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="protoguideicon" Caption="Protos"/>
+  <GuideEntityEmbed Entity="quadguideicon" Caption="Unbranded Borgs"/>
+</Box>
+<Box>
+  FTS patterned borgs are NOT the property of CC and therefore should be handled as individuals responsible for their own actions with their own set of rights as a sophont.
+</Box>
+
+## Examples of Owned (Branded) borgs:
+<Box>
+  <GuideEntityEmbed Entity="aiguide" Caption="Station AI"/>
+  <GuideEntityEmbed Entity="brandquadguideicon" Caption="Specialized Role borgs/prefabs"/>
+   <GuideEntityEmbed Entity="quadborgguidicon" Caption="the boi"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="BorgChassisGeneric" Caption="Company owned models"/>
+</Box>
+<Box>
+  Branded borgs are the property of CC or the asset of another legal body (company/llc) and therefore their minds should be protected at all costs, while the bodies are expendable and can be more or less easily replaced, the minds are specialized tools which very likely cost more than you do if lost.
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="brainicon" Caption="Worth more than yours"/>
+</Box>
+
+## FAQ
+<Box>
+  "But what about Xenoborgs, do those count as people or not"
+</Box>
+<Box>
+  Xenoborgs used to BE people, they're brains and patterns built from sophonts whom were integrated into the collective. if you're having to ask if being a victim makes them a person or not I think perhaps we may have some other issues we need to be addressing instead.
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="mmiguideicon" Caption="Are you people?"/>
+</Box>
+</Document>

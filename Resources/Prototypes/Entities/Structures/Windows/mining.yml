@@ -67,6 +67,7 @@
   - type: Tag
     tags:
     - Diagonal
+    - Window
     - WeldbotFixableStructure
   - type: IconSmooth
     mode: Diagonal
