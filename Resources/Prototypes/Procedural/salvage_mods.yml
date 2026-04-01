@@ -39,8 +39,13 @@
   id: Daylight
   desc: salvage-light-mod-daylight
   color: "#D8B059"
-  biomes:
+  biomes:  # Triad
     - Grasslands
+    - Snow
+    - Caves
+    - Shadow
+    - Lava
+
 
 - type: salvageLightMod
   id: Lavalight
@@ -52,12 +57,12 @@
 - type: salvageLightMod
   id: Evening
   desc: salvage-light-mod-evening
-  color: "#2b3143"
+  color: "#3f475f" # Triad
 
 - type: salvageLightMod
   id: Night
   desc: salvage-light-mod-night
-  cost: 1
+  cost: 2  # Night time raids are now rarer as they are ass to deal with Triad
   color: null
 
 # Temperatures
