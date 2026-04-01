@@ -415,7 +415,9 @@ public sealed class RCDSystem : EntitySystem
 
         // Ensure the RCD operation is still valid
         if (!IsRCDOperationStillValid(uid, component, gridUid, mapGrid, tile, position, args.Direction, args.Target, args.User))
+        {
             return;
+        }
 
         // Finalize the operation (this should handle prediction properly)
         FinalizeRCDOperation(uid, component, gridUid, mapGrid, tile, position, args.Direction, args.Target, args.User);
