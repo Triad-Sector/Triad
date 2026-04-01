@@ -37,7 +37,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'ColSec Sector FOB'
         - type: ExtraStationInformation
-          iconPath: /Textures/_NF/Structures/Decoration/banner.rsi/nfsd-banner.png
+          iconPath: /Textures/_NF/Structures/Decoration/banner/nfsd-banner.png # Triad
           stationSubtext: 'frontier-lobby-Colsec-subtext'
           stationDescription: 'frontier-lobby-Colsec-description'
           lobbySortOrder: 2
