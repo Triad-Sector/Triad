@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Teleportation.Components;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Teleportation.Systems;
 
@@ -18,7 +19,39 @@ public sealed class LinkedEntitySystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LinkedEntityComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<LinkedEntityComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<LinkedEntityComponent, ComponentShutdown>(OnLinkShutdown);
+    }
+
+    private void OnGetState(EntityUid uid, LinkedEntityComponent component, ref ComponentGetState args)
+    {
+        var linkedEntities = new HashSet<NetEntity>();
+
+        foreach (var linked in component.LinkedEntities)
+        {
+            if (TerminatingOrDeleted(linked) || !HasComp<MetaDataComponent>(linked))
+                continue;
+
+            linkedEntities.Add(GetNetEntity(linked));
+        }
+
+        args.State = new LinkedEntityComponentState(linkedEntities);
+    }
+
+    private void OnHandleState(EntityUid uid, LinkedEntityComponent component, ref ComponentHandleState args)
+    {
+        if (args.Current is not LinkedEntityComponentState state)
+            return;
+
+        component.LinkedEntities.Clear();
+        foreach (var linked in state.LinkedEntities)
+        {
+            if (!TryGetEntity(linked, out var linkedUid) || TerminatingOrDeleted(linkedUid))
+                continue;
+
+            component.LinkedEntities.Add(linkedUid.Value);
+        }
     }
 
     private void OnLinkShutdown(EntityUid uid, LinkedEntityComponent component, ComponentShutdown args)

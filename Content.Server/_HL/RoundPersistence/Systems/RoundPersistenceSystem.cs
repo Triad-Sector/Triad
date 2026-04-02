@@ -549,12 +549,6 @@ public sealed class RoundPersistenceSystem : EntitySystem
             }
 
             // Get crew manifest
-            var (_, manifestEntries) = _crewManifest.GetCrewManifest(stationUid);
-            if (manifestEntries != null)
-            {
-                persistedRecords.CrewManifest = manifestEntries.Entries.ToList();
-            }
-
             persistence.StationRecords[stationName] = persistedRecords;
         }
     }

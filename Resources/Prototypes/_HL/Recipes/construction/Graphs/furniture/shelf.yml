@@ -25,9 +25,9 @@
       completed:
       - !type:SpawnPrototype
         prototype: SheetPlasteel
-        amount: 10
+        amount: 30
       - !type:SpawnPrototype
         prototype: MaterialBluespace
-        amount: 5
+        amount: 25
       - !type:EmptyAllContainers
       - !type:DeleteEntity

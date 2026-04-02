@@ -1,9 +1,10 @@
 using Content.Server.Popups;
 using Content.Shared.Administration;
 using Content.Shared.GameTicking;
-using Content.Shared.Mind;
-using Robust.Shared.Console;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
+using Robust.Server.Player;
+using Robust.Shared.Console;
 
 namespace Content.Server.Ghost
 {
@@ -11,6 +12,7 @@ namespace Content.Server.Ghost
     public sealed class GhostCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public string Command => "ghost";
         public string Description => Loc.GetString("ghost-command-description");
@@ -43,17 +45,20 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            var minds = _entities.System<SharedMindSystem>();
-            if (!minds.TryGetMind(player, out var mindId, out var mind))
+            if (player.AttachedEntity is not { Valid: true } controlled)
             {
-                mindId = minds.CreateMind(player.UserId);
-                mind = _entities.GetComponent<MindComponent>(mindId);
+                shell.WriteLine(Loc.GetString("ghost-command-error-lobby"));
+                return;
             }
 
-            if (!_entities.System<GhostSystem>().OnGhostAttempt(mindId, true, true, mind: mind))
-            {
-                shell.WriteLine(Loc.GetString("ghost-command-denied"));
-            }
+            var minds = _entities.System<MindSystem>();
+            if (minds.TryGetMind(player, out var mindId, out var mind))
+                minds.WipeMind(mindId, mind);
+            else
+                _playerManager.SetAttachedEntity(player, null);
+
+            _entities.DeleteEntity(controlled);
+            gameTicker.ReturnPlayerToLobby(player);
         }
     }
 }

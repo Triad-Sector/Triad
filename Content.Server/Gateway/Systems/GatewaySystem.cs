@@ -103,17 +103,22 @@ public sealed class GatewaySystem : EntitySystem
             if (!dest.Enabled || destUid == uid)
                 continue;
 
+            if (!TryComp<MetaDataComponent>(destUid, out var destMeta) || destMeta.EntityLifeStage >= EntityLifeStage.Terminating)
+                continue;
+
             // Show destination if either no destination comp on the map or it's ours.
             TryComp<GatewayGeneratorDestinationComponent>(destXform.MapUid, out var gatewayDestination);
             var isDockingArm = HasComp<DockingArmDestinationComponent>(destUid);
 
-            Log.Debug($"Gateway {ToPrettyString(uid)} found destination {ToPrettyString(destUid)} - IsDockingArm: {isDockingArm}, HasDockingArmComp: {HasComp<DockingArmDestinationComponent>(destUid)}, DestName: {MetaData(destUid).EntityName}");
+            Log.Debug($"Gateway {ToPrettyString(uid)} found destination {ToPrettyString(destUid)} - IsDockingArm: {isDockingArm}, HasDockingArmComp: {HasComp<DockingArmDestinationComponent>(destUid)}, DestName: {destMeta.EntityName}");
 
             destinations.Add(new GatewayDestinationData()
             {
                 Entity = GetNetEntity(destUid),
                 // Fallback to grid's ID if applicable.
-                Name = dest.Name.IsEmpty && destXform.GridUid != null ? FormattedMessage.FromUnformatted(MetaData(destXform.GridUid.Value).EntityName) : dest.Name ,
+                Name = dest.Name.IsEmpty && destXform.GridUid != null && TryComp<MetaDataComponent>(destXform.GridUid.Value, out var gridMeta)
+                    ? FormattedMessage.FromUnformatted(gridMeta.EntityName)
+                    : dest.Name,
                 Portal = HasComp<PortalComponent>(destUid),
                 // If NextUnlock < CurTime it's unlocked, however
                 // we'll always send the client if it's locked
@@ -124,10 +129,18 @@ public sealed class GatewaySystem : EntitySystem
         }
 
         _linkedEntity.GetLink(uid, out var current);
+        NetEntity? currentNet = null;
+
+        if (current is { } currentUid &&
+            TryComp<MetaDataComponent>(currentUid, out var currentMeta) &&
+            currentMeta.EntityLifeStage < EntityLifeStage.Terminating)
+        {
+            currentNet = GetNetEntity(currentUid, currentMeta);
+        }
 
         var state = new GatewayBoundUserInterfaceState(
             destinations,
-            GetNetEntity(current),
+            currentNet,
             comp.NextReady,
             comp.Cooldown,
             nextUnlock,

@@ -12,6 +12,12 @@ public sealed class LizardLinkerSystem : EntitySystem
 
     private void OnFollowerStartup(Entity<TrailFollowerComponent> ent, ref ComponentStartup args)
     {
+        var xform = Transform(ent.Owner);
+
+        // Trail followers are moved directly to recorded leader coordinates, so
+        // grid traversal only adds recursive reparent checks when the leader crosses grids.
+        xform.GridTraversal = false;
+
         if (ent.Comp.Leader != default)
             return;
 
@@ -19,7 +25,6 @@ public sealed class LizardLinkerSystem : EntitySystem
         var enumerator = EntityQueryEnumerator<TrailLeaderComponent, TransformComponent>();
         while (enumerator.MoveNext(out var leaderUid, out var leaderComp, out var leaderXform))
         {
-            var xform = Transform(ent.Owner);
             if (leaderXform.MapID == xform.MapID && leaderXform.Coordinates.TryDistance(EntityManager, xform.Coordinates, out var dist) && dist < 1.0f)
             {
                 ent.Comp.Leader = leaderUid;

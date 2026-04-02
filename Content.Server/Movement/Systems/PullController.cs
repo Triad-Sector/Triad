@@ -202,8 +202,11 @@ public sealed class PullController : VirtualController
         if (!rotatable.RotateWhilePulling)
             return;
 
-        var pulledXform = _xformQuery.GetComponent(pulled);
-        var pullerXform = _xformQuery.GetComponent(puller);
+        if (!_xformQuery.TryGetComponent(pulled, out var pulledXform) ||
+            !_xformQuery.TryGetComponent(puller, out var pullerXform))
+        {
+            return;
+        }
 
         var pullerData = TransformSystem.GetWorldPositionRotation(pullerXform);
         var pulledData = TransformSystem.GetWorldPositionRotation(pulledXform);
@@ -245,7 +248,12 @@ public sealed class PullController : VirtualController
             if (pullable.Puller is not {Valid: true} puller)
                 continue;
 
-            var pullerXform = _xformQuery.Get(puller);
+            if (!_xformQuery.TryGetComponent(puller, out var pullerXform))
+            {
+                RemCompDeferred<PullMovingComponent>(pullableEnt);
+                continue;
+            }
+
             var pullerPosition = TransformSystem.GetMapCoordinates(pullerXform);
 
             var movingTo = TransformSystem.ToMapCoordinates(mover.MovingTo);
@@ -305,7 +313,7 @@ public sealed class PullController : VirtualController
             // if the puller is weightless or can't move, then we apply the inverse impulse (Newton's third law).
             // doing it under gravity produces an unsatisfying wiggling when pulling.
             // If player can't move, assume they are on a chair and we need to prevent pull-moving.
-            if (_gravity.IsWeightless(puller) && pullerXform.Comp.GridUid == null || !_actionBlockerSystem.CanMove(puller))
+            if ((_gravity.IsWeightless(puller) && pullerXform.GridUid == null) || !_actionBlockerSystem.CanMove(puller))
             {
                 PhysicsSystem.WakeBody(puller);
                 PhysicsSystem.ApplyLinearImpulse(puller, -impulse);
