@@ -6,6 +6,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -35,6 +36,33 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
         SubscribeLocalEvent<UnpoweredFlashlightComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<UnpoweredFlashlightComponent, GotEmaggedEvent>(OnGotEmagged);
         SubscribeLocalEvent<UnpoweredFlashlightComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<UnpoweredFlashlightComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<UnpoweredFlashlightComponent, ComponentHandleState>(OnHandleState);
+    }
+
+    private void OnGetState(EntityUid uid, UnpoweredFlashlightComponent component, ref ComponentGetState args)
+    {
+        NetEntity? toggleAction = null;
+
+        if (component.ToggleActionEntity is { } toggleActionUid &&
+            MetaData(toggleActionUid) is { } meta &&
+            meta.EntityLifeStage < EntityLifeStage.Terminating)
+        {
+            toggleAction = GetNetEntity(toggleActionUid, meta);
+        }
+
+        args.State = new UnpoweredFlashlightComponentState(component.LightOn, toggleAction);
+    }
+
+    private void OnHandleState(EntityUid uid, UnpoweredFlashlightComponent component, ref ComponentHandleState args)
+    {
+        if (args.Current is not UnpoweredFlashlightComponentState state)
+            return;
+
+        component.LightOn = state.LightOn;
+        component.ToggleActionEntity = state.ToggleActionEntity is { } action && TryGetEntity(action, out var actionUid)
+            ? actionUid
+            : null;
     }
 
     private void OnMapInit(EntityUid uid, UnpoweredFlashlightComponent component, MapInitEvent args)

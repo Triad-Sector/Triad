@@ -25,7 +25,6 @@ namespace Content.Shared.Body.Systems;
 public partial class SharedBodySystem
 {
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Shitmed Change
     private static readonly ProtoId<DamageTypePrototype> BloodlossDamageId = "Bloodloss";
 
     private void InitializeParts()
@@ -130,7 +129,7 @@ public partial class SharedBodySystem
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
-                _inventorySystem.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory);
+                _inventory.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory);
         }
 
     }
@@ -206,7 +205,19 @@ public partial class SharedBodySystem
             RaiseLocalEvent(partEnt, ref enableEvent);
             var droppedEvent = new BodyPartDroppedEvent(partEnt);
             RaiseLocalEvent(body, ref droppedEvent);
-            SharedTransform.AttachToGridOrMap(partEnt, transform);
+
+            if (body != EntityUid.Invalid)
+            {
+                var bodyTransform = Transform(body);
+                if (bodyTransform.MapUid != null)
+                    SharedTransform.DropNextTo((partEnt.Owner, transform), (body, bodyTransform));
+            }
+
+            if (transform.MapUid != null)
+            {
+                SharedTransform.AttachToGridOrMap(partEnt, transform);
+            }
+
             _randomHelper.RandomOffset(partEnt, 0.5f);
         }
 

@@ -322,11 +322,15 @@ public sealed class TemperatureSystem : EntitySystem
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var transformQuery = GetEntityQuery<TransformComponent>();
         var thresholdsQuery = GetEntityQuery<ContainerTemperatureDamageThresholdsComponent>();
+
+        if (!transformQuery.TryGetComponent(uid, out var xform))
+            return;
+
         // We only need to update thresholds if the thresholds changed for the entity's ancestors.
         var oldThresholds = args.OldParent != null
             ? RecalculateParentThresholds(args.OldParent.Value, transformQuery, thresholdsQuery)
             : (null, null);
-        var newThresholds = RecalculateParentThresholds(transformQuery.GetComponent(uid).ParentUid, transformQuery, thresholdsQuery);
+        var newThresholds = RecalculateParentThresholds(xform.ParentUid, transformQuery, thresholdsQuery);
 
         if (oldThresholds != newThresholds)
         {
@@ -361,7 +365,10 @@ public sealed class TemperatureSystem : EntitySystem
     {
         RecalculateAndApplyParentThresholds(root, temperatureQuery, transformQuery, tempThresholdsQuery);
 
-        var enumerator = Transform(root).ChildEnumerator;
+        if (!transformQuery.TryGetComponent(root, out var xform))
+            return;
+
+        var enumerator = xform.ChildEnumerator;
         while (enumerator.MoveNext(out var child))
         {
             RecursiveThresholdUpdate(child, temperatureQuery, transformQuery, tempThresholdsQuery);
@@ -384,7 +391,10 @@ public sealed class TemperatureSystem : EntitySystem
             return;
         }
 
-        var newThresholds = RecalculateParentThresholds(transformQuery.GetComponent(uid).ParentUid, transformQuery, tempThresholdsQuery);
+        if (!transformQuery.TryGetComponent(uid, out var xform))
+            return;
+
+        var newThresholds = RecalculateParentThresholds(xform.ParentUid, transformQuery, tempThresholdsQuery);
         temperature.ParentHeatDamageThreshold = newThresholds.Item1;
         temperature.ParentColdDamageThreshold = newThresholds.Item2;
     }
