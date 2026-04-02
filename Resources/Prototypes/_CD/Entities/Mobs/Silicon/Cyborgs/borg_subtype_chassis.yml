@@ -1,0 +1,20 @@
+# Actual entity prototypes used for UI visuals and admin spawning
+- type: entity
+  id: BorgChassisSpidermin
+  parent: BorgChassisSelectable
+  name: Spidermin # Hardlight
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeSpidermin # Hardlight
+
+- type: entity
+  id: BorgChassisQualifiedDoctor
+  parent: BorgChassisSelectable
+  name: Qualified Doctor # Hardlight
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeQualifiedDoctor # Hardlight

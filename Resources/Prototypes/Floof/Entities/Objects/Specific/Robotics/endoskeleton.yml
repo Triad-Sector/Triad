@@ -12,32 +12,33 @@
     state: quad_suit
   - type: ItemMapper
     sprite: Floof/Objects/Specific/Robotics/parts.rsi
+    # Hardlight replace with renamed variants, someone else can go make them switchable
     mapLayers:
       borg_l_arm+o:
         whitelist:
           tags:
-          - BorgGenericLLeg
+          - BorgLLeg
       borg_r_arm+o:
         whitelist:
           tags:
-          - BorgGenericRLeg
+          - BorgRLeg
       borg_l_leg+o:
         whitelist:
           tags:
-          - BorgGenericLLeg
+          - BorgLLeg
       borg_r_leg+o:
         whitelist:
           tags:
-          - BorgGenericRLeg
+          - BorgRLeg
       borg_head+o:
         whitelist:
           tags:
-          - BorgGenericHead
+          - BorgHead
       borg_chest+o:
         whitelist:
           tags:
-          - BorgGenericTorso
-# HardLight start
+          - BorgTorso
+# security parts
       borg_l_secarm+o:
         whitelist:
           tags:
@@ -62,7 +63,8 @@
         whitelist:
           tags:
           - BorgSecurityTorso
-# HardLight end
+# Hardlight end
+# engineering parts
       borg_l_engiarm+o:
         whitelist:
           tags:
@@ -87,6 +89,7 @@
         whitelist:
           tags:
           - BorgEngineerTorso
+    # mining parts
       borg_l_salvarm+o:
         whitelist:
           tags:
@@ -111,6 +114,7 @@
         whitelist:
           tags:
             - BorgMiningTorso
+    # service parts
       borg_l_servarm+o:
         whitelist:
           tags:
@@ -135,6 +139,7 @@
         whitelist:
           tags:
             - BorgServiceTorso
+    # medical parts
       borg_l_medarm+o:
         whitelist:
           tags:
@@ -159,16 +164,16 @@
         whitelist:
           tags:
             - BorgMedicalTorso
-            
+
   - type: PartAssembly
     parts:
-      quadborg:
-      - BorgGenericLLeg
-      - BorgGenericRLeg
-      - BorgGenericLLeg
-      - BorgGenericRLeg
-      - BorgGenericHead
-      - BorgGenericTorso
+      quadborg: # Hardlight renamed parts
+      - BorgLLeg
+      - BorgRLeg
+      - BorgLLeg
+      - BorgRLeg
+      - BorgHead
+      - BorgTorso
       quadsec: # HardLight: Added security quadborg
       - BorgSecurityLLeg
       - BorgSecurityRLeg
@@ -177,8 +182,8 @@
       - BorgSecurityHead
       - BorgSecurityTorso
       quadengi:
-      - BorgEngineerLArm
-      - BorgEngineerRArm
+      - BorgEngineerLLeg
+      - BorgEngineerRLeg
       - BorgEngineerLLeg
       - BorgEngineerRLeg
       - BorgEngineerHead

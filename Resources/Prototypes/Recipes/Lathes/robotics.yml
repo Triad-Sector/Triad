@@ -100,18 +100,8 @@
   parent: BaseBorgLimbRecipe
   id: TorsoBorg
   result: TorsoBorg
-
-# Engineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgEngineer
-  result: LeftArmBorgEngineer
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgEngineer
-  result: RightArmBorgEngineer
+# Hardlight start - quadborgs need these TODO make quadborgs switchable and remove these
+ # Engineer
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
@@ -137,16 +127,6 @@
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftArmBorgMedical
-  result: LeftArmBorgMedical
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgMedical
-  result: RightArmBorgMedical
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
   id: LeftLegBorgMedical
   result: LeftLegBorgMedical
 
@@ -169,16 +149,6 @@
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftArmBorgMining
-  result: LeftArmBorgMining
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgMining
-  result: RightArmBorgMining
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
   id: LeftLegBorgMining
   result: LeftLegBorgMining
 
@@ -198,16 +168,6 @@
   result: TorsoBorgMining
 
 # Service
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: LeftArmBorgService
-  result: LeftArmBorgService
-
-- type: latheRecipe
-  parent: BaseBorgLimbRecipe
-  id: RightArmBorgService
-  result: RightArmBorgService
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
@@ -256,6 +216,7 @@
   materials:
     Steel: 500
     Glass: 200
+# Hardlight end
 
 # Parts
 
@@ -311,7 +272,7 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleTool
   result: BorgModuleTool
-
+# Hardlight start quadborgs still need these TODO make quadborgs switchable
 # Mining Modules
 
 - type: latheRecipe
@@ -328,7 +289,7 @@
   parent: BaseGoldBorgModuleRecipe
   id: BorgModuleGrapplingGun
   result: BorgModuleGrapplingGun
-
+# Hardlight end
 # Engineering Modules
 
 - type: latheRecipe
@@ -336,18 +297,14 @@
   id: BorgModuleAdvancedTool
   result: BorgModuleAdvancedTool
 
-- type: latheRecipe
+- type: latheRecipe # Hardlight quadborgs still need these TODO make quadborgs switchable
   parent: BaseBorgModuleRecipe
   id: BorgModuleConstruction
   result: BorgModuleConstruction
 
-# - type: latheRecipe
-  # parent: BaseGoldBorgModuleRecipe
-  # id: BorgModuleRCD
-  # result: BorgModuleRCD
-
 # Janitor Modules
 
+# Hardlight start quadborgs still need these todo make quadborgs switchable
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
   id: BorgModuleLightReplacer
@@ -357,6 +314,7 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleCleaning
   result: BorgModuleCleaning
+# #Hardlight end
 
 - type: latheRecipe
   parent: BaseGoldBorgModuleRecipe
@@ -365,6 +323,7 @@
 
 # Medical Modules
 
+# Hardlight start quadborgs still need these TODO make quadborgs switchable
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
   id: BorgModuleDiagnosis
@@ -374,6 +333,7 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleTreatment
   result: BorgModuleTreatment
+# Hardlight end
 
 # Frontier: base modules for a medical cyborg
 
@@ -403,6 +363,7 @@
 
 # Service Modules
 
+# Hardlight start quadborgs still need these TODO make quadborgs switchable
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
   id: BorgModuleService
@@ -415,6 +376,12 @@
 
 - type: latheRecipe
   parent: BaseBorgModuleRecipe
+  id: BorgModuleClowning
+  result: BorgModuleClowning
+# Hardlight end
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
   id: BorgModuleGardening
   result: BorgModuleGardening
 
@@ -422,12 +389,6 @@
   parent: BaseBorgModuleRecipe
   id: BorgModuleHarvesting
   result: BorgModuleHarvesting
-
-- type: latheRecipe
-  parent: BaseBorgModuleRecipe
-  id: BorgModuleClowning
-  result: BorgModuleClowning
-
 # Security Recipes
 
 - type: latheRecipe

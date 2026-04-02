@@ -240,7 +240,7 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
+    - sprite: Mobs/Silicon/Chassis/derelict.rsi
       state: derelict_icon
 
 - type: entity
@@ -284,8 +284,8 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: xenoborg_engi
+    - sprite: Mobs/Silicon/Chassis/xeno_engi.rsi
+      state: borg
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
