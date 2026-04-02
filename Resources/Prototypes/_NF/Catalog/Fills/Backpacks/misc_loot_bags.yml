@@ -52,6 +52,17 @@
         prob: 0.3
       - id: ClothingBundleEmpNew
         prob: 0.3
+      - id: WeaponBundleSwordsAcid
+        prob: 0.1
+      - id: WeaponBundleSwordsFire
+        prob: 0.1
+      - id: WeaponBundleSwordsIce
+        prob: 0.1
+      - id: WeaponBundleSwordsRad
+        prob: 0.1
+      - id: WeaponBundleSwordsShock
+        prob: 0.1
+      
 
 - type: entity
   parent: WizardMiscGiftBox
@@ -77,3 +88,101 @@
       - id: ClothingEyesGlassesChameleon
       - id: ClothingHeadHelmetChameleon
       - id: ClothingHandsGlovesChameleon
+      
+- type: entity
+  parent: WizardMiscGiftBox
+  id: WeaponBundleSwordsFire
+  name: Bundle of Swords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: FireSabre
+        prob: 0.05
+      - id: FireKatana
+        prob: 0.1
+      - id: FireClaymore
+        prob: 0.1
+      - id: FireCutlass
+        prob: 0.1
+      - id: FireSickle
+        prob: 0.1
+
+- type: entity
+  parent: WizardMiscGiftBox
+  id: WeaponBundleSwordsIce
+  name: Bundle of Swords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: IceSabre
+        prob: 0.05
+      - id: IceKatana
+        prob: 0.1
+      - id: IceClaymore
+        prob: 0.1
+      - id: IceCutlass
+        prob: 0.1
+      - id: IceSickle
+        prob: 0.1
+      
+
+- type: entity
+  parent: WizardMiscGiftBox
+  id: WeaponBundleSwordsAcid
+  name: Bundle of Swords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: AcidSabre
+        prob: 0.05
+      - id: AcidKatana
+        prob: 0.1
+      - id: AcidClaymore
+        prob: 0.1
+      - id: AcidCutlass
+        prob: 0.1
+      - id: AcidSickle
+        prob: 0.1
+
+- type: entity
+  parent: WizardMiscGiftBox
+  id: WeaponBundleSwordsShock
+  name: Bundle of Swords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: ShockSabre
+        prob: 0.05
+      - id: ShockKatana
+        prob: 0.1
+      - id: ShockClaymore
+        prob: 0.1
+      - id: ShockCutlass
+        prob: 0.1
+      - id: ShockSickle
+        prob: 0.1
+
+- type: entity
+  parent: WizardMiscGiftBox
+  id: WeaponBundleSwordsRad
+  name: Bundle of Swords
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: RadSabre
+        prob: 0.05
+      - id: RadKatana
+        prob: 0.1
+      - id: RadClaymore
+        prob: 0.1
+      - id: RadCutlass
+        prob: 0.1
+      - id: RadSickle
+        prob: 0.1
+
+
