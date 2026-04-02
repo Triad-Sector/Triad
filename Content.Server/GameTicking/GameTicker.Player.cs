@@ -203,6 +203,11 @@ namespace Content.Server.GameTicking
             RaiseNetworkEvent(new TickerJoinGameEvent(), session.Channel);
         }
 
+        public void ReturnPlayerToLobby(ICommonSession session)
+        {
+            PlayerJoinLobby(session);
+        }
+
         private void PlayerJoinLobby(ICommonSession session)
         {
             _playerGameStatuses[session.UserId] = LobbyEnabled ? PlayerGameStatus.NotReadyToPlay : PlayerGameStatus.ReadyToPlay;
