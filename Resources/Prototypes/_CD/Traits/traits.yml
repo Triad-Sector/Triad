@@ -3,7 +3,7 @@
   name: trait-synth-name
   description: trait-synth-desc
   category: Physical
-  cost: 4
+  cost: 0 # Hardlight: Why did this cost 4?
   speciesBlacklist: # HardLight
   - IPC
   - Synth
