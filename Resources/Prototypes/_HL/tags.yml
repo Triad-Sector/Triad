@@ -352,6 +352,10 @@
 - type: Tag
   id: Syndie_Multitool
 
+# ESAR-550
+- type: Tag
+  id: MagazineEsar550Tag
+
 # Random Stuff
 
 - type: Tag

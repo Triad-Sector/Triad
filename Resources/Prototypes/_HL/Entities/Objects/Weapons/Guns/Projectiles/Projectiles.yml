@@ -31,3 +31,22 @@
         - state: xeno_toxic_massive
     - type: Ammo
       muzzleFlash: null
+
+- type: entity
+  id: HLBulletEsar550
+  name: ESAR Bolt
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Projectile
+      damage:
+        types:
+          Heat: 14
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      layers:
+      - state: omnilaser_greyscale
+        shader: unshaded
+        color: red
+    - type: Ammo
+      muzzleFlash: null
