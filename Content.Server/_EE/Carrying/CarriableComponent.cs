@@ -12,13 +12,6 @@ namespace Content.Server.Carrying
         [DataField]
         public int FreeHandsRequired = 2;
 
-        public CancellationTokenSource? CancelToken;
-
-        /// <summary>
-        ///     The base duration (In Seconds) of how long it should take to pick up this entity
-        ///     before Contests are considered.
-        /// </summary>
-        [DataField]
         public float PickupDuration = 3;
 
         // Frontier: min/max sanitization

@@ -92,5 +92,14 @@
   form: Protagonist
   name: Stratos Pharmaceuticals
   color: "#32CD32"
+
+- type: company
+  id: TheWayfarer
+  form: Protagonist
+  name: The Wayfarer
+  color: "#0066ff"
+
 # ====Rogue / Antag. Companies====
+
+
 

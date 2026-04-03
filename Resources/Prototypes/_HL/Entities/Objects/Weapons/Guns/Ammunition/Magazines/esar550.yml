@@ -1,0 +1,27 @@
+- type: entity
+  id: MagazineEsar550
+  name: Esar-550 Magazine
+  description: An energy cell designed for the ESAR-550 Energy SMG.
+  parent: [BasePowerCell, BaseItem, BaseC3ContrabandUnredeemable, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+      - MagazineEsar550Tag
+  - type: Item
+    size: Small
+  - type: Battery
+    maxCharge: 5000 
+    startingCharge: 5000
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Guns/Ammunition/Magazine/Esar550.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance

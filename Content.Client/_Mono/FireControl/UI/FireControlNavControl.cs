@@ -58,14 +58,14 @@ public sealed class FireControlNavControl : BaseShuttleControl
     private Vector2 _lastMousePos;
     private float _lastFireTime;
     private const float FireRateLimit = 0.1f;
-    private float _lastCursorUpdateTime;
-    private const float CursorUpdateInterval = 0.05f;
+    private float _lastCursorUpdateTime = 0f;
+    private const float CursorUpdateInterval = 0.1f; // 10 updates per second
 
     public Action<EntityCoordinates>? OnRadarClick;
     public bool ShowIFF { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
 
-    public FireControlNavControl() : base(64f, 512f, 512f)
+    public FireControlNavControl() : base(64f, 768f, 768f)
     {
         IoCManager.InjectDependencies(this);
         _shuttles = EntManager.System<SharedShuttleSystem>();
@@ -560,13 +560,13 @@ public sealed class FireControlNavControl : BaseShuttleControl
     {
         const float SafeZoneRadius = 5000f;
         var safeZoneColor = Color.LimeGreen.WithAlpha(0.8f);
-        
+
         // Calculate the center position
         var centerPos = ScalePosition(Vector2.Zero);
-        
+
         // Scale the radius according to the minimap scale
         var scaledRadius = SafeZoneRadius * MinimapScale;
-        
+
         // Draw the ring
         handle.DrawCircle(centerPos, scaledRadius, safeZoneColor, filled: false);
     }

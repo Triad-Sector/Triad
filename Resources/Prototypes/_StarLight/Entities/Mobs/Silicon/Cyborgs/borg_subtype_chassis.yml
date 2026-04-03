@@ -1,0 +1,321 @@
+# region engineering
+
+- type: entity
+  id: BorgChassisEngineerStandard
+  parent: BorgChassisSelectable
+  name: Standard
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeStandard
+
+- type: entity
+  id: BorgChassisEngineerGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeGeneric
+
+- type: entity
+  id: BorgChassisEngineerAntique
+  parent: BorgChassisSelectable
+  name: Antique
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeAntique
+
+- type: entity
+  id: BorgChassisEngineerNoble
+  parent: BorgChassisSelectable
+  name: Noble-ENG
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeNoble
+
+- type: entity
+  id: BorgChassisEngineerCricket
+  parent: BorgChassisSelectable
+  name: Cricket
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeCricket
+
+# region generic
+
+- type: entity
+  id: BorgChassisGenericGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgGenericSubtypeGeneric
+
+- type: entity
+  id: BorgChassisGenericDroid
+  parent: BorgChassisSelectable
+  name: Android
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgGenericSubtypeDroid
+
+- type: entity
+  id: BorgChassisGenericNoble
+  parent: BorgChassisSelectable
+  name: Noble-STD
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgGenericSubtypeNoble
+
+# region janitor
+
+- type: entity
+  id: BorgChassisJanitorStandard
+  parent: BorgChassisSelectable
+  name: Standard
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeStandard
+
+- type: entity
+  id: BorgChassisJanitorGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeGeneric
+
+- type: entity
+  id: BorgChassisJanitorMopbot
+  parent: BorgChassisSelectable
+  name: Mopbot
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeMopbot
+
+- type: entity
+  id: BorgChassisJanitorNoble
+  parent: BorgChassisSelectable
+  name: Noble-CLN
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeNoble
+
+- type: entity
+  id: BorgChassisJanitorCricket
+  parent: BorgChassisSelectable
+  name: Cricket
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeCricket
+
+# region medical
+
+- type: entity
+  id: BorgChassisMedicalStandard
+  parent: BorgChassisSelectable
+  name: Standard
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeStandard
+
+- type: entity
+  id: BorgChassisMedicalGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeGeneric
+
+- type: entity
+  id: BorgChassisMedicalNeedles
+  parent: BorgChassisSelectable
+  name: Needles
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeNeedles
+
+- type: entity
+  id: BorgChassisMedicalDroid
+  parent: BorgChassisSelectable
+  name: Advanced Android
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeDroid
+
+- type: entity
+  id: BorgChassisMedicalNoble
+  parent: BorgChassisSelectable
+  name: Noble-MED
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeNoble
+
+- type: entity
+  id: BorgChassisMedicalCricket
+  parent: BorgChassisSelectable
+  name: Cricket
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeCricket
+
+# region Mining(Salvage)
+
+- type: entity
+  id: BorgChassisMiningStandard
+  parent: BorgChassisSelectable
+  name: Standard
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeStandard
+
+- type: entity
+  id: BorgChassisMiningGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeGeneric
+
+- type: entity
+  id: BorgChassisMiningDroid
+  parent: BorgChassisSelectable
+  name: Advanced Android
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeDroid
+
+- type: entity
+  id: BorgChassisMiningNoble
+  parent: BorgChassisSelectable
+  name: Noble-DIG
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeNoble
+
+- type: entity
+  id: BorgChassisMiningCricket
+  parent: BorgChassisSelectable
+  name: Cricket
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeCricket
+
+# region Service
+
+- type: entity
+  id: BorgChassisServiceStandard
+  parent: BorgChassisSelectable
+  name: Standard
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeStandard
+
+- type: entity
+  id: BorgChassisServiceGeneric
+  parent: BorgChassisSelectable
+  name: Generic
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeGeneric
+
+- type: entity
+  id: BorgChassisServiceWaitress
+  parent: BorgChassisSelectable
+  name: Waitress
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeWaitress
+
+- type: entity
+  id: BorgChassisServiceBrobot
+  parent: BorgChassisSelectable
+  name: Brobot
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeBrobot
+
+- type: entity
+  id: BorgChassisServiceMaximillion
+  parent: BorgChassisSelectable
+  name: Maximillion
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMaximillion
+
+- type: entity
+  id: BorgChassisServiceNoble
+  parent: BorgChassisSelectable
+  name: Noble-SRV
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeNoble
+
+- type: entity
+  id: BorgChassisServiceCricket
+  parent: BorgChassisSelectable
+  name: Cricket
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeCricket

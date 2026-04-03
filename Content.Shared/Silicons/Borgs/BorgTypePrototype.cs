@@ -5,6 +5,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -15,10 +16,11 @@ namespace Content.Shared.Silicons.Borgs;
 [Prototype]
 public sealed partial class BorgTypePrototype : IPrototype
 {
+    [ValidatePrototypeId<SoundCollectionPrototype>]
     private static readonly ProtoId<SoundCollectionPrototype> DefaultFootsteps = new("FootstepBorg");
 
     [IdDataField]
-    public required string ID { get; set; }
+    public required string ID { get; init; }
 
     //
     // Description info (name/desc) is configured via localization strings directly.
@@ -28,7 +30,7 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// The prototype displayed in the selection menu for this type.
     /// </summary>
     [DataField]
-    public required EntProtoId DummyPrototype;
+    public required EntProtoId DummyPrototype { get; init; }
 
     //
     // Functional information
@@ -93,10 +95,16 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
 
     /// <summary>
+    /// The path to the borg type's sprites.
+    /// </summary>
+    [DataField]
+    public string SpritePath { get; set; } = "Mobs/Silicon/Chassis/generic.rsi";
+
+    /// <summary>
     /// The sprite state for the main borg body.
     /// </summary>
     [DataField]
-    public string SpriteBodyState { get; set; } = "robot";
+    public string SpriteBodyState { get; set; } = "borg";
 
     /// <summary>
     /// An optional movement sprite state for the main borg body.
@@ -109,20 +117,20 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     /// <seealso cref="BorgChassisComponent.HasMindState"/>
     [DataField]
-    public string SpriteHasMindState { get; set; } = "robot_e";
+    public string SpriteHasMindState { get; set; } = "borg_e";
 
     /// <summary>
     /// Sprite state used to indicate that the borg has no mind in it.
     /// </summary>
     /// <seealso cref="BorgChassisComponent.NoMindState"/>
     [DataField]
-    public string SpriteNoMindState { get; set; } = "robot_e_r";
+    public string SpriteNoMindState { get; set; } = "borg_e_r";
 
     /// <summary>
     /// Sprite state used when the borg's flashlight is on.
     /// </summary>
     [DataField]
-    public string SpriteToggleLightState { get; set; } = "robot_l";
+    public string SpriteToggleLightState { get; set; } = "borg_l";
 
     //
     // Minor information
@@ -151,4 +159,9 @@ public sealed partial class BorgTypePrototype : IPrototype
     /// </summary>
     [DataField]
     public SoundSpecifier FootstepCollection { get; set; } = new SoundCollectionSpecifier(DefaultFootsteps);
+
+    // Starlight-start
+    [DataField]
+    public string? DefaultSubtype;
+    // Starlight-end
 }

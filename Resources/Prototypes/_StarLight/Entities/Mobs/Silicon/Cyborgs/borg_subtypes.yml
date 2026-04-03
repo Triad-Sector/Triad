@@ -1,0 +1,228 @@
+# region engineering
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeStandard
+  dummyPrototype: BorgChassisEngineerStandard
+  name: Standard # ITS ISNT A TYPO ITS STANDARD INSTEAD OF STANDART
+  spritePath: Mobs/Silicon/Chassis/engineering/standard.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeGeneric
+  dummyPrototype: BorgChassisEngineerGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/engineering/generic.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeAntique
+  dummyPrototype: BorgChassisEngineerAntique
+  name: Antique
+  spritePath: Mobs/Silicon/Chassis/engineering/antique.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeNoble
+  dummyPrototype: BorgChassisEngineerNoble
+  name: Noble-ENG
+  spritePath: Mobs/Silicon/Chassis/engineering/noble.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeCricket
+  dummyPrototype: BorgChassisEngineerCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/engineering/cricket.rsi
+
+# region Generic
+
+- type: borgSubtype
+  parent: BorgGenericSubtypeBase
+  id: BorgGenericSubtypeGeneric
+  dummyPrototype: BorgChassisGenericGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/generic/generic.rsi
+
+- type: borgSubtype
+  parent: BorgGenericSubtypeBase
+  id: BorgGenericSubtypeDroid
+  dummyPrototype: BorgChassisGenericDroid
+  name: Android
+  spritePath: Mobs/Silicon/Chassis/generic/droid.rsi
+
+- type: borgSubtype
+  parent: BorgGenericSubtypeBase
+  id: BorgGenericSubtypeNoble
+  dummyPrototype: BorgChassisGenericNoble
+  name: Noble-STD
+  spritePath: Mobs/Silicon/Chassis/generic/noble.rsi
+
+# region Janitor
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeStandard
+  dummyPrototype: BorgChassisJanitorStandard
+  name: Standard # ITS ISNT A TYPO ITS STANDARD INSTEAD OF STANDART
+  spritePath: Mobs/Silicon/Chassis/janitor/standard.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeGeneric
+  dummyPrototype: BorgChassisJanitorGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/janitor/generic.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeMopbot
+  dummyPrototype: BorgChassisJanitorMopbot
+  name: Mopbot
+  spritePath: Mobs/Silicon/Chassis/janitor/mopbot.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeNoble
+  dummyPrototype: BorgChassisJanitorNoble
+  name: Noble-CLN
+  spritePath: Mobs/Silicon/Chassis/janitor/noble.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeCricket
+  dummyPrototype: BorgChassisJanitorCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/janitor/cricket.rsi
+
+# region Medical
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeStandard
+  dummyPrototype: BorgChassisMedicalStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/medical/standard.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeGeneric
+  dummyPrototype: BorgChassisMedicalGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/medical/generic.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeNeedles
+  dummyPrototype: BorgChassisMedicalNeedles
+  name: Needles
+  spritePath: Mobs/Silicon/Chassis/medical/needles.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeDroid
+  dummyPrototype: BorgChassisMedicalDroid
+  name: Advanced Android
+  spritePath: Mobs/Silicon/Chassis/medical/droid.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeNoble
+  dummyPrototype: BorgChassisMedicalNoble
+  name: Noble-MED
+  spritePath: Mobs/Silicon/Chassis/medical/noble.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeCricket
+  dummyPrototype: BorgChassisMedicalCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/medical/cricket.rsi
+
+# region Mining(Salvage)
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeStandard
+  dummyPrototype: BorgChassisMiningStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/mining/standard.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeGeneric
+  dummyPrototype: BorgChassisMiningGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/mining/generic.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeDroid
+  dummyPrototype: BorgChassisMiningDroid
+  name: Advanced Android
+  spritePath: Mobs/Silicon/Chassis/mining/droid.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeNoble
+  dummyPrototype: BorgChassisMiningNoble
+  name: Noble-DIG
+  spritePath: Mobs/Silicon/Chassis/mining/noble.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeCricket
+  dummyPrototype: BorgChassisMiningCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/mining/cricket.rsi
+
+# region Service
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeStandard
+  dummyPrototype: BorgChassisServiceStandard
+  name: Standard
+  spritePath: Mobs/Silicon/Chassis/service/standard.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeGeneric
+  dummyPrototype: BorgChassisServiceGeneric
+  name: Generic
+  spritePath: Mobs/Silicon/Chassis/service/generic.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeWaitress
+  dummyPrototype: BorgChassisServiceWaitress
+  name: Waitress
+  spritePath: Mobs/Silicon/Chassis/service/waitress.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeBrobot
+  dummyPrototype: BorgChassisServiceBrobot
+  name: Brobot
+  spritePath: Mobs/Silicon/Chassis/service/brobot.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMaximillion
+  dummyPrototype: BorgChassisServiceMaximillion
+  name: Maximillion
+  spritePath: Mobs/Silicon/Chassis/service/maximillion.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeNoble
+  dummyPrototype: BorgChassisServiceNoble
+  name: Noble-SRV
+  spritePath: Mobs/Silicon/Chassis/service/noble.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeCricket
+  dummyPrototype: BorgChassisServiceCricket
+  name: Cricket
+  spritePath: Mobs/Silicon/Chassis/service/cricket.rsi

@@ -18,8 +18,8 @@
   - type: Sprite
     layers:
     - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
-      state: xenoborg_heavy
+    - sprite: Mobs/Silicon/Chassis/xeno_heavy.rsi
+      state: borg
 
 - type: entity
   id: SpawnPointMothershipCore

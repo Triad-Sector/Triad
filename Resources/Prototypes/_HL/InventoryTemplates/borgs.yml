@@ -55,3 +55,75 @@
     whitelist:
       tags:
         - BorgWearable
+
+
+
+- type: inventoryTemplate
+  id: borgShortHL
+  slots:
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
+  - name: armor
+    slotTexture: suit_storage
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: head
+    offset: 0, 0
+    whitelist:
+      tags:
+        - BorgWearable
+
+
+
+- type: inventoryTemplate
+  id: borgTallHL
+  slots:
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
+  - name: armor
+    slotTexture: suit_storage
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: head
+    offset: 0, 0
+    whitelist:
+      tags:
+        - BorgWearable
+
+
+
+- type: inventoryTemplate
+  id: borgDutchHL
+  slots:
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 2,1
+    strippingWindowPos: 2,4
+    displayName: ID
+  - name: armor
+    slotTexture: suit_storage
+    slotFlags: HEAD
+    uiWindowPos: 1,0
+    strippingWindowPos: 0,0
+    displayName: head
+    offset: 0, 0
+    whitelist:
+      tags:
+        - BorgWearable

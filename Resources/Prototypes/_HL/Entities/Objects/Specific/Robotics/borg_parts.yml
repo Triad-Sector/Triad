@@ -1,8 +1,311 @@
+# TODO MAKE QUADBORGS SWITCHABLE AND REMOVE THIS FILE
+
+# engineer parts
+- type: entity
+  id: LeftLegBorgEngineer
+  parent: LeftLegBorg
+  name: engineer quadborg left leg
+  components:
+  - type: Sprite
+    state: engineer_l_leg
+  - type: Icon
+    state: engineer_l_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgEngineerLLeg
+
+- type: entity
+  id: RightLegBorgEngineer
+  parent: RightLegBorg
+  name: engineer quadborg right leg
+  components:
+  - type: Sprite
+    state: engineer_r_leg
+  - type: Icon
+    state: engineer_r_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgEngineerRLeg
+
+- type: entity
+  id: HeadBorgEngineer
+  parent: LightHeadBorg
+  name: engineer quadborg head
+  components:
+  - type: Sprite
+    state: engineer_head
+  - type: Icon
+    state: engineer_head
+  - type: Tag
+    tags:
+    - Trash
+    - BorgHead
+    - BorgEngineerHead
+
+- type: entity
+  id: TorsoBorgEngineer
+  parent: TorsoBorg
+  name: engineer quadborg torso
+  components:
+  - type: Sprite
+    state: engineer_chest
+  - type: Icon
+    state: engineer_chest
+  - type: Tag
+    tags:
+    - Trash
+    - BorgEngineerTorso
+
+# janitor parts
+- type: entity
+  id: LeftLegBorgJanitor
+  parent: LeftLegBorg
+  name: janitor quadborg left leg
+  components:
+    - type: Sprite
+      state: janitor_l_leg
+    - type: Icon
+      state: janitor_l_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgJanitorLLeg
+
+- type: entity
+  id: RightLegBorgJanitor
+  parent: RightLegBorg
+  name: janitor quadborg right leg
+  components:
+    - type: Sprite
+      state: janitor_r_leg
+    - type: Icon
+      state: janitor_r_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgJanitorRLeg
+
+- type: entity
+  id: HeadBorgJanitor
+  parent: LightHeadBorg
+  name: janitor quadborg head
+  components:
+    - type: Sprite
+      state: janitor_head
+    - type: Icon
+      state: janitor_head
+    - type: Tag
+      tags:
+        - Trash
+        - BorgHead
+        - BorgJanitorHead
+
+- type: entity
+  id: TorsoBorgJanitor
+  parent: TorsoBorg
+  name: janitor quadborg torso
+  components:
+    - type: Sprite
+      state: janitor_chest
+    - type: Icon
+      state: janitor_chest
+    - type: Tag
+      tags:
+        - Trash
+        - BorgJanitorTorso
+
+# medical parts
+- type: entity
+  id: LeftLegBorgMedical
+  parent: LeftLegBorg
+  name: medical quadborg left leg
+  components:
+    - type: Sprite
+      state: medical_l_leg
+    - type: Icon
+      state: medical_l_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgMedicalLLeg
+
+- type: entity
+  id: RightLegBorgMedical
+  parent: RightLegBorg
+  name: medical quadborg right leg
+  components:
+    - type: Sprite
+      state: medical_r_leg
+    - type: Icon
+      state: medical_r_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgMedicalRLeg
+
+- type: entity
+  id: HeadBorgMedical
+  parent: LightHeadBorg
+  name: medical quadborg head
+  components:
+    - type: Sprite
+      state: medical_head
+    - type: Icon
+      state: medical_head
+    - type: Tag
+      tags:
+        - Trash
+        - BorgHead
+        - BorgMedicalHead
+
+- type: entity
+  id: TorsoBorgMedical
+  parent: TorsoBorg
+  name: medical quadborg torso
+  components:
+    - type: Sprite
+      state: medical_chest
+    - type: Icon
+      state: medical_chest
+    - type: Tag
+      tags:
+        - Trash
+        - BorgMedicalTorso
+
+# mining parts
+- type: entity
+  id: LeftLegBorgMining
+  parent: LeftLegBorg
+  name: mining quadborg left leg
+  components:
+    - type: Sprite
+      state: mining_l_leg
+    - type: Icon
+      state: mining_l_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgMiningLLeg
+
+- type: entity
+  id: RightLegBorgMining
+  parent: RightLegBorg
+  name: mining quadborg right leg
+  components:
+    - type: Sprite
+      state: mining_r_leg
+    - type: Icon
+      state: mining_r_leg
+    - type: Tag
+      tags:
+        - Trash
+        - BorgLeg
+        - BorgMiningRLeg
+
+- type: entity
+  id: HeadBorgMining
+  parent: LightHeadBorg
+  name: mining quadborg head
+  components:
+    - type: Sprite
+      state: mining_head
+    - type: Icon
+      state: mining_head
+    - type: Tag
+      tags:
+        - Trash
+        - BorgHead
+        - BorgMiningHead
+
+- type: entity
+  id: TorsoBorgMining
+  parent: TorsoBorg
+  name: mining quadborg torso
+  components:
+    - type: Sprite
+      state: mining_chest
+    - type: Icon
+      state: mining_chest
+    - type: Tag
+      tags:
+        - Trash
+        - BorgMiningTorso
+
+# service parts
+- type: entity
+  id: LeftLegBorgService
+  parent: LeftLegBorg
+  name: service quadborg left leg
+  components:
+  - type: Sprite
+    state: service_l_leg
+  - type: Icon
+    state: service_l_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgServiceLLeg
+
+- type: entity
+  id: RightLegBorgService
+  parent: RightLegBorg
+  name: service quadborg right leg
+  components:
+  - type: Sprite
+    state: service_r_leg
+  - type: Icon
+    state: service_r_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgServiceRLeg
+
+- type: entity
+  id: HeadBorgService
+  parent: LightHeadBorg
+  name: service quadborg head
+  components:
+  - type: Sprite
+    state: service_head
+  - type: Icon
+    state: service_head
+  - type: Tag
+    tags:
+    - Trash
+    - BorgHead
+    - BorgServiceHead
+
+- type: entity
+  id: TorsoBorgService
+  parent: TorsoBorg
+  name: service quadborg torso
+  components:
+  - type: Sprite
+    state: service_chest
+  - type: Icon
+    state: service_chest
+  - type: Tag
+    tags:
+    - Trash
+    - BorgServiceTorso
+
 # Security Borg parts
 
 - type: entity
   id: LeftLegBorgSecurity
-  parent: BaseBorgLegLeft
+  parent: LeftLegBorg
+  name: security quadborg left leg
   components:
   - type: Sprite
     state: borg_l_leg
@@ -16,7 +319,8 @@
 
 - type: entity
   id: RightLegBorgSecurity
-  parent: BaseBorgLegRight
+  parent: RightLegBorg
+  name: security quadborg right leg
   components:
   - type: Sprite
     state: borg_r_leg
@@ -30,7 +334,8 @@
 
 - type: entity
   id: HeadBorgSecurity
-  parent: BaseBorgHead
+  parent: LightHeadBorg
+  name: security quadborg head
   components:
   - type: Sprite
     state: borg_head
@@ -44,7 +349,8 @@
 
 - type: entity
   id: TorsoBorgSecurity
-  parent: BaseBorgTorso
+  parent: TorsoBorg
+  name: security quadborg torso
   components:
   - type: Sprite
     state: borg_chest

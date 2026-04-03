@@ -1,0 +1,226 @@
+# region engineering
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeMekaF
+  dummyPrototype: BorgChassisEngineerMekaF
+  name: Meka-F
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/fmeka_engi.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeMeka
+  dummyPrototype: BorgChassisEngineerMeka
+  name: Meka
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/meka_engi.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeMekaM
+  dummyPrototype: BorgChassisEngineerMekaM
+  name: Meka-M
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/mmeka_engi.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeMekaSF
+  dummyPrototype: BorgChassisEngineerMekaSF
+  name: Meka-SF
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/sfmeka_engi.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeK4t
+  dummyPrototype: BorgChassisEngineerK4t
+  name: K4T-ENG
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/k4t_engi.rsi
+
+- type: borgSubtype
+  parent: BorgEngineerSubtypeBase
+  id: BorgEngineerSubtypeK4tAlt
+  dummyPrototype: BorgChassisEngineerK4tAlt
+  name: K4T-ENG-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Engineering/k4t_alt_engi.rsi
+
+# region janitor
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeMekaF
+  dummyPrototype: BorgChassisJanitorMekaF
+  name: Meka-F
+  spritePath: _HL/Mobs/Silicon/Borg/Janitor/fmeka_jani.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeMeka
+  dummyPrototype: BorgChassisJanitorMeka
+  name: Meka
+  spritePath: _HL/Mobs/Silicon/Borg/Janitor/meka_jani.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeMekaM
+  dummyPrototype: BorgChassisJanitorMekaM
+  name: Meka-M
+  spritePath: _HL/Mobs/Silicon/Borg/Janitor/mmeka_jani.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeK4t
+  dummyPrototype: BorgChassisJanitorK4t
+  name: K4T-CLN
+  spritePath: _HL/Mobs/Silicon/Borg/Janitor/k4t_jani.rsi
+
+- type: borgSubtype
+  parent: BorgJanitorSubtypeBase
+  id: BorgJanitorSubtypeK4tAlt
+  dummyPrototype: BorgChassisJanitorK4tAlt
+  name: K4T-CLN-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Janitor/k4t_alt_jani.rsi
+
+# region medical
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeMekaF
+  dummyPrototype: BorgChassisMedicalMekaF
+  name: Meka-F
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/fmeka_med.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeMeka
+  dummyPrototype: BorgChassisMedicalMeka
+  name: Meka
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/meka_med.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeMekaM
+  dummyPrototype: BorgChassisMedicalMekaM
+  name: Meka-M
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/mmeka_med.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeMekaSF
+  dummyPrototype: BorgChassisMedicalMekaSF
+  name: Meka-SF
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/sfmeka_med.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeK4t
+  dummyPrototype: BorgChassisMedicalK4t
+  name: K4T-MED
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/k4t_med.rsi
+
+- type: borgSubtype
+  parent: BorgMedicalSubtypeBase
+  id: BorgMedicalSubtypeK4tAlt
+  dummyPrototype: BorgChassisMedicalK4tAlt
+  name: K4T-MED-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Medical/k4t_alt_med.rsi
+
+# region mining
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeMekaF
+  dummyPrototype: BorgChassisMiningMekaF
+  name: Meka-F
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/fmeka_salv.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeMeka
+  dummyPrototype: BorgChassisMiningMeka
+  name: Meka
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/meka_salv.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeMekaM
+  dummyPrototype: BorgChassisMiningMekaM
+  name: Meka-M
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/mmeka_salv.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeMekaSF
+  dummyPrototype: BorgChassisMiningMekaSF
+  name: Meka-SF
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/sfmeka_salv.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeK4t
+  dummyPrototype: BorgChassisMiningK4t
+  name: K4T-DIG
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/k4t_salv.rsi
+
+- type: borgSubtype
+  parent: BorgMiningSubtypeBase
+  id: BorgMiningSubtypeK4tAlt
+  dummyPrototype: BorgChassisMiningK4tAlt
+  name: K4T-DIG-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Mining/k4t_alt_salv.rsi
+
+# region service
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMekaF
+  dummyPrototype: BorgChassisServiceMekaF
+  name: Meka-F
+  spritePath: _HL/Mobs/Silicon/Borg/Service/fmeka_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMeka
+  dummyPrototype: BorgChassisServiceMeka
+  name: Meka
+  spritePath: _HL/Mobs/Silicon/Borg/Service/meka_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMekaAlt
+  dummyPrototype: BorgChassisServiceMekaAlt
+  name: Meka-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Service/meka_alt_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMekaM
+  dummyPrototype: BorgChassisServiceMekaM
+  name: Meka-M
+  spritePath: _HL/Mobs/Silicon/Borg/Service/mmeka_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeMekaSF
+  dummyPrototype: BorgChassisServiceMekaSF
+  name: Meka-SF
+  spritePath: _HL/Mobs/Silicon/Borg/Service/sfmeka_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeK4t
+  dummyPrototype: BorgChassisServiceK4t
+  name: K4T-SRC
+  spritePath: _HL/Mobs/Silicon/Borg/Service/k4t_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeK4tAlt
+  dummyPrototype: BorgChassisServiceK4tAlt
+  name: K4T-SRV-alt
+  spritePath: _HL/Mobs/Silicon/Borg/Service/k4t_alt_service.rsi
+
+- type: borgSubtype
+  parent: BorgServiceSubtypeBase
+  id: BorgServiceSubtypeK4tAlt2
+  dummyPrototype: BorgChassisServiceK4tAlt2
+  name: K4T-SRV-alt-2
+  spritePath: _HL/Mobs/Silicon/Borg/Service/k4t_alt2_service.rsi

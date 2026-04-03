@@ -4,6 +4,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
+using System.Linq;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Abilities.Oni
@@ -29,6 +30,11 @@ namespace Content.Server.Abilities.Oni
             var heldComp = EnsureComp<HeldByOniComponent>(args.Entity);
             heldComp.Holder = uid;
 
+            // Blanket exception for bows and crossbows: skip Oni penalty if entity is descended from BaseBow or BaseCrossbow/BaseCrossbowWieldable
+            // This will also apply to any future bows/crossbows inheriting from these bases
+            if (IsBowOrCrossbow(args.Entity))
+                return;
+
             if (TryComp<GunComponent>(args.Entity, out var gun))
             {
                 // Frontier: adjust penalty for wielded malus (ensuring it's actually wieldable)
@@ -52,6 +58,26 @@ namespace Content.Server.Abilities.Oni
                 _gunSystem.RefreshModifiers(args.Entity); // Make sure values propagate to modified values (this also dirties the gun for us)
                 // End Frontier
             }
+        }
+
+        /// <summary>
+        /// Returns true if the entity is a bow or crossbow (descended from BaseBow, BaseCrossbow, or BaseCrossbowWieldable).
+        /// Blanket exception for Oni penalty.
+        /// </summary>
+        private bool IsBowOrCrossbow(EntityUid entity)
+        {
+            // Check for prototype inheritance
+            if (!EntityManager.TryGetComponent(entity, out MetaDataComponent? meta))
+                return false;
+            var proto = meta.EntityPrototype;
+            if (proto == null)
+                return false;
+            // Check inheritance chain for base bow/crossbow
+            var parents = proto.Parents ?? Array.Empty<string>();
+            return proto.ID == "BaseBow" || proto.ID == "BaseCrossbow" || proto.ID == "BaseCrossbowWieldable"
+                || parents.Any(x => x == "BaseBow")
+                || parents.Any(x => x == "BaseCrossbow")
+                || parents.Any(x => x == "BaseCrossbowWieldable");
         }
 
         private void OnEntRemoved(EntityUid uid, OniComponent component, EntRemovedFromContainerMessage args)

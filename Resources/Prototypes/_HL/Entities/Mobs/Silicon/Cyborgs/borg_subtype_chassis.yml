@@ -1,0 +1,319 @@
+# region engineering
+
+- type: entity
+  id: BorgChassisEngineerMekaF
+  parent: BorgChassisSelectable
+  name: Meka-F
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeMekaF
+
+- type: entity
+  id: BorgChassisEngineerMeka
+  parent: BorgChassisSelectable
+  name: Meka
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeMeka
+
+- type: entity
+  id: BorgChassisEngineerMekaM
+  parent: BorgChassisSelectable
+  name: Meka-M
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeMekaM
+
+- type: entity
+  id: BorgChassisEngineerMekaSF
+  parent: BorgChassisSelectable
+  name: Meka-SF
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeMekaSF
+
+- type: entity
+  id: BorgChassisEngineerK4t
+  parent: BorgChassisSelectable
+  name: K4t-ENG
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeK4t
+
+- type: entity
+  id: BorgChassisEngineerK4tAlt
+  parent: BorgChassisSelectable
+  name: K4t-ENG-Alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgEngineerSubtypeK4tAlt
+
+# region janitor
+
+- type: entity
+  id: BorgChassisJanitorMekaF
+  parent: BorgChassisSelectable
+  name: Meka-F
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeMekaF
+
+- type: entity
+  id: BorgChassisJanitorMeka
+  parent: BorgChassisSelectable
+  name: Meka
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeMeka
+
+- type: entity
+  id: BorgChassisJanitorMekaM
+  parent: BorgChassisSelectable
+  name: Meka-M
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeMekaM
+
+- type: entity
+  id: BorgChassisJanitorK4t
+  parent: BorgChassisSelectable
+  name: K4t-CLN
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeK4t
+
+- type: entity
+  id: BorgChassisJanitorK4tAlt
+  parent: BorgChassisSelectable
+  name: K4t-CLN-Alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgJanitorSubtypeK4tAlt
+
+# region medical
+
+- type: entity
+  id: BorgChassisMedicalMekaF
+  parent: BorgChassisSelectable
+  name: Meka-F
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeMekaF
+
+- type: entity
+  id: BorgChassisMedicalMeka
+  parent: BorgChassisSelectable
+  name: Meka
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeMeka
+
+- type: entity
+  id: BorgChassisMedicalMekaM
+  parent: BorgChassisSelectable
+  name: Meka-M
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeMekaM
+
+- type: entity
+  id: BorgChassisMedicalMekaSF
+  parent: BorgChassisSelectable
+  name: Meka-SF
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeMekaSF
+
+- type: entity
+  id: BorgChassisMedicalK4t
+  parent: BorgChassisSelectable
+  name: K4t-MED
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeK4t
+
+- type: entity
+  id: BorgChassisMedicalK4tAlt
+  parent: BorgChassisSelectable
+  name: K4t-MED-Alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMedicalSubtypeK4tAlt
+
+# region mining
+
+- type: entity
+  id: BorgChassisMiningMekaF
+  parent: BorgChassisSelectable
+  name: Meka-F
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeMekaF
+
+- type: entity
+  id: BorgChassisMiningMeka
+  parent: BorgChassisSelectable
+  name: Meka
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeMeka
+
+- type: entity
+  id: BorgChassisMiningMekaM
+  parent: BorgChassisSelectable
+  name: Meka-M
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeMekaM
+
+- type: entity
+  id: BorgChassisMiningMekaSF
+  parent: BorgChassisSelectable
+  name: Meka-SF
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeMekaSF
+
+- type: entity
+  id: BorgChassisMiningK4t
+  parent: BorgChassisSelectable
+  name: K4t-DIG
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeK4t
+
+- type: entity
+  id: BorgChassisMiningK4tAlt
+  parent: BorgChassisSelectable
+  name: K4t-DIG-Alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgMiningSubtypeK4tAlt
+
+# region service
+
+- type: entity
+  id: BorgChassisServiceMekaF
+  parent: BorgChassisSelectable
+  name: Meka-F
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMekaF
+
+- type: entity
+  id: BorgChassisServiceMeka
+  parent: BorgChassisSelectable
+  name: Meka
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMeka
+
+- type: entity
+  id: BorgChassisServiceMekaAlt
+  parent: BorgChassisSelectable
+  name: Meka-alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMekaAlt
+
+- type: entity
+  id: BorgChassisServiceMekaM
+  parent: BorgChassisSelectable
+  name: Meka-M
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMekaM
+
+- type: entity
+  id: BorgChassisServiceMekaSF
+  parent: BorgChassisSelectable
+  name: Meka-SF
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeMekaSF
+
+- type: entity
+  id: BorgChassisServiceK4t
+  parent: BorgChassisSelectable
+  name: K4t-DIG
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeK4t
+
+- type: entity
+  id: BorgChassisServiceK4tAlt
+  parent: BorgChassisSelectable
+  name: K4t-DIG-Alt
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeK4tAlt
+
+- type: entity
+  id: BorgChassisServiceK4tAlt2
+  parent: BorgChassisSelectable
+  name: K4t-DIG-Alt-2
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: BorgServiceSubtypeK4tAlt2

@@ -34,7 +34,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: Sprite
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: Mobs/Silicon/Chassis/generic/default.rsi
   - type: RotationVisuals
     horizontalRotation: 90
   - type: MobState
@@ -70,6 +70,9 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
+      enum.BorgSwitchableTypeUiKey.SelectBorgType:
+        type: BorgSelectTypeUserInterface
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: ActivatableUI
@@ -173,6 +176,7 @@
       collection: FootstepBorg
   - type: Construction
     graph: Cyborg
+    node: cyborg
     containers:
     - part-container
     - cell_slot
@@ -259,6 +263,12 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  #region Starlight
+  # - type: CyborgSparkEffect # Hardlight we don't have these yet...
+  # - type: StationAIShunt #Starlight allow shunting into all borgs # Hardlight TOO SOON
+  # - type: Crawler # Hardlight TOO SOON
+  # end region starlight
+  - type: BorgSwitchableSubtype # CD change
   - type: BypassLock
     openWiresPanel: true
   - type: BypassLockRequiresMobState
@@ -352,6 +362,9 @@
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -451,7 +464,7 @@
   - type: NameIdentifier
     group: Xenoborg
   - type: Sprite
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: Mobs/Silicon/Chassis/xeno_engi.rsi
   - type: MobThresholds
     thresholds: # slightly tankier than a normal borg
       0: Alive

@@ -21,7 +21,9 @@
   - BorgModuleInvestigation
   - BorgModuleSurgery # Shitmed Change
   # Hardlight change start
+  - BorgModuleGrapplingGun
   - BorgModuleCleaning
+  - BorgModuleLightReplacer
   - BorgModuleTreatment
   - BorgModuleBureaucracy
   - BorgModuleJetpack
@@ -29,6 +31,8 @@
   - BorgModuleDefibrillator
   - BorgModuleDiagnosis
   - BorgModuleNFService
+  - BorgModuleClowning
+  - BorgModuleMusique
   - BorgModuleRCDShipyard
   - BorgModuleMining
 
@@ -37,13 +41,9 @@
   recipes:
   - BorgModuleAdvancedSurgery
   # Hardlight change start
-  - BorgModuleClowning
-  - BorgModuleMusique
   - BorgModuleTreatment
   - BorgModuleadvancedmeasures
   - BorgModuleAdvancedTreatment
-  - BorgModuleGrapplingGun
-  - BorgModuleLightReplacer
   - BorgModuleAdvancedParamedic
 
 - type: latheRecipePack
@@ -85,8 +85,6 @@
   - RightLegBorg
   - LightHeadBorg
   - TorsoBorg
-  - LeftArmBorgEngineer
-  - RightArmBorgEngineer
   - LeftLegBorgEngineer
   - RightLegBorgEngineer
   - HeadBorgEngineer
@@ -95,20 +93,14 @@
   - RightLegBorgJanitor
   - HeadBorgJanitor
   - TorsoBorgJanitor
-  - LeftArmBorgMedical
-  - RightArmBorgMedical
   - LeftLegBorgMedical
   - RightLegBorgMedical
   - HeadBorgMedical
   - TorsoBorgMedical
-  - LeftArmBorgMining
-  - RightArmBorgMining
   - LeftLegBorgMining
   - RightLegBorgMining
   - HeadBorgMining
   - TorsoBorgMining
-  - LeftArmBorgService
-  - RightArmBorgService
   - LeftLegBorgService
   - RightLegBorgService
   - HeadBorgService

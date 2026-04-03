@@ -1,0 +1,809 @@
+#Fire swords
+
+- type: entity
+  name: Sabre of fire
+  parent: [ BaseC3WizardContraband, CaptainSabre ]
+  id: FireSabre
+  description: A ceremonial weapon A ceremonial weapon, recently used for wizard experiments. This one feels too hot to touch.
+  components:
+  - type: IgnitionSource
+    temperature: 300
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: orange
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firesabre.rsi
+  - type: IgniteOnMeleeHit
+    fireStacks: 0.2
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 10
+        Heat: 8
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladefireball.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firesabre.rsi
+
+- type: entity
+  name: Katana of fire
+  parent: [ BaseC3WizardContraband, Katana ]
+  id: FireKatana
+  description: Ancient craftwork made with not so ancient plasteel. This one feels too hot to touch.
+  components:
+  - type: IgnitionSource
+    temperature: 300
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: orange
+  - type: IgniteOnMeleeHit
+    fireStacks: 0.3
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firekatana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Heat: 8
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladefireball.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firekatana.rsi
+    
+- type: entity
+  name: Claymore of fire
+  parent: [ BaseC3WizardContraband, Claymore ]
+  id: FireClaymore
+  description: An ancient war blade and magic. This one feels too hot to touch.
+  components:
+  - type: IgnitionSource
+    temperature: 300
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: orange
+  - type: IgniteOnMeleeHit
+    fireStacks: 0.4
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/fireclaymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 13
+        Heat: 11
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladefireball.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/fireclaymore.rsi
+
+- type: entity
+  name: Cutlass of Fire
+  parent: [ BaseC3WizardContraband, Cutlass ]
+  id: FireCutlass
+  description: A wickedly curved blade, seemingly used for wizard experiments. This one feels too hot to touch.
+  components:
+  - type: IgnitionSource
+    temperature: 300
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: orange
+  - type: IgniteOnMeleeHit
+    fireStacks: 0.3
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firecutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Heat: 8
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladefireball.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firecutlass.rsi
+    
+- type: entity
+  name: Sickle of fire
+  parent: [ BaseC3WizardContraband, Sickle ]
+  id: FireSickle
+  description: A wickedly curved blade, but not in the way a cutlass is. This one feels too hot to touch.
+  components:
+  - type: IgnitionSource
+    temperature: 300
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: orange
+  - type: IgniteOnMeleeHit
+    fireStacks: 0.3
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firesickle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Heat: 8
+    wideAnimationRotation: 135
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladefireball.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/firesickle.rsi
+    
+#Ice swords
+
+- type: entity
+  name: Sabre of ice
+  parent: [ BaseC3WizardContraband, CaptainSabre ]
+  id: IceSabre
+  description: A ceremonial weapon, recently used for wizard experiments. This one feels freezing-cold to the touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icesabre.rsi
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 7
+    solution: melee
+    pierceArmor: true
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 10
+        Cold: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladewhoosh.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icesabre.rsi
+
+- type: entity
+  name: Katana of ice
+  parent: [ BaseC3WizardContraband, Katana ]
+  id: IceKatana
+  description: Ancient craftwork made with not so ancient plasteel. This one feels freezing-cold to the touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 7
+    solution: melee
+    pierceArmor: true
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icekatana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Cold: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladewhoosh.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icekatana.rsi
+    
+- type: entity
+  name: Claymore of ice
+  parent: [ BaseC3WizardContraband, Claymore ]
+  id: IceClaymore
+  description: An ancient war blade and magic. This one feels freezing-cold to the touch.
+  components:
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: cyan
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 10
+    solution: melee
+    pierceArmor: true
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/iceclaymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 13
+        Cold: 7
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladewhoosh.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/iceclaymore.rsi
+
+- type: entity
+  name: Cutlass of ice
+  parent: [ BaseC3WizardContraband, Cutlass ]
+  id: IceCutlass
+  description: A wickedly curved blade, seemingly used for wizard experiments. This one feels freezing-cold to the touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 8
+    solution: melee
+    pierceArmor: true
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icecutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Cold: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladewhoosh.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icecutlass.rsi
+    
+- type: entity
+  name: Sickle of ice
+  parent: [ BaseC3WizardContraband, Sickle ]
+  id: IceSickle
+  description: A wickedly curved blade, but not in the way a cutlass is. This one feels freezing-cold to the touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: cyan
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 50
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Fresium
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 8
+    solution: melee
+    pierceArmor: true
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icesickle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Cold: 5
+    wideAnimationRotation: 135
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladewhoosh.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/icesickle.rsi
+    
+#Acid swords
+
+- type: entity
+  name: Sabre of acid
+  parent: [ BaseC3WizardContraband, CaptainSabre ]
+  id: AcidSabre
+  description: A ceremonial weapon, recently used for wizard experiments. This one constantly produces acid, but it wont do much against non-organic matter
+  components:
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidsabre.rsi
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 0.2
+  - type: MeleeChemicalInjector
+    transferAmount: 2
+    solution: melee
+    pierceArmor: false
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeslice.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidsabre.rsi
+
+- type: entity
+  name: Katana of acid
+  parent: [ BaseC3WizardContraband, Katana ]
+  id: AcidKatana
+  description: Ancient craftwork made with not so ancient plasteel. This one constantly produces acid, but it wont do much against non-organic matter
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 0.2
+  - type: MeleeChemicalInjector
+    transferAmount: 3
+    solution: melee
+    pierceArmor: false
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidkatana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeslice.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidkatana.rsi
+    
+- type: entity
+  name: Claymore of acid
+  parent: [ BaseC3WizardContraband, Claymore ]
+  id: AcidClaymore
+  description: An ancient war blade and magic. This one constantly produces acid, but it wont do much against non-organic matter
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 0.2
+  - type: MeleeChemicalInjector
+    transferAmount: 5
+    solution: melee
+    pierceArmor: false
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidclaymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 13
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeslice.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidclaymore.rsi
+
+- type: entity
+  name: Cutlass of acid
+  parent: [ BaseC3WizardContraband, Cutlass ]
+  id: AcidCutlass
+  description: A wickedly curved blade, seemingly used for wizard experiments. This one constantly produces acid, but it wont do much against non-organic matter
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 0.2
+  - type: MeleeChemicalInjector
+    transferAmount: 3
+    solution: melee
+    pierceArmor: false
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidcutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeslice.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidcutlass.rsi
+    
+- type: entity
+  name: Sickle of acid
+  parent: [ BaseC3WizardContraband, Sickle ]
+  id: AcidSickle
+  description: A wickedly curved blade, but not in the way a cutlass is. This one constantly produces acid, but it wont do much against non-organic matter
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: PolytrinicAcid
+        Quantity: 0.2
+  - type: MeleeChemicalInjector
+    transferAmount: 3
+    solution: melee
+    pierceArmor: false
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidsickle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+    wideAnimationRotation: 135
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeslice.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/acidsickle.rsi
+    
+#Shock swords
+
+- type: entity
+  name: Sabre of lightning
+  parent: [ BaseC3WizardContraband, CaptainSabre ]
+  id: ShockSabre
+  description: A ceremonial weapon, recently used for wizard experiments. This one sends shivers down your arm on touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: white
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shocksabre.rsi
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: StaminaDamageOnCollide
+    damage: 25
+  - type: LandAtCursor
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 10
+        Shock: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladetesla.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shocksabre.rsi
+
+- type: entity
+  name: Katana of lightning
+  parent: [ BaseC3WizardContraband, Katana ]
+  id: ShockKatana
+  description: Ancient craftwork made with not so ancient plasteel. This one sends shivers down your arm on touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: white
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: StaminaDamageOnCollide
+    damage: 25
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockkatana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Shock: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladetesla.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockkatana.rsi
+    
+- type: entity
+  name: claymore of lightning
+  parent: [ BaseC3WizardContraband, Claymore ]
+  id: ShockClaymore
+  description: An ancient war blade and magic. This one sends shivers down your arm on touch.
+  components:
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: white
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: StaminaDamageOnCollide
+    damage: 25
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockclaymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 13
+        Shock: 7
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladetesla.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockclaymore.rsi
+
+- type: entity
+  name: Cutlass of lightning
+  parent: [ BaseC3WizardContraband, Cutlass ]
+  id: ShockCutlass
+  description: A wickedly curved blade, seemingly used for wizard experiments. This one sends shivers down your arm on touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: white
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: StaminaDamageOnHit
+    damage: 16
+  - type: StaminaDamageOnCollide
+    damage: 25
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockcutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Shock: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladetesla.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shockcutlass.rsi
+    
+- type: entity
+  name: Sickle of lightning
+  parent: [ BaseC3WizardContraband, Sickle ]
+  id: ShockSickle
+  description: A wickedly curved blade, but not in the way a cutlass is. This one sends shivers down your arm on touch.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: white
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: StaminaDamageOnHit
+    damage: 16
+  - type: StaminaDamageOnCollide
+    damage: 25
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shocksickle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Shock: 5
+    wideAnimationRotation: 135
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladetesla.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/shocksickle.rsi
+    
+#Rad swords
+
+- type: entity
+  name: Sabre of radiation
+  parent: [ BaseC3WizardContraband, CaptainSabre ]
+  id: RadSabre
+  description: A ceremonial weapon, recently used for wizard experiments. This one is highly radioactive and is capable of breaking down your opponent's cellular structure.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: green
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radsabre.rsi
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 10
+        Radiation: 5
+        Cellular: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeradpulse3.ogg
+  - type: Reflect
+    reflectProb: .1
+    spread: 90
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radsabre.rsi
+  - type: RadiationSource
+    intensity: 0.1
+
+- type: entity
+  name: Katana of radiation
+  parent: [ BaseC3WizardContraband, Katana ]
+  id: RadKatana
+  description: Ancient craftwork made with not so ancient plasteel. This one is highly radioactive and is capable of breaking down your opponent's cellular structure.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: green
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radkatana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Radiation: 5
+        Cellular: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeradpulse3.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radkatana.rsi
+  - type: RadiationSource
+    intensity: 0.1
+    
+- type: entity
+  name: Claymore of radiation
+  parent: [ BaseC3WizardContraband, Claymore ]
+  id: RadClaymore
+  description: An ancient war blade and magic. This one is highly radioactive and is capable of breaking down your opponent's cellular structure.
+  components:
+  - type: PointLight
+    radius: 4
+    energy: 2
+    color: green
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radclaymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 13
+        Radiation: 7
+        Cellular: 7
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeradpulse3.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radclaymore.rsi
+  - type: RadiationSource
+    intensity: 0.1
+
+- type: entity
+  name: Cutlass of radiation
+  parent: [ BaseC3WizardContraband, Cutlass ]
+  id: RadCutlass
+  description: A wickedly curved blade, seemingly used for wizard experiments. This one is highly radioactive and is capable of breaking down your opponent's cellular structure.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: green
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radcutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Radiation: 5
+        Cellular: 5
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeradpulse3.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radcutlass.rsi
+  - type: RadiationSource
+    intensity: 0.1
+    
+- type: entity
+  name: Sickle of radiation
+  parent: [ BaseC3WizardContraband, Sickle ]
+  id: RadSickle
+  description: A wickedly curved blade, but not in the way a cutlass is. This one is highly radioactive and is capable of breaking down your opponent's cellular structure.
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: green
+  - type: Sprite
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radsickle.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 11
+        Radiation: 5
+        Cellular: 5
+    wideAnimationRotation: 135
+    soundHit:
+        path: /Audio/_HL/Weapons/Melee/bladeradpulse3.ogg
+  - type: Item
+    sprite: _HL/Objects/Weapons/Melee/Enchanted/radsickle.rsi
+  - type: RadiationSource
+    intensity: 0.1
