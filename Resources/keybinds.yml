@@ -729,5 +729,5 @@ binds:
   key: Space
 - function: OfferItem
   type: State
-  key: F
+  key: U
 # endregion EE
