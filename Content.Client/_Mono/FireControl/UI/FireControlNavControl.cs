@@ -58,16 +58,12 @@ public sealed class FireControlNavControl : BaseShuttleControl
     private Vector2 _lastMousePos;
     private float _lastFireTime;
     private const float FireRateLimit = 0.1f;
-    private float _lastCursorUpdateTime;
-    private const float CursorUpdateInterval = 0.05f;
+    private float _lastCursorUpdateTime = 0f;
+    private const float CursorUpdateInterval = 0.1f; // 10 updates per second
 
     public Action<EntityCoordinates>? OnRadarClick;
     public bool ShowIFF { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
-
-    // Add a limit to how often we update the cursor position to prevent network spam
-    private float _lastCursorUpdateTime = 0f;
-    private const float CursorUpdateInterval = 0.1f; // 10 updates per second
 
     public FireControlNavControl() : base(64f, 768f, 768f)
     {
