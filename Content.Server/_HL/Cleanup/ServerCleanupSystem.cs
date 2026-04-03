@@ -293,26 +293,26 @@ public sealed class ServerCleanupSystem : EntitySystem
     /// Checks whether an entity has a mind with an actively-connected player session.
     /// Returns false if the entity has no mind, the mind has no UserId, or the user is disconnected.
     /// </summary>
-//     private bool HasActivePlayerMind(EntityUid uid)
-//     {
-//         if (!_mindSystem.TryGetMind(uid, out _, out var mind))
-//             return false;
-//
-//         if (mind.UserId == null)
-//             return false;
-//
-//         foreach (var session in _playerManager.Sessions)
-//         {
-//             if (session.UserId == mind.UserId.Value
-//                 && (session.Status == SessionStatus.InGame || session.Status == SessionStatus.Connected))
-//             {
-//                 return true;
-//             }
-//         }
-//
-//         return false;
-//     }
-//
+     private bool HasActivePlayerMind(EntityUid uid)
+     {
+         if (!_mindSystem.TryGetMind(uid, out _, out var mind))
+             return false;
+
+         if (mind.UserId == null)
+             return false;
+
+         foreach (var session in _playerManager.Sessions)
+         {
+             if (session.UserId == mind.UserId.Value
+                 && (session.Status == SessionStatus.InGame || session.Status == SessionStatus.Connected))
+             {
+                 return true;
+             }
+         }
+
+         return false;
+     }
+
     /// <summary>
     /// When a grid is about to be deleted (from orphaned grid cleanup, shipyard save/delete, or any other source), this handler checks for players on/inside the grid
 
