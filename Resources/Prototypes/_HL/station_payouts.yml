@@ -3,9 +3,10 @@
 # Triad - Reorganization based on job roles
 
 #Generic & Misc
+# Triad - disable prisoner pay (why are we paying this fella)
 # - type: stationPay 
 #   id: PrisonerPay
-#   payPerHour: 10000 # Odd, why we paying this fella
+#   payPerHour: 10000 
 #   job: Prisoner
 
 - type: stationPay
@@ -68,9 +69,7 @@
 - type: stationPay
   id: ServiceQuadBorgPay
   payPerHour: 10000 # New Minimum
-  job: ServiceQuadBorg  
-
-
+  job: ServiceQuadBorg
 
 - type: stationPay
   id: JanitorPay
@@ -101,7 +100,7 @@
   id: ChaplainPay
   payPerHour: 10000 # New Minimum
   job: Chaplain
-      
+
 - type: stationPay
   id: ReporterPay
   payPerHour: 10000 # New Minimum
@@ -193,7 +192,7 @@
 - type: stationPay
   id: ParamedicPay
   payPerHour: 12000 # Specialisation + Danger
-  job: Paramedic  
+  job: Paramedic
 
 - type: stationPay
   id: ChemistPay
